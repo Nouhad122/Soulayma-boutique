@@ -95,8 +95,6 @@
   color: var(--fourth-color);
 }
 .empty-cart-btn{
-  width: 300px !important;
-  font-size: 1.1rem !important;
   padding: 6px;
   margin-top: 20px;
 }
@@ -130,11 +128,6 @@ text-align: end;
 }
 .amount-checkout .total-amount{
   font-size: 1.3rem;
-}
-.checkout-btn{
-  font-size: 1.1rem !important;
-  width: 22vw;
-  padding: 8px;
 }
 .checkout-btn .lock-icon{
   margin-bottom: 4px;

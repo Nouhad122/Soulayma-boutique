@@ -6,6 +6,7 @@ import { IoIosLock } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { decreaseQuantityAction, increaseQuantityAction, removeFromCartAction, setCartFromStorageAction } from '../../redux/actions/cartActions';
 import './ShoppingCart.css';
+import Button from '../Secondary-Comps/Button';
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -82,14 +83,14 @@ useEffect(() => {
           <div className='amount-checkout'>
           <h1 className='total-amount'>Total: {cartTotal.toFixed(2)}$</h1>
           <p>Shipping & Taxes calculated at checkout</p>
-          <button className="custom-btn btn-15 checkout-btn"><IoIosLock className='lock-icon'/> Secure Checkout</button>
+          <Button><IoIosLock className='lock-icon'/> Secure Checkout</Button>
         </div>
        </div>
       </div>
       ) : (
         <div className='cart-is-empty'>
           <h1>Your cart is empty</h1>
-          <button onClick={() => navigate('/shop/all/Hijabs/page/1')} className="custom-btn btn-15 empty-cart-btn">Shop All Hijabs</button>
+          <Button url="/shop/all/Hijabs/page/1" className="empty-cart-btn">Shop All Hijabs</Button>
         </div>
         
       )}
