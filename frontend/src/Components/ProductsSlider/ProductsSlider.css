@@ -110,10 +110,10 @@
 .scrolling-icon{
     background-color: var(--fifth-color);
     color: var(--font-color);
-    font-weight: bold;
-    padding: 13px 15px;
     border-radius: 50%;
-    font-size: 1.3rem;
+    width: 70px;
+    padding: 10px;
+    height: auto;
     cursor: pointer;
 }
 @media screen and (max-width: 1400px){

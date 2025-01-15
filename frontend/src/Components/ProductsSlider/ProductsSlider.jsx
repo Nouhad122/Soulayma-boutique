@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './ProductsSlider.css';
-import { FaGreaterThan, FaStar, FaLessThan } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import products from '../../Products/products.json';
 

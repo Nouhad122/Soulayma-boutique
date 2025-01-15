@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faCircleCheck, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { FaStar, FaPlus, FaMinus } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
 import { addToCartAction } from '../../redux/actions/cartActions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Button from '../Secondary-Comps/Button';
 
 const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) => {
 
@@ -129,11 +130,11 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
 
             <div className='product-reviews'>
             <div className='feedbacks'>
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
             </div>
             <p className='rate'>5.0 based on 16 reviews</p>
             </div>
@@ -143,15 +144,15 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
                 <h3>{chosenProduct.price}$</h3>
                 <div className='product-infos'>
                     <div className='checked-info'>
-                        <FontAwesomeIcon icon={faCircleCheck} />
+                        <FaCircleCheck />
                         <p>Sustainable Bamboo Fabric, Ethically Produced In Turkey</p>
                     </div>
                     <div className='checked-info'>
-                        <FontAwesomeIcon icon={faCircleCheck} />
+                        <FaCircleCheck />
                         <p>Buttery Soft, Gentle On Skin & Hair</p>
                     </div>
                     <div className='checked-info'>
-                        <FontAwesomeIcon icon={faCircleCheck} />
+                        <FaCircleCheck />
                         <p>Easy Styling, No Pins Required</p>
                     </div>
                 </div>
@@ -168,8 +169,7 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
               ))
             }
             </div>
-                
-                <button onClick={addToCart} className="custom-btn btn-15">Add To Cart</button>
+                <Button onClick={addToCart} className="add-cart-btn">Add To Cart</Button>
                 <p className='free-shipping'>free shipping on orders over $50</p>
                 <p className='estimated-delivery'>Estimated delivery to , <strong>October 21 - November 5</strong></p>
             </div>
@@ -181,8 +181,8 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
                             <div onClick={() => toggleSpecs(prodSpec.id)} className='spec-title'>
                             <h3>{prodSpec.specTitle}</h3>
                             <div className='prod-plus-minus'>
-                                <FontAwesomeIcon icon={faPlus} className={`${prodSpec.isOpened ? 'hidden-svg' : ''}`}/> 
-                                <FontAwesomeIcon icon={faMinus} className={`${!prodSpec.isOpened ? 'hidden-svg' : ''}`} /> 
+                                <FaPlus className={prodSpec.isOpened ? 'hidden-svg' : ''} />
+                                <FaMinus className={!prodSpec.isOpened ? 'hidden-svg' : ''} />
                             </div>
                             </div> 
                             <p dangerouslySetInnerHTML={{ __html: prodSpec.specParag }}></p>

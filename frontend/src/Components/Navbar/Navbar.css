@@ -168,7 +168,8 @@
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     right: 5px;
-    font-size: 1rem;
+    width: 28px;
+    height: auto;
     background-color: white;
     color: grey;
     padding: 5px;
@@ -178,7 +179,8 @@
     font-size: 1.4rem !important;
 }
 .scope2{
-    font-size: 1rem;
+    width: 28px;
+    height: auto;
     color: var(--font-color);
     padding: 5px;
     display: none;

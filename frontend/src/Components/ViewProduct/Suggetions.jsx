@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar} from '@fortawesome/free-solid-svg-icons';
+import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Suggetions = ({category, products}) => {
@@ -37,11 +36,11 @@ const Suggetions = ({category, products}) => {
 
                             <div className='sugg-prod-feedbacks'>
                                 <div className='feedbacks'>
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
                                 </div>
                                 <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
                             </div>

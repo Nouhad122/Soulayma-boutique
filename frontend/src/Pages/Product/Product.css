@@ -80,9 +80,9 @@
     font-size: 1.1rem;
     margin-top: 20px;
 }
-.product-cap .custom-btn{
+.product-cap .add-cart-btn{
     width: 100%;
-    padding: 10px;
+    padding: 8px !important;
     margin-top: 25px;
 }
 .product-cap .free-shipping{

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import products from '../../Products/products.json';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FaStar } from "react-icons/fa";
 import Pagination from '../../utils/Pagination.jsx';
 import './ShopProducts.css';
 
@@ -60,7 +59,7 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
                 <div className='feedbacks-container'>
                   <div className='feedbacks'>
                     {[...Array(5)].map((_, i) => (
-                      <FontAwesomeIcon key={i} icon={faStar} />
+                      <FaStar key={i} />
                     ))}
                   </div>
                   <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
