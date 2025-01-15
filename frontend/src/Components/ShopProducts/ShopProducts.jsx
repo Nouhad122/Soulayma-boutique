@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import products from '../../Products/products.json';
-import { FaStar } from "react-icons/fa";
 import Pagination from '../../utils/Pagination.jsx';
 import './ShopProducts.css';
 import Products from '../Products/Products.jsx';
@@ -44,12 +43,12 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
         <div className='products-text'>
           <h1>{kind ? kind : `Shop All ${category}`}</h1>
         </div>
+
         <Products 
           products={currentProducts}
           generateUrl={generateUrl}
         />
 
-        {/* Pagination Component */}
         {filteredProducts.length > productsPerPage && (
           <Pagination
             currentPage={currentPage}
