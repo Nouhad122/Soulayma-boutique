@@ -177,6 +177,7 @@
             -ms-flex-align: center;
                 align-items: center;
         padding: 30px 0;
+        flex-wrap: wrap;
     }
     .products-container .shop-product{
         width: 80vw;
@@ -186,11 +187,18 @@
         -o-object-fit: cover;
            object-fit: cover;
     }
+
+    .pagination button{
+        padding: 3px 6px;
+        margin: 0 7px;
+        border: none;
+        background-color: transparent;
+        border-bottom: solid 1px var(--fourth-color);
+        color: var(--fourth-color);
+        font-size: .7rem;
+    }
 }
 @media screen and (max-width: 402px){
-    .pagination button {
-        display: none;
-    }
     .products-container .shop-product{
         width: 95vw;
     }

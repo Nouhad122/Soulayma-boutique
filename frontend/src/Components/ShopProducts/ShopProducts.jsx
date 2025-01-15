@@ -4,6 +4,7 @@ import products from '../../Products/products.json';
 import { FaStar } from "react-icons/fa";
 import Pagination from '../../utils/Pagination.jsx';
 import './ShopProducts.css';
+import Products from '../Products/Products.jsx';
 
 const ShopProducts = ({ filterColor, category, kind, page }) => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
+  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
 
   const goToPage = (pageNumber) => {
     navigate(`/shop/all/${category}/page/${pageNumber}`);
@@ -42,32 +44,10 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
         <div className='products-text'>
           <h1>{kind ? kind : `Shop All ${category}`}</h1>
         </div>
-        <div className='products-container'>
-          {currentProducts.map(product => (
-            <Link
-              key={product.id}
-              to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`}
-              className='shop-product-link'
-            >
-              <div className='shop-product'>
-                <div className='images'>
-                  <img className='image1' src={product.image1} alt={product.title} />
-                  <img className='image2' src={product.image2} alt={product.title} />
-                </div>
-                <h2>{product.title} - {product.color}</h2>
-                <h4>{product.price}$</h4>
-                <div className='feedbacks-container'>
-                  <div className='feedbacks'>
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} />
-                    ))}
-                  </div>
-                  <p className='rate'>5.0 <span className='num-of-rates'>(5)</span></p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <Products 
+          products={currentProducts}
+          generateUrl={generateUrl}
+        />
 
         {/* Pagination Component */}
         {filteredProducts.length > productsPerPage && (
