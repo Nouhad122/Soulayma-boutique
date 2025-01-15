@@ -1,0 +1,114 @@
+.filter-products{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    border-top: solid 1px var(--sixth-color);
+    border-bottom: solid 1px var(--sixth-color);
+    margin-top: 20px;
+}
+.filter-products .filter-btn{
+    width: 15vw !important;
+    padding: 7px !important;
+}
+.filter-products .filter-colors{
+    background-color: var(--fifth-color);
+    height: 100%;
+    width: 30vw;
+    position: fixed;
+    top: 0;
+    right: -50%;
+    z-index: 999;
+    padding: 20px;
+    -webkit-transition: .6s ease;
+    -o-transition: .6s ease;
+    transition: .6s ease;
+}
+.opened-filter-colors{
+    right: 0 !important;
+}
+.filter-colors .filter-title{
+    border-bottom: solid 1px var(--gold-color);
+    padding: 5px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.filter-colors h1{
+    font-size: 2.5rem;
+    font-family: var(--first-font);
+    color: var(--font-color);
+}
+.filter-x-mark{
+    font-size: 2rem;
+    color: var(--font-color);
+    cursor: pointer;
+}
+.filter-colors .colors-in {
+    overflow-y: auto;
+    max-height: 68vh;
+    margin-top: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-color) var(--first-color);
+}
+.colors-in p{
+    color: var(--font-color);
+    cursor: pointer;
+}
+.active-color{
+    color: var(--gold-color) !important;
+}
+.colors-in p:hover{
+    color: var(--gold-color);
+}
+.reset-btn{
+    background-color: transparent !important;
+    border: solid 1px var(--gold-color) !important;
+    /* position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%); */
+}
+.reset-btn:hover{
+    border: solid 1px transparent !important;
+}
+@media screen and (max-width: 1300px){
+    .filter-products .filter-colors{
+        width: 35vw;
+        right: -70%;
+    }
+    .filter-colors h1{
+        font-size: 2rem;
+    }
+    .filter-products .filter-btn{
+        width: 20vw !important;
+    }
+}
+@media screen and (max-width: 851px){
+    .filter-products .filter-colors{
+        width: 55vw;
+        right: -100%;
+    }
+    .filter-products .filter-btn{
+        width: 30vw !important;
+        font-size: 1rem !important;
+    }
+}
+@media screen and (max-width: 501px){
+    .filter-products .filter-colors{
+        width: 100%;
+    }
+    .filter-products .filter-btn{
+        width: 40vw !important;
+    }
+}

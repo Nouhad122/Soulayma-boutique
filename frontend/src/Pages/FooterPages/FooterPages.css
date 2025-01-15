@@ -1,0 +1,54 @@
+.text-container{
+    min-height: 70vh;
+}
+
+.text-container h1{
+    margin: 20px 0;
+}
+.text-container h3{
+    margin: 20px;
+}
+
+section {
+    margin: 40px 20px;
+    padding: 20px 30px;
+    background-color: var(--second-body-color);
+    color: var(--fourth-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h1 {
+    font-size: 1.7rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+section a{
+    color: rgb(57, 57, 225);
+}
+section ul{
+    line-height: 45px;
+}
+.faq-link{
+    font-size: 1.2rem;
+    color: var(--fourth-color);
+    border-bottom: solid 1px var(--fourth-color);
+}
+section h6{
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+section .video-container{
+    margin-top: 30px;
+}
+.video-container iframe{
+    width: 70%;
+    height: 80vh;
+}

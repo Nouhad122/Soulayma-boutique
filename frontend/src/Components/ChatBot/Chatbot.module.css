@@ -1,0 +1,302 @@
+.chatbot{
+    background-color: var(--fifth-color);
+    width: 420px;
+    padding: 20px 20px;
+    position: fixed;
+    right: 20px;
+    bottom: 70px;
+    z-index: 900;
+    height: 70vh;
+    overflow-y: auto;
+}
+.chatbotBox h2{
+    font-size: 1.6rem;
+    color: var(--gold-color);
+    font-family: var(--first-font);
+}
+.chatbotBox .suggessions{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+.suggessions .chatSugg{
+    background-color: var(--font-color);
+    color: var(--fourth-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .8rem;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.suggessions .chatSugg:hover{
+    background-color: rgb(218, 218, 218);
+}
+.chatSugg p{
+    margin-top: 12px;
+}
+.chatSugg .greaterIcon{
+    font-size: .7rem;
+}
+.soulaymaSupport{
+    display: grid;
+    grid-template-columns: 17% 72% 10%; 
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: var(--font-color);
+    color: var(--fourth-color);
+    cursor: pointer;
+}
+.soulaymaSupport img{
+    width: 100%;
+    height: auto;
+    background-color: var(--fifth-color);
+}
+.soulaymaSupport .pickupIcon{
+    background-color: var(--fifth-color);
+    color: var(--gold-color);
+    width: 100%;
+    height: 80%;
+}
+.soulaymaSupport h6{
+    font-size: .9rem;
+}
+.soulaymaSupport .sendIcon{
+    font-size: 1.1rem;
+}
+.soulaymaSupport h6 span{
+    font-size: .7rem;
+    color: var(--sixth-color);
+}
+.goToPrevChat{
+    background-color: var(--font-color);
+    color: var(--fourth-color);
+    border-top: solid 1px var(--sixth-color);
+    padding: 5px 10px;
+    font-size: .8rem;
+    cursor: pointer;
+}
+.chatButton{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 900;
+}
+.chatButton button{
+    padding: 8px 20px;
+    background-color: var(--fifth-color);
+    color: var(--font-color);
+    border: none;
+}
+.chatButton button svg{
+    font-size: 1.6rem;
+}
+.chatButton button span{
+    margin: 7px 0 0 7px;
+}
+.chatMessages{
+    background-color: var(--font-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.chatMessages svg{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.chatMessages .messageDate{
+    font-size: .8rem;
+    color: rgb(103, 102, 102);
+    margin-top: 20px;
+}
+.chatMessages .customerMessage{
+    align-self: flex-end;
+    padding: 15px 20px;
+    background-color: var(--fifth-color);
+    color: var(--font-color);
+    font-size: .9rem;
+    white-space: pre-wrap;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
+}
+.chatMessages .supportBot{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.supportBot img{
+    width: 45px;
+    background-color: var(--fifth-color);
+}
+.supportBot h6{
+    font-size: .9rem;
+}
+.chatMessages .serviceMessage{
+    align-self: flex-start;
+    padding: 15px 20px;
+    font-size: .9rem;
+    background-color: rgba(165, 165, 165, 0.263);
+    white-space: pre-wrap;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.chatMessages .messageTime{
+    font-size: .8rem;
+    color: rgb(103, 102, 102);
+    margin-right: auto;
+}
+.chatMessages .customerMessageFeedback{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+.customerMessageFeedback button{
+    padding: 6px 9px;
+    font-size: .9rem;
+    background-color: transparent;
+    transition: .2s ease;
+}
+.customerMessageFeedback button:hover{
+    background-color: var(--fifth-color);
+    color: var(--font-color);
+}
+.choiceGuide{
+    color: var(--font-color);
+}
+.choiceGuide h2{
+    font-size: 1.4rem;
+}
+.choiceGuide h4{
+    font-size: 1.1rem;
+    margin-top: 30px;
+}
+.choiceGuide .colorsList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
+    justify-items: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+.choiceGuide .colorsList li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.choiceGuide .colorsList img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.ageRange {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .ageRange label {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    cursor: pointer;
+  }
+  .ageRange input {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .choiceGuide .buttonAction{
+    text-align: center;
+    margin-top: 40px;
+  }
+.buttonAction button{
+    color: var(--font-color);
+    background-color: var(--sixth-color);
+    padding: 7px 20px;
+    border: solid 1px transparent;
+    transition: .3s ease;
+}
+.buttonAction button:hover{
+    border: solid 1px var(--gold-color);
+    background-color: transparent;
+    color: var(--gold-color);
+}
+
+@media screen and (max-width: 1270px){
+    .chatbot{
+        height: 65vh;
+    }
+}
+@media screen and (max-width: 750px){
+    .chatbot{
+        height: 65vh;
+        width: 90%;
+        bottom: 50px;
+    }
+    .soulaymaSupport{
+        display: flex;
+        gap: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .soulaymaSupport img{
+        width: 50px;
+    }
+    .soulaymaSupport svg{
+        position: absolute;
+        right: 10px;
+    }
+    .chatButton{
+        bottom: 10px;
+    }
+    .chatButton button{
+        padding: 6px 15px;
+    }
+    .chatButton button svg{
+        font-size: 1.2rem;
+    }
+    .chatButton button span{
+        margin: 10px 0 0 7px;
+    }
+}
+@media screen and (max-width: 380px){
+    .chatSugg p{
+        font-size: .9rem;
+    }
+    .soulaymaSupport h6{
+        font-size: .8rem;
+    }
+    .soulaymaSupport p{
+        font-size: .6rem;
+    }
+}

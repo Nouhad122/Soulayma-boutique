@@ -1,0 +1,161 @@
+.title h1{
+    font-size: 2.5rem;
+    color: var(--fourth-color);
+    font-family: var(--first-font);
+}
+.title h3{
+    font-size: 1rem;
+    color: var(--sixth-color);
+}
+.abayas-glance .title{
+    text-align: center;
+}
+.abayas-glance{
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 80px 40px;
+    background-color: var(--second-body-color);
+}
+.abayas-container{
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+    padding: 30px 6.8%;
+    margin-bottom: 30px;
+}
+.abaya-product{
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--fifth-color);
+    height: 100%;
+}
+.abaya-link:hover .abaya-image1{
+    opacity: 0;
+}
+.abaya-product .images{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.abaya-product img{
+    width: 100%;
+    height: 70vh;
+    margin-bottom: 15px;
+    -webkit-transition: .4s ease;
+    -o-transition: .4s ease;
+    transition: .4s ease;
+}
+.abaya-product .abaya-image1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.abaya-link{
+    color: var(--font-color);
+}
+.abaya-link:hover{
+    color: var(--gold-color);
+}   
+.abaya-product h2{
+    font-size: 1.1rem;
+    padding: 0 10px 0 10px;
+}
+.abaya-product h4{
+    font-size: 1rem;
+    padding: 10px;
+}
+.abayas-feedbacks{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 7px 0 7px;
+}
+.abayas-feedbacks .rate{
+    font-size: 1rem;
+}
+.abayas-feedbacks .feedbacks svg{
+    margin: 3px;
+    font-size: .9rem;
+}
+
+@media screen and (max-width: 1450px){
+    .abaya-product img{
+        height: 70vh;
+    }
+    .abaya-product h2{
+        font-size: 1.3rem;
+        padding: 10px 40px;
+    }
+    .abaya-product h4{
+        font-size: 1.2rem;
+        padding: 10px 40px;
+    }
+    .abayas-feedbacks .rate{
+        font-size: 1.1rem;
+    }
+    .abayas-feedbacks .feedbacks svg{
+        font-size: 1.1rem;
+    }
+    .title h1{
+        font-size: 2.6rem;
+    }
+    .title h3{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 1008px){
+    .abaya-product img{
+        -o-object-fit: cover;
+           object-fit: cover;
+        height: 80vh;
+    }
+    .abayas-container{
+        padding: 30px 1.2%;
+    }
+}
+@media screen and (max-width: 758px){
+    .abayas-container{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+    .abaya-product{
+        width: 60vw !important;
+    }
+}
+@media screen and (max-width: 490px){
+    .abayas-glance{
+        padding: 80px 10px;
+    }
+    .abayas-container{
+    padding: 30px 5px;
+    }
+    .abaya-product{
+        width: 100% !important;
+    }
+    .title h1{
+        font-size: 2rem;
+    }
+    .title h3{
+        font-size: 1rem;
+    }
+}
+@media screen and (min-height: 910px) {
+    .abaya-product img{
+        height: 55vh;
+    }
+}

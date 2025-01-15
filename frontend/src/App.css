@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Prompt:wght@300;400;500&display=swap');
+
+:root{
+    --first-color: #922233;
+    --body-color: #faeed5;
+    --second-body-color: #e8d8bb;
+    --second-color: #bf5c4f;
+    --third-color: #44040c;
+    --fourth-color: #340414;
+    --fifth-color: #640413;
+    --sixth-color: #919191;
+    --gold-color: #ecd4a0;
+    --font-color: #fdf3f3;
+    --body-font:'Prompt', sans-serif;
+    --first-font:'Dancing Script', cursive;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    scrollbar-color: var(--gold-color) var(--first-color);
+}
+body{
+    background-color: var(--body-color);
+    font-family: var(--body-font);
+}
+
+.no-scrolling{
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+a{
+    text-decoration: none;
+}
+.blur-cover{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.466);
+    z-index: 900;
+}
+.hidden-blur{
+    display: none;
+}

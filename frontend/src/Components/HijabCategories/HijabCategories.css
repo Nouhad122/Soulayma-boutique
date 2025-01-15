@@ -1,0 +1,142 @@
+.hijab-categories{
+  padding: 80px 40px;
+  background-color: var(--body-color);
+}
+.hijab-categories .title{
+  text-align: center;
+}
+.categories-container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 40px;
+  padding: 30px 2.5%;
+}
+.category-product{
+  position: relative;
+  left: 0;
+  top: 0;
+  color: var(--gold-color);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.category-product h1{
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-40%);
+      -ms-transform: translateY(-40%);
+          transform: translateY(-40%);
+  z-index: 2;
+  width: 100%;
+}
+.category-product h4{
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 2;
+}
+.category-product img{
+  width: 420px;
+  -webkit-filter:brightness(60%);
+          filter:brightness(60%);
+  -webkit-transition: 10s ease;
+  -o-transition: 10s ease;
+  transition: 10s ease;
+  height: 100%;
+}
+.category-product:hover .to-zoom{
+  -webkit-filter: brightness(90%);
+          filter: brightness(90%);
+  -webkit-transform: scale(1.4);
+      -ms-transform: scale(1.4);
+          transform: scale(1.4);
+}
+.category-product p{
+  position: absolute;
+  z-index: 500;
+  top: 55%;
+  left: 0;
+  -webkit-transform: translateY(-55%);
+      -ms-transform: translateY(-55%);
+          transform: translateY(-55%);
+  font-size: .9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0 30px;
+}
+.category-product h1{
+  position: absolute;
+  z-index: 500;
+  top: 67%;
+  left: 0;
+  -webkit-transform: translateY(-67%);
+      -ms-transform: translateY(-67%);
+          transform: translateY(-67%);
+  padding: 0 30px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  font-size: 1.8rem;
+}
+.categ-btn{
+  bottom: 40px !important;
+}
+@media screen and (max-width: 1400px){
+  .category-product img{
+    width: 380px;
+  }
+  .category-product p{
+    font-size: .9rem;
+  }
+  .category-product h1{
+    font-size: 1.5rem;
+  }
+  .categ-btn{
+    width: 22vw !important;
+    padding: 10px !important;
+    font-size: 1.2rem !important;
+  }
+}
+@media screen and (max-width: 850px){
+  .categ-btn{
+    width: 40vw !important;
+  }
+  .categories-container{
+    padding: 30px 0;
+  }
+}
+@media screen and (max-width: 465px){
+  .categ-btn{
+    width: 55vw !important;
+    font-size: .9rem;
+  }
+  .category-product img{
+    width: 100%;
+  }
+  .category-product p{
+    font-size: .6rem;
+  }
+  .category-product h1{
+    font-size: 1rem;
+  }
+  .hijab-categories{
+    padding: 80px 10px;
+  }
+}
+
+@media screen and (min-height: 910px) {
+  .category-product img{
+    width: 500px;
+}
+}

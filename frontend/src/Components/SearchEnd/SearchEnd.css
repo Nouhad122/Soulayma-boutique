@@ -1,0 +1,97 @@
+.search-end-section{
+    padding: 120px 8.8%;
+    background-color: var(--body-color);
+}
+.search-end-container{
+    background-color: var(--second-body-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.search-end-container img{
+    width: 30vw;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.search-end-container .end-text{
+    padding: 60px 120px 60px 60px;
+    color: var(--fourth-color);
+}
+.end-text h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight:300;
+    line-height: 40px;
+}
+.end-text p{
+    font-size: .9rem;
+    margin-top: 20px;
+}
+.end-text p:nth-child(3){
+    margin-bottom: 20px;
+}
+
+  @media screen and (max-width: 1400px){
+    .search-end-container img{
+        width: 40vw;
+    }
+    .end-text h2{
+        font-size: 2rem;
+        line-height: 45px;
+    }
+    .end-text p{
+        font-size: 1.2rem;
+    }
+    .search-end-container .end-text{
+        padding: 60px 60px 60px 60px;
+    }
+    .custom-btn{
+        font-size: 1.4rem;
+    }
+  }
+  @media screen and (max-width: 1008px){
+    .search-end-section{
+        padding: 120px 3.8%;
+    }
+    .search-end-container img{
+        width: 50vw;
+    }
+    .end-text h2{
+        font-size: 1.6rem;
+        line-height: 35px;
+    }
+    .end-text p{
+        font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 758px){
+    .search-end-container{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .search-end-container img{
+        width: 93vw;
+        -o-object-fit: fill;
+           object-fit: fill;
+    }
+    .search-end-container .end-text{
+        padding: 30px;
+    }
+  }
+  @media screen and (max-width: 490px){
+    .end-text h2{
+        font-size: 1.3rem;
+        line-height: 35px;
+    }
+    .end-text p{
+        font-size: .9rem;
+    }
+    .custom-btn{
+        width: 60vw;
+    }
+  }
