@@ -1,26 +1,21 @@
 import React, { useRef } from 'react';
-import './ProductsSlider.css';
-import products from '../../Products/products.json';
-import Products from '../Products/Products.jsx';
+import ProductsCont from '../Products/ProductsCont.jsx';
+import classes from '../Products/Products.module.css';
 
-const ProductsSlider = () => {
-
+const ProductsSlider = ({products}) => {
     const scrollRef = useRef(null);
-
-    const speakPureProducts = products.filter(product => product.title === "SpeakPure Set Satin Lined" || product.title === "SpeakPure Set Mesh Tie-Back");
-
     const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 
   return(
-
-        <Products 
+    <div className={classes.productsContainer}>
+        <ProductsCont 
           title="Featured Collection"
           subTitle="SpeakPure X Soulayma"
-          products={speakPureProducts}
+          products={products}
           generateUrl={generateUrl}
           scrollRef={scrollRef}
         />
-      
+    </div>
 )
   
 }

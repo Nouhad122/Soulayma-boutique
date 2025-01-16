@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import products from '../../Products/products.json';
 import Pagination from '../../utils/Pagination.jsx';
 import './ShopProducts.css';
-import Products from '../Products/Products.jsx';
+import ProductsCont from '../Products/ProductsCont.jsx';
+import classes from '../Products/Products.module.css';
 
 const ShopProducts = ({ filterColor, category, kind, page }) => {
   const navigate = useNavigate();
@@ -38,8 +39,8 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
   };
 
   return (
-    <>
-        <Products 
+    <div className={classes.productsContainer}>
+        <ProductsCont 
           title="Soulayma Boutique"
           subTitle={kind ? kind : `Shop All ${category}`}
           products={currentProducts}
@@ -53,7 +54,7 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
             onPageChange={goToPage}
           />
         )}
-        </>
+        </div>
   );
 };
 
