@@ -1,11 +1,35 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
 import classes from './Products.module.css'
 
-const Products = ({products, generateUrl, className, ...props}) => {
+const Products = ({title, subTitle, products, generateUrl, scrollRef, secondColor}) => {
+  const productsContainerClasses = secondColor ?
+     `${classes.productsContainer}  ${classes.secondColor}` : 
+     classes.productsContainer
+    ;
+    
+  const productsWrapperClasses = scrollRef ?  `${classes.productsWrapper} ${classes.productsSlider}` : classes.productsWrapper;
+
+  const scrollLeft = () =>{
+    scrollRef.current.scrollBy({left: window.innerWidth > 350 ? -300 : -380, behavior: 'smooth'}) ;
+  };
+
+  const scrollRight = () =>{
+    scrollRef.current.scrollBy({left: window.innerWidth > 350 ? 300 : 380, behavior: 'smooth'});
+  };
+
   return (
-    <div className= {classes.productContainer}>
+    <div className={productsContainerClasses}>
+      <div className={classes.title}>
+            <h3>{title}</h3>
+            <h1>{subTitle}</h1>
+      </div>
+
+      {scrollRef && <FaLessThan onClick={scrollLeft} className={classes.leftIcon}/>}
+
+      <div className= {productsWrapperClasses} ref={scrollRef}>
           {products.map(product => (
             <Link
               key={product.id}
@@ -30,7 +54,11 @@ const Products = ({products, generateUrl, className, ...props}) => {
               </div>
             </Link>
           ))}
-        </div>
+      </div>
+
+      {scrollRef && <FaGreaterThan onClick={scrollRight} className={classes.rightIcon}/>}
+
+    </div>
   )
 }
 

@@ -1,20 +1,51 @@
-.productContainer{
-    margin: 1rem auto;
-    padding: 1rem 2rem;
+.productsContainer{
+    padding: 2rem 3rem;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.secondColor{
+    background-color: var(--second-body-color);
+}
+.title{
+    text-align: center;
+}
+.title h1{
+    font-size: 2.5rem;
+    color: var(--fourth-color);
+    font-family: var(--first-font);
+}
+.title h3{
+    font-size: 1rem;
+    color: var(--sixth-color);
+}
+.productsWrapper{
+    margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
     gap: 2.5rem;
 }
-.productContainer .productLink{
+.productsSlider{
+    display: flex !important;
+    gap: 1.5rem;
+    width: 86%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.productsSlider::-webkit-scrollbar {
+    display: none;
+}
+.productLink{
     color: var(--font-color);
 }
-.productContainer .productLink:hover{
+.productLink:hover{
     color: var(--gold-color);
 }
-.productContainer .productLink:hover .productImages img:first-child{
+.productLink:hover .productImages img:first-child{
     opacity: 0;
 }
-.productContainer .product {
+.product {
     background-color: var(--fifth-color);
     overflow: hidden;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
@@ -24,6 +55,12 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+.productsSlider .product{
+    width: 18rem !important;
+}
+.productsSlider .productImages img{
+    height: 24rem !important;
 }
 .product h2{
     font-size: 1.1rem;
@@ -56,20 +93,45 @@
 .feedbacksContainer .feedbacks svg{
     margin-right: 5px;
 }
-@media screen and (max-width: 648px){
-    .productContainer{
-        padding: 1rem 7rem;
+.leftIcon, .rightIcon{
+    background-color: var(--fifth-color);
+    color: var(--font-color);
+    border-radius: 50%;
+    width: 2.3rem;
+    padding: .5rem;
+    height: auto;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.leftIcon{
+    left: 5%;
+}
+.rightIcon{
+    right: 5%;
+}
+
+@media screen and (max-width: 680px){
+    .productsWrapper{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2.5rem;
     }
-    .productContainer .product{
+    .productsSlider{
+        flex-direction: row !important;
+        gap: 1.5rem;
+    }
+    .productsWrapper .product{
         width: 20rem;
+    }
+    .productsSlider .product{
+        width: 18rem !important;
     }
 }
 @media screen and (max-width: 346px){
-    .productContainer .product{
+    .productsWrapper .product{
         width: 17rem;
     }
 }

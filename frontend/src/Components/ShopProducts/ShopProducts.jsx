@@ -38,13 +38,10 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
   };
 
   return (
-    <div className='shopPage'>
-      <div className='shop-products'>
-        <div className='products-text'>
-          <h1>{kind ? kind : `Shop All ${category}`}</h1>
-        </div>
-
+    <>
         <Products 
+          title="Soulayma Boutique"
+          subTitle={kind ? kind : `Shop All ${category}`}
           products={currentProducts}
           generateUrl={generateUrl}
         />
@@ -56,8 +53,7 @@ const ShopProducts = ({ filterColor, category, kind, page }) => {
             onPageChange={goToPage}
           />
         )}
-      </div>
-    </div>
+        </>
   );
 };
 

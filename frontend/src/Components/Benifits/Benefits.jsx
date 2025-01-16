@@ -39,7 +39,7 @@ const Benefits = () => {
             <h1>{benefit.ben_title}</h1>
             <p>{benefit.ben_parag}</p>
           </div>
-        )})};
+        )})}
         </div>
       
     </div>
