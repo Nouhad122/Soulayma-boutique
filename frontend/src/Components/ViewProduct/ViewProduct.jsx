@@ -5,6 +5,8 @@ import { addToCartAction } from '../../redux/actions/cartActions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Secondary-Comps/Button';
+import ProductImages from './ProductImages';
+import ImagesPoints from './ImagesPoints';
 
 const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) => {
 
@@ -116,15 +118,18 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
   return (
         
     <div className='product-container'>
-        <div className='product-images' ref={productImagesRef}>
-            <img onClick={() => setOpenedFullImage({isOpen:true, image:1})} className='prod-image1' src={chosenProduct.image1} alt='' ref={point1Ref}/>
-            <img onClick={() => setOpenedFullImage({isOpen:true, image:2})} className='prod-image2' src={chosenProduct.image2} alt='' ref={point2Ref}/>
-        </div>
+        <ProductImages 
+            chosenProduct={chosenProduct}
+            productImagesRef={productImagesRef}
+            setOpenedFullImage={setOpenedFullImage}
+            point1Ref={point1Ref}
+            point2Ref={point2Ref}
+        />
         
-        <div className='images-points'>
-                <div onClick={() => handlePointClick('point1')} className={`point ${activePoint === 'point1' ? 'active-point' : ''}`}></div>
-                <div onClick={() => handlePointClick('point2')} className={`point ${activePoint === 'point2' ? 'active-point' : ''}`}></div>
-        </div>
+        <ImagesPoints 
+            handlePointClick={handlePointClick}
+            activePoint={activePoint}
+        />
 
         <div className='product-details'>
 

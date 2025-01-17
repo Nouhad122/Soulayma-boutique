@@ -3,7 +3,7 @@ import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
 
 const ProductsSlider = ({products}) => {
-    const scrollRef = useRef(null);
+    const scrollRef = useRef();
     const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 
   return(
