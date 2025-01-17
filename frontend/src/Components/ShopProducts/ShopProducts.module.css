@@ -1,0 +1,54 @@
+.searchedProducts{
+    background-color: var(--body-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    padding: 10% 0 3% 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+.searchedProducts .noProductsFound{
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    font-size: 1.2rem;
+    color: var(--fourth-color);
+}
+.pagination {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+  }
+.pagination button{
+    padding: 5px 10px;
+    margin: 0 20px;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px var(--fourth-color);
+    color: var(--fourth-color);
+}
+.pagination button.active {
+    background-color: var(--fifth-color);
+    color: var(--font-color) !important;
+}
+.pagination button:disabled{
+    opacity: .3;
+}
+@media screen and (max-width: 680px){
+    .pagination button{
+        padding: 3px 6px;
+        margin: 0 7px;
+        border: none;
+        background-color: transparent;
+        border-bottom: solid 1px var(--fourth-color);
+        color: var(--fourth-color);
+        font-size: .7rem;
+    }
+}

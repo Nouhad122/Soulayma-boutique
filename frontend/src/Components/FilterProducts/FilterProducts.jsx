@@ -34,7 +34,7 @@ const FilterProducts = ({products, category, kind, page, openedFilter, setOpened
             } 
             </div>
             
-            <Button absoluteBtn onClick={() => {setSearchParams({}); setOpenedFilter(false)}} className='reset-btn'>
+            <Button absoluteBtn={true} onClick={() => {setSearchParams({}); setOpenedFilter(false)}} className='reset-btn'>
                 Reset
             </Button>
            

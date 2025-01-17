@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import products from '../../Products/products.json';
 import Pagination from '../../utils/Pagination.jsx';
-import './ShopProducts.css';
 import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
 

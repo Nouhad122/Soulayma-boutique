@@ -8,6 +8,7 @@ const ProductsSlider = ({products}) => {
 
   return(
     <div className={classes.productsContainer}>
+
         <ProductsCont 
           title="Featured Collection"
           subTitle="SpeakPure X Soulayma"
@@ -15,6 +16,7 @@ const ProductsSlider = ({products}) => {
           generateUrl={generateUrl}
           scrollRef={scrollRef}
         />
+        
     </div>
 )
   

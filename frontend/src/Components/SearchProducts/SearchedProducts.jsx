@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classes from '../Products/Products.module.css';
 import Pagination from '../../utils/Pagination.jsx';
-import '../ShopProducts/ShopProducts.css';
+import shopClasses from '../ShopProducts/ShopProducts.module.css';
 import products from '../../Products/products.json';
 import ProductsCont from '../Products/ProductsCont.jsx';
 
@@ -30,7 +30,7 @@ const SearchedProducts = ({ searchInput }) => {
   const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
 
   return (
-    <div ref={sProducts} className={`${classes.searchedProducts}`}>
+    <div ref={sProducts} className={`${shopClasses.searchedProducts}`}>
       <div className={classes.productsContainer}>
         {
           currentProducts.length > 0 ?
@@ -39,7 +39,7 @@ const SearchedProducts = ({ searchInput }) => {
             generateUrl={generateUrl}
           />
           :
-          <p className={classes.noProductsFound}><span>No Products Found</span></p>
+          <p className={shopClasses.noProductsFound}><span>No Products Found</span></p>
         }
 
       {filteredProducts.length > productsPerPage && (
