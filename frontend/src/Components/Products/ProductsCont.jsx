@@ -4,11 +4,7 @@ import classes from './Products.module.css';
 import Title from './Title';
 import Products from './Products';
 
-const ProductsCont = ({title, subTitle, products, generateUrl, scrollRef, secondColor}) => {
-  const productsContainerClasses = secondColor ?
-     `${classes.productsContainer}  ${classes.secondColor}` : 
-     classes.productsContainer
-    ;
+const ProductsCont = ({title, subTitle, products, generateUrl, scrollRef}) => {
     
   const productsWrapperClasses = scrollRef ?  `${classes.productsWrapper} ${classes.productsSlider}` : classes.productsWrapper;
 
@@ -22,8 +18,7 @@ const ProductsCont = ({title, subTitle, products, generateUrl, scrollRef, second
 
   return (
     <>
-
-      <Title title={title} subTitle={subTitle}/>
+      {title && subTitle && <Title title={title} subTitle={subTitle}/>}
 
       {scrollRef && <FaLessThan onClick={scrollLeft} className={classes.leftIcon}/>}
 

@@ -1,5 +1,5 @@
 .productsContainer{
-    padding: 1rem 3rem;
+    padding: 5rem 3rem;
     position: relative;
     top: 0;
     left: 0;
@@ -22,7 +22,8 @@
 .productsWrapper{
     margin: 2rem auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 20rem));
+    justify-content: center;
     gap: 2.5rem;
 }
 .productsSlider{
@@ -112,6 +113,26 @@
 .rightIcon{
     right: 5%;
     z-index: 3;
+}
+.searchedProducts{
+    background-color: var(--body-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    padding: 10% 0 3% 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+.searchedProducts .noProductsFound{
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    font-size: 1.2rem;
+    color: var(--fourth-color);
 }
 
 @media screen and (max-width: 680px){

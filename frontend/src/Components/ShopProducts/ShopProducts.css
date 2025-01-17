@@ -25,29 +25,6 @@
     }
     
 }
-.shop-products{
-    padding: 3% 0 3% 0;
-}
-.products-text{
-    text-align: center;
-    font-family: var(--first-font);
-    margin-bottom: 30px;
-}
-.products-text h1{
-    font-size: 2.5rem !important;
-    color: var(--fourth-color);
-}
-.shop-products .products-container{
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, -webkit-max-content));
-    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    gap: 50px;
-    padding: 30px 3.8%;
-}
 .products-container .shop-product{
     background-color: var(--fifth-color);
     cursor: pointer;
@@ -58,51 +35,11 @@
     -webkit-animation: productsAnimation .8s ease;
             animation: productsAnimation .8s ease;
 }
-.shop-product .images{
-    position: relative;
-    top: 0;
-    left: 0;
-}
-.shop-product img{
-    width: 100%;
-    -webkit-transition: .4s ease;
-    -o-transition: .4s ease;
-    transition: .4s ease;
-    margin-bottom: 15px;
-    height: 70vh;
-}
-.shop-product:hover .image1{
-    opacity: 0;
-}
-.shop-product .image1{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-.shop-product-link{
-    color: var(--font-color);
-}
-.shop-product-link:hover{
-    color: var(--gold-color);
-}
-.shop-product h2{
-    font-size: 1.1rem;
-    padding: 5px 10px 10px 10px;
-}
-.shop-product h4{
-    font-size: 1rem;
-    padding: 0 10px;
-    margin-bottom: 10px;
-}
 .pagination {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-top: 30px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 .pagination button{
     padding: 5px 10px;

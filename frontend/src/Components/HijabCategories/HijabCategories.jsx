@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './HijabCategories.css';
 import { v4 as uuidv4 } from 'uuid';
 import Button from '../Secondary-Comps/Button';
+import Title from '../Products/Title';
 
 const HijabCategories = () => {
 
@@ -54,10 +55,7 @@ const HijabCategories = () => {
 
   return (
     <div className='hijab-categories'>
-      <div className='title'>
-        <h3>Look at our</h3>
-        <h1>Most Popular Categories</h1>
-      </div>
+      <Title title="Look at our" subTitle="Most Popular Categories" />
       
       <div className="categories-container">
       {categories.map(category =>(

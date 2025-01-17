@@ -1,17 +1,15 @@
 .benefits-container{
     background-color: var(--second-body-color);
-    padding: 70px 40px 0 40px;
+    padding: 5rem 3rem;
 }
 .benefits-container .benefits-cards{
     display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 0 4.8%;
 }
 .benefits-cards .b-card{
     text-align: center;
-    padding: 30px 30px 0 30px;
     color: var(--fourth-color);
 }
 .b-card svg{
@@ -24,11 +22,6 @@
 .b-card p{
     font-size: .9rem;
 }
-@media screen and (max-width: 1400px){
-    .benefits-container{
-    padding: 30px 40px 30px 40px;
-    }
-}
 @media screen and (max-width: 465px){
     .b-card svg{
         font-size: 2rem;
@@ -40,12 +33,11 @@
         font-size: .8rem;
     }
     .benefits-container .benefits-cards{
-        padding: 30px 0;
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
     .benefits-container{
         padding: 30px 40px 0 40px;
-        }
+    }
 }
 @media screen and (min-height: 910px) {
     .benefits-container .benefits-cards{

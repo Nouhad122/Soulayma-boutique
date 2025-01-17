@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaStar } from "react-icons/fa";
+import classes from '../Products/Products.module.css';
 import Pagination from '../../utils/Pagination.jsx';
 import '../ShopProducts/ShopProducts.css';
 import products from '../../Products/products.json';
+import ProductsCont from '../Products/ProductsCont.jsx';
 
 const SearchedProducts = ({ searchInput }) => {
   const sProducts = useRef();
@@ -26,40 +26,21 @@ const SearchedProducts = ({ searchInput }) => {
   useEffect(() =>{
     sProducts.current.scrollTo(0,0);
   },[currentPage])
-  
+
+  const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
 
   return (
-    <div ref={sProducts} className="shop-products searched-products">
-      <div className="products-container">
+    <div ref={sProducts} className={`${classes.searchedProducts}`}>
+      <div className={classes.productsContainer}>
         {
           currentProducts.length > 0 ?
-          currentProducts.map((product) => (
-            <Link
-            key={product.id}
-            to={`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`}
-            className='shop-product-link'
-          >
-            <div className="shop-product">
-              <div className="images">
-                <img className="image1" src={product.image1} alt={product.title} />
-                <img className="image2" src={product.image2} alt={product.title} />
-              </div>
-              <h2>{product.title} - {product.color}</h2>
-              <h4>{product.price}$</h4>
-              <div className="feedbacks-container">
-                <div className="feedbacks">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i}/>
-                  ))}
-                </div>
-                <p className="rate">5.0 <span className="num-of-rates">(5)</span></p>
-              </div>
-            </div>
-            </Link>
-          )):
-          <p className='no-products-found'><span>No Products Found</span></p>
+          <ProductsCont
+            products={currentProducts}
+            generateUrl={generateUrl}
+          />
+          :
+          <p className={classes.noProductsFound}><span>No Products Found</span></p>
         }
-      </div>
 
       {filteredProducts.length > productsPerPage && (
         <Pagination
@@ -68,7 +49,9 @@ const SearchedProducts = ({ searchInput }) => {
           onPageChange={goToPage}
         />
       )}
+      </div>
     </div>
+
   );
 };
 
