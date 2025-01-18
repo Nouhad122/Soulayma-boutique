@@ -1,4 +1,3 @@
-/* PRODUCT CONTAINER */
 .productContainer{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11,7 +10,6 @@
 }
 
 @media screen  and (max-width: 1030px){
-/* PRODUCT CONTAINER */
 .productContainer{
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

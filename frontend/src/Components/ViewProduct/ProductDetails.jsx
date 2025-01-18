@@ -35,10 +35,7 @@ const ProductDetails = ({chosenProduct, products, kind, id }) => {
                 <p className={classes.estimatedDelivery}>Estimated delivery to , <strong>October 21 - November 5</strong></p>
             </div>
 
-            <ProductSpecifics 
-                productsSpecifics={productsSpecifics}
-                toggleSpecs={toggleSpecs}
-            />
+            <ProductSpecifics />
 
         </div>
   )

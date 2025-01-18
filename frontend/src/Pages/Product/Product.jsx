@@ -1,10 +1,11 @@
 import React from 'react'
-import ViewProduct from '../../Components/ViewProduct/ViewProduct.jsx';
-import './Product.css';
 import Suggetions from '../../Components/ViewProduct/Suggetions.jsx';
 import {useParams} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import FullImage from '../../Components/ViewProduct/FullImage.jsx';
+import ProductImages from '../../Components/ViewProduct/ProductImages.jsx';
+import ProductDetails from '../../Components/ViewProduct/ProductDetails.jsx';
+import classes from '../../Components/ViewProduct/ProductContainer.module.css';
 
 const Product = ({openedFullImage, setOpenedFullImage}) => {
 
@@ -17,7 +18,20 @@ const Product = ({openedFullImage, setOpenedFullImage}) => {
 
   return (
     <div className='productPage'>
-      <ViewProduct products={products} kind={kind} id={id} chosenProduct={chosenProduct} openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage}/>
+      <div className={classes.productContainer}>
+          <ProductImages 
+              chosenProduct={chosenProduct}
+              setOpenedFullImage={setOpenedFullImage}
+          />
+
+          <ProductDetails 
+              chosenProduct={chosenProduct}
+              products={products}
+              kind={kind}
+              id={id}
+          />
+      </div>
+
       <Suggetions category={category} products={products}/>
 
     {
@@ -25,7 +39,7 @@ const Product = ({openedFullImage, setOpenedFullImage}) => {
       <FullImage openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage} chosenProduct = {chosenProduct}/>
       )
     }
-    </div>
+  </div>
   )
 }
 
