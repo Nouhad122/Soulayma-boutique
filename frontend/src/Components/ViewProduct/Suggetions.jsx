@@ -1,5 +1,6 @@
 import React from 'react';
 import Products from '../Products/Products';
+import classes from '../Products/Products.module.css';
 
 const Suggetions = ({category, products}) => {
 
@@ -16,6 +17,7 @@ const Suggetions = ({category, products}) => {
     const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}`;
 
   return (
+    <div className={`${classes.productsContainer} ${classes.secondColor}`}>
     <Products 
       secondColor
       title="Products From"
@@ -23,6 +25,7 @@ const Suggetions = ({category, products}) => {
       products={filteredSuggs}
       generateUrl={generateUrl}
     />
+    </div>
   )
 }
 

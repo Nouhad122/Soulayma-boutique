@@ -1,12 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { FaStar, FaPlus, FaMinus } from "react-icons/fa";
-import { FaCircleCheck } from "react-icons/fa6";
 import { addToCartAction } from '../../redux/actions/cartActions';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import Button from '../Secondary-Comps/Button';
 import ProductImages from './ProductImages';
 import ImagesPoints from './ImagesPoints';
+import ProductDetaills from './ProductDetaills';
 
 const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) => {
 
@@ -15,8 +12,6 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
     const point1Ref = useRef(null);
     const point2Ref = useRef(null);
     const productImagesRef = useRef(null);
-
-    const navigate = useNavigate();
 
     const handlePointClick = (point) => {
     setActivePoint(point); 
@@ -131,7 +126,17 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
             activePoint={activePoint}
         />
 
-        <div className='product-details'>
+        <ProductDetaills 
+            chosenProduct={chosenProduct}
+            products={products}
+            productsSpecifics={productsSpecifics}
+            addToCart={addToCart}
+            kind={kind}
+            id={id}
+            toggleSpecs={toggleSpecs}
+        />
+
+        {/* <div className='product-details'>
 
             <div className='product-reviews'>
             <div className='feedbacks'>
@@ -196,7 +201,7 @@ const ViewProduct = ({chosenProduct, setOpenedFullImage, products, kind, id}) =>
                 }
             </div>
 
-        </div>
+        </div> */}
     </div>
 
   )
