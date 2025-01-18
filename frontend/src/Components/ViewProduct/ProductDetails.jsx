@@ -1,32 +1,27 @@
 import React from 'react';
-import ProductInfos from './ProductInfos';
+import ProductInfo from './ProductInfo';
 import Button from '../Secondary-Comps/Button';
-import { FaStar } from "react-icons/fa";
 import ProductColors from './ProductColors';
 import ProductSpecifics from './ProductSpecifics';
 import classes from './ProductDetails.module.css';
+import Reviews from '../Secondary-Comps/Reviews';
+import { useDispatch } from 'react-redux';
+import { addToCartAction } from '../../redux/actions/cartActions';
 
-const ProductDetaills = ({chosenProduct, products,  productsSpecifics, addToCart, kind, id, toggleSpecs }) => {
-    
+const ProductDetails = ({chosenProduct, products, kind, id }) => {
+    const dispatch = useDispatch();
+    const addToCart = () =>{
+        dispatch(addToCartAction(chosenProduct));
+    }
   return (
     <div className={classes.productDetails}>
-
-            <div className={classes.productReviews}>
-            <div className={classes.feedbacks}>
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-            </div>
-            <p>5.0 based on 16 reviews</p>
-            </div>
-
+            <Reviews />
+            
             <div className={classes.productCap}>
                 <h1>{chosenProduct.title}</h1>
                 <h3>{chosenProduct.price}$</h3>
 
-                <ProductInfos />
+                <ProductInfo />
 
                 <ProductColors 
                     chosenProduct={chosenProduct}
@@ -49,4 +44,4 @@ const ProductDetaills = ({chosenProduct, products,  productsSpecifics, addToCart
   )
 }
 
-export default ProductDetaills
+export default ProductDetails

@@ -117,15 +117,6 @@
     left: 0;
     z-index: 1;
 }
-.product .feedbacksContainer{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin-top: auto;
-}
-.feedbacksContainer .feedbacks svg{
-    margin-right: 5px;
-}
 .leftIcon, .rightIcon{
     background-color: var(--fifth-color);
     color: var(--font-color);

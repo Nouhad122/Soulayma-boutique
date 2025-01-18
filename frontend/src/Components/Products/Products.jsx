@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import classes from './Products.module.css';
+import Reviews from '../Secondary-Comps/Reviews';
 
 const Products = ({products, generateUrl}) => {
   return (
@@ -19,14 +19,8 @@ const Products = ({products, generateUrl}) => {
             </div>
             <h2>{product.title} - {product.color}</h2>
             <h4>{product.price}$</h4>
-            <div className={classes.feedbacksContainer}>
-            <div className={classes.feedbacks}>
-                {[...Array(5)].map((_, i) => (
-                <FaStar key={i} />
-                ))}
-            </div>
-            <p className={classes.rate}>5.0 <span className={classes.numOfRates}>(5)</span></p>
-            </div>
+            
+            <Reviews inCard/>
         </div>
         </Link>
     ))}

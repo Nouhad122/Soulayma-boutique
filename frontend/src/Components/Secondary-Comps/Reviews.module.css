@@ -1,0 +1,16 @@
+.cardReviews{
+    justify-content: space-between;
+    padding: .5rem;
+}
+.productReviews{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+}
+.productReviews svg{
+    margin-right: 5px;
+}
+.rate{
+    margin-top: .14rem;
+}

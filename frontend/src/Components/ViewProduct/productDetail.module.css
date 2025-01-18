@@ -10,15 +10,6 @@
     padding: 2rem 9rem;
 }
 
-
-@media screen  and (max-width: 1281px){
-
-/* PRODUCT INFOS */
-    .productInfo p{
-        font-size: 1.2rem;
-    }
-}
-
 @media screen  and (max-width: 1030px){
 /* PRODUCT CONTAINER */
 .productContainer{
