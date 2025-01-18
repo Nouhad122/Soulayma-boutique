@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import classes from './productDetail.module.css';
+import classes from './ProductColors.module.css';
 
 const ProductColors = ({chosenProduct, products, kind, id}) => {
     const navigate = useNavigate();

@@ -1,0 +1,73 @@
+.fullImage{
+    background-color: var(--body-color);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.imagesBox{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 450px;
+}
+.imagesBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.zeroOpacity{
+    opacity: 0;
+}
+.imagesBox svg{
+  position: absolute;
+  bottom: 30px;
+  z-index: 801;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 3rem;
+  padding: 15px;
+  cursor: pointer;
+}
+.imagesBox .scrollLeft{
+    right: 30%;
+}
+.imagesBox .scrollRight{
+    left: 30%;
+}
+.imagesBox .closeBtn{
+    padding: 18px !important;
+    font-size: 4rem !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media screen  and (max-width: 550px){
+    .imagesBox{
+        width: 300px;
+    }
+    .imagesBox img{
+        object-fit: contain;
+    }
+    .imagesBox svg:first-child{
+        right: 20%;
+    }
+    .imagesBox svg:last-child{
+        left: 20%;
+    }
+}
+
+@media screen and (min-height: 910px){
+    .imagesBox{
+        width: 600px;
+    }
+}

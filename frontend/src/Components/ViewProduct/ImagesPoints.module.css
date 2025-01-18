@@ -1,0 +1,22 @@
+.imagesPoints{
+    display: none;
+}
+
+@media screen  and (max-width: 1030px){
+    .imagesPoints{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 7px;
+    }
+    .imagesPoints span{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: black;
+        opacity: .5;
+    }
+    .activePoint{
+        opacity: 1 !important;
+    }
+}

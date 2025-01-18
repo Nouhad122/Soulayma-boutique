@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlus, FaMinus } from "react-icons/fa";
-import classes from './productDetail.module.css';
+import classes from './ProductSpecifics.module.css';
 
 const ProductSpecifics = ({productsSpecifics, toggleSpecs}) => {
   return (

@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
 import { HiMiniXMark } from "react-icons/hi2";
-import classes from './productDetail.module.css';
+import classes from './FullImage.module.css';
 
 const FullImage = ({openedFullImage, setOpenedFullImage, chosenProduct}) => {
 

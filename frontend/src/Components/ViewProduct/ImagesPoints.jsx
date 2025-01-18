@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './productDetail.module.css';
+import classes from './ImagesPoints.module.css';
 
 const ImagesPoints = ({handlePointClick, activePoint}) => {
 

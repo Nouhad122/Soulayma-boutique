@@ -4,7 +4,7 @@ import Button from '../Secondary-Comps/Button';
 import { FaStar } from "react-icons/fa";
 import ProductColors from './ProductColors';
 import ProductSpecifics from './ProductSpecifics';
-import classes from './productDetail.module.css';
+import classes from './ProductDetails.module.css';
 
 const ProductDetaills = ({chosenProduct, products,  productsSpecifics, addToCart, kind, id, toggleSpecs }) => {
     

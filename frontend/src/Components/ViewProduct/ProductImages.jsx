@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './productDetail.module.css';
+import classes from './productImages.module.css';
 
 const ProductImages = ({chosenProduct, productImagesRef, setOpenedFullImage, point1Ref, point2Ref}) => {
   return (
