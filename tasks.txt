@@ -1,1 +1,5 @@
-Next: Salleh l ViewProduct
+1- kell component yekhod l css tabaau
+2- kell component yekhod l js code tabaau
+3- shil l ViewProduct w hett kelshi bl page l asliye
+4- shil l css tabaa l page l asliye
+Note: khaffef l prop drilling

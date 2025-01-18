@@ -1,5 +1,5 @@
 import React from 'react';
-import Products from '../Products/Products';
+import ProductsCont from '../Products/ProductsCont';
 import classes from '../Products/Products.module.css';
 
 const Suggetions = ({category, products}) => {
@@ -18,7 +18,7 @@ const Suggetions = ({category, products}) => {
 
   return (
     <div className={`${classes.productsContainer} ${classes.secondColor}`}>
-    <Products 
+    <ProductsCont 
       secondColor
       title="Products From"
       subTitle="The Same Category"
