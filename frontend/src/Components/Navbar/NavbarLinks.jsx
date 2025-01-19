@@ -21,6 +21,31 @@ const NavbarLinks = ({openedList, setOpenedList, openedCategories, setOpenedCate
               openedCategories={openedCategories}
               openedList={openedList}
               setOpenedCategories={setOpenedCategories}
+              categoryName="hijabs"
+            />
+            <NavigationLink 
+              openedCategories={openedCategories}
+              openedList={openedList}
+              setOpenedCategories={setOpenedCategories}
+              categoryName="pins"
+            />
+            <NavigationLink 
+              openedCategories={openedCategories}
+              openedList={openedList}
+              setOpenedCategories={setOpenedCategories}
+              categoryName="underscarves"
+            />
+            <NavigationLink 
+              openedCategories={openedCategories}
+              openedList={openedList}
+              setOpenedCategories={setOpenedCategories}
+              categoryName="abayas"
+            />
+            <NavigationLink 
+              openedCategories={openedCategories}
+              openedList={openedList}
+              setOpenedCategories={setOpenedCategories}
+              categoryName="jilbabs"
             />
             
 
