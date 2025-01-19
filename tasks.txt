@@ -3,3 +3,5 @@
 3- shil l ViewProduct w hett kelshi bl page l asliye
 4- shil l css tabaa l page l asliye
 Note: khaffef l prop drilling
+
+warning: ntbh aala mawdu3 l mouse leave
