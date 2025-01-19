@@ -7,27 +7,24 @@ import { NavCategoriesData } from './NavCategoriesData';
 const NavigationLink = ({ openedCategories, setOpenedCategories, openedList, categoryName }) => {
     const [openedCategory, setOpenedCategory] = useState(false);
 
-//   const handleMouseEnter = () => {
-//     if (window.innerWidth >= 1450) {
-//         setOpenedCategory(prevState => !prevState);
-//     }
-//   };
+  const handleMouseEnter = () => {
+    if (window.innerWidth >= 1450) {
+        setOpenedCategory(true);
+    }
+  };
 
-//   const handleMouseLeave = () => {
-//     if (window.innerWidth >= 1450) {
-//       setTimeout(() => {
-//         if (
-//           !document.querySelector(`.${classes.linkContainer}.${targetedObj.name}:hover`) &&
-//           !document.querySelector(`.${classes.listLinks}.${targetedObj.name}:hover`)
-//         ) {
-//           setOpenedCategories((prevOpenedCategories) => ({
-//             ...prevOpenedCategories,
-//             [categoryName]: false,
-//           }));
-//         }
-//       }, 100);
-//     }
-//   };
+  const handleMouseLeave = () => {
+    if (window.innerWidth >= 1450) {
+      setTimeout(() => {
+        if (
+          !document.querySelector(`.${classes.linkContainer}.${targetedObj.name}:hover`) &&
+          !document.querySelector(`.${classes.listLinks}.${targetedObj.name}:hover`)
+        ) {
+          setOpenedCategory(false);
+        }
+      }, 100);
+    }
+  };
 
   const handleLinkClick = () => {
     setOpenedCategory(prevState => !prevState)
@@ -38,28 +35,23 @@ const NavigationLink = ({ openedCategories, setOpenedCategories, openedList, cat
   return (
     <div
       className={`${classes.linkContainer} ${openedCategory ? `${classes.clickedLink}` : ''}`}
-    //   onMouseEnter={() => handleMouseEnter(targetedObj.name)}
-    //   onMouseLeave={() => handleMouseLeave(targetedObj.name)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleLinkClick}
     >
-      <div
-        className={`${classes.listTitle} ${openedList ? classes.titleAnimation : ''}`}
-        onClick={handleLinkClick}
-      >
         <p>{targetedObj.title}</p>
-        <div className={classes.plusMinus}>
           <FaPlus
             className={!openedCategory ? classes.opacity : classes.noOpacity}
           />
           <FaMinus
             className={openedCategory ? classes.opacity : classes.noOpacity}
           />
-        </div>
-      </div>
+      
       {openedCategory && (
         <div
           className={classes.listLinks}
-        //   onMouseEnter={() => handleMouseEnter(targetedObj.name)}
-        //   onMouseLeave={() => handleMouseLeave(targetedObj.name)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
             {
                 targetedObj.links.map(link =>(

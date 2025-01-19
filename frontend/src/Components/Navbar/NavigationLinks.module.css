@@ -1,9 +1,14 @@
 .linkContainer {
-    padding: 10px 0;
-    border-bottom: solid 1px var(--font-color);
     max-height: 50px;
     margin-top: 20px;
     color: var(--font-color);
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.linkContainer svg{
+    display: none;
 }
 .listLinks{
     display: -webkit-box;
@@ -16,47 +21,16 @@
     gap: 10px;
     position: absolute;
     top: 101%;
-    padding: 20px 40px;
+    padding: 20px;
     background-color: var(--fifth-color);
     z-index: 899;
+    width: 250px;
 }
 .listLinks a{
     padding: 0;
 }
 .clickedLink {
     color: var(--gold-color) !important;
-}
-.listTitle{
-    cursor: pointer;
-    padding: 10px 0;
-    position: relative;
-    top: 11px;
-}
-.listTitle{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 0;
-    top: 0;
-} 
-.listTitle {
-    -webkit-transition: color 0.2s ease, border-bottom 0.2s ease;
-    -o-transition: color 0.2s ease, border-bottom 0.2s ease;
-    transition: color 0.2s ease, border-bottom 0.2s ease;
-    border-bottom: solid 1px transparent;  
-}
-.listTitle:hover{
-    color: var(--gold-color);
-    border-bottom: solid 1px var(--gold-color);
-} 
-.plusMinus{
-    display: none;
 }
 .opacity{
     opacity: 1;
@@ -83,12 +57,16 @@
  } 
 
 @media screen and (max-width: 819px){
+    .linkContainer{
+        border-bottom: solid 1px var(--font-color);
+    }
      .listLinks{
         padding: 10px;
         gap: 12px;
         position: relative;
         top: 0;
         left: 0;
+        width: 100%;
     }
     .clickedLink {
         color: var(--gold-color) !important;
@@ -102,17 +80,12 @@
         -webkit-animation: OpacityMove .8s ease;
                 animation: OpacityMove .8s ease;
     }
-    .plusMinus{
-        position: relative;
-        top: 0;
-        left: 0;
+    .linkContainer svg{
         display: block;
-        padding: 10px;
-    }
-    .plusMinus svg{
         position: absolute;
-        top: 0;
+        top: 15px;
         right: 0;
+        font-size: .9rem;
         -webkit-transition: .3s ease;
         -o-transition: .3s ease;
         transition: .3s ease;

@@ -1,7 +1,5 @@
-1- kell component yekhod l css tabaau
-2- kell component yekhod l js code tabaau
-3- shil l ViewProduct w hett kelshi bl page l asliye
-4- shil l css tabaa l page l asliye
-Note: khaffef l prop drilling
-
-warning: ntbh aala mawdu3 l mouse leave
+1-zabbet l NavigationLink
+l onMouseEnter w onMouseLeave, w khalli l oepenedCategories mn l App tnmaha baad l tzbit
+ l classes li ma ela lzum naddefa
+aandak l animation tabaa l opacity
+kammel tzbit l shakel
