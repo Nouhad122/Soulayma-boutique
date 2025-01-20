@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import classes from './NavigationLinks.module.css';
 import { NavCategoriesData } from './NavCategoriesData';
 
-const NavigationLink = ({ openedCategories, setOpenedCategories, openedList, categoryName }) => {
+const NavigationLink = ({ categoryName }) => {
     const [openedCategory, setOpenedCategory] = useState(false);
 
   const handleMouseEnter = () => {
-    if (window.innerWidth >= 1450) {
+    if (window.innerWidth >= 1250){
         setOpenedCategory(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth >= 1450) {
+    if (window.innerWidth >= 1250){
       setTimeout(() => {
-        if (
-          !document.querySelector(`.${classes.linkContainer}.${targetedObj.name}:hover`) &&
-          !document.querySelector(`.${classes.listLinks}.${targetedObj.name}:hover`)
-        ) {
           setOpenedCategory(false);
-        }
       }, 100);
     }
   };
@@ -30,11 +25,20 @@ const NavigationLink = ({ openedCategories, setOpenedCategories, openedList, cat
     setOpenedCategory(prevState => !prevState)
   };
 
+  useEffect(() =>{
+    const handleCategoryOnResize = () => setOpenedCategory(false);
+    window.addEventListener('resize', handleCategoryOnResize);
+    return () => window.removeEventListener('resize', handleCategoryOnResize)
+  }, []);
+
   const targetedObj = NavCategoriesData.find(category => category.name === categoryName);
+
+  const linkContainerClasses = openedCategory ? `${classes.linkContainer} ${classes.clickedLink}` :
+    classes.linkContainer
 
   return (
     <div
-      className={`${classes.linkContainer} ${openedCategory ? `${classes.clickedLink}` : ''}`}
+      className={linkContainerClasses}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleLinkClick}
@@ -51,7 +55,6 @@ const NavigationLink = ({ openedCategories, setOpenedCategories, openedList, cat
         <div
           className={classes.listLinks}
           onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
         >
             {
                 targetedObj.links.map(link =>(
@@ -59,8 +62,7 @@ const NavigationLink = ({ openedCategories, setOpenedCategories, openedList, cat
                         {link.label}
                     </Link>
                 ))
-            }
-            
+            } 
         </div>
       )}
     </div>

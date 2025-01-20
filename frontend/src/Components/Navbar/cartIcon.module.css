@@ -1,0 +1,28 @@
+.cartCont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px;
+    color: var(--font-color);
+}
+.cartCont .shopping-bag {
+    font-size: 1.5rem;
+}
+.cartCont .bag-count {
+    font-size: 1rem;
+}
+.cartCont a{
+    font-size: 1.4rem !important;
+}
+
+@media screen and (max-width: 1450px) {
+    .cartCont .shopping-bag {
+        font-size: 1.3rem;
+    }
+    .cartCont .bag-count {
+        font-size: 0.9rem;
+    }
+}
