@@ -78,7 +78,6 @@ a:hover{
         width: 100%;
     }
     .clickedLink {
-        color: var(--gold-color) !important;
         border-bottom: solid 1px var(--gold-color) !important;
         max-height: 600px !important;
     }

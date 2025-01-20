@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaShoppingBag }from "react-icons/fa";
-import classes from './cartIcon.module.css';
-import './NavigationLinks.module.css';
+import classes from './CartIcon.module.css';
+import './NavigationLink.module.css';
 
 const CartIcon = () => {
     const cart = useSelector(state => state.cart);

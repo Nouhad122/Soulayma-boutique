@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import classes from './NavigationLinks.module.css';
+import classes from './NavigationLink.module.css';
 import { NavCategoriesData } from './NavCategoriesData';
 
 const NavigationLink = ({ categoryName }) => {

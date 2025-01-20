@@ -1,3 +1,6 @@
+// import { createBrowserRouter, RouterProvider } from "react-router-dom"
+// import RootPage from "./Pages/RootPage"
+import Home from "./Pages/Home/Home"
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -115,6 +118,50 @@ function App() {
       </div>
     </Provider>
   );
+
+
+
+
+  // const router = createBrowserRouter([
+  //   { path:'/',
+  //     element: <RootPage />,
+  //     children: [
+  //     {index: true, element: <Home />},
+  //     {path: 'shop/:category/:kind', element: <Shop />},
+  //     {path: 'shop/all/:category/page/:page', element: <Shop />},
+  //     {path: 'shop/product/:category/:kind/:id', element: <Product />},
+  //     {path: 'cart', element: <CartPage />},
+  //     {path: 'about us', element: <AboutPage />},
+  //     {path:'faq',
+  //       element:<FAQMain />,
+  //       children:[
+  //       {path:'placing-order-payment-method', element: <PlacingOrder/>},
+  //       {path: 'order-shipping', element: <OrderShipping />},
+  //       {path: 'order-status', element: <OrderStatus />},
+  //       {path: 'order-tracking', element: <OrderTracking />},
+  //       {path: 'order-changes-cancellation', element: <OrderChanges />},
+  //       {path: 'order-error-fixing', element: <OrderFixing />},
+  //       {path: 'guaranteed-satisfaction-returns-refund', element: <GuaranteedSatiscation />},
+  //       {path: 'stocking-restocking', element: <Stocking />},
+  //       {path: 'currency-conversion', element: <Currency />},
+  //       {path: 'fabric-care-stain-removal', element: <FabricCare />},
+  //       {path: 'difference-between-fabric-types', element: <DifferenceFabric />},
+  //       {path: 'instant-pre-sewn-hijabs', element: <InstantPremium />},
+  //       {path: 'customer-service-emails', element: <CustomerService />},
+  //       {path: 'sb-rewards-program', element: <SbRewards />},
+  //     ]},
+  //     {path: 'shipping', element: <Shipping />},
+  //     {path: 'returns', element: <Returns />},
+  //     {path: 'tutorials', element: <Tutorials />},
+  //     {path: 'privacy-policy', element: <PrivacyPolicy />},
+  //     {path: 'sign-up', element: <SignUp />},
+  //     {path: 'sign-in', element: <SignIn />}
+  //   ]}
+  // ]);
+
+  // return(
+  //   <RouterProvider router={router} />
+  // )
 }
 
 export default App;

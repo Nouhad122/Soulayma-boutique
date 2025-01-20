@@ -1,0 +1,67 @@
+.navInput {
+    width: 20vw;
+    position: relative;
+}
+.navInput input{
+    width: 100%;
+    height: 100%;
+    padding: 8px 7px;
+    font-size: .8rem;
+    outline: none;
+}
+.navInput input:focus {
+    border: solid 2px var(--second-color);
+}
+.scope, .xSearch {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    right: 5px;
+    width: 28px;
+    height: auto;
+    background-color: white;
+    color: grey;
+    padding: 5px;
+}
+.xSearch{
+    display: none;
+    font-size: 1.4rem !important;
+}
+.secondScope{
+    width: 28px;
+    height: auto;
+    color: var(--font-color);
+    padding: 5px;
+    display: none;
+}
+
+@media screen and (max-width: 1450px) {
+    .navInput input {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .scope {
+        display: none;
+    }
+    .xSearch {
+        display: block;
+    }
+    .secondScope{
+        display: block;
+    }
+    .navInput {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 3px;
+    }
+    .closedSearch{
+        display: none;
+    }
+}
