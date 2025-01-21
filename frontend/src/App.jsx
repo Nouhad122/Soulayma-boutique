@@ -1,6 +1,6 @@
 // import { createBrowserRouter, RouterProvider } from "react-router-dom"
-// import RootPage from "./Pages/RootPage"
-import Home from "./Pages/Home/Home"
+// import RootPage from "./Pages/RootPage.jsx"
+// import Home from "./Pages/Home/Home.jsx"
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';

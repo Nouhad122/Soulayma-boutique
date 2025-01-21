@@ -4,6 +4,7 @@ import classes from './Products.module.css';
 import Reviews from '../Secondary-Comps/Reviews';
 
 const Products = ({products, generateUrl}) => {
+
   return (
     <>
       {products.map(product => (
