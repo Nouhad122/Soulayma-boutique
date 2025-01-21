@@ -3,11 +3,18 @@ import ProductsCont from '../Products/ProductsCont.jsx';
 import products from '../../Products/products.json';
 import classes from '../Products/Products.module.css';
 import Button from '../Secondary-Comps/Button.jsx';
+import useFetch from '../../use/useFetch.js';
+import { shuffleArray } from '../../utils/helperFunctions.js';
 
 const BestSelling = () => {
-  const topSellIds = [10,96,82,169,97,158,42,176,32,64,77,5];
-  const bestSellings = products.filter(product => topSellIds.includes(product.id));
+  const {data: bSellings, error} = useFetch('http://localhost:5000/products?bestSelling=true');
+  const bestSellings = shuffleArray(bSellings).slice(0,12);
   const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
+
+  if(error){
+    return <p>{error}</p>
+  }
+  
   return (
     <div className={`${classes.productsContainer} ${classes.secondColor}`}>
         <ProductsCont

@@ -6,23 +6,46 @@ import HijabCategories from '../../Components/HijabCategories/HijabCategories.js
 import Benefits from '../../Components/Benifits/Benefits.jsx'
 import BestSelling from '../../Components/BestSelling/BestSelling.jsx'
 import SearchEnd from '../../Components/SearchEnd/SearchEnd.jsx'
-import products from '../../Products/products.json'
+import useFetch from '../../use/useFetch.js'
 
 const Home = () => {
-  const speakPureProducts = products.filter(product => product.title === "SpeakPure Set Satin Lined" || product.title === "SpeakPure Set Mesh Tie-Back");
-  const InstantJerseyProducts = products.filter(product => product.title === "Instant Premium Jersey Hijab");
+
+  const { data: speakPureProducts, error: speakPureError } = useFetch(
+      'http://localhost:5000/products?kind=SpeakPure Set Satin Lined'
+  );
+  const { data: instantJerseyProducts, error: instantJerseyError } = useFetch(
+      'http://localhost:5000/products?kind=Instant Hijabs'
+  );
+
   return (
-    <div className='homePage'>
-      <CarouselSlider/>
-      <ProductsSlider products={speakPureProducts}/>
-      <AbayasGlance/>
-      <HijabCategories/>
-      <Benefits/>
-      <ProductsSlider products={InstantJerseyProducts}/>
-      <BestSelling/>
-      <SearchEnd/>
-    </div>
-  )
-}
+      <div className="homePage">
+          <CarouselSlider />
+          {speakPureError ? (
+              <p>{speakPureError}</p>
+          ) : (
+              <ProductsSlider 
+                products={speakPureProducts}
+                sliderTitle="Featured Collection"
+                sliderSub="SpeakPure X Soulayma"
+               />
+          )}
+          <AbayasGlance />
+          <HijabCategories />
+          <Benefits />
+          {instantJerseyError ? (
+              <p>{instantJerseyError}</p>
+          ) : (
+              <ProductsSlider 
+                products={instantJerseyProducts}
+                sliderTitle="Exclusive Picks"
+                sliderSub="Instant Hijabs"
+              />
+          )}
+          <BestSelling />
+          <SearchEnd />
+      </div>
+  );
+};
+
 
 export default Home

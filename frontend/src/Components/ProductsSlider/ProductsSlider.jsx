@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
 
-const ProductsSlider = ({products}) => {
+const ProductsSlider = ({products, sliderTitle, sliderSub}) => {
     const scrollRef = useRef();
     const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 
@@ -10,8 +10,8 @@ const ProductsSlider = ({products}) => {
     <div className={classes.productsContainer}>
 
         <ProductsCont 
-          title="Featured Collection"
-          subTitle="SpeakPure X Soulayma"
+          title={sliderTitle}
+          subTitle={sliderSub}
           products={products}
           generateUrl={generateUrl}
           scrollRef={scrollRef}
