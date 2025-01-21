@@ -19,10 +19,10 @@ export const NavCategoriesData = [
       name: 'pins',
       title: 'Bags & Accessories',
       links: [
-        { path: '/shop/Hijab Pins/Hijab Pins', label: 'Hijab Pins' },
-        { path: '/shop/Arm & Neck Covers/Arm & Neck Covers', label: 'Arm & Neck Covers' },
-        { path: '/shop/Luxury Bags/Luxury Bags', label: 'Luxury Bags' },
-        { path: '/shop/Soulayma Accessories/Soulayma Accessories', label: 'Soulayma Accessories' },
+        { path: '/shop/Pins/Hijab Pins', label: 'Hijab Pins' },
+        { path: '/shop/Body-Covers/Arm and Neck Covers', label: 'Arm & Neck Covers' },
+        { path: '/shop/Bags/Luxury Bags', label: 'Luxury Bags' },
+        { path: '/shop/Accessories/Soulayma Accessories', label: 'Soulayma Accessories' },
       ],
     },
     {

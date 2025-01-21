@@ -3,17 +3,24 @@ import './FilterProducts.css';
 import { IoMdClose } from "react-icons/io";
 import Button from '../Secondary-Comps/Button';
 
-const FilterProducts = ({products, category, kind, page, openedFilter, setOpenedFilter, filterColor, setSearchParams}) => {
-    const colorsForFilter = products.filter(product =>{
-        const categoryMatch = product.category === category;
-        const kindMatch = product.kind === kind;
-         return page ? categoryMatch : product.category === 'Arm & Neck Covers' ||
-          product.category === 'Luxury Bags' || product.category === 'Soulayma Accessories' ?
-           categoryMatch : categoryMatch && kindMatch;
-        })
+const FilterProducts = ({products, filterColor, setColorParams, openedFilter, setOpenedFilter}) => {
 
-    const filterProductsByColor = (prodColor)=>{
-        filterColor = prodColor;
+    const handleSelectedColor = (color) =>{
+        setColorParams({filter: color})
+        filterColor = color;
+    }
+
+    const handleOpenFilter = () =>{
+        setOpenedFilter(true);
+    }
+
+    const handleCloseFilter = () =>{
+        setOpenedFilter(false);
+    }
+
+    const handleResetFilter = () =>{
+        setColorParams({});
+        setOpenedFilter(false);
     }
     
   return (
@@ -21,25 +28,24 @@ const FilterProducts = ({products, category, kind, page, openedFilter, setOpened
         <div className= {`${openedFilter ? 'opened-filter-colors filter-colors' : 'filter-colors'}`}>
             <div className='filter-title'>
                <h1>Filter By Color</h1> 
-               <IoMdClose onClick={() => setOpenedFilter(false)} className='filter-x-mark'/>
+               <IoMdClose onClick={handleCloseFilter} className='filter-x-mark'/>
             </div>
             
             <div className='colors-in'>
             {
-                colorsForFilter.map((product, index, array) =>(
-                    array.findIndex(item => item.color === product.color) === index ?
-                     <p onClick={() => {filterProductsByColor(product.color); setSearchParams({filter: product.color})}} className= {`${filterColor === product.color ? 'active-color': ''}`} key={product.id}>{product.color}</p> 
-                     : null
+                products.map((product,index,array) =>(
+                    array.findIndex(item => item.color === product.color) === index &&
+                    <p key={product.id} onClick={() => handleSelectedColor(product.color)}>{product.color}</p>
                 ))
-            } 
+            }
             </div>
             
-            <Button absoluteBtn={true} onClick={() => {setSearchParams({}); setOpenedFilter(false)}} className='reset-btn'>
+            <Button absoluteBtn={true} onClick={handleResetFilter} className='reset-btn'>
                 Reset
             </Button>
            
         </div>
-        <Button onClick={() => setOpenedFilter(true)} className='filter-btn'>Filter</Button>
+        <Button onClick={handleOpenFilter} className='filter-btn'>Filter</Button>
     </div>
   )
 }

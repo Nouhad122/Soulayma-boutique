@@ -1,67 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import FilterProducts from '../../Components/FilterProducts/FilterProducts.jsx';
 import { useParams, useSearchParams } from 'react-router-dom';
-import products from '../../Products/products.json';
 import ShopProducts from '../../Components/ShopProducts/ShopProducts.jsx';
-import TestShopProducts from '../../Components/ShopProducts/testShopProducts.jsx'
+
 
 const Shop = ({ openedFilter, setOpenedFilter }) => {
   const [dummyProducts, setDummyProducts] = useState([]);
-  const [error, setError] = useState(null); 
-  
-  const { category = '', kind = '', page } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const filterColor = searchParams.get('filter');
-
- useEffect(() => {
-    if (filterColor) {
-      setOpenedFilter(false);
-    }
-  }, [filterColor, setOpenedFilter]);
+  const [error, setError] = useState();
+  const { category= '', kind = '' } = useParams();
+  const [colorParams, setColorParams] = useSearchParams();
 
 
-  useEffect(() =>{
-    const fetchPoruducts = async () =>{
-      try{
-        const response = await fetch(`http://localhost:5000/products?category=${category}&kind=${kind}`);
-        if(!response.ok){
-          throw new Error({message: "An error occured with the response"});
+  const filterColor = colorParams.get('filter');
+
+    useEffect(() =>{
+      const fetchPoruducts = async () =>{
+        try{
+          const response = await fetch(`http://localhost:5000/products?category=${category}&kind=${kind}`);
+          if(!response.ok){
+            throw new Error({message: "An error occured with the response"});
+          }
+          const resData = await response.json();
+          setDummyProducts(resData);
         }
-        const resData = await response.json();
-        setDummyProducts(resData);
-      }
-      catch(error){
-        setError('Failed to fetch products');
-        console.error('Error fetching products:', error);
-      }
-      
+        catch(error){
+          setError('Failed to fetch products');
+          console.error('Error fetching products:', error);
+        }
     }
     fetchPoruducts();
-  }, []);
+  }, [category, kind]);
 
   return (
     <div>
-      <FilterProducts
+      {/* <FilterProducts
         category={category}
         kind={kind}
-        products={dummyProducts}
+        products={products}
         page = {page}
         openedFilter={openedFilter}
         setOpenedFilter={setOpenedFilter}
         filterColor = {filterColor}
         setSearchParams={setSearchParams}
       />
-      {/* <ShopProducts
+      <ShopProducts
         category={category}
         page={page}
         kind={kind}
+        products={products}
         filterColor = {filterColor}
       /> */}
-      <TestShopProducts 
+      <FilterProducts 
         products={dummyProducts}
+        openedFilter={openedFilter}
+        setOpenedFilter={setOpenedFilter}
+        filterColor={filterColor}
+        setColorParams={setColorParams}
       />
-      
+      <ShopProducts 
+        products={dummyProducts}
+        filterColor={filterColor}
+      />
     </div>
   );
 };
