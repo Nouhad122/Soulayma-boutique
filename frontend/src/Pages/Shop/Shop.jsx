@@ -5,7 +5,7 @@ import ShopProducts from '../../Components/ShopProducts/ShopProducts.jsx';
 
 
 const Shop = ({ openedFilter, setOpenedFilter }) => {
-  const [dummyProducts, setDummyProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [error, setError] = useState();
   const { category= '', kind = '' } = useParams();
   const [colorParams, setColorParams] = useSearchParams();
@@ -21,7 +21,7 @@ const Shop = ({ openedFilter, setOpenedFilter }) => {
             throw new Error({message: "An error occured with the response"});
           }
           const resData = await response.json();
-          setDummyProducts(resData);
+          setProducts(resData);
         }
         catch(error){
           setError('Failed to fetch products');
@@ -33,32 +33,15 @@ const Shop = ({ openedFilter, setOpenedFilter }) => {
 
   return (
     <div>
-      {/* <FilterProducts
-        category={category}
-        kind={kind}
-        products={products}
-        page = {page}
-        openedFilter={openedFilter}
-        setOpenedFilter={setOpenedFilter}
-        filterColor = {filterColor}
-        setSearchParams={setSearchParams}
-      />
-      <ShopProducts
-        category={category}
-        page={page}
-        kind={kind}
-        products={products}
-        filterColor = {filterColor}
-      /> */}
       <FilterProducts 
-        products={dummyProducts}
+        products={products}
         openedFilter={openedFilter}
         setOpenedFilter={setOpenedFilter}
         filterColor={filterColor}
         setColorParams={setColorParams}
       />
       <ShopProducts 
-        products={dummyProducts}
+        products={products}
         filterColor={filterColor}
       />
     </div>
