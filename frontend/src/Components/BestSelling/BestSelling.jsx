@@ -1,13 +1,14 @@
 import React from 'react';
 import ProductsCont from '../Products/ProductsCont.jsx';
-import products from '../../Products/products.json';
 import classes from '../Products/Products.module.css';
 import Button from '../Secondary-Comps/Button.jsx';
 import useFetch from '../../use/useFetch.js';
 import { shuffleArray } from '../../utils/helperFunctions.js';
 
+const requestConfig = {};
+
 const BestSelling = () => {
-  const {data: bSellings, error} = useFetch('http://localhost:5000/products?bestSelling=true');
+  const {data: bSellings, error} = useFetch('http://localhost:5000/products?bestSelling=true', requestConfig, []);
   const bestSellings = shuffleArray(bSellings).slice(0,12);
   const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 

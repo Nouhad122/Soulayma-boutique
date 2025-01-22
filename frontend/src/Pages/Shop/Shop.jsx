@@ -4,6 +4,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import ShopProducts from '../../Components/ShopProducts/ShopProducts.jsx';
 import useFetch from '../../use/useFetch.js';
 
+const requestConfig = {};
 
 const Shop = ({ openedFilter, setOpenedFilter }) => {
   const { category= '', kind = '' } = useParams();
@@ -11,7 +12,8 @@ const Shop = ({ openedFilter, setOpenedFilter }) => {
 
   const filterColor = colorParams.get('filter');
 
-  const { data: products, error } = useFetch(`http://localhost:5000/products?category=${category}&kind=${kind}`);
+  const { data: products, error } =
+   useFetch(`http://localhost:5000/products?category=${category}&kind=${kind}`,requestConfig, []);
 
   if(error){
     return <p>{error}</p>

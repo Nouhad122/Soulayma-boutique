@@ -1,24 +1,27 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import classes from './ProductColors.module.css';
+import useFetch from '../../use/useFetch.js';
 
-const ProductColors = ({chosenProduct, products, kind, id}) => {
+const requestConfig = {};
+
+const ProductColors = ({chosenProduct}) => {
+  const { id, kind } = useParams();
     const navigate = useNavigate();
+    const { data: kindProducts } = useFetch(`http://localhost:5000/products?kind=${kind}`,requestConfig, []);
   return (
     <>
         <div className={classes.productColor}>
-            <p>Color: {chosenProduct.colorCode}</p>
+            <p>Color: {chosenProduct.color}</p>
         </div>
 
         <div className={classes.otherColors}>
             {   
-              products.map(product =>(
-                product.kind === kind ?
+              kindProducts.map(product =>(
                 <div onClick={() => navigate(`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`)}
-                 key={product.id} className={`${classes.color} ${product.id === Number(id) ? `${classes.chosenColor}` : ''}`}
+                 key={product.id} className={`${classes.color} ${product.id === id ? `${classes.chosenColor}` : ''}`}
                   style={{backgroundColor: product.colorCode}}>
                 </div>
-                : null
               ))
             }
         </div>

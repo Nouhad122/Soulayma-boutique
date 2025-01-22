@@ -8,13 +8,15 @@ import BestSelling from '../../Components/BestSelling/BestSelling.jsx'
 import SearchEnd from '../../Components/SearchEnd/SearchEnd.jsx'
 import useFetch from '../../use/useFetch.js'
 
+const requestConfig = {};
+
 const Home = () => {
 
   const { data: speakPureProducts, error: speakPureError } = useFetch(
-      'http://localhost:5000/products?kind=SpeakPure Set Satin Lined'
+      'http://localhost:5000/products?kind=SpeakPure Set Satin Lined', requestConfig, []
   );
   const { data: instantJerseyProducts, error: instantJerseyError } = useFetch(
-      'http://localhost:5000/products?kind=Instant Hijabs'
+      'http://localhost:5000/products?kind=Instant Hijabs', requestConfig, []
   );
 
   return (

@@ -8,7 +8,7 @@ import Reviews from '../Secondary-Comps/Reviews';
 import { useDispatch } from 'react-redux';
 import { addToCartAction } from '../../redux/actions/cartActions';
 
-const ProductDetails = ({chosenProduct, products, kind, id }) => {
+const ProductDetails = ({chosenProduct }) => {
     const dispatch = useDispatch();
     const addToCart = () =>{
         dispatch(addToCartAction(chosenProduct));
@@ -25,9 +25,6 @@ const ProductDetails = ({chosenProduct, products, kind, id }) => {
 
                 <ProductColors 
                     chosenProduct={chosenProduct}
-                    products={products}
-                    kind={kind}
-                    id={id}
                 />
 
                 <Button onClick={addToCart} className={classes.addCartBtn}>Add To Cart</Button>

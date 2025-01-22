@@ -51,16 +51,17 @@ const ProductImages = ({chosenProduct, setOpenedFullImage}) => {
 
   return (
     <>
-      <div className={classes.productImages} ref={productImagesRef}>
-              <img onClick={() => setOpenedFullImage({isOpen:true, image:1})} src={chosenProduct.image1} alt='' ref={point1Ref}/>
-              <img onClick={() => setOpenedFullImage({isOpen:true, image:2})} src={chosenProduct.image2} alt='' ref={point2Ref}/>
-      </div>
+        <div className={classes.productImages} ref={productImagesRef}>
+                <img onClick={() => setOpenedFullImage({isOpen:true, image:1})} src={chosenProduct.image1} alt='' ref={point1Ref}/>
+                <img onClick={() => setOpenedFullImage({isOpen:true, image:2})} src={chosenProduct.image2} alt='' ref={point2Ref}/>
+        </div>
 
       <ImagesPoints 
         handlePointClick={handlePointClick}
         activePoint={activePoint}
       />
     </>
+  
   )
 }
 

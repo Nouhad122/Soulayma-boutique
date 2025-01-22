@@ -8,13 +8,13 @@ const NavigationLink = ({ categoryName }) => {
     const [openedCategory, setOpenedCategory] = useState(false);
 
   const handleMouseEnter = () => {
-    if (window.innerWidth >= 1250){
+    if (window.innerWidth >= 820){
         setOpenedCategory(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth >= 1250){
+    if (window.innerWidth >= 820){
       setTimeout(() => {
           setOpenedCategory(false);
       }, 100);
