@@ -60,7 +60,7 @@
     }
 }
 
-@media screen and (max-width: 819px) {
+@media screen and (max-width: 860px) {
     .navbar {
         padding: 0 5%;
         background-color: var(--fifth-color);

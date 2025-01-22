@@ -65,7 +65,7 @@ a:hover{
     }
 }
 
-@media screen and (max-width: 819px){
+@media screen and (max-width: 860px){
     .linkContainer{
         border-bottom: solid 1px var(--font-color);
     }
