@@ -5,8 +5,9 @@ import { IoIosLock } from "react-icons/io";
 import './ShoppingCart.css';
 import Button from '../Secondary-Comps/Button';
 
+
 const ShoppingCart = () => {
-  const cart = useSelector(state => state.cart.products);
+  const cartProducts = useSelector(state => state.cart.products);
   const cartTotal = useSelector(state => state.cart.totalPriceOfAllProducts);
 
   return (
@@ -14,7 +15,7 @@ const ShoppingCart = () => {
       <div className='cart-text'>
           <h1>Cart</h1>
       </div>
-      {cart.length > 0 ? (
+      {cartProducts.length > 0 ? (
         <div className='table-container'>
         <table className="cart-table">
           <thead>
@@ -26,15 +27,17 @@ const ShoppingCart = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map(product => (
+            {cartProducts.map(product => (
              <CartProd
               key={product.id}
-              id={product.id}
-              title={product.title}
-              image1={product.image1}
-              price={product.price}
-              totalPrice={product.totalPrice}
-              quantity={product.quantity}
+              product={{ 
+                id: product.id,
+                title: product.title,
+                image1: product.image1,
+                quantity: product.quantity,
+                totalPrice: product.totalPrice,
+                price: product.price 
+              }}
              />
             ))}
           </tbody>

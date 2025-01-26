@@ -6,13 +6,13 @@ import ProductSpecifics from './ProductSpecifics';
 import classes from './ProductDetails.module.css';
 import Reviews from '../Secondary-Comps/Reviews';
 import { useDispatch } from 'react-redux';
-import { cartActions } from '../../redux-toolkit/cart-slice';
+import { cartSliceActions } from '../../redux-toolkit/cart-slice';
 
 const ProductDetails = ({chosenProduct }) => {
     const dispatch = useDispatch();
 
     const handleAddToCart = () =>{
-        dispatch(cartActions.addToCart({
+        dispatch(cartSliceActions.addToCart({
             id: chosenProduct.id,
             title: chosenProduct.title,
             image1: chosenProduct.image1,

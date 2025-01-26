@@ -8,11 +8,11 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import ScrollToTop from './Components/Secondary-Comps/ScrollToTop.jsx';
-import { Provider } from 'react-redux';
-import store from './redux-toolkit/store.js';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage.jsx';
 import SearchedProducts from './Components/SearchProducts/SearchedProducts.jsx';
 import ChatBotPage from './Pages/ChatBotPage/ChatBotPage.jsx';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData, sendData } from './redux-toolkit/cartActions.js';
 
 const Home = lazy(() => import('../src/Pages/Home/Home.jsx'));
 const Shop = lazy(() => import('./Pages/Shop/Shop.jsx'));
@@ -42,7 +42,29 @@ const SbRewards = lazy(() => import('./Pages/FooterPages/FAQPages/SbRewards.jsx'
 const SignIn = lazy(() => import('./Pages/RegistrationPages/SignIn.jsx'));
 const SignUp = lazy(() => import('./Pages/RegistrationPages/SignUp.jsx'));
 
+let isInitial = true;
 function App() {
+  const cart = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+
+  useEffect(() =>{
+    dispatch(fetchData());
+  },[dispatch])
+
+  useEffect(() =>{
+    if(isInitial){
+      isInitial = false;
+      return;
+    }
+
+    if(cart.changed){
+      dispatch(sendData(cart));
+    }
+  },[cart, dispatch])
+
+
+
+
   const [openedList, setOpenedList] = useState(false);
   const [openedFilter, setOpenedFilter] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -67,7 +89,6 @@ function App() {
   }, [location]);
 
   return (
-    <Provider store={store}>
       <div className={`App ${openedList || openedFullImage.isOpen || openedFilter || inpValue ? 'no-scrolling' : ''}`}>
         <div onClick={() => { setOpenedList(false); setOpenedFilter(false) }} className={`blur-cover ${!(openedList || openedFilter) ? 'hidden-blur' : ''}`}></div>
         <Navbar openedList={openedList} setOpenedList={setOpenedList} inpValue={inpValue} setInpValue={setInpValue} />
@@ -116,7 +137,6 @@ function App() {
           }
         </Suspense>
       </div>
-    </Provider>
   );
 
 

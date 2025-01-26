@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaShoppingBag }from "react-icons/fa";
@@ -7,16 +7,19 @@ import './NavigationLink.module.css';
 
 const CartIcon = () => {
   const cartTotalQuantity = useSelector(state => state.cart.totalQuantity);
-  const fixedTotal = cartTotalQuantity <= 99 ? cartTotalQuantity : 99 + '+'; 
+  const isCartEmpty = useSelector(state => state.cart.products.length === 0);
+
+  const fixedTotal = isCartEmpty ? 0 : (cartTotalQuantity <= 99 ? cartTotalQuantity : '99+');
 
   return (
     <div className={classes.cartCont}>
-              <Link to={'/cart'}>
-              <FaShoppingBag className='shopping-bag' />
-              </Link>
-              <p className='bag-count'>({fixedTotal})</p>
+      <Link to={'/cart'}>
+        <FaShoppingBag className='shopping-bag' />
+      </Link>
+      <p className='bag-count'>({fixedTotal})</p>
     </div>
-  )
-}
+  );
+};
+
 
 export default CartIcon

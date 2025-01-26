@@ -2,13 +2,14 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { VscTrash } from "react-icons/vsc"
 import { FaPlus, FaMinus } from "react-icons/fa"
-import { cartActions } from '../../redux-toolkit/cart-slice'
+import { cartSliceActions } from '../../redux-toolkit/cart-slice'
 
-const CartProd = ({ id, title, image1, price, totalPrice, quantity }) => {
+const CartProd = (props) => {
+    const {id, title, image1, price, totalPrice, quantity} = props.product;
     const dispatch = useDispatch();
 
     const handleAddToCart = () =>{
-        dispatch(cartActions.addToCart({
+        dispatch(cartSliceActions.addToCart({
             id: id,
             title: title,
             image1: image1,
@@ -17,11 +18,11 @@ const CartProd = ({ id, title, image1, price, totalPrice, quantity }) => {
     }
     
     const handleCountReduction = () =>{
-        dispatch(cartActions.reduceProdCountFromCart(id));
+        dispatch(cartSliceActions.reduceProdCountFromCart(id));
     }
 
     const handleRemoveFromCart = () =>{
-        dispatch(cartActions.removeFromCart(id));
+        dispatch(cartSliceActions.removeFromCart(id));
     }
 
   return (
@@ -35,7 +36,7 @@ const CartProd = ({ id, title, image1, price, totalPrice, quantity }) => {
         {quantity}
         <button onClick={handleAddToCart}><FaPlus /></button>
         </td>
-        <td>{totalPrice.toFixed(2)}$</td>
+        <td>{totalPrice}$</td>
         <td>
         <VscTrash onClick={handleRemoveFromCart} className='cart-trash' size={20} />
         </td>
