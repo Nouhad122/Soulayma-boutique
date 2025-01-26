@@ -11,23 +11,23 @@ const requestConfig = {};
 
 const Product = ({openedFullImage, setOpenedFullImage}) => {
 
-  const { category, id } = useParams();
+  const { id } = useParams();
 
-  const { data: chosenProduct } = useFetch(`http://localhost:5000/products?id=${id}`, requestConfig, []);
-
+  const { data } = useFetch(`http://localhost:5000/products?id=${id}`, requestConfig, []);
+  const chosenProduct = data[0];
   return (
     <>
     {
-    chosenProduct[0] &&
+    chosenProduct &&
     <div className='productPage'>
       <div className={classes.productContainer}>
           <ProductImages 
-              chosenProduct={chosenProduct[0]}
+              chosenProduct={chosenProduct}
               setOpenedFullImage={setOpenedFullImage}
           />
 
           <ProductDetails 
-              chosenProduct={chosenProduct[0]}
+              chosenProduct={chosenProduct}
           />
       </div>
 
@@ -35,7 +35,7 @@ const Product = ({openedFullImage, setOpenedFullImage}) => {
 
     {
       openedFullImage.isOpen &&(
-      <FullImage openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage} chosenProduct = {chosenProduct[0]}/>
+      <FullImage openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage} chosenProduct = {chosenProduct}/>
       )
     }
   </div>

@@ -9,7 +9,7 @@ import Navbar from './Components/Navbar/Navbar.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import ScrollToTop from './Components/Secondary-Comps/ScrollToTop.jsx';
 import { Provider } from 'react-redux';
-import { store } from './redux';
+import store from './redux-toolkit/store.js';
 import LoadingPage from './Components/Secondary-Comps/LoadingPage.jsx';
 import SearchedProducts from './Components/SearchProducts/SearchedProducts.jsx';
 import ChatBotPage from './Pages/ChatBotPage/ChatBotPage.jsx';

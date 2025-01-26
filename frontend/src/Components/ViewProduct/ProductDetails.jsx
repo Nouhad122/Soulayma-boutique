@@ -6,13 +6,20 @@ import ProductSpecifics from './ProductSpecifics';
 import classes from './ProductDetails.module.css';
 import Reviews from '../Secondary-Comps/Reviews';
 import { useDispatch } from 'react-redux';
-import { addToCartAction } from '../../redux/actions/cartActions';
+import { cartActions } from '../../redux-toolkit/cart-slice';
 
 const ProductDetails = ({chosenProduct }) => {
     const dispatch = useDispatch();
-    const addToCart = () =>{
-        dispatch(addToCartAction(chosenProduct));
-    }
+
+    const handleAddToCart = () =>{
+        dispatch(cartActions.addToCart({
+            id: chosenProduct.id,
+            title: chosenProduct.title,
+            image1: chosenProduct.image1,
+            price: chosenProduct.price,
+        }))
+        }
+
   return (
     <div className={classes.productDetails}>
             <Reviews />
@@ -27,7 +34,7 @@ const ProductDetails = ({chosenProduct }) => {
                     chosenProduct={chosenProduct}
                 />
 
-                <Button onClick={addToCart} className={classes.addCartBtn}>Add To Cart</Button>
+                <Button onClick={handleAddToCart} className={classes.addCartBtn}>Add To Cart</Button>
                 <p className={classes.freeShipping}>free shipping on orders over $50</p>
                 <p className={classes.estimatedDelivery}>Estimated delivery to , <strong>October 21 - November 5</strong></p>
             </div>

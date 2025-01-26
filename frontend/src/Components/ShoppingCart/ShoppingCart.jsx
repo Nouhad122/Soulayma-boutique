@@ -1,42 +1,13 @@
-import React, {useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { VscTrash } from "react-icons/vsc";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import React from 'react';
+import CartProd from './CartProd';
+import { useSelector } from 'react-redux';
 import { IoIosLock } from "react-icons/io";
-import { useNavigate } from 'react-router-dom';
-import { decreaseQuantityAction, increaseQuantityAction, removeFromCartAction, setCartFromStorageAction } from '../../redux/actions/cartActions';
 import './ShoppingCart.css';
 import Button from '../Secondary-Comps/Button';
 
 const ShoppingCart = () => {
-  const navigate = useNavigate();
-  const { cart, cartTotal } = useSelector(state => state);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-  const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
-  if (savedCart.length > 0) {
-    dispatch(setCartFromStorageAction(savedCart));
-  }
-}, [dispatch]);
-
-useEffect(() => {
-  localStorage.setItem('cart', JSON.stringify(cart));
-}, [cart]);
-
-  
-  const removeFromCart = (product) => {
-    dispatch(removeFromCartAction(product.id));
-  };
-  
-  const increaseQuantity = (product) =>{
-    dispatch(increaseQuantityAction(product.id));
-  }
-
-  const decreaseQuantity = (product) =>{
-    dispatch(decreaseQuantityAction(product.id));
-  }
+  const cart = useSelector(state => state.cart.products);
+  const cartTotal = useSelector(state => state.cart.totalPriceOfAllProducts);
 
   return (
     <div className='shopping-cart'>
@@ -56,21 +27,15 @@ useEffect(() => {
           </thead>
           <tbody>
             {cart.map(product => (
-              <tr key={product.id}>
-                <td>
-                  <img src={product.image1} alt={product.title} className="cart-image" />
-                  <span>{product.title}</span>
-                </td>
-                <td>
-                  <button onClick={() => decreaseQuantity(product)}><FaMinus/></button>
-                  {product.quantity}
-                  <button onClick={() => increaseQuantity(product)}><FaPlus/></button>
-                </td>
-                <td>{(product.price * product.quantity).toFixed(2)}$</td>
-                <td>
-                  <VscTrash className='cart-trash' size={20} onClick={() => removeFromCart(product)} />
-                </td>
-              </tr>
+             <CartProd
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              image1={product.image1}
+              price={product.price}
+              totalPrice={product.totalPrice}
+              quantity={product.quantity}
+             />
             ))}
           </tbody>
         </table>
