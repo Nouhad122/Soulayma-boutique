@@ -29,7 +29,6 @@ img {
 }
 
 
-
 @media screen and (max-width: 860px) {
     .menuBars{
         display: block;
@@ -45,7 +44,6 @@ img {
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column;
-        z-index: 901;
         padding: 4rem 3%;
         margin-top: 0;
         -webkit-transform: translateX(-100%);

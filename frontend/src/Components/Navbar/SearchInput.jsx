@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
 import classes from './SearchInput.module.css';
+import SideCompContext from '../../store/sideCompContext.jsx';
 
-const SearchInput = ({setOpenedList, inpValue, setInpValue}) => {
+const SearchInput = ({inpValue, setInpValue}) => {
+  const NavListController = useContext(SideCompContext);
   const searchRef = useRef();
   const [openedSearch, setOpenedSearch] = useState(false);
 
@@ -12,7 +14,7 @@ const SearchInput = ({setOpenedList, inpValue, setInpValue}) => {
     }
     else{
         setOpenedSearch(true);
-        setOpenedList(false);
+        NavListController.hideList();
         searchRef.current.focus();
     }
   }

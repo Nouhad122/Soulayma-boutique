@@ -1,5 +1,2 @@
-1-zabbet l NavigationLink
-l onMouseEnter w onMouseLeave, w khalli l oepenedCategories mn l App tnmaha baad l tzbit
- l classes li ma ela lzum naddefa
-aandak l animation tabaa l opacity
-kammel tzbit l shakel
+next: open and set open filter
+and other issues in App cleaning

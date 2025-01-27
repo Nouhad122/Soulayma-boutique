@@ -28,23 +28,7 @@ body{
     font-family: var(--body-font);
 }
 
-.no-scrolling{
-    overflow: hidden !important;
-    height: 100vh !important;
-}
-
 a{
     text-decoration: none;
 }
-.blur-cover{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.466);
-    z-index: 900;
-}
-.hidden-blur{
-    display: none;
-}
+

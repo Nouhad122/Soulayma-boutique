@@ -4,14 +4,18 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './redux-toolkit/store.js';
 import App from './App.jsx'
+import { SideCompContextProvider } from './store/SideCompContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
+  <SideCompContextProvider>
+    <Provider store={store}>
      <StrictMode>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-  </StrictMode>
-  </Provider>
+    </StrictMode>
+    </Provider>
+  </SideCompContextProvider>
+  
  
 )

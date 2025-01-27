@@ -62,10 +62,6 @@ function App() {
     }
   },[cart, dispatch])
 
-
-
-
-  const [openedList, setOpenedList] = useState(false);
   const [openedFilter, setOpenedFilter] = useState(false);
   const [loading, setLoading] = useState(true);
   const [openedFullImage, setOpenedFullImage] = useState({ isOpen: false, image: 1 });
@@ -79,7 +75,6 @@ function App() {
 
   useEffect(() => {
     setInpValue('');
-    setOpenedList(false);
     setLoading(true);
     setOpenedFilter(false);
     const timer = setTimeout(() => { setLoading(false) }, 1000);
@@ -89,9 +84,9 @@ function App() {
   }, [location]);
 
   return (
-      <div className={`App ${openedList || openedFullImage.isOpen || openedFilter || inpValue ? 'no-scrolling' : ''}`}>
-        <div onClick={() => { setOpenedList(false); setOpenedFilter(false) }} className={`blur-cover ${!(openedList || openedFilter) ? 'hidden-blur' : ''}`}></div>
-        <Navbar openedList={openedList} setOpenedList={setOpenedList} inpValue={inpValue} setInpValue={setInpValue} />
+    <div className='App'>
+      {/* <div className={`App ${ openedFullImage.isOpen || openedFilter || inpValue ? 'no-scrolling' : ''}`}> */}
+        <Navbar inpValue={inpValue} setInpValue={setInpValue} />
         {inpValue && <SearchedProducts searchInput={inpValue} />}
         <ScrollToTop location={location} />
         <Suspense>
@@ -136,7 +131,9 @@ function App() {
               )
           }
         </Suspense>
-      </div>
+      {/* </div> */}
+    </div>
+      
   );
 
 
