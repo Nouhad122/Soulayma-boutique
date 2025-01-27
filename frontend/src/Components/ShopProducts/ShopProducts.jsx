@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Pagination from '../../utils/Pagination.jsx';
 import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
+import usePagination from '../../use/usePagination.js';
 
 const ShopProducts = ({products, filterColor}) => {
   const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
@@ -15,21 +16,12 @@ const ShopProducts = ({products, filterColor}) => {
 
   //pagination
   const navigate = useNavigate();
-  const [productsPerPage, setProductsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setProductsPerPage(window.innerWidth > 1600 ? 25 : 24);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const [productsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
 
   const currentPage = Math.max(parseInt(page, 10) || 1, 1);
 
-  const totalPages = Math.ceil(filteredProductsByColor.length / productsPerPage);
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const currentProducts = filteredProductsByColor.slice(startIndex, startIndex + productsPerPage);
+  const { totalPages, currentProducts } = usePagination(filteredProductsByColor, productsPerPage, currentPage);
 
   const goToPage = (pageNumber) => {
     navigate(`/shop/all/${category}/page/${pageNumber}`);
