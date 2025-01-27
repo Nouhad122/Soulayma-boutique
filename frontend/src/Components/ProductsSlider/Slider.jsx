@@ -15,8 +15,7 @@ const Slider = ({scrollRef, children}) => {
         <>
         {scrollRef && <FaLessThan onClick={scrollLeft} className={classes.leftIcon}/>}
         {children}
-        {scrollRef && <FaGreaterThan onClick={scrollRight} className={classes.rightIcon}/>}
-          
+        {scrollRef && <FaGreaterThan onClick={scrollRight} className={classes.rightIcon}/>} 
         </>
       )
 }

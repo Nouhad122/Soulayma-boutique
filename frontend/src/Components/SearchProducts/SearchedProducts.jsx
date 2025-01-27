@@ -1,57 +1,48 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import classes from '../Products/Products.module.css';
 import Pagination from '../../utils/Pagination.jsx';
 import shopClasses from '../ShopProducts/ShopProducts.module.css';
-import products from '../../Products/products.json';
-import ProductsCont from '../Products/ProductsCont.jsx';
+import useFetch from "../../use/useFetch.js";
+import useFilteredProducts from '../../use/useFilteredProducts';
+import usePagination from '../../use/usePagination';
+import useScrollToTop from '../../use/useScrollToTop';
+import ProductList from './ProductList.jsx';
+
+const requestConfig = {};
 
 const SearchedProducts = ({ searchInput }) => {
-  const sProducts = useRef();
   const [productsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
   const [currentPage, setCurrentPage] = useState(1);
+  
+  const { data: products, isLoading, error } = useFetch('http://localhost:5000/products', requestConfig, []);
 
-  const editedInput = searchInput.replace(/\s+/g, "").toLowerCase();
-  const filteredProducts = products.filter((product) =>
-    ['title', 'color', 'category'].some(key => product[key].replace(/\s+/g, "").toLowerCase().includes(editedInput))
-  );
-
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
+  const filteredProducts = useFilteredProducts(products, searchInput);
+  const { totalPages, currentProducts } = usePagination(filteredProducts, productsPerPage, currentPage);
+  const sProducts = useScrollToTop([currentPage]);
 
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  
-  useEffect(() =>{
-    sProducts.current.scrollTo(0,0);
-  },[currentPage])
 
   const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div ref={sProducts} className={`${shopClasses.searchedProducts}`}>
       <div className={classes.productsContainer}>
-        {
-          currentProducts.length > 0 ?
-          <ProductsCont
-            products={currentProducts}
-            generateUrl={generateUrl}
-          />
-          :
-          <p className={shopClasses.noProductsFound}><span>No Products Found</span></p>
-        }
+        <ProductList products={currentProducts} generateUrl={generateUrl} />
 
-      {filteredProducts.length > productsPerPage && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-        />
-      )}
+        {filteredProducts.length > productsPerPage && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={goToPage}
+          />
+        )}
       </div>
     </div>
-
   );
 };
 
