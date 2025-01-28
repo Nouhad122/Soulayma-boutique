@@ -7,7 +7,7 @@ import CartIcon from './CartIcon.jsx';
 import Modal from '../Secondary-Comps/Modal.jsx';
 import SideCompContext from '../../store/SideCompContext.jsx';
 
-const Navbar = ({searchRef}) => {
+const Navbar = () => {
   const sideCompController = useContext(SideCompContext);
   
   useEffect(() => {

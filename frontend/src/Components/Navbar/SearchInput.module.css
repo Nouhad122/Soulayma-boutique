@@ -24,6 +24,7 @@
     background-color: white;
     color: grey;
     padding: 5px;
+    cursor: pointer;
 }
 .xSearch{
     display: none;
@@ -35,6 +36,7 @@
     color: var(--font-color);
     padding: 5px;
     display: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1450px) {
