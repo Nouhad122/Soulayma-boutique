@@ -64,7 +64,6 @@ function App() {
     }
   },[cart, dispatch])
 
-  const [openedFilter, setOpenedFilter] = useState(false);
   const [loading, setLoading] = useState(true);
   const [openedFullImage, setOpenedFullImage] = useState({ isOpen: false, image: 1 });
 
@@ -78,7 +77,7 @@ function App() {
     sideCompController.hideList();
     sideCompController.emptyInput();
     setLoading(true);
-    setOpenedFilter(false);
+    sideCompController.hideFilter();
     const timer = setTimeout(() => { setLoading(false) }, 1000);
     return () => {
       clearTimeout(timer);
@@ -87,7 +86,6 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <div className={`App ${ openedFullImage.isOpen  ? 'no-scrolling' : ''}`}> */}
         <Navbar />
         {sideCompController.inputValue && <SearchedProducts />}
         <ScrollToTop location={location} />

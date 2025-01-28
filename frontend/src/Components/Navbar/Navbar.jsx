@@ -11,8 +11,6 @@ const Navbar = ({searchRef}) => {
   const sideCompController = useContext(SideCompContext);
   
   useEffect(() => {
-    // sideCompController.hideList;
-
     const handleResize = () => sideCompController.hideList();
     window.addEventListener('resize', handleResize);
 

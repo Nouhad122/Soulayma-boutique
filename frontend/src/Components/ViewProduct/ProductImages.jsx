@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import classes from './productImages.module.css';
 import ImagesPoints from './ImagesPoints';
+import SideCompContext from '../../store/sideCompContext';
 
-const ProductImages = ({chosenProduct, setOpenedFullImage}) => {
-
+const ProductImages = ({ chosenProduct }) => {
+    const sideCompController = useContext(SideCompContext);
     const [activePoint, setActivePoint] = useState('point1');
     
     const point1Ref = useRef();
@@ -52,8 +53,8 @@ const ProductImages = ({chosenProduct, setOpenedFullImage}) => {
   return (
     <>
         <div className={classes.productImages} ref={productImagesRef}>
-                <img onClick={() => setOpenedFullImage({isOpen:true, image:1})} src={chosenProduct.image1} alt='' ref={point1Ref}/>
-                <img onClick={() => setOpenedFullImage({isOpen:true, image:2})} src={chosenProduct.image2} alt='' ref={point2Ref}/>
+                <img onClick={sideCompController.openFirstImage} src={chosenProduct.image1} alt='' ref={point1Ref}/>
+                <img onClick={sideCompController.openSecondImage} src={chosenProduct.image2} alt='' ref={point2Ref}/>
         </div>
 
       <ImagesPoints 
