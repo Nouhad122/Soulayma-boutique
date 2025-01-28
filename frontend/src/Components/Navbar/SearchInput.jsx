@@ -1,7 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
 import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
 import classes from './SearchInput.module.css';
-import SideCompContext from '../../store/sideCompContext.jsx';
+import SideCompContext from '../../store/SideCompContext.jsx';
 
 const SearchInput = () => {
   const sideCompController = useContext(SideCompContext);

@@ -5,7 +5,7 @@ import { FaXmark } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import NavigationLink from './NavigationLink';
 import classes from './NavbarLinks.module.css';
-import SideCompContext from '../../store/sideCompContext.jsx';
+import SideCompContext from '../../store/SideCompContext.jsx';
 
 const NavbarLinks = () => {
   const sideCompController = useContext(SideCompContext);

@@ -7,7 +7,7 @@ import useFilteredProducts from '../../use/useFilteredProducts';
 import usePagination from '../../use/usePagination';
 import useScrollToTop from '../../use/useScrollToTop';
 import ProductList from './ProductList.jsx';
-import SideCompContext from '../../store/sideCompContext.jsx';
+import SideCompContext from '../../store/SideCompContext.jsx';
 import Modal from '../Secondary-Comps/Modal.jsx';
 
 

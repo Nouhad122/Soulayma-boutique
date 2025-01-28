@@ -5,7 +5,7 @@ import SearchInput from './SearchInput.jsx';
 import NavbarLinks from './NavbarLinks.jsx';
 import CartIcon from './CartIcon.jsx';
 import Modal from '../Secondary-Comps/Modal.jsx';
-import SideCompContext from '../../store/sideCompContext.jsx';
+import SideCompContext from '../../store/SideCompContext.jsx';
 
 const Navbar = ({searchRef}) => {
   const sideCompController = useContext(SideCompContext);
@@ -30,9 +30,7 @@ const Navbar = ({searchRef}) => {
     </div>
 
       <div className='right-side'>
-          <SearchInput
-            searchRef={searchRef}
-          />
+          <SearchInput />
           <CartIcon />
       </div>
       

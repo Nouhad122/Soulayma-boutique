@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import './FilterProducts.css';
 import { IoMdClose } from "react-icons/io";
 import Button from '../Secondary-Comps/Button';
-import SideCompContext from '../../store/sideCompContext';
+import SideCompContext from '../../store/SideCompContext.jsx';
 import Modal from '../Secondary-Comps/Modal.jsx';
 
 const FilterProducts = ({products, filterColor, setColorParams}) => {

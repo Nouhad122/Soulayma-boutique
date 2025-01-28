@@ -2,7 +2,7 @@ import React, { useRef, useContext } from 'react';
 import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
 import { HiMiniXMark } from "react-icons/hi2";
 import classes from './FullImage.module.css';
-import SideCompContext from '../../store/sideCompContext';
+import SideCompContext from '../../store/SideCompContext';
 import Modal from '../Secondary-Comps/Modal';
 
 const FullImage = ({ chosenProduct }) => {

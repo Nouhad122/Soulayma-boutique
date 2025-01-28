@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import classes from './productImages.module.css';
 import ImagesPoints from './ImagesPoints';
-import SideCompContext from '../../store/sideCompContext';
+import SideCompContext from '../../store/SideCompContext';
 
 const ProductImages = ({ chosenProduct }) => {
     const sideCompController = useContext(SideCompContext);

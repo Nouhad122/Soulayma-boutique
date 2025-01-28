@@ -6,7 +6,7 @@ import ProductImages from '../../Components/ViewProduct/ProductImages.jsx';
 import ProductDetails from '../../Components/ViewProduct/ProductDetails.jsx';
 import classes from '../../Components/ViewProduct/ProductContainer.module.css';
 import useFetch from '../../use/useFetch.js';
-import SideCompContext from '../../store/sideCompContext.jsx';
+import SideCompContext from '../../store/SideCompContext.jsx';
 
 const requestConfig = {};
 

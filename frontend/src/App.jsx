@@ -13,7 +13,7 @@ import SearchedProducts from './Components/SearchProducts/SearchedProducts.jsx';
 import ChatBotPage from './Pages/ChatBotPage/ChatBotPage.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchData, sendData } from './redux-toolkit/cartActions.js';
-import SideCompContext from './store/sideCompContext.jsx';
+import SideCompContext from './store/SideCompContext.jsx';
 
 const Home = lazy(() => import('../src/Pages/Home/Home.jsx'));
 const Shop = lazy(() => import('./Pages/Shop/Shop.jsx'));
@@ -65,7 +65,6 @@ function App() {
   },[cart, dispatch])
 
   const [loading, setLoading] = useState(true);
-  const [openedFullImage, setOpenedFullImage] = useState({ isOpen: false, image: 1 });
 
   const location = useLocation();
 
@@ -99,7 +98,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='shop/:category/:kind' element={<Shop />} />
                     <Route path='shop/all/:category/page/:page' element={<Shop />} />
-                    <Route path='shop/product/:category/:kind/:id' element={<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage} />} />
+                    <Route path='shop/product/:category/:kind/:id' element={<Product />} />
                     <Route path='cart' element={<CartPage />} />
                     <Route path='about us' element={<AboutPage />} />
                     <Route path='faq' element={<FAQMain />} />
