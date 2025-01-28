@@ -16,6 +16,10 @@
 }
 .cartCont a{
     font-size: 1.4rem !important;
+    transition: color 0.2s ease;
+}
+.cartCont a:hover{
+    color: var(--gold-color);
 }
 
 @media screen and (max-width: 1450px) {
