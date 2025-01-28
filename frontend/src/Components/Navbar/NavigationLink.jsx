@@ -1,13 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import classes from './NavigationLink.module.css';
 import { NavCategoriesData } from './NavCategoriesData';
-import SideCompContext from '../../store/sideCompContext.jsx';
 
 const NavigationLink = ({ categoryName }) => {
   const [openedCategory, setOpenedCategory] = useState(false);
-  const NavListController = useContext(SideCompContext);
 
   const handleMouseEnter = () => {
     if (window.innerWidth >= 1450){
@@ -60,7 +58,7 @@ const NavigationLink = ({ categoryName }) => {
         >
             {
                 targetedObj.links.map(link =>(
-                    <Link key={link.label} to={link.path} className={classes.navbarMiniLink} onClick={NavListController.hideList}>
+                    <Link key={link.label} to={link.path} className={classes.navbarMiniLink}>
                         {link.label}
                     </Link>
                 ))

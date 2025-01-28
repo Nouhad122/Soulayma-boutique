@@ -3,8 +3,8 @@ import { FaMagnifyingGlass, FaXmark } from "react-icons/fa6";
 import classes from './SearchInput.module.css';
 import SideCompContext from '../../store/sideCompContext.jsx';
 
-const SearchInput = ({inpValue, setInpValue}) => {
-  const NavListController = useContext(SideCompContext);
+const SearchInput = () => {
+  const sideCompController = useContext(SideCompContext);
   const searchRef = useRef();
   const [openedSearch, setOpenedSearch] = useState(false);
 
@@ -14,14 +14,14 @@ const SearchInput = ({inpValue, setInpValue}) => {
     }
     else{
         setOpenedSearch(true);
-        NavListController.hideList();
+        sideCompController.hideList();
         searchRef.current.focus();
     }
   }
 
   const handleInputClose = () =>{
     setOpenedSearch(false);
-    setInpValue('');
+    sideCompController.emptyInput();
   }
   
   const navInputClass = `${classes.navInput} ${openedSearch ? '' : classes.closedSearch}`;
@@ -30,8 +30,8 @@ const SearchInput = ({inpValue, setInpValue}) => {
     <div className={navInputClass}>
         <input
             placeholder='Search For Item...'
-            value={inpValue} ref={searchRef}
-            onChange={(e) => setInpValue(e.target.value)}
+            value={sideCompController.inputValue} ref={searchRef}
+            onChange={sideCompController.changeInputValue}
         />
 
         <FaMagnifyingGlass className={classes.scope} onClick={() => handleFocus("scope1")}/>

@@ -6,7 +6,7 @@ import useFetch from '../../use/useFetch.js';
 
 const requestConfig = {};
 
-const Shop = ({ openedFilter, setOpenedFilter }) => {
+const Shop = () => {
   const { category= '', kind = '' } = useParams();
   const [colorParams, setColorParams] = useSearchParams();
 
@@ -23,8 +23,6 @@ const Shop = ({ openedFilter, setOpenedFilter }) => {
     <div>
       <FilterProducts 
         products={products}
-        openedFilter={openedFilter}
-        setOpenedFilter={setOpenedFilter}
         filterColor={filterColor}
         setColorParams={setColorParams}
       />

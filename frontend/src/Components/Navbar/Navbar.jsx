@@ -7,21 +7,21 @@ import CartIcon from './CartIcon.jsx';
 import Modal from '../Secondary-Comps/Modal.jsx';
 import SideCompContext from '../../store/sideCompContext.jsx';
 
-const Navbar = ({inpValue, setInpValue, searchRef}) => {
-  const NavListController = useContext(SideCompContext);
+const Navbar = ({searchRef}) => {
+  const sideCompController = useContext(SideCompContext);
   
   useEffect(() => {
-    NavListController.hideList;
+    // sideCompController.hideList;
 
-    const handleResize = () => NavListController.hideList();
+    const handleResize = () => sideCompController.hideList();
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [NavListController]);
+  }, [sideCompController]);
 
   return (
     <>
-    {NavListController.openedList && <Modal closeModal = {NavListController.hideList} />}
+    {sideCompController.openedList && <Modal closeModal = {sideCompController.hideList} />}
 
     <div className='header-navbar'>
     <Header/>
@@ -33,8 +33,6 @@ const Navbar = ({inpValue, setInpValue, searchRef}) => {
 
       <div className='right-side'>
           <SearchInput
-            inpValue={inpValue}
-            setInpValue={setInpValue} 
             searchRef={searchRef}
           />
           <CartIcon />

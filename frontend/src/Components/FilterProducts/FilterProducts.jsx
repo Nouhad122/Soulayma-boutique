@@ -1,34 +1,28 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './FilterProducts.css';
 import { IoMdClose } from "react-icons/io";
 import Button from '../Secondary-Comps/Button';
+import SideCompContext from '../../store/sideCompContext';
 
-const FilterProducts = ({products, filterColor, setColorParams, openedFilter, setOpenedFilter}) => {
+const FilterProducts = ({products, filterColor, setColorParams}) => {
+    const sideCompController = useContext(SideCompContext);
 
     const handleSelectedColor = (color) =>{
         setColorParams({filter: color})
         filterColor = color;
     }
 
-    const handleOpenFilter = () =>{
-        setOpenedFilter(true);
-    }
-
-    const handleCloseFilter = () =>{
-        setOpenedFilter(false);
-    }
-
     const handleResetFilter = () =>{
         setColorParams({});
-        setOpenedFilter(false);
+        sideCompController.hideFilter();
     }
     
   return (
     <div className='filter-products'>
-        <div className= {`${openedFilter ? 'opened-filter-colors filter-colors' : 'filter-colors'}`}>
+        <div className= {`${sideCompController.openedFilter ? 'opened-filter-colors filter-colors' : 'filter-colors'}`}>
             <div className='filter-title'>
                <h1>Filter By Color</h1> 
-               <IoMdClose onClick={handleCloseFilter} className='filter-x-mark'/>
+               <IoMdClose onClick={sideCompController.hideFilter} className='filter-x-mark'/>
             </div>
             
             <div className='colors-in'>
@@ -45,7 +39,7 @@ const FilterProducts = ({products, filterColor, setColorParams, openedFilter, se
             </Button>
            
         </div>
-        <Button onClick={handleOpenFilter} className='filter-btn'>Filter</Button>
+        <Button onClick={sideCompController.showFilter} className='filter-btn'>Filter</Button>
     </div>
   )
 }

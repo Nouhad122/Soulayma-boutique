@@ -1,7 +1,7 @@
 // import { createBrowserRouter, RouterProvider } from "react-router-dom"
 // import RootPage from "./Pages/RootPage.jsx"
 // import Home from "./Pages/Home/Home.jsx"
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
@@ -13,6 +13,7 @@ import SearchedProducts from './Components/SearchProducts/SearchedProducts.jsx';
 import ChatBotPage from './Pages/ChatBotPage/ChatBotPage.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchData, sendData } from './redux-toolkit/cartActions.js';
+import SideCompContext from './store/sideCompContext.jsx';
 
 const Home = lazy(() => import('../src/Pages/Home/Home.jsx'));
 const Shop = lazy(() => import('./Pages/Shop/Shop.jsx'));
@@ -44,6 +45,7 @@ const SignUp = lazy(() => import('./Pages/RegistrationPages/SignUp.jsx'));
 
 let isInitial = true;
 function App() {
+  const sideCompController = useContext(SideCompContext);
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
@@ -65,7 +67,6 @@ function App() {
   const [openedFilter, setOpenedFilter] = useState(false);
   const [loading, setLoading] = useState(true);
   const [openedFullImage, setOpenedFullImage] = useState({ isOpen: false, image: 1 });
-  const [inpValue, setInpValue] = useState('');
 
   const location = useLocation();
 
@@ -74,7 +75,8 @@ function App() {
   };
 
   useEffect(() => {
-    setInpValue('');
+    sideCompController.hideList();
+    sideCompController.emptyInput();
     setLoading(true);
     setOpenedFilter(false);
     const timer = setTimeout(() => { setLoading(false) }, 1000);
@@ -85,9 +87,9 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <div className={`App ${ openedFullImage.isOpen || openedFilter || inpValue ? 'no-scrolling' : ''}`}> */}
-        <Navbar inpValue={inpValue} setInpValue={setInpValue} />
-        {inpValue && <SearchedProducts searchInput={inpValue} />}
+      {/* <div className={`App ${ openedFullImage.isOpen  ? 'no-scrolling' : ''}`}> */}
+        <Navbar />
+        {sideCompController.inputValue && <SearchedProducts />}
         <ScrollToTop location={location} />
         <Suspense>
           {
@@ -97,8 +99,8 @@ function App() {
                 <div>
                   <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='shop/:category/:kind' element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} />
-                    <Route path='shop/all/:category/page/:page' element={<Shop openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} />} />
+                    <Route path='shop/:category/:kind' element={<Shop />} />
+                    <Route path='shop/all/:category/page/:page' element={<Shop />} />
                     <Route path='shop/product/:category/:kind/:id' element={<Product openedFullImage={openedFullImage} setOpenedFullImage={setOpenedFullImage} />} />
                     <Route path='cart' element={<CartPage />} />
                     <Route path='about us' element={<AboutPage />} />
