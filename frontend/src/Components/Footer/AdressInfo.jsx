@@ -5,7 +5,7 @@ const AdressInfo = () => {
   return (
     <div className="address-info">
         <h3>Adress</h3>
-        <Link to={`/about us`} className="footer-link">About Us</Link>
+        <Link to={`/about-us`} className="footer-link">About Us</Link>
         <Link to={`/faq`} className="footer-link">FAQ</Link>
         <Link to={`/shipping`} className="footer-link">Shipping</Link>
         <Link to={`/returns`} className="footer-link">Returns</Link>

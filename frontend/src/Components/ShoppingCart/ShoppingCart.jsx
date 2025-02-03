@@ -4,6 +4,7 @@ import TableHeaders from './TableHeaders';
 import TableBody from './TableBody';
 import EmptyCart from './EmptyCart';
 import { useSelector } from 'react-redux'
+import PlaceOrder from './PlaceOrder';
 
 const ShoppingCart = () => {
   const cartProducts = useSelector(state => state.cart.products);
@@ -20,6 +21,8 @@ const ShoppingCart = () => {
             <TableHeaders />
             <TableBody />
           </table>
+          <PlaceOrder />
+          
         </div>
       ) : 
         <EmptyCart />

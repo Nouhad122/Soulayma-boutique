@@ -10,9 +10,7 @@ createRoot(document.getElementById('root')).render(
   <SideCompContextProvider>
     <Provider store={store}>
      <StrictMode>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
     </StrictMode>
     </Provider>
   </SideCompContextProvider>

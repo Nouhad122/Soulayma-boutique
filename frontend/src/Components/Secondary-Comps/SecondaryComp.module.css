@@ -121,9 +121,10 @@
   transform: translate(-50%);
 }
 
+
 /* Modal Styling */
 .blurBackground{
-  background-color: rgba(0, 0, 0, 0.674);
+  background-color: rgba(0, 0, 0, 0.326);
   height: 100%;
   width: 100%;
   display: flex;
@@ -135,13 +136,52 @@
   z-index: 901;
 }
 .blurContent{
-  background-color: white;
-  
+  background-color: var(--fifth-color);
+  border: solid 1px var(--gold-color);
+  box-shadow: 7px 9px 8px rgba(0, 0, 0, 0.1);
+  color: var(--font-color);
+  padding: 4rem 2rem;
+  text-align: center;
+  width: 50vw;
+}
+.blurContent h1{
+  font-size: 1.8rem;
+  color: var(--gold-color);
+}
+.blurContent p{
+  font-size: .9rem;
+}
+.modalBtns{
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.mBtn{
+  width: 10vw;
+  padding: 5px;
+  background-color: transparent !important;
+  color: var(--gold-color);
+  border: solid 1px var(--gold-color);
+  transition: .3s ease;
 }
 
 @media screen and (max-width: 820px){
   .customBtn{
     width: 45vw;
+  }
+  .blurContent{
+    width: 80%;
+  }
+  .mBtn{
+    width: 20vw;
+  }
+  .blurContent h1{
+    font-size: 1.4rem;
+  }
+  .blurContent p{
+    font-size: .8rem;
   }
   
 }
@@ -149,6 +189,12 @@
   .customBtn{
     width: 70%;
     font-size: .9rem !important;
+  }
+  .blurContent{
+    width: 95%;
+  }
+  .mBtn{
+    width: 30vw;
   }
   
 }

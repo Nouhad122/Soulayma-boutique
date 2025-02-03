@@ -5,6 +5,7 @@ const SideCompContext = createContext({
     openedFilter: false,
     inputValue: '',
     openedFullImg: {},
+    modalContent: false,
     showList: () =>{},
     hideList: () =>{},
     showFilter: () =>{},
@@ -15,7 +16,10 @@ const SideCompContext = createContext({
     openSecondImage: () =>{},
     closeFullImage: () =>{},
     goToNextImg: () =>{},
-    goToPrevImg: () =>{}
+    goToPrevImg: () =>{},
+    showContentInModal: () =>{},
+    hideContentInModal: () =>{}
+    
 })
 
 
@@ -24,6 +28,7 @@ export const SideCompContextProvider = ({children}) => {
     const [openFilter, setOpenFilter] = useState();
     const [inpValue, setInpValue] = useState('');
     const [openFullImage, setOpenFullImage] = useState({ isOpen: false, image: 1 });
+    const [showModalContent, setShowModalContent] = useState(false);
 
     const showList = () =>{
         setOpenList(true);
@@ -50,6 +55,7 @@ export const SideCompContextProvider = ({children}) => {
         setInpValue(event.target.value);
         setOpenFilter(false);
         setOpenList(false);
+        setShowModalContent(false);
     }
 
     const openFirstImage = () =>{
@@ -72,11 +78,20 @@ export const SideCompContextProvider = ({children}) => {
         setOpenFullImage((prev) => ({...prev, image: 1}));
     }
 
+    const showContentInModal = () =>{
+        setShowModalContent(true);
+    }
+
+    const hideContentInModal = () =>{
+        setShowModalContent(false);
+    }
+
     const SideCompContextValues = ({
         openedList: openList,
         openedFilter: openFilter,
         inputValue: inpValue,
         openedFullImg: openFullImage,
+        modalContent: showModalContent,
         showList,
         hideList,
         showFilter,
@@ -87,7 +102,9 @@ export const SideCompContextProvider = ({children}) => {
         openSecondImage,
         closeFullImage,
         goToNextImg,
-        goToPrevImg
+        goToPrevImg,
+        showContentInModal,
+        hideContentInModal
     })
   return (
     <SideCompContext.Provider value={SideCompContextValues}>

@@ -41,7 +41,7 @@
   width: 90px;
   height: 18vh;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 5px;
 }
 

@@ -15,6 +15,7 @@ const SearchInput = () => {
     else{
         setOpenedSearch(true);
         sideCompController.hideList();
+        sideCompController.hideContentInModal();
         searchRef.current.focus();
     }
   }

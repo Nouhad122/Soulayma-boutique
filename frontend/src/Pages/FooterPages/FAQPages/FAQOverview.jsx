@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './FooterPages.css';
+import '../FooterPages.css';
 
-const FAQMain = () => {
+const FAQOverview = () => {
   return (
     <div className='text-container'>
   <section>
@@ -40,4 +40,4 @@ const FAQMain = () => {
   )
 }
 
-export default FAQMain
+export default FAQOverview

@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoIosLock } from "react-icons/io"
 import { useSelector } from 'react-redux'
+import Button from '../Secondary-Comps/Button'
 
 const PlaceOrder = () => {
     const cartTotal = useSelector(state => state.cart.totalPriceOfAllProducts);

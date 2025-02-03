@@ -1,5 +1,4 @@
 import React from 'react';
-import products from '../../Products/products.json';
 import Button from '../Secondary-Comps/Button.jsx';
 import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
