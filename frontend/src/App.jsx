@@ -28,10 +28,12 @@ import SignIn from './Pages/RegistrationPages/SignIn.jsx'
 import SignUp from './Pages/RegistrationPages/SignUp.jsx'
 import React, { useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchData, sendData } from './redux-toolkit/cartActions.js';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchData, sendData } from './redux-toolkit/cartActions.js'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { queryClient } from "./use/useFetch.js"
 
 let isInitial = true;
   
@@ -93,7 +95,10 @@ if(cart.changed){
   ]);
 
   return(
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+    
   )
 }
 

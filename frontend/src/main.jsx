@@ -9,9 +9,9 @@ import { SideCompContextProvider } from './store/SideCompContext.jsx';
 createRoot(document.getElementById('root')).render(
   <SideCompContextProvider>
     <Provider store={store}>
-     <StrictMode>
+     
         <App />
-    </StrictMode>
+   
     </Provider>
   </SideCompContextProvider>
   

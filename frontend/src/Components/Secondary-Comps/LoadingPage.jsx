@@ -1,10 +1,10 @@
-import React from 'react';
-import './SecondaryComp.module.css';
-
+import React from 'react'
+import './SecondaryComp.module.css'
+import classes from './SecondaryComp.module.css'
 const LoadingPage = () => {
   return (
-    <div className="loading-container">
-      <div className="spinner"></div>
+    <div className={classes['loading-container']}>
+      <div className={classes.spinner}></div>
     </div>
   )
 }

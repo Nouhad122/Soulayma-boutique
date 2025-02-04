@@ -1,3 +1,29 @@
+import { QueryClient } from "@tanstack/react-query";
+
+export const queryClient = new QueryClient();
+
+export const fetchProducts = async ({category, bestSelling, signal}) =>{
+    let url = 'http://localhost:5000/products';
+    if(category) {
+        url += `?category=${category}`;
+    }
+    if(bestSelling) {
+        url += `?bestSelling=true`;
+    }
+    const response = await fetch(url, {signal:signal});
+    if(!response.ok){
+        throw new Error("An error occured while fetching products")
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+
+
+
+
+
  import { useCallback, useEffect, useState } from 'react';
 
 const sendHTTPRequest = async (url, config) =>{
