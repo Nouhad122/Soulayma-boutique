@@ -14,13 +14,13 @@ import Modal from '../Secondary-Comps/Modal.jsx';
 const requestConfig = {};
 
 const SearchedProducts = () => {
-  const sideCompController = useContext(SideCompContext);
+  const { inputValue } = useContext(SideCompContext);
   const [productsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
   const [currentPage, setCurrentPage] = useState(1);
   
   const { data: products, isLoading, error } = useFetch('http://localhost:5000/products', requestConfig, []);
 
-  const filteredProducts = useFilteredProducts(products, sideCompController.inputValue);
+  const filteredProducts = useFilteredProducts(products, inputValue);
   const { totalPages, currentProducts } = usePagination(filteredProducts, productsPerPage, currentPage);
   const sProducts = useScrollToTop([currentPage]);
 

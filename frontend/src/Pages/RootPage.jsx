@@ -4,17 +4,18 @@ import Footer from '../Components/Footer/Footer.jsx'
 import { useLocation, Outlet } from 'react-router'
 import ChatBot from '../Components/ChatBot/ChatBot.jsx'
 import SideCompContext from '../store/SideCompContext.jsx'
+import SearchedProducts from '../Components/SearchProducts/SearchedProducts.jsx'
 
 const RootPage = () => {
-  const sideCompController = useContext(SideCompContext);
+  const {hideContentInModal, hideList, emptyInput, hideFilter, inputValue} = useContext(SideCompContext);
 
   const location = useLocation();
 
   useEffect(() => {
-      sideCompController.hideContentInModal();
-      sideCompController.hideList();
-      sideCompController.emptyInput();
-      sideCompController.hideFilter();
+      hideContentInModal();
+      hideList();
+      emptyInput();
+      hideFilter();
     }, [location.pathname]);
 
 
@@ -22,6 +23,8 @@ const RootPage = () => {
     <div className='web-container'>
       <Navbar />
 
+      {inputValue.trim() && <SearchedProducts />}
+      
       <main>
         <Outlet />
       </main>
