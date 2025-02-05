@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import classes from '../Products/Products.module.css';
 import Pagination from '../../utils/Pagination.jsx';
 import shopClasses from '../ShopProducts/ShopProducts.module.css';
-import { fetchProducts } from "../../use/useFetch.js";
+import { fetchProducts } from "../../use/useHttp.js";
 import useFilteredProducts from '../../use/useFilteredProducts';
 import usePagination from '../../use/usePagination';
 import useScrollToTop from '../../use/useScrollToTop';

@@ -2,7 +2,7 @@ import React from 'react';
 import ProductsCont from '../Products/ProductsCont';
 import classes from '../Products/Products.module.css';
 import { shuffleArray } from '../../utils/helperFunctions.js';
-import { fetchProducts } from '../../use/useFetch.js';
+import { fetchProducts } from '../../use/useHttp.js';
 import { useQuery } from '@tanstack/react-query';
 import LoadingPage from '../Secondary-Comps/LoadingPage.jsx';
 import { useParams } from 'react-router';

@@ -4,7 +4,7 @@ import classes from '../Products/Products.module.css';
 import Button from '../Secondary-Comps/Button.jsx';
 import { shuffleArray } from '../../utils/helperFunctions.js';
 import { useQuery } from '@tanstack/react-query';
-import { fetchProducts } from '../../use/useFetch.js';
+import { fetchProducts } from '../../use/useHttp.js';
 import LoadingPage from '../Secondary-Comps/LoadingPage.jsx';
 
 const BestSelling = () => {

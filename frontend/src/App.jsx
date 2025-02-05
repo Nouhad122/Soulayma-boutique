@@ -31,9 +31,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchData, sendData } from './redux-toolkit/cartActions.js'
-import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from "./use/useFetch.js"
+import { cartSliceActions } from "./redux-toolkit/cart-slice.js"
+import { useCartQuery } from "./use/useCartQuery.js"
 
 let isInitial = true;
   
@@ -41,21 +40,39 @@ function App() {
 const cart = useSelector(state => state.cart);
 const dispatch = useDispatch();
 
-useEffect(() =>{
-dispatch(fetchData());
-},[dispatch])
+const { data, isPending, isError, error, updateCartData } = useCartQuery();
+
+useEffect(() => {
+  if (data) {
+      dispatch(cartSliceActions.replaceCart(data));
+  }
+}, [data, dispatch]);
 
 
 useEffect(() =>{
-if(isInitial){
-  isInitial = false;
-  return;
-}
+  if(cart.changed){
+    updateCartData(cart);
+  }
+}, [cart, updateCartData])
 
-if(cart.changed){
-  dispatch(sendData(cart));
-}
-},[cart, dispatch]);
+if (isPending) return <p>Loading cart...</p>;
+if (isError) return <p>Error: {error.message}</p>;
+
+// useEffect(() =>{
+// dispatch(fetchData());
+// },[dispatch])
+
+
+// useEffect(() =>{
+// if(isInitial){
+//   isInitial = false;
+//   return;
+// }
+
+// if(cart.changed){
+//   dispatch(sendData(cart));
+// }
+// },[cart, dispatch]);
 
   const router = createBrowserRouter([
     { path:'/',
@@ -95,9 +112,7 @@ if(cart.changed){
   ]);
 
   return(
-    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </QueryClientProvider>
     
   )
 }

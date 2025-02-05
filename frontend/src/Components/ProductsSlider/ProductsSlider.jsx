@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
-import { fetchProducts } from '../../use/useFetch.js'
+import { fetchProducts } from '../../use/useHttp.js'
 import { useQuery } from '@tanstack/react-query'
 import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 

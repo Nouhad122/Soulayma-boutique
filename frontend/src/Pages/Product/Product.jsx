@@ -5,7 +5,7 @@ import FullImage from '../../Components/ViewProduct/FullImage.jsx';
 import ProductImages from '../../Components/ViewProduct/ProductImages.jsx';
 import ProductDetails from '../../Components/ViewProduct/ProductDetails.jsx';
 import classes from '../../Components/ViewProduct/ProductContainer.module.css';
-import { fetchProductDetails } from '../../use/useFetch.js';
+import { fetchProductDetails } from '../../use/useHttp.js';
 import SideCompContext from '../../store/SideCompContext.jsx';
 import { useQuery } from '@tanstack/react-query';
 import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx';

@@ -2,7 +2,7 @@ import React from 'react';
 import FilterProducts from '../../Components/FilterProducts/FilterProducts.jsx';
 import { useParams, useSearchParams } from 'react-router-dom';
 import ShopProducts from '../../Components/ShopProducts/ShopProducts.jsx';
-import { fetchProducts } from '../../use/useFetch.js';
+import { fetchProducts } from '../../use/useHttp.js';
 import { useQuery } from '@tanstack/react-query';
 import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 

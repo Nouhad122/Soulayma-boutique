@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import classes from './ProductColors.module.css';
-import { fetchProducts } from '../../use/useFetch.js'
+import { fetchProducts } from '../../use/useHttp.js'
 import { useQuery } from '@tanstack/react-query'
 import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 
