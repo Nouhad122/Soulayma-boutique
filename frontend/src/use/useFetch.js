@@ -2,13 +2,16 @@ import { QueryClient } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient();
 
-export const fetchProducts = async ({category, bestSelling, signal}) =>{
+export const fetchProducts = async ({category, bestSelling, kind, signal}) =>{
     let url = 'http://localhost:5000/products';
     if(category) {
         url += `?category=${category}`;
     }
     if(bestSelling) {
         url += `?bestSelling=true`;
+    }
+    if(kind) {
+        url += `?kind=${kind}`
     }
     const response = await fetch(url, {signal:signal});
     if(!response.ok){

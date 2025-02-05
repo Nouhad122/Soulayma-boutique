@@ -11,7 +11,7 @@ const BestSelling = () => {
   const {data: bestSellings, isPending, isError, error} = useQuery({
     queryKey: ['best-sellings', {bestSelling: true}],
     queryFn: ({signal, queryKey}) => fetchProducts({...queryKey[1], signal}),
-    select: data => data.slice(0,12),
+    select: data => shuffleArray(data).slice(0,12),
     staleTime: 10000
   })
 
