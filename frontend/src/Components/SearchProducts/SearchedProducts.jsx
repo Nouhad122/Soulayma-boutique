@@ -21,7 +21,8 @@ const SearchedProducts = () => {
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['products'],
-    queryFn: ({ signal }) => fetchProducts({ signal })
+    queryFn: ({ signal }) => fetchProducts({ signal }),
+    staleTime: 10000
   })
 
   const filteredProducts = useFilteredProducts(data, inputValue);

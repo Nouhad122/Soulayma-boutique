@@ -10,8 +10,9 @@ const ProductsSlider = ({ kind, sliderTitle, sliderSub}) => {
     const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 
     const { data: sliderProducts, isPending, isError, error} = useQuery({
-                queryKey: ['products', { kind }],
-                queryFn: ({ queryKey, signal }) => fetchProducts({ ...queryKey[1], signal })
+      queryKey: ['products', { kind }],
+      queryFn: ({ queryKey, signal }) => fetchProducts({ ...queryKey[1], signal }),
+      staleTime: 10000
     })
 
     if(isPending){

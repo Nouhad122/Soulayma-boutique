@@ -4,21 +4,37 @@ export const queryClient = new QueryClient();
 
 export const fetchProducts = async ({category, bestSelling, kind, signal}) =>{
     let url = 'http://localhost:5000/products';
-    if(category) {
+
+    if(category && kind){
+        url += `?category=${category}&kind=${kind}`
+    }
+    else if(category) {
         url += `?category=${category}`;
     }
-    if(bestSelling) {
+    else if(bestSelling) {
         url += `?bestSelling=true`;
     }
-    if(kind) {
+    else if(kind) {
         url += `?kind=${kind}`
     }
-    const response = await fetch(url, {signal:signal});
+
+    const response = await fetch(url, { signal });
     if(!response.ok){
         throw new Error("An error occured while fetching products")
     }
 
     const data = await response.json();
+    
+    return data;
+}
+
+export const fetchProductDetails = async ({id, signal}) =>{
+    const response = await fetch(`http://localhost:5000/products/${id}`, { signal });
+    if(!response.ok){
+        throw new Error('An error occured while fetching the details of the product')
+    }
+    const data = await response.json();
+
     return data;
 }
 

@@ -2,21 +2,27 @@ import React from 'react';
 import FilterProducts from '../../Components/FilterProducts/FilterProducts.jsx';
 import { useParams, useSearchParams } from 'react-router-dom';
 import ShopProducts from '../../Components/ShopProducts/ShopProducts.jsx';
-import useFetch from '../../use/useFetch.js';
-
-const requestConfig = {};
+import { fetchProducts } from '../../use/useFetch.js';
+import { useQuery } from '@tanstack/react-query';
+import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 
 const Shop = () => {
   const { category= '', kind = '' } = useParams();
   const [colorParams, setColorParams] = useSearchParams();
 
   const filterColor = colorParams.get('filter');
+  
+  const { data: products, isPending, isError, error} = useQuery({
+    queryKey: ['products', { category, kind }],
+    queryFn: ({ signal, queryKey }) => fetchProducts({ ...queryKey[1], signal }),
+    staleTime: 10000
+  });
 
-  const { data: products, error } =
-   useFetch(`http://localhost:5000/products?category=${category}&kind=${kind}`,requestConfig, []);
-
-  if(error){
-    return <p>{error}</p>
+  if(isPending){
+    return <LoadingPage />
+  }
+  if(isError){
+    return <p>Error: {error.message || 'Something went wrong!'}</p>
   }
 
   return (

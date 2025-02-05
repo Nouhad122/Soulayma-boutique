@@ -5,18 +5,29 @@ import FullImage from '../../Components/ViewProduct/FullImage.jsx';
 import ProductImages from '../../Components/ViewProduct/ProductImages.jsx';
 import ProductDetails from '../../Components/ViewProduct/ProductDetails.jsx';
 import classes from '../../Components/ViewProduct/ProductContainer.module.css';
-import useFetch from '../../use/useFetch.js';
+import { fetchProductDetails } from '../../use/useFetch.js';
 import SideCompContext from '../../store/SideCompContext.jsx';
-
-const requestConfig = {};
+import { useQuery } from '@tanstack/react-query';
+import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx';
 
 const Product = () => {
   const sideCompController = useContext(SideCompContext);
 
   const { id } = useParams();
 
-  const { data } = useFetch(`http://localhost:5000/products?id=${id}`, requestConfig, []);
-  const chosenProduct = data[0];
+  const { data: chosenProduct, isPending, isError, error} = useQuery({
+    queryKey: ['products', id],
+    queryFn: ({ signal }) => fetchProductDetails({ id, signal }),
+    staleTime: 10000
+  });
+
+  if(isPending){
+    return <LoadingPage />
+  }
+  if(isError){
+    return <p>Error: {error.message || 'Something went wrong!'}</p>
+  }
+
   return (
     <>
     {
