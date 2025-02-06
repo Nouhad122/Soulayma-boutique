@@ -7,15 +7,16 @@ import { useQuery } from '@tanstack/react-query';
 import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 
 const Shop = () => {
-  const { category= '', kind = '' } = useParams();
+  const { category, kind } = useParams();
   const [colorParams, setColorParams] = useSearchParams();
 
   const filterColor = colorParams.get('filter');
   
   const { data: products, isPending, isError, error} = useQuery({
-    queryKey: ['products', { category, kind }],
-    queryFn: ({ signal, queryKey }) => fetchProducts({ ...queryKey[1], signal }),
-    staleTime: 10000
+    queryKey: ['products'],
+    queryFn: ({ signal }) => fetchProducts({ signal }),
+    select: (data) => data.filter( product => product.category === category && (!kind || product.kind === kind)),
+    staleTime: 10000,
   });
 
   if(isPending){

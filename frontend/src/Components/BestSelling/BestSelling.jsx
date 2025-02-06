@@ -9,10 +9,10 @@ import LoadingPage from '../Secondary-Comps/LoadingPage.jsx';
 
 const BestSelling = () => {
   const {data: bestSellings, isPending, isError, error} = useQuery({
-    queryKey: ['best-sellings', {bestSelling: true}],
-    queryFn: ({signal, queryKey}) => fetchProducts({...queryKey[1], signal}),
-    select: data => shuffleArray(data).slice(0,12),
-    staleTime: 10000
+    queryKey: ['products'],
+    queryFn: ({ signal }) => fetchProducts({ signal }),
+    select: data => shuffleArray(data.filter(product => product.bestSelling)).slice(0,12),
+    staleTime: 60000
   })
 
 

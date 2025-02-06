@@ -31,7 +31,6 @@ const Home = () => {
             subTitle="Instant Hijabs"    
           />
           
-
           <BestSelling />
           <SearchEnd />
       </div>
@@ -40,3 +39,4 @@ const Home = () => {
 
 
 export default Home
+

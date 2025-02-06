@@ -13,9 +13,9 @@ const Suggetions = () => {
   const { category } = useParams();
 
   const {data: filteredSuggs, isPending, isError, error} = useQuery({
-    queryKey:['products', {category}],
-    queryFn:({signal, queryKey}) => fetchProducts({...queryKey[1], signal}),
-    select: data => shuffleArray(data).slice(0,4),
+    queryKey:['products'],
+    queryFn:({ signal }) => fetchProducts({ signal }),
+    select: data => shuffleArray(data.filter(product => product.category === category)).slice(0,4),
     staleTime: 10000
   });
 

@@ -10,10 +10,10 @@ const AbayasGlance = () => {
   const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
   
   const {data: abayaProducts, isPending, isError, error} = useQuery({
-    queryKey:['products', {category: 'Abayas'}],
-    queryFn:({signal, queryKey}) => fetchProducts({...queryKey[1], signal}),
-    select: data => data.slice(0,4),
-    staleTime: 10000
+    queryKey:['products'],
+    queryFn:({ signal }) => fetchProducts({ signal }),
+    select: data => data.filter(product => product.category === 'Abayas').slice(0,4),
+    staleTime: 60000
   });
 
   if (isPending) {

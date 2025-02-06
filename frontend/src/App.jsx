@@ -33,8 +33,9 @@ import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { cartSliceActions } from "./redux-toolkit/cart-slice.js"
 import { useCartQuery } from "./use/useCartQuery.js"
+import { productsLoader } from "./Loaders/ProductsLoader.js"
 
-let isInitial = true;
+// let isInitial = true;
   
 function App() {
 const cart = useSelector(state => state.cart);
@@ -78,8 +79,8 @@ if (isError) return <p>Error: {error.message}</p>;
     { path:'/',
       element: <RootPage />,
       children: [
-      {index: true, element: <Home />},
-      {path: 'shop/all?/:category/:kind?/page?/:page?', element: <Shop />},
+      {index: true, element: <Home />, loader: productsLoader},
+      {path: 'shop/all?/:category/:kind?/page?/:page?', element: <Shop />, loader: productsLoader},
       {path: 'shop/product/:category/:kind/:id', element: <Product />},
       {path: 'cart', element: <CartPage />},
       {path: 'about-us', element: <AboutPage />},
