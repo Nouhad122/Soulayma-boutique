@@ -10,9 +10,10 @@ const ProductColors = ({chosenProduct}) => {
   const navigate = useNavigate();
 
   const { data: kindProducts, isPending, isError, error} = useQuery({
-    queryKey: ['products', { kind }],
-    queryFn: ({ queryKey, signal }) => fetchProducts({ ...queryKey[1], signal }),
-    staleTime: 10000
+    queryKey: ['products'],
+    queryFn: ({ signal }) => fetchProducts({ signal }),
+    select: (data) => data.filter(product => product.kind === kind),
+    staleTime: 60000
   })
 
   if(isPending){
