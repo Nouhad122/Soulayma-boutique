@@ -1,29 +1,14 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLoaderData } from 'react-router-dom';
 import classes from './ProductColors.module.css';
-import { fetchProducts } from '../../use/useHttp.js'
-import { useQuery } from '@tanstack/react-query'
-import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 
 const ProductColors = ({chosenProduct}) => {
   const { id, kind } = useParams();
   const navigate = useNavigate();
 
-  const { data: kindProducts, isPending, isError, error} = useQuery({
-    queryKey: ['products'],
-    queryFn: ({ signal }) => fetchProducts({ signal }),
-    select: (data) => data.filter(product => product.kind === kind),
-    staleTime: 60000
-  })
+  const { prodsLoader } = useLoaderData();
 
-  if(isPending){
-    return <LoadingPage />;
-  }
-
-  if(isError){
-    return <p>Error: {error.message || 'Something went wrong!'}</p>;
-  }
-    
+  const kindProducts = prodsLoader.filter(product => product.kind === kind);
 
   return (
     <>

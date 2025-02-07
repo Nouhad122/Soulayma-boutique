@@ -8,13 +8,13 @@ export const productsLoader = () =>{
     })
   }
 
-export const chosenProductLoader = ({params}) =>{
-    const suggetionsLoader = productsLoader();
-    const productDetailsLoader =  queryClient.fetchQuery({
-     queryKey: ['products', {id:params.id}],
-     queryFn: ({ signal, queryKey }) => fetchProductDetails({ ...queryKey[1], signal}),
+export const chosenProductLoader = async ({params}) =>{
+    const prodsLoader = await productsLoader();
+    const productDetailsLoader =  await queryClient.fetchQuery({
+     queryKey: ['products', params.id],
+     queryFn: ({ signal }) => fetchProductDetails({ id: params.id, signal}),
      staleTime: 60000    
     })
     
-    return { suggetionsLoader, productDetailsLoader};
+    return { prodsLoader, productDetailsLoader};
 }
