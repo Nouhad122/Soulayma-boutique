@@ -1,30 +1,17 @@
 import React from 'react';
 import FilterProducts from '../../Components/FilterProducts/FilterProducts.jsx';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useLoaderData, useParams, useSearchParams } from 'react-router-dom';
 import ShopProducts from '../../Components/ShopProducts/ShopProducts.jsx';
-import { fetchProducts } from '../../use/useHttp.js';
-import { useQuery } from '@tanstack/react-query';
-import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 
 const Shop = () => {
   const { category, kind } = useParams();
   const [colorParams, setColorParams] = useSearchParams();
 
   const filterColor = colorParams.get('filter');
-  
-  const { data: products, isPending, isError, error} = useQuery({
-    queryKey: ['products'],
-    queryFn: ({ signal }) => fetchProducts({ signal }),
-    select: (data) => data.filter( product => product.category === category && (!kind || product.kind === kind)),
-    staleTime: 10000,
-  });
 
-  if(isPending){
-    return <LoadingPage />
-  }
-  if(isError){
-    return <p>Error: {error.message || 'Something went wrong!'}</p>
-  }
+  const  productsLoader = useLoaderData();
+
+  const products = productsLoader.filter(product => product.category === category && (!kind || product.kind === kind));
 
   return (
     <div>
