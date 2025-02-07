@@ -6,9 +6,9 @@ import { shuffleArray } from '../../utils/helperFunctions.js';
 import { useLoaderData } from 'react-router-dom';
 
 const BestSelling = () => {
-  const productsLoader = useLoaderData();
+  const productsData = useLoaderData();
   
-  const bestSellings = shuffleArray(productsLoader.filter(product => product.bestSelling)).slice(0,12);
+  const bestSellings = shuffleArray(productsData.filter(product => product.bestSelling)).slice(0,12);
 
   const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 

@@ -1,13 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { fetchCart, queryClient, updateCart } from "./useHttp";
-import { useDispatch } from "react-redux";
-
 
 export const useCartQuery = () =>{
     const { data, isPending, isError, error } = useQuery({
         queryKey: ['cart'],
         queryFn: ({ signal }) => fetchCart({ signal }),
-        staleTime: 10000
+        staleTime: 60000
     });
 
     const { mutate: updateCartData } = useMutation({

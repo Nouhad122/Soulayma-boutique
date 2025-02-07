@@ -7,9 +7,9 @@ const ProductsSlider = ({ kind, sliderTitle, sliderSub}) => {
     const scrollRef = useRef();
     const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
 
-    const productsLoader = useLoaderData();
+    const productsData = useLoaderData();
     
-    const sliderProducts = productsLoader.filter(product => product.kind === kind);
+    const sliderProducts = productsData.filter(product => product.kind === kind);
 
   return(
     <div className={classes.productsContainer}>

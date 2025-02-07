@@ -34,9 +34,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { cartSliceActions } from "./redux-toolkit/cart-slice.js"
 import { useCartQuery } from "./use/useCartQuery.js"
 import { chosenProductLoader, productsLoader } from "./Loaders/Loaders.js"
-
-
-// let isInitial = true;
   
 function App() {
 
@@ -60,22 +57,6 @@ useEffect(() =>{
 
 if (isPending) return <p>Loading cart...</p>;
 if (isError) return <p>Error: {error.message}</p>;
-
-// useEffect(() =>{
-// dispatch(fetchData());
-// },[dispatch])
-
-
-// useEffect(() =>{
-// if(isInitial){
-//   isInitial = false;
-//   return;
-// }
-
-// if(cart.changed){
-//   dispatch(sendData(cart));
-// }
-// },[cart, dispatch]);
 
   const router = createBrowserRouter([
     { path:'/',
