@@ -6,26 +6,27 @@ import SideCompContext from '../../store/SideCompContext.jsx';
 import Modal from '../Secondary-Comps/Modal.jsx';
 
 const FilterProducts = ({products, filterColor, setColorParams}) => {
-    const sideCompController = useContext(SideCompContext);
+    const {openedFilter, showFilter, hideFilter} = useContext(SideCompContext);
 
     const handleSelectedColor = (color) =>{
         setColorParams({filter: color})
         filterColor = color;
+        hideFilter();
     }
 
     const handleResetFilter = () =>{
         setColorParams({});
-        sideCompController.hideFilter();
+        hideFilter();
     }
     
   return (
     <>
-        {sideCompController.openedFilter && <Modal closeModal = {sideCompController.hideFilter} />}
+        {openedFilter && <Modal closeModal = {hideFilter} />}
         <div className='filter-products'>
-            <div className= {`${sideCompController.openedFilter ? 'opened-filter-colors filter-colors' : 'filter-colors'}`}>
+            <div className= {`${openedFilter ? 'opened-filter-colors filter-colors' : 'filter-colors'}`}>
                 <div className='filter-title'>
                 <h1>Filter By Color</h1> 
-                <IoMdClose onClick={sideCompController.hideFilter} className='filter-x-mark'/>
+                <IoMdClose onClick={hideFilter} className='filter-x-mark'/>
                 </div>
                 
                 <div className='colors-in'>
@@ -42,7 +43,7 @@ const FilterProducts = ({products, filterColor, setColorParams}) => {
                 </Button>
             
             </div>
-            <Button onClick={sideCompController.showFilter} className='filter-btn'>Filter</Button>
+            <Button onClick={showFilter} className='filter-btn'>Filter</Button>
         </div>
     </>
     

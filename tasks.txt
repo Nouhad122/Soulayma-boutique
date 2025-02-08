@@ -1,2 +1,0 @@
-next: open and set open filter
-and other issues in App cleaning

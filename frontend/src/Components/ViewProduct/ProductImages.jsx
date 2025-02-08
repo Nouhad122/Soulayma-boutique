@@ -4,7 +4,7 @@ import ImagesPoints from './ImagesPoints';
 import SideCompContext from '../../store/SideCompContext';
 
 const ProductImages = ({ chosenProduct }) => {
-    const sideCompController = useContext(SideCompContext);
+    const { openFirstImage, openSecondImage } = useContext(SideCompContext);
     const [activePoint, setActivePoint] = useState('point1');
     
     const point1Ref = useRef();
@@ -53,8 +53,8 @@ const ProductImages = ({ chosenProduct }) => {
   return (
     <>
         <div className={classes.productImages} ref={productImagesRef}>
-                <img onClick={sideCompController.openFirstImage} src={chosenProduct.image1} alt='' ref={point1Ref}/>
-                <img onClick={sideCompController.openSecondImage} src={chosenProduct.image2} alt='' ref={point2Ref}/>
+                <img onClick={openFirstImage} src={chosenProduct.image1} alt='' ref={point1Ref}/>
+                <img onClick={openSecondImage} src={chosenProduct.image2} alt='' ref={point2Ref}/>
         </div>
 
       <ImagesPoints 

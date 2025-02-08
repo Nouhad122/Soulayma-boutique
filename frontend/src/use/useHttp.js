@@ -15,7 +15,7 @@ export const fetchProducts = async ({ signal }) =>{
 }
 
 export const fetchProductDetails = async ({id, signal}) =>{
-    const response = await fetch(`http://localhost:5000/produc/${id}`, { signal });
+    const response = await fetch(`http://localhost:5000/products/${id}`, { signal });
     if(!response.ok){
         throw new Response(JSON.stringify({message: "Failed To Fetch Product Details"}), {status: response.status})
     }

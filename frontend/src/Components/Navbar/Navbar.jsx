@@ -8,18 +8,18 @@ import Modal from '../Secondary-Comps/Modal.jsx';
 import SideCompContext from '../../store/SideCompContext.jsx';
 
 const Navbar = () => {
-  const sideCompController = useContext(SideCompContext);
+  const { openedList, hideList } = useContext(SideCompContext);
   
   useEffect(() => {
-    const handleResize = () => sideCompController.hideList();
+    const handleResize = () => hideList();
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [sideCompController]);
+  }, [hideList]);
 
   return (
     <>
-    {sideCompController.openedList && <Modal closeModal = {sideCompController.hideList} />}
+    {openedList && <Modal closeModal = {hideList} />}
 
     <div className='header-navbar'>
     <Header/>

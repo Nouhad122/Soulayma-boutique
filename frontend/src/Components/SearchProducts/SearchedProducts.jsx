@@ -12,8 +12,6 @@ import Modal from '../Secondary-Comps/Modal.jsx';
 import { useQuery } from '@tanstack/react-query';
 import LoadingPage from '../Secondary-Comps/LoadingPage.jsx';
 
-
-
 const SearchedProducts = () => {
   const { inputValue } = useContext(SideCompContext);
   const [productsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
@@ -22,7 +20,7 @@ const SearchedProducts = () => {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['products'],
     queryFn: ({ signal }) => fetchProducts({ signal }),
-    staleTime: 10000
+    staleTime: 60000
   })
 
   const filteredProducts = useFilteredProducts(data, inputValue);

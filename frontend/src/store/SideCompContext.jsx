@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useMemo } from 'react';
 
 const SideCompContext = createContext({
     openedList: false,
@@ -6,87 +6,85 @@ const SideCompContext = createContext({
     inputValue: '',
     openedFullImg: {},
     modalContent: false,
-    showList: () =>{},
-    hideList: () =>{},
-    showFilter: () =>{},
-    hideFilter: () =>{},
-    emptyInput: () =>{},
-    changeInputValue: () =>{},
-    openFirstImage: () =>{},
-    openSecondImage: () =>{},
-    closeFullImage: () =>{},
-    goToNextImg: () =>{},
-    goToPrevImg: () =>{},
-    showContentInModal: () =>{},
-    hideContentInModal: () =>{}
-    
-})
+    showList: () => {},
+    hideList: () => {},
+    showFilter: () => {},
+    hideFilter: () => {},
+    emptyInput: () => {},
+    changeInputValue: () => {},
+    openFirstImage: () => {},
+    openSecondImage: () => {},
+    closeFullImage: () => {},
+    goToNextImg: () => {},
+    goToPrevImg: () => {},
+    showContentInModal: () => {},
+    hideContentInModal: () => {}
+});
 
-
-export const SideCompContextProvider = ({children}) => {
-    const [openList, setOpenList] = useState();
-    const [openFilter, setOpenFilter] = useState();
+export const SideCompContextProvider = ({ children }) => {
+    const [openList, setOpenList] = useState(false);
+    const [openFilter, setOpenFilter] = useState(false);
     const [inpValue, setInpValue] = useState('');
     const [openFullImage, setOpenFullImage] = useState({ isOpen: false, image: 1 });
     const [showModalContent, setShowModalContent] = useState(false);
 
-    const showList = () =>{
+    const showList = () => {
         setOpenList(true);
         setOpenFilter(false);
-    }
+    };
     
-    const hideList = () =>{
+    const hideList = () => {
         setOpenList(false);
-    }
-    
-    const showFilter = () =>{
-        setOpenFilter(true);
-    }
-    
-    const hideFilter = () =>{
-        setOpenFilter(false);
-    }
+    };
 
-    const emptyInput = () =>{
+    const showFilter = () => {
+        setOpenFilter(true);
+    };
+
+    const hideFilter = () => {
+        setOpenFilter(false);
+    };
+
+    const emptyInput = () => {
         setInpValue('');
-    }
-    
-    const changeInputValue = (event) =>{
+    };
+
+    const changeInputValue = (event) => {
         setInpValue(event.target.value);
         setOpenFilter(false);
         setOpenList(false);
         setShowModalContent(false);
-    }
+    };
 
-    const openFirstImage = () =>{
-        setOpenFullImage((prev) =>({...prev, isOpen: true, image: 1}));
-    }
+    const openFirstImage = () => {
+        setOpenFullImage((prev) => ({ ...prev, isOpen: true, image: 1 }));
+    };
 
-    const openSecondImage = () =>{
-        setOpenFullImage((prev) =>({...prev, isOpen: true, image: 2}));
-    }
+    const openSecondImage = () => {
+        setOpenFullImage((prev) => ({ ...prev, isOpen: true, image: 2 }));
+    };
 
-    const closeFullImage = () =>{
-        setOpenFullImage((prev) =>({...prev, isOpen: false, image: 1}));
-    }
+    const closeFullImage = () => {
+        setOpenFullImage((prev) => ({ ...prev, isOpen: false, image: 1 }));
+    };
 
-    const goToNextImg = () =>{
-        setOpenFullImage((prev) => ({...prev, image: 2}));
-    }
+    const goToNextImg = () => {
+        setOpenFullImage((prev) => ({ ...prev, image: 2 }));
+    };
 
-    const goToPrevImg = () =>{
-        setOpenFullImage((prev) => ({...prev, image: 1}));
-    }
+    const goToPrevImg = () => {
+        setOpenFullImage((prev) => ({ ...prev, image: 1 }));
+    };
 
-    const showContentInModal = () =>{
+    const showContentInModal = () => {
         setShowModalContent(true);
-    }
+    };
 
-    const hideContentInModal = () =>{
+    const hideContentInModal = () => {
         setShowModalContent(false);
-    }
+    };
 
-    const SideCompContextValues = ({
+    const sideCompContextValues = useMemo(() => ({
         openedList: openList,
         openedFilter: openFilter,
         inputValue: inpValue,
@@ -105,12 +103,19 @@ export const SideCompContextProvider = ({children}) => {
         goToPrevImg,
         showContentInModal,
         hideContentInModal
-    })
-  return (
-    <SideCompContext.Provider value={SideCompContextValues}>
-      {children}
-    </SideCompContext.Provider>
-  )
-}
+    }), [
+        openList,
+        openFilter,
+        inpValue,
+        openFullImage,
+        showModalContent
+    ]);
 
-export default SideCompContext
+    return (
+        <SideCompContext.Provider value={sideCompContextValues}>
+            {children}
+        </SideCompContext.Provider>
+    );
+};
+
+export default SideCompContext;

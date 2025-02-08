@@ -7,7 +7,7 @@ import SideCompContext from '../../store/SideCompContext'
 import Modal from '../Secondary-Comps/Modal'
 
 const CartProd = (props) => {
-    const sideCompController = useContext(SideCompContext);
+    const { modalContent, showContentInModal} = useContext(SideCompContext);
     const {id, title, image1, price, totalPrice, quantity} = props.product;
     const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const CartProd = (props) => {
   return (
     <>
         {
-         sideCompController.modalContent &&
+         modalContent &&
             <Modal
             title="Remove Item from Cart" 
             message="Are you sure you want to remove this item from your cart? This action cannot be undone." 
@@ -50,7 +50,7 @@ const CartProd = (props) => {
             </td>
             <td>{totalPrice}$</td>
             <td>
-            <VscTrash onClick={sideCompController.showContentInModal} className='cart-trash' size={20} />
+            <VscTrash onClick={showContentInModal} className='cart-trash' size={20} />
             </td>
         </tr>
     </>

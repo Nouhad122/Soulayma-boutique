@@ -8,19 +8,19 @@ import classes from './NavbarLinks.module.css';
 import SideCompContext from '../../store/SideCompContext.jsx';
 
 const NavbarLinks = () => {
-  const sideCompController = useContext(SideCompContext);
+  const { openedList, showList, hideList } = useContext(SideCompContext);
 
-  const navListClasses = `${classes.navList} ${sideCompController.openedList ?
+  const navListClasses = `${classes.navList} ${openedList ?
      classes.visible : classes.hiddenList}`; 
 
   return (
     <>
-        <FaBars className={classes.menuBars} onClick={sideCompController.showList}/>
+        <FaBars className={classes.menuBars} onClick={showList}/>
           
         <Link to={'/'}><img src={logo} alt='soulayma logo' /></Link>
 
         <div className={navListClasses}>
-          <FaXmark className={classes.xMark} onClick={sideCompController.hideList}/>
+          <FaXmark className={classes.xMark} onClick={hideList}/>
         
             <NavigationLink 
               categoryName="hijabs"
