@@ -5,7 +5,7 @@ import classes from '../Products/Products.module.css';
 import { useLoaderData } from 'react-router-dom';
 
 const AbayasGlance = () => {
-  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
+  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
   const  productsData = useLoaderData();
   const abayaProducts = productsData.filter(product => product.category === 'Abayas').slice(0,4);
   

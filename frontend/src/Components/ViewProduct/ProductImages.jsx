@@ -53,8 +53,8 @@ const ProductImages = ({ chosenProduct }) => {
   return (
     <>
         <div className={classes.productImages} ref={productImagesRef}>
-                <img onClick={openFirstImage} src={chosenProduct.image1} alt='' ref={point1Ref}/>
-                <img onClick={openSecondImage} src={chosenProduct.image2} alt='' ref={point2Ref}/>
+                <img onClick={openFirstImage} src={chosenProduct.image1} alt='First Product Image' ref={point1Ref}/>
+                <img onClick={openSecondImage} src={chosenProduct.image2} alt='Second Product Image' ref={point2Ref}/>
         </div>
 
       <ImagesPoints 

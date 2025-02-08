@@ -6,7 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 const ProductsSlider = ({ kind, sliderTitle, sliderSub }) => {
     const  productsData = useLoaderData();
     const scrollRef = useRef();
-    const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
+    const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
     
     const sliderProducts = productsData.filter(product => product.kind === kind);
 

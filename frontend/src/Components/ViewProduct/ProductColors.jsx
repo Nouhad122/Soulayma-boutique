@@ -19,7 +19,7 @@ const ProductColors = ({chosenProduct}) => {
         <div className={classes.otherColors}>
             {   
               kindProducts.map(product =>(
-                <div onClick={() => navigate(`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`)}
+                <div onClick={() => navigate(`/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`)}
                  key={product.id} className={`${classes.color} ${product.id === id ? `${classes.chosenColor}` : ''}`}
                   style={{backgroundColor: product.colorCode}}>
                 </div>

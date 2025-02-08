@@ -64,7 +64,7 @@ useEffect(() =>{
       children: [
       {index: true, element:<Suspense fallback={<LoadingPage />}><Home /></Suspense>, loader: productsLoader},
       {path: 'shop/all?/:category/:kind?/page?/:page?', element:<Suspense fallback={<LoadingPage />}><Shop /></Suspense> , loader: productsLoader},
-      {path: 'shop/product/:category/:kind/:id', element: <Suspense fallback={<LoadingPage />}><Product /></Suspense>, loader: chosenProductLoader},
+      {path: 'shop/product/:category/:kind/:id/:color', element: <Suspense fallback={<LoadingPage />}><Product /></Suspense>, loader: chosenProductLoader},
       {path: 'cart', element: <CartPage />},
       {path: 'about-us', element: <AboutPage />},
       {path:'faq',

@@ -9,7 +9,7 @@ const BestSelling = () => {
   const  productsData = useLoaderData();
   const bestSellings = shuffleArray(productsData.filter(product => product.bestSelling)).slice(0,12);
 
-  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
+  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
 
   return (
     <div className={`${classes.productsContainer} ${classes.secondColor}`}>

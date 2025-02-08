@@ -6,7 +6,7 @@ import classes from '../Products/Products.module.css';
 import usePagination from '../../use/usePagination.js';
 
 const ShopProducts = ({products, filterColor}) => {
-  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
+  const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
   const { category, kind, page } = useParams();
   
   //filter products

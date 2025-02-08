@@ -6,7 +6,7 @@ import { useLoaderData, useParams } from 'react-router';
 
 const Suggetions = () => {
   const { category } = useParams();
-  const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}`;
+  const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
 
   const { prodsLoader } = useLoaderData();
   const filteredSuggs = shuffleArray(prodsLoader.filter(product => product.category === category)).slice(0,4);
