@@ -1,8 +1,9 @@
+import React, { useEffect, lazy, Suspense } from 'react'
 import RootPage from "./Pages/RootPage.jsx"
-import Home from "./Pages/Home/Home.jsx"
-import Shop from "./Pages/Shop/Shop.jsx"
-import Product from "./Pages/Product/Product.jsx"
-import CartPage from './Pages/CartPage/CartPage.jsx'
+const Home = lazy(() => import ("./Pages/Home/Home.jsx"))
+const Shop = lazy(() => import ("./Pages/Shop/Shop.jsx"))
+const Product = lazy(() => import ("./Pages/Product/Product.jsx"))
+const CartPage = lazy(() => import ("./Pages/CartPage/CartPage.jsx"))
 import FAQRoot from "./Pages/FooterPages/FAQRoot.jsx"
 import FAQOverview from "./Pages/FooterPages/FAQPages/FAQOverview.jsx"
 import AboutPage from './Pages/FooterPages/AboutPage.jsx'
@@ -26,7 +27,6 @@ import CustomerService from './Pages/FooterPages/FAQPages/CustomerService.jsx'
 import SbRewards from './Pages/FooterPages/FAQPages/SbRewards.jsx'
 import SignIn from './Pages/RegistrationPages/SignIn.jsx'
 import SignUp from './Pages/RegistrationPages/SignUp.jsx'
-import React, { useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -34,13 +34,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { cartSliceActions } from "./redux-toolkit/cart-slice.js"
 import { useCartQuery } from "./use/useCartQuery.js"
 import { chosenProductLoader, productsLoader } from "./Loaders/Loaders.js"
+import LoadingPage from './Components/Secondary-Comps/LoadingPage.jsx'
+import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx'
   
 function App() {
 
 const cart = useSelector(state => state.cart);
 const dispatch = useDispatch();
 
-const { data, isPending, isError, error, updateCartData } = useCartQuery();
+const { data, updateCartData } = useCartQuery();
 
 useEffect(() => {
   if (data) {
@@ -55,16 +57,14 @@ useEffect(() =>{
   }
 }, [cart, updateCartData])
 
-if (isPending) return <p>Loading cart...</p>;
-if (isError) return <p>Error: {error.message}</p>;
-
   const router = createBrowserRouter([
     { path:'/',
       element: <RootPage />,
+      errorElement: <ErrorPage />,
       children: [
-      {index: true, element: <Home />, loader: productsLoader},
-      {path: 'shop/all?/:category/:kind?/page?/:page?', element: <Shop />, loader: productsLoader},
-      {path: 'shop/product/:category/:kind/:id', element: <Product />, loader: chosenProductLoader},
+      {index: true, element:<Suspense fallback={<LoadingPage />}><Home /></Suspense>, loader: productsLoader},
+      {path: 'shop/all?/:category/:kind?/page?/:page?', element:<Suspense fallback={<LoadingPage />}><Shop /></Suspense> , loader: productsLoader},
+      {path: 'shop/product/:category/:kind/:id', element: <Suspense fallback={<LoadingPage />}><Product /></Suspense>, loader: chosenProductLoader},
       {path: 'cart', element: <CartPage />},
       {path: 'about-us', element: <AboutPage />},
       {path:'faq',

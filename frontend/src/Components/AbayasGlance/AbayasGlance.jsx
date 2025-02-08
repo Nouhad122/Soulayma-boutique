@@ -6,9 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const AbayasGlance = () => {
   const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}`;
-
   const  productsData = useLoaderData();
-    
   const abayaProducts = productsData.filter(product => product.category === 'Abayas').slice(0,4);
   
   return (

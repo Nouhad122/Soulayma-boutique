@@ -6,7 +6,7 @@ export const fetchProducts = async ({ signal }) =>{
     const response = await fetch('http://localhost:5000/products', { signal });
     
     if(!response.ok){
-        throw new Error("An error occured while fetching products")
+        throw new Response(JSON.stringify({message: "Failed To Fetch Products"}), {status: response.status})
     }
 
     const data = await response.json();
@@ -15,9 +15,9 @@ export const fetchProducts = async ({ signal }) =>{
 }
 
 export const fetchProductDetails = async ({id, signal}) =>{
-    const response = await fetch(`http://localhost:5000/products/${id}`, { signal });
+    const response = await fetch(`http://localhost:5000/produc/${id}`, { signal });
     if(!response.ok){
-        throw new Error('An error occured while fetching the details of the product')
+        throw new Response(JSON.stringify({message: "Failed To Fetch Product Details"}), {status: response.status})
     }
     const data = await response.json();
 
@@ -27,7 +27,7 @@ export const fetchProductDetails = async ({id, signal}) =>{
 export const fetchCart = async () => {
     const response = await fetch('http://localhost:5000/cart');
     if (!response.ok){
-        throw new Error('Failed to fetch cart');
+        throw new Response(JSON.stringify({message: "Failed To Fetch Cart"}), {status: response.status})
     } 
     
     const data = await response.json();
@@ -35,8 +35,6 @@ export const fetchCart = async () => {
     return data;
   };
 
-  
-  
   export const updateCart = async (cart) => {
     const response = await fetch('http://localhost:5000/cart', {
       method: 'PUT',
@@ -44,7 +42,7 @@ export const fetchCart = async () => {
       body: JSON.stringify(cart),
     });
     if (!response.ok){
-        throw new Error('Failed to update cart');
+        throw new Response(JSON.stringify({message: "Failed To Update The Cart"}), {status: response.status})
     } 
     return response.json();
   };

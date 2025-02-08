@@ -6,20 +6,11 @@ import Benefits from '../../Components/Benifits/Benefits.jsx'
 import BestSelling from '../../Components/BestSelling/BestSelling.jsx'
 import SearchEnd from '../../Components/SearchEnd/SearchEnd.jsx'
 import ProductsSlider from '../../Components/ProductsSlider/ProductsSlider.jsx'
-import { useNavigation } from 'react-router-dom'
-import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx'
 
-const HomeContent = () => {
-  const navigation = useNavigation();
-
-  if(navigation.state === 'loading'){
-    return <LoadingPage />;
-  }
-
+const Home = () => {
   return (
       <div className="homePage">
-          <CarouselSlider />
-          
+          <CarouselSlider />    
           <ProductsSlider 
             kind= "SpeakPure Set Satin Lined"
             title="Featured Collection"
@@ -38,19 +29,15 @@ const HomeContent = () => {
             subTitle="Instant Hijabs"    
           />
           
-          <BestSelling />
+          <BestSelling  />
           <SearchEnd />
       </div>
   );
 };
 
-const Home = () => {
-  return (
-    <Suspense fallback={<LoadingPage />}>
-      <HomeContent />
-    </Suspense>
-  );
-};
+
+  
+
 
 
 export default Home

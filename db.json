@@ -2774,9 +2774,18 @@
     }
   ],
   "cart": {
-    "products": [],
-    "totalPriceOfAllProducts": 0,
-    "totalQuantity": 0,
+    "products": [
+      {
+        "id": "1",
+        "title": "Premium Jersey Hijab",
+        "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
+        "price": 22,
+        "quantity": 1,
+        "totalPrice": 22
+      }
+    ],
+    "totalPriceOfAllProducts": 22,
+    "totalQuantity": 1,
     "changed": true
   }
 }
