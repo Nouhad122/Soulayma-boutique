@@ -1,64 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import './CarouselSlider.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import carouselImg1 from '../../assets/carousel-image-1.png'
+import carouselImg2 from '../../assets/carousel-image-2.png'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import classes from "./CarouselSlider.module.css";
 
 const CarouselSlider = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 991);
+  const settings = {
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    arrows: false,
+    draggable: false,
+    swipe: false,
+    touchMove: false,
+  };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 991);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const slides = [
+    {
+      img: carouselImg1,
+      header: "Discover the perfect Hijab for every style",
+      caption: "From 1980, 40+ Years",
+      btnText: "Shop All Hijabs",
+      btnLink: "/shop/all/Hijabs/page/1",
+    },
+    {
+      img: carouselImg2,
+      header: "The search for your favorite Hijab Ends here",
+      caption: "100,000+ Hijabs Sold",
+      btnText: "Shop Breathable Modal",
+      btnLink: "/shop/Hijabs/Breathable Modal (Viscose)",
+    },
+  ];
 
   return (
-    <div>
-      <Carousel data-bs-theme="dark" className='carousel-container'>
-        <Carousel.Item className='carousel-item'>
-          <img
-            className="d-block w-100 carousel-image"
-            src={isMobile 
-              ? "https://voilechic.com/cdn/shop/files/Untitled_design_21.png?v=1725361985" 
-              : "https://voilechic.com/cdn/shop/files/imgpsh_fullsize_anim.jpg?v=1722524150"}
-            alt="First slide"
-          />
-          <Carousel.Caption className='slide-label'>
-            <h1>Discover the perfect Hijab for every style</h1>
-            <h3>From 1980, 40+ Years</h3>
-            <Link to={`/shop/all/Hijabs/page/1`} className='carousel-link'>
-            <button className="carousel-btn">
-              Shop All Hijabs
-            </button>
-            </Link>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-        <img
-            className="d-block w-100 carousel-image"
-            src={isMobile 
-              ? "https://voilechic.com/cdn/shop/files/Untitled_design_21.png?v=1725361985" 
-              : "https://voilechic.com/cdn/shop/files/Untitled_design_22.png?v=1725362655"}
-            alt="First slide"
-          />
-          <Carousel.Caption className='slide-label'>
-            <h1>The search for your favorite Hijab Ends here</h1>
-            <h3>100,000+ Hijabs Sold</h3>
-            <Link to={`/shop/Hijabs/Breathable Modal (Viscose)`} className='carousel-link'>
-            <button className="carousel-btn">
-              Shop Breathable Modal
-            </button>
-            </Link>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+    <div className={classes["slider-container"]}>
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <div key={index} className={classes['slider-wrapper']}>
+            <img src={slide.img} alt={slide.header} className={classes["slider-image"]} />
+            <div className={classes["slider-overlay"]}>
+              <h2 className={classes["slider-title"]}>{slide.header}</h2>
+              <p className={classes["slider-caption"]}>{slide.caption}</p>
+              <a href={slide.btnLink} className={classes["slider-button"]}>
+                {slide.btnText}
+              </a>
+            </div>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

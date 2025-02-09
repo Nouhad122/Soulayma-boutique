@@ -1,0 +1,104 @@
+  .slider-wrapper{
+    background-color: var(--sixth-color);
+    padding: 0 2.5rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .slider-container img {
+    object-fit: contain;
+    width: 60vw;
+    height: 82vh;
+  }
+  
+  .slider-overlay {
+    max-width: 650px;
+    padding: 1rem;
+  }
+  
+  .slider-title {
+    font-size: 4rem;
+    color: var(--font-color);
+    font-family: var(--first-font);
+    text-transform: capitalize;
+  }
+  
+  .slider-caption {
+    font-size: 1rem;
+    margin-top: .8rem;
+    color: var(--font-color);
+  }
+  
+  .slider-button {
+    display: block;
+    background-color: var(--fifth-color);
+    padding: .8rem;
+    width: 25vw;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    border: solid 1px transparent;
+    transition: .5s ease-in-out;
+  }
+  
+  .slider-button:hover {
+    background-color: transparent;
+    border: solid 1px var(--font-color);
+  }
+
+@media screen and (max-width: 1030px) {
+    .slider-overlay {
+        max-width: 800px;
+      }
+    .slider-title{
+      font-size: 2.5rem;
+    }
+    .slider-caption{
+      font-size: .8rem;
+    }
+    .slider-button{
+      font-size: 1rem;
+      padding: .5rem;
+      width: 30vw;
+    }
+}
+
+@media screen and (max-width: 860px){
+    .slider-overlay {
+        width: 100%;
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.274);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .slider-container img {
+        object-fit:cover;
+        width: 30rem;
+        
+      }
+      .slider-wrapper{
+        padding: 0;
+      }
+      .slider-button{
+        width: 50%;
+      }
+}
+@media screen and (max-width: 480px){
+    .slider-button{
+        width: 86%;
+    }
+}
+  
+  
