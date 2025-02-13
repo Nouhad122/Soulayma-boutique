@@ -2,9 +2,9 @@ import React, { useEffect, useContext } from 'react'
 import Navbar from '../Components/Navbar/Navbar.jsx'
 import Footer from '../Components/Footer/Footer.jsx'
 import { useLocation, Outlet } from 'react-router'
-import ChatBot from '../Components/ChatBot/ChatBot.jsx'
 import SideCompContext from '../store/SideCompContext.jsx'
 import SearchedProducts from '../Components/SearchProducts/SearchedProducts.jsx'
+import ChatBotPage from './ChatBotPage/ChatBotPage.jsx'
 
 const RootPage = () => {
   const {hideContentInModal, hideList, emptyInput, hideFilter, inputValue} = useContext(SideCompContext);
@@ -31,7 +31,7 @@ const RootPage = () => {
 
       <Footer />
 
-      <ChatBot />
+      <ChatBotPage />
     </div>
   )
 }

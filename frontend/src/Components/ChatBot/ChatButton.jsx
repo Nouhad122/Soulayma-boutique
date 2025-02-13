@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Chatbot.module.css';
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
+import ChatBotContext from '../../store/ChatBotContext';
 
-const ChatButton = ({chatOpen, onChatOpen}) => {
+const ChatButton = () => {
+  const { chatOpen, showChatbot } = useContext(ChatBotContext);
   return (
     <div className={classes.chatButton}>
-      <button onClick={onChatOpen}>
+      <button onClick={showChatbot}>
         {
             chatOpen ? <IoMdClose /> :
             <>

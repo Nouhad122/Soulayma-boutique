@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Chatbot.module.css';
 import ChatBox from './ChatBox.jsx';
 import ChatMessages from './ChatMessages.jsx';
 import ChoiceGuide from './ChoiceGuide.jsx';
+import ChatBotContext from '../../store/ChatBotContext.jsx';
 
 
-const ChatBot = ({chatOpen, chatMessages, onMessageChosen, onCloseChatMessages, chatbotMode, onOpeningGuide}) => {
+const ChatBot = ({ onMessageChosen, onOpeningGuide}) => {
+  const { chatOpen, chatbotMode } = useContext(ChatBotContext);
   return(
     <>
     {
@@ -13,7 +15,7 @@ const ChatBot = ({chatOpen, chatMessages, onMessageChosen, onCloseChatMessages, 
         <div className={classes.chatbot}>
           {
             chatbotMode === "botMessages" &&
-              <ChatMessages onCloseChatMessages={onCloseChatMessages} chatMessages={chatMessages} />
+              <ChatMessages />
           }
           {
               chatbotMode === "" &&

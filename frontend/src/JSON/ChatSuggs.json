@@ -1,0 +1,27 @@
+[
+    {
+        "id": "000",
+        "text": "Do you offer free shipping?",
+        "botText": "US - FREE shipping on all orders over $50 USD!\n\nCanada - FREE shipping on all orders over $75 CAD!\n\nEurope - FREE shipping on all orders over €50 EUR!\n\nUnited Kingdom - FREE shipping on all orders over £50 GBP!\n\nInternational - FREE shipping on all international orders over $150 USD!"
+    },
+    {
+        "id": "001",
+        "text": "How long does delivery take?",
+        "botText": "We ship out orders within 1 business day, including same-day and next-day options.\n\nUS - 2 to 5 business days.\nCanada - 1 to 2 business days.\nUK - 2 to 4 business days.\nEurope - 2 to 4 business days.\nInternational - 6 to 20 business days."
+    },
+    {
+        "id": "002",
+        "text": "What's your return policy?",
+        "botText": "We want you to be 100% satisfied with your purchase so if you're not happy with an item, send it back for a full refund. You may return the product in its original condition within 30 days of receiving it.\n\nWe will provide a full refund for items sent back within 30 days (from the date of purchase). The refund will be in the original form of payment for the full purchase price of the item, including sales tax, and will be issued within 48 hours of us receiving the return.\n\nOriginal shipping charges are not refunded as part of your return, unless the reason for the return is due to item(s) being damaged, defective, or incorrect."
+    },
+    {
+        "id": "003",
+        "text": "How should I clean and care for my hijab?",
+        "botText": "You should hand wash and air dry our products for best results. If you would like to machine wash, wash on warm, delicate using a gentle detergent and tumble dry for best results. Be sure to wash with other scarves/hijabs and very similar colours ONLY!\n\nUse a stain remover carefully following the instructions on the product label.\n\nUnfortunately, the toughest stains may not come out. Treat our products with care."
+    },
+    {
+        "id": "004",
+        "text": "How can I get notified about restocks?",
+        "botText": "We're thrilled you're interested in our hijabs! To stay updated on restocks, please join our email list for exciting notifications and check our website regularly.\n\nPlus, we’re working on a wish list feature that will automatically notify you when your favorite items are back in stock."
+    }
+]

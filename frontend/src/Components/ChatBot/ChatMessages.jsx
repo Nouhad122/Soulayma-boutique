@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './Chatbot.module.css';
 import logo from '../../assets/S-logo.png';
 import { IoClose } from "react-icons/io5";
 import CustomerStatus from './CustomerStatus';
 import useTypingEffect from '../../use/useTypingEffect.js';
+import ChatBotContext from '../../store/ChatBotContext.jsx';
 
 const CUSTOMER_STATUS = {
   YES: 'yes',
@@ -11,7 +12,8 @@ const CUSTOMER_STATUS = {
   PENDING: null,
 };
 
-const ChatMessages = ({ onCloseChatMessages, chatMessages }) => {
+const ChatMessages = () => {
+  const { chatMessages, closeChatMessage} = useContext(ChatBotContext);
   const [customerStatus, setCustomerStatus] = useState(CUSTOMER_STATUS.PENDING);
   const isTyping = useTypingEffect(1000);
 
@@ -21,7 +23,7 @@ const ChatMessages = ({ onCloseChatMessages, chatMessages }) => {
 
   return (
     <div className={classes.chatMessages}>
-      <IoClose onClick={onCloseChatMessages} />
+      <IoClose onClick={closeChatMessage} />
       <p className={classes.messageDate}>{formattedDate}</p>
       <p className={classes.customerMessage}>{chatMessages.text}</p>
 
