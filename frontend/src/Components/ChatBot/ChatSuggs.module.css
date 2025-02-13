@@ -1,0 +1,32 @@
+.suggessions{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+.suggessions .chatSugg{
+    background-color: var(--font-color);
+    color: var(--fourth-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .8rem;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.suggessions .chatSugg:hover{
+    background-color: rgb(218, 218, 218);
+}
+.chatSugg p{
+    margin-top: 12px;
+}
+.chatSugg .greaterIcon{
+    font-size: .7rem;
+}
+
+@media screen and (max-width: 380px){
+    .chatSugg p{
+        font-size: .9rem;
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { FaGreaterThan } from "react-icons/fa";
-import classes from './Chatbot.module.css';
+import classes from './ChatSuggs.module.css';
 import ChatBotContext from '../../store/ChatBotContext.jsx';
 import chatSuggs from '../../JSON/ChatSuggs.json';
 

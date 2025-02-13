@@ -1,0 +1,71 @@
+.chatbotBox h2{
+    font-size: 1.6rem;
+    color: var(--gold-color);
+    font-family: var(--first-font);
+}
+.soulaymaSupport{
+    display: grid;
+    grid-template-columns: 17% 72% 10%; 
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: var(--font-color);
+    color: var(--fourth-color);
+    cursor: pointer;
+}
+.soulaymaSupport img{
+    width: 100%;
+    height: auto;
+    background-color: var(--fifth-color);
+}
+.soulaymaSupport .pickupIcon{
+    background-color: var(--fifth-color);
+    color: var(--gold-color);
+    width: 100%;
+    height: 80%;
+}
+.soulaymaSupport h6{
+    font-size: .9rem;
+}
+.soulaymaSupport .sendIcon{
+    font-size: 1.1rem;
+}
+.soulaymaSupport h6 span{
+    font-size: .7rem;
+    color: var(--sixth-color);
+}
+.goToPrevChat{
+    background-color: var(--font-color);
+    color: var(--fourth-color);
+    border-top: solid 1px var(--sixth-color);
+    padding: 5px 10px;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 750px){
+    .soulaymaSupport{
+        display: flex;
+        gap: 10px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .soulaymaSupport img{
+        width: 50px;
+    }
+    .soulaymaSupport svg{
+        position: absolute;
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .soulaymaSupport h6{
+        font-size: .8rem;
+    }
+    .soulaymaSupport p{
+        font-size: .6rem;
+    }
+}

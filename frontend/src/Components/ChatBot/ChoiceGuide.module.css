@@ -1,0 +1,68 @@
+.choiceGuide{
+    color: var(--font-color);
+}
+.choiceGuide h2{
+    font-size: 1.4rem;
+}
+.choiceGuide h4{
+    font-size: 1.1rem;
+    margin-top: 30px;
+}
+.choiceGuide .colorsList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
+    justify-items: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+.choiceGuide .colorsList li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.choiceGuide .colorsList img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.ageRange {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .ageRange label {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    cursor: pointer;
+  }
+  .ageRange input {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .choiceGuide .buttonAction{
+    text-align: center;
+    margin-top: 40px;
+  }
+.buttonAction button{
+    color: var(--font-color);
+    background-color: var(--sixth-color);
+    padding: 7px 20px;
+    border: solid 1px transparent;
+    transition: .3s ease;
+}
+.buttonAction button:hover{
+    border: solid 1px var(--gold-color);
+    background-color: transparent;
+    color: var(--gold-color);
+}

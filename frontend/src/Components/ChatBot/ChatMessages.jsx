@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import classes from './Chatbot.module.css';
+import classes from './ChatMessages.module.css';
 import logo from '../../assets/S-logo.png';
 import { IoClose } from "react-icons/io5";
 import CustomerStatus from './CustomerStatus';

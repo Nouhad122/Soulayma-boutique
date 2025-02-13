@@ -1,6 +1,6 @@
 import React from 'react'
 import skinColor1 from '../../assets/skinColor1.png';
-import classes from './Chatbot.module.css';
+import classes from './ChoiceGuide.module.css';
 
 const ChoiceGuide = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import classes from './Chatbot.module.css';
+import classes from './ChatButton.module.css';
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import ChatBotContext from '../../store/ChatBotContext';

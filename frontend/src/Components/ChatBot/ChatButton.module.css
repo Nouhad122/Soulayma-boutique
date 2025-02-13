@@ -1,0 +1,33 @@
+.chatButton{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 900;
+}
+.chatButton button{
+    padding: 8px 20px;
+    background-color: var(--fifth-color);
+    color: var(--font-color);
+    border: none;
+}
+.chatButton button svg{
+    font-size: 1.6rem;
+}
+.chatButton button span{
+    margin: 7px 0 0 7px;
+}
+
+@media screen and (max-width: 750px){
+    .chatButton{
+        bottom: 10px;
+    }
+    .chatButton button{
+        padding: 6px 15px;
+    }
+    .chatButton button svg{
+        font-size: 1.2rem;
+    }
+    .chatButton button span{
+        margin: 10px 0 0 7px;
+    }
+}

@@ -4,7 +4,7 @@ import ChatBox from './ChatBox.jsx';
 import ChatMessages from './ChatMessages.jsx';
 import ChoiceGuide from './ChoiceGuide.jsx';
 import ChatBotContext from '../../store/ChatBotContext.jsx';
-
+import ChatButton from './ChatButton.jsx';
 
 const ChatBot = ({ onMessageChosen, onOpeningGuide}) => {
   const { chatOpen, chatbotMode } = useContext(ChatBotContext);
@@ -25,9 +25,11 @@ const ChatBot = ({ onMessageChosen, onOpeningGuide}) => {
             chatbotMode === "helperBot" &&
             <ChoiceGuide />
           }
+          <ChatButton /> 
           
         </div> :
-        null 
+
+        <ChatButton /> 
     }
     
   </>

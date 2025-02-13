@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
 import logo from '../../assets/S-logo.png';
-import classes from './Chatbot.module.css';
+import classes from './ChatBox.module.css';
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { MdSend } from "react-icons/md";
 import ChatSuggs from './ChatSuggs.jsx';
 import { GiCardPickup } from "react-icons/gi";
 import ChatBotContext from '../../store/ChatBotContext.jsx';
 
-const ChatBox = ({ onMessageChosen}) => {
+const ChatBox = () => {
   const { openChatGuide } = useContext(ChatBotContext);
 
   return (
     <div className={classes.chatbotBox}>
       <h2>Hello, how can we help you?</h2>
-            <ChatSuggs onMessageChosen={onMessageChosen}/>
+            <ChatSuggs/>
 
             <div className={classes.soulaymaSupport} onClick={openChatGuide}>
                 <GiCardPickup className={classes.pickupIcon}/>

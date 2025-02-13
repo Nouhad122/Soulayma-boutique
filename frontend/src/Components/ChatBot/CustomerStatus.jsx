@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Chatbot.module.css';
+import classes from './ChatMessages.module.css';
 import useTypingEffect from '../../use/useTypingEffect.js';
 
 const CustomerStatus = ({ custMessage, servMessage, formattedTime }) => {
