@@ -10,7 +10,8 @@
       "image1": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Far_1795b816-5eb3-4627-9dac-043eaeba19d6.jpg?v=1721385365",
       "image2": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Close_e3745411-4723-4601-865d-e9635cefb31c.jpg?v=1721385364",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "fair_skin"
     },
     {
       "id": "1",
@@ -22,7 +23,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "2",
@@ -34,7 +36,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Far_5b90528e-54f0-4204-8bec-424417982a09.jpg?v=1721385863",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Close_6250d919-3988-4283-9a59-5e0bc5232b05.jpg?v=1721385861",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "3",
@@ -46,7 +49,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Far_900x.jpg?v=1582665080",
       "image2": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Close_900x.jpg?v=1582665068",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "4",
@@ -58,7 +62,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Far_900x.jpg?v=1582665585",
       "image2": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Close_900x.jpg?v=1582665598",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "5",
@@ -70,7 +75,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Far_900x.jpg?v=1582666200",
       "image2": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Close_900x.jpg?v=1582666194",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "6",
@@ -82,7 +88,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Far_900x.jpg?v=1582666289",
       "image2": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Close_900x.jpg?v=1582666277",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "7",
@@ -94,7 +101,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Far_094f5480-f2d8-44f6-b476-c98810bb2066.jpg?v=1721386031",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Close_51f7f69d-39cc-4106-8c28-ba420b0c1079.jpg?v=1721386031",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "8",
@@ -106,7 +114,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Far_25776520-8f0d-44f4-9164-d3acbd9af831.jpg?v=1721386309",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Close_f38d5152-ba09-4af8-8356-aae9aead0400.jpg?v=1721386309",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "9",
@@ -118,7 +127,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Far_b4b5271a-518d-40c2-8f6e-9db89f9bab28.jpg?v=1721386565",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Close_f91552f8-d229-4f96-bace-f4a82723a66d.jpg?v=1721386565",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "10",
@@ -130,7 +140,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "11",
@@ -142,7 +153,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyFar_900x.png?v=1663911821",
       "image2": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyClose_900x.png?v=1663911822",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "12",
@@ -154,7 +166,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Blue_Premium_Jersey_Far_e7b8a2a4-90eb-4031-b722-e863dfa99040.jpg?v=1721386564",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Bue_Premium_Jersey_Close_082682f2-8399-48a4-a7cc-c7a4cb4a7618.jpg?v=1721386565",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "13",
@@ -166,7 +179,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Far_8a11356e-a39f-4445-b3d2-bf79a24c34cf.jpg?v=1721386826",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Close_9f6a72dd-f618-4564-bcad-4518ed5a4b8b.jpg?v=1721386826",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "14",
@@ -178,7 +192,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Far_900x.jpg?v=1593574210",
       "image2": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Close_900x.jpg?v=1593574210",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "15",
@@ -190,7 +205,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Far_900x.jpg?v=1582667076",
       "image2": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Close_900x.jpg?v=1582667076",
       "price": 22,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": "any"
     },
     {
       "id": "16",
@@ -202,7 +218,8 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/StonePremiumJerseyFar.jpg?v=1604080876",
       "image2": "https://voilechic.ca/cdn/shop/products/StonePremiumJerseyClose_900x.jpg?v=1604081585",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "17",
@@ -214,7 +231,8 @@
       "image1": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Far_900x.jpg?v=1593574189",
       "image2": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Close_900x.jpg?v=1593574189",
       "price": 22,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": "any"
     },
     {
       "id": "18",

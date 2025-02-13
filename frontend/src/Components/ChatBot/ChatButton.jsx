@@ -5,10 +5,10 @@ import { IoMdClose } from "react-icons/io";
 import ChatBotContext from '../../store/ChatBotContext';
 
 const ChatButton = () => {
-  const { chatOpen, showChatbot } = useContext(ChatBotContext);
+  const { chatOpen, toggleChatbot } = useContext(ChatBotContext);
   return (
     <div className={classes.chatButton}>
-      <button onClick={showChatbot}>
+      <button onClick={toggleChatbot}>
         {
             chatOpen ? <IoMdClose /> :
             <>

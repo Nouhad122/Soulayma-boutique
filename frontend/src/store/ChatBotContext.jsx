@@ -4,7 +4,7 @@ const ChatBotContext = createContext({
     chatOpen: false,
     chatbotMode: '',
     chatMessages: {},
-    showChatbot: () =>{},
+    toggleChatbot: () =>{},
     createChatMessage: () =>{},
     closeChatMessage: () =>{},
     openChatGuide: () =>{}
@@ -19,7 +19,7 @@ export const ChatBotContextProvider = ({ children }) => {
         botText: ''
     });
 
-    const showChatbot = () =>{
+    const toggleChatbot = () =>{
         setChatOpen(prevState => !prevState);
         if(chatOpen === true){
           closeChatMessage();
@@ -55,7 +55,7 @@ export const ChatBotContextProvider = ({ children }) => {
         chatOpen,
         chatbotMode,
         chatMessages,
-        showChatbot,
+        toggleChatbot,
         createChatMessage,
         closeChatMessage,
         openChatGuide
