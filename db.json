@@ -11,7 +11,8 @@
       "image2": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Close_e3745411-4723-4601-865d-e9635cefb31c.jpg?v=1721385364",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "fair_skin"
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "1",
@@ -24,7 +25,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["golden_tan", "deep_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "2",
@@ -37,7 +39,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Close_6250d919-3988-4283-9a59-5e0bc5232b05.jpg?v=1721385861",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "3",
@@ -50,7 +53,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Close_900x.jpg?v=1582665068",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["golden_tan", "deep_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "4",
@@ -63,7 +67,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Close_900x.jpg?v=1582665598",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["golden_tan", "deep_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "5",
@@ -76,7 +81,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Close_900x.jpg?v=1582666194",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "6",
@@ -89,7 +95,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Close_900x.jpg?v=1582666277",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["golden_tan", "deep_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "7",
@@ -102,7 +109,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Close_51f7f69d-39cc-4106-8c28-ba420b0c1079.jpg?v=1721386031",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "8",
@@ -115,7 +123,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Close_f38d5152-ba09-4af8-8356-aae9aead0400.jpg?v=1721386309",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["golden_tan", "deep_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "9",
@@ -128,7 +137,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Close_f91552f8-d229-4f96-bace-f4a82723a66d.jpg?v=1721386565",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "10",
@@ -141,7 +151,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "11",
@@ -154,7 +165,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyClose_900x.png?v=1663911822",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "12",
@@ -167,7 +179,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Bue_Premium_Jersey_Close_082682f2-8399-48a4-a7cc-c7a4cb4a7618.jpg?v=1721386565",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "13",
@@ -180,7 +193,8 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Close_9f6a72dd-f618-4564-bcad-4518ed5a4b8b.jpg?v=1721386826",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "14",
@@ -193,7 +207,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Close_900x.jpg?v=1593574210",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "15",
@@ -206,7 +221,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Close_900x.jpg?v=1582667076",
       "price": 22,
       "bestSelling": true,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "16",
@@ -219,7 +235,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/StonePremiumJerseyClose_900x.jpg?v=1604081585",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "17",
@@ -232,7 +249,8 @@
       "image2": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Close_900x.jpg?v=1593574189",
       "price": 22,
       "bestSelling": false,
-      "skinTone": "any"
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "18",
@@ -244,7 +262,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Black_Instant_Hijab_-_1_600x.jpg?v=1576601081",
       "image2": "https://voilechic.ca/cdn/shop/products/Black_Instant_Hijab_-_2_900x.jpg?v=1576601088",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "19",
@@ -256,7 +276,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Instant_Hijab_-_1_4c59a53b-8ab0-4b2b-b1f1-043de4dd4486.jpg?v=1721067273",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Instant_Hijab_-_2_aa983b25-aa65-4b1e-b810-821622e01c80.jpg?v=1721067408",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "20",
@@ -268,7 +290,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Charcoal_Grey_Instant_Hijab_900x.jpg?v=1576601166",
       "image2": "https://voilechic.ca/cdn/shop/products/Charcoal_Grey_Instant_Hijab_-_2_900x.jpg?v=1576601173",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "21",
@@ -280,7 +304,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/IPJ48-1nstaantDarkOlive-2_600x.jpg?v=1604615562",
       "image2": "https://voilechic.ca/cdn/shop/products/IPJ48-1InstantDarkOlive_900x.jpg?v=1604615562",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "22",
@@ -292,7 +318,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/BronzeTaupeTaupeInstantHijab_600x.jpg?v=1673917058",
       "image2": "https://voilechic.ca/cdn/shop/products/BronzeTaupeInstantHijab_1_900x.jpg?v=1673917058",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "23",
@@ -304,7 +332,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/DenimInstantHijab_400x.jpg?v=1673916793",
       "image2": "https://voilechic.ca/cdn/shop/products/DenimInstantHijab_1_900x.jpg?v=1673916794",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "24",
@@ -316,7 +346,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/InstantHijab-Desert_400x.jpg?v=1593288235",
       "image2": "https://voilechic.ca/cdn/shop/products/InstantHijab-Desert2_900x.jpg?v=1593288235",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "25",
@@ -328,7 +360,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Dusty_Rose_Instant_Hijab_-_2_9fab3eaf-2c72-442b-af0a-e0307e7e9320.jpg?v=1600551472",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Dusty_Rose_Instant_Hijab_-_2_9fab3eaf-2c72-442b-af0a-e0307e7e9320.jpg?v=1600551472",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "26",
@@ -340,7 +374,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/IPJ49-1InstantHazelnut_400x.jpg?v=1604615561",
       "image2": "https://voilechic.ca/cdn/shop/products/IPJ49-1InstantHazelnut-2_900x.jpg?v=1604615561",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "27",
@@ -352,7 +388,9 @@
       "image1": "https://voilechic.com/cdn/shop/products/MintInstantHijab.jpg?v=1673916437",
       "image2": "https://voilechic.com/cdn/shop/products/MintInstantHijab_1.jpg?v=1673916437",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "28",
@@ -364,7 +402,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Ivory_Instant_Hijab_-_2_400x.jpg?v=1576601198",
       "image2": "https://voilechic.ca/cdn/shop/products/Ivory_Instant_Hijab_-_1_900x.jpg?v=1576601204",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "29",
@@ -376,7 +416,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Mocha_Brown_Instant_-_1_22993903-960e-402c-be0a-524596f51e13.jpg?v=1600551443",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Mocha_Brown_Instant_-_2_8ae250c7-3618-42e5-acd1-7aef0382a8a1.jpg?v=1600551443",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "30",
@@ -388,7 +430,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Mocha_Brown_Instant_-_1_22993903-960e-402c-be0a-524596f51e13.jpg?v=1600551443",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Mocha_Brown_Instant_-_2_8ae250c7-3618-42e5-acd1-7aef0382a8a1.jpg?v=1600551443",
       "price": 24,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "31",
@@ -400,7 +444,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/MochaMousseInstantHijab_900x.jpg?v=1673916889",
       "image2": "https://voilechic.ca/cdn/shop/products/MochaMousseInstatHijab_1_900x.jpg?v=1673916889",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "32",
@@ -412,7 +458,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/Navy_Blue_Instant_Hijab_-_1_900x.jpg?v=1576524659",
       "image2": "https://voilechic.ca/cdn/shop/products/Navy_Blue_Instant_Hijab_-_2_900x.jpg?v=1576524666",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "33",
@@ -424,7 +472,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Rose_Taupe_Instant_Hijab_-_1_ca91e10c-10f8-4d14-a9af-764b7977c5d5.jpg?v=1600551444",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Rose_Taupe_Instant_Hijab_-_2.jpg?v=1600551444",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "34",
@@ -436,7 +486,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SphinxInstantHijab_900x.jpg?v=1592864280",
       "image2": "https://voilechic.ca/cdn/shop/products/SphinxInstantHijab2_900x.jpg?v=1592864280",
       "price": 24,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "35",
@@ -448,7 +500,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/WarmTaupeInstant2_900x.jpg?v=1594655033",
       "image2": "https://voilechic.ca/cdn/shop/products/WarmTaupeInstant_900x.jpg?v=1594655033",
       "price": 24,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "36",
@@ -460,7 +514,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BLACK4.jpg?v=1704121256",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BLACK3.jpg?v=1704121252",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "37",
@@ -472,7 +528,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DESERT2.jpg?v=1704121297",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DESERT1.jpg?v=1704121292",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "38",
@@ -484,7 +542,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/WARMTAUPE4_1.jpg?v=1704121400",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/WARMTAUPE3.jpg?v=1704121394",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "39",
@@ -496,7 +556,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/VANILLA3.jpg?v=1704121374",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/VANILLA4.jpg?v=1704121379",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "40",
@@ -508,7 +570,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/MOCHABROWN2.jpg?v=1704121338",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/MOCHABROWN1.jpg?v=1704121334",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "41",
@@ -520,7 +584,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/GREY6.jpg?v=1704121319",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/GREY5.jpg?v=1704121312",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "42",
@@ -532,7 +598,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CREAM2.jpg?v=1704121275",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CREAM1.jpg?v=1704121271",
       "price": 30,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "43",
@@ -544,7 +612,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/NAVY4.jpg?v=1704121359",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/NAVY3.jpg?v=1704121353",
       "price": 30,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "44",
@@ -556,7 +626,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/LightTaupePremiumChiffon2_900x.jpg?v=1597830732",
       "image2": "https://voilechic.ca/cdn/shop/products/LightTaupePremiumChiffon_900x.jpg?v=1597830732",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "45",
@@ -568,7 +640,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DustyRosePremiumChiffon2_c5ec8197-811f-4635-bb89-792d11ab7313.jpg?v=1721389234",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DustyRosePremiumChiffon_23583a92-c8f8-4053-8416-1fc42e0b9314.jpg?v=1721389235",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "46",
@@ -580,7 +654,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/EarthGreyPremiumChiffon2_cf5ab0c7-a659-479c-88b8-dc3eba5e3a1b.jpg?v=1721389425",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/EarthGreyPremiumChiffon_dbc79bd4-6cb4-4bc2-a925-ef2f63a7dd57.jpg?v=1721389427",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "47",
@@ -592,7 +668,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SoftTaupePremiumChiffon_900x.jpg?v=1597830734",
       "image2": "https://voilechic.ca/cdn/shop/products/SoftTaupePremiumChiffon2_900x.jpg?v=1597830734",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "48",
@@ -604,7 +682,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/MochaBrownPremiumChiffon_900x.jpg?v=1597830732",
       "image2": "https://voilechic.ca/cdn/shop/products/MochaBrownPremiumChiffon2_900x.jpg?v=1597830732",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "49",
@@ -616,7 +696,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/PinkTaupePremiumChiffon2_900x.jpg?v=1597830733",
       "image2": "https://voilechic.ca/cdn/shop/products/PinkTaupePremiumChiffon_900x.jpg?v=1597830733",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "50",
@@ -628,7 +710,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BurgundyPremiumChiffon2_7e83c84d-6dec-4563-86f7-2e9bb02de6b0.jpg?v=1721388397",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BurgundyPremiumChiffon_1da9f1d9-daf0-47d6-969f-745d381daba0.jpg?v=1721388396",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "51",
@@ -640,7 +724,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/ChestnutPremiumChiffon2_26c45626-663e-4b3d-81d6-091c2fec1ce0.jpg?v=1721388721",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/ChestnutPremiumChiffon_86bdc23b-2e6c-4ef7-9014-71850e578b37.jpg?v=1721388722",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "52",
@@ -652,7 +738,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/CharcoalGreyPremiumChiffon2_900x.jpg?v=1597830789",
       "image2": "https://voilechic.ca/cdn/shop/products/CharcoalGreyPremiumChiffon_900x.jpg?v=1597830789",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "53",
@@ -664,7 +752,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CoffeeBrownPremiumChiffon2_a3e81359-2d0f-45a5-beb7-194e846b1353.jpg?v=1721388937",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CoffeeBrownPremiumChiffon_7f0be2a2-5f5e-4a3b-aae2-69fd14ed5c05.jpg?v=1721388937",
       "price": 26,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "54",
@@ -676,7 +766,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/GunmetalPremiumChiffon_900x.jpg?v=1597830760",
       "image2": "https://voilechic.ca/cdn/shop/products/GunmetalPremiumChiffon2_900x.jpg?v=1597830760",
       "price": 26,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "55",
@@ -688,7 +780,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BLACK1.jpg?v=1704120924",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BLACK2.jpg?v=1704120929",
       "price": 28,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "56",
@@ -700,7 +794,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/MOCHABROWN3.jpg?v=1704121017",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/MOCHABROWN4.jpg?v=1704121022",
       "price": 28,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "57",
@@ -712,7 +808,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/WARMTAUPE1.jpg?v=1704121220",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/WARMTAUPE2.jpg?v=1704121226",
       "price": 28,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "58",
@@ -724,7 +822,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DESERT3.jpg?v=1704120974",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DESERT4.jpg?v=1704120979",
       "price": 28,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "59",
@@ -736,7 +836,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/NAVY2.jpg?v=1704121041",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/NAVY1.jpg?v=1704121036",
       "price": 28,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["19-39", "40+"]
     },
     {
       "id": "60",
@@ -748,7 +850,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/GREY1.jpg?v=1704120997",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/GREY2.jpg?v=1704121001",
       "price": 28,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "61",
@@ -760,7 +864,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CREAM3.jpg?v=1704120951",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CREAM4.jpg?v=1704120957",
       "price": 28,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "62",
@@ -772,7 +878,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/VANILLA1.jpg?v=1704121059",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/VANILLA2.jpg?v=1704121065",
       "price": 28,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "63",
@@ -784,7 +892,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH6-1_900x.jpg?v=1601959321",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH6_900x.jpg?v=1601959321",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "64",
@@ -796,7 +906,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH2-1_900x.jpg?v=1601959318",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH2_900x.jpg?v=1601959318",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "65",
@@ -808,7 +920,9 @@
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/SNLCH21-1.jpg?v=1601956560",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/SNLCH21.jpg?v=1601956561",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "66",
@@ -820,7 +934,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SLCHS3-1_900x.jpg?v=1601959342",
       "image2": "https://voilechic.ca/cdn/shop/products/SLCHS3_900x.jpg?v=1601959342",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "67",
@@ -832,7 +948,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH7-1_900x.jpg?v=1601959319",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH7_900x.jpg?v=1601959319",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "68",
@@ -844,7 +962,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH37-1_900x.jpg?v=1601959343",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH37_900x.jpg?v=1601959343",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "69",
@@ -856,7 +976,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH38-1_900x.jpg?v=1601959320",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH38_900x.jpg?v=1601959320",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "70",
@@ -868,7 +990,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH44-1_900x.jpg?v=1601959320",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH44_900x.jpg?v=1601959320",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "71",
@@ -880,7 +1004,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH26_900x.jpg?v=1601959320",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH26-1_900x.jpg?v=1601959320",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "72",
@@ -892,7 +1018,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH47-1_900x.jpg?v=1601959343",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH47_900x.jpg?v=1601959343",
       "price": 21,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "73",
@@ -904,7 +1032,9 @@
       "image1": "https://voilechic.ca/cdn/shop/products/SNLCH39-1_900x.jpg?v=1601959321",
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH39_900x.jpg?v=1601959321",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["rich_brown", "deep_ebony"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "74",
@@ -916,7 +1046,9 @@
       "image1": "https://voilechic.ca/cdn/shop/files/SNLCH49-1_900x.png?v=1695181598",
       "image2": "https://voilechic.ca/cdn/shop/files/SNLCH49_900x.png?v=1695181599",
       "price": 21,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "75",
@@ -928,7 +1060,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/Black_2.jpg?v=1718367562",
       "image2": "https://voilechic.com/cdn/shop/files/Black_1.jpg?v=1718367582",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "76",
@@ -940,7 +1074,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/DustyRose_1.jpg?v=1718367318",
       "image2": "https://voilechic.com/cdn/shop/files/Dusty_Rose_2_a0b6b25b-0be3-4283-80e4-ab4ef94a05dc.jpg?v=1720694546",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "77",
@@ -952,7 +1088,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/EarthGray.jpg?v=1718900899",
       "image2": "https://voilechic.com/cdn/shop/files/Earth_Gray_2.jpg?v=1718900919",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "78",
@@ -964,7 +1102,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/Ivory_1.jpg?v=1718900384",
       "image2": "https://voilechic.com/cdn/shop/files/Ivory_2.jpg?v=1718900402",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "79",
@@ -976,7 +1116,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/lightgreysmallchiffon1.png?v=1719118906",
       "image2": "https://voilechic.com/cdn/shop/files/lightgreysmallchiffon2.png?v=1719118906",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "80",
@@ -988,7 +1130,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/Light_taupe_4.jpg?v=1718366842",
       "image2": "https://voilechic.com/cdn/shop/files/Light_taupe_2.jpg?v=1718366841",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "81",
@@ -1000,7 +1144,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/MochaBrown.jpg?v=1718366367",
       "image2": "https://voilechic.com/cdn/shop/files/Moch_Brown_1.jpg?v=1718366406",
       "price": 17,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "82",
@@ -1012,7 +1158,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/PinkTaupe_1.jpg?v=1718367063",
       "image2": "https://voilechic.com/cdn/shop/files/Pink_Taupe_2.jpg?v=1718367080",
       "price": 17,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "83",
@@ -1024,7 +1172,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/BLACK.png?v=1717429194",
       "image2": "https://voilechic.com/cdn/shop/files/BLACK2.png?v=1717429194",
       "price": 19,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "84",
@@ -1036,7 +1186,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/CHARCOALGREY2.png?v=1717429223",
       "image2": "https://voilechic.com/cdn/shop/files/CHARCOALGREY.png?v=1717429223",
       "price": 19,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["fair_skin", "light_tan"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "85",
@@ -1048,7 +1200,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/CHOCOLATEBROWN.png?v=1717429249",
       "image2": "https://voilechic.com/cdn/shop/files/CHOCOLATEBROWN2.png?v=1717429249",
       "price": 19,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "86",
@@ -1060,7 +1214,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/CINNAMON2.png?v=1717429325",
       "image2": "https://voilechic.com/cdn/shop/files/CINNAMON.png?v=1717429325",
       "price": 19,
-      "bestSelling": true
+      "bestSelling": true,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39"]
     },
     {
       "id": "87",
@@ -1072,7 +1228,9 @@
       "image1": "https://voilechic.com/cdn/shop/files/CREAM.png?v=1717429368",
       "image2": "https://voilechic.com/cdn/shop/files/CREAM2.png?v=1717429368",
       "price": 19,
-      "bestSelling": false
+      "bestSelling": false,
+      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
+      "ageRange": ["12-18", "19-39", "40+"]
     },
     {
       "id": "88",
