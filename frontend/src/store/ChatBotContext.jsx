@@ -4,6 +4,8 @@ const ChatBotContext = createContext({
     chatOpen: false,
     chatbotMode: '',
     chatMessages: {},
+    skinTone: null,
+    ageRange: null,
     toggleChatbot: () =>{},
     createChatMessage: () =>{},
     closeChatMessage: () =>{},
@@ -18,6 +20,8 @@ export const ChatBotContextProvider = ({ children }) => {
         text:'',
         botText: ''
     });
+    const [selectedSkinTone, setSelectedSkinTone] = useState(null);
+    const [selectedAgeRange, setSelectedAgeRange] = useState(null);
 
     const toggleChatbot = () =>{
         setChatOpen(prevState => !prevState);
@@ -51,14 +55,26 @@ export const ChatBotContextProvider = ({ children }) => {
         setChatbotMode("helperBot");
       }
 
+      const skinToneSelection = (id) =>{
+        setSelectedSkinTone(id);
+      }
+    
+      const ageRangeSelection = (value) =>{
+        setSelectedAgeRange(value);
+      }
+
     const ChatBotContextValue = ({
         chatOpen,
         chatbotMode,
         chatMessages,
+        skinTone: selectedSkinTone,
+        ageRange: selectedAgeRange,
         toggleChatbot,
         createChatMessage,
         closeChatMessage,
-        openChatGuide
+        openChatGuide,
+        skinToneSelection,
+        ageRangeSelection
     })
   return (
     <ChatBotContext.Provider value={ChatBotContextValue}>

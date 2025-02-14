@@ -36,6 +36,7 @@ import { useCartQuery } from "./use/useCartQuery.js"
 import { chosenProductLoader, productsLoader } from "./Loaders/Loaders.js"
 import LoadingPage from './Components/Secondary-Comps/LoadingPage.jsx'
 import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx'
+import ShopGuide from './Pages/Shop/ShopGuide.jsx'
   
 function App() {
 
@@ -64,6 +65,7 @@ useEffect(() =>{
       children: [
       {index: true, element:<Suspense fallback={<LoadingPage />}><Home /></Suspense>, loader: productsLoader},
       {path: 'shop/all?/:category/:kind?/page?/:page?', element:<Suspense fallback={<LoadingPage />}><Shop /></Suspense> , loader: productsLoader},
+      {path: 'shop/Hijabs/:skinTone/:ageRange', element: <ShopGuide />},
       {path: 'shop/product/:category/:kind/:id/:color', element: <Suspense fallback={<LoadingPage />}><Product /></Suspense>, loader: chosenProductLoader},
       {path: 'cart', element: <CartPage />},
       {path: 'about-us', element: <AboutPage />},

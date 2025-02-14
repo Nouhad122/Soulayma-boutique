@@ -11,9 +11,10 @@ import ChatBotContext from '../../store/ChatBotContext';
 
 const ChoiceGuide = () => {
   const navigate = useNavigate();
-  const { toggleChatbot } = useContext(ChatBotContext);
-  const [selectedSkinTone, setSelectedSkinTone] = useState(null);
-  const [selectedAgeRange, setSelectedAgeRange] = useState(null);
+  const { toggleChatbot, skinToneSelection, ageRangeSelection } = useContext(ChatBotContext);
+
+  const [tempSkinTone, setTempSkinTone] = useState(null);
+  const [tempAgeRange, setTempAgeRange] = useState(null);
 
   const skinTones = [
     { id: "fair_skin", image: fairSkin, label: "Fair" },
@@ -24,22 +25,22 @@ const ChoiceGuide = () => {
     { id: "deep_ebony", image: deepEbony, label: "Deep Ebony" },
   ];
 
-  const handleFormSubmission = (event) =>{
-    event.preventDefault();
-    if(selectedSkinTone && selectedAgeRange){
-      navigate(`shop/Hijabs?skinTone=${selectedSkinTone}`);
-      console.log(selectedAgeRange, selectedSkinTone);
+  const handleTempSkinToneSelection = (id) => {
+    setTempSkinTone(id);
+  };
+
+  const handleTempAgeRangeSelection = (event) => {
+    setTempAgeRange(event.target.value);
+  };
+
+  const handleFormSubmission = () => {
+    if (tempSkinTone && tempAgeRange) {
+      skinToneSelection(tempSkinTone);
+      ageRangeSelection(tempAgeRange);
+      navigate(`shop/Hijabs/${tempSkinTone}/${tempAgeRange}`);
       toggleChatbot();
     }
-  }
-
-  const handleSkinToneSelection = (id) =>{
-    setSelectedSkinTone(id);
-  }
-
-  const handleAgeRangeSelection = (event) =>{
-    setSelectedAgeRange(event.target.value);
-  }
+  };
 
   return (
     <form className={classes.choiceGuide} onSubmit={handleFormSubmission}>
@@ -47,11 +48,11 @@ const ChoiceGuide = () => {
       <h4>Please Choose Your Skin Tone Color:</h4>
       <ul className={classes.colorsList}>
         {
-          skinTones.map(tone =>(
+          skinTones.map(tone => (
             <li
              key={tone.id}
-             onClick={() => handleSkinToneSelection(tone.id)}
-             style={{border: selectedSkinTone === tone.id ? '4px solid var(--gold-color)' : 'none'}}
+             onClick={() => handleTempSkinToneSelection(tone.id)}
+             style={{border: tempSkinTone === tone.id ? '4px solid var(--gold-color)' : 'none'}}
             >
               <img src={tone.image} alt={`skin color ${tone.label}`}/>
             </li>
@@ -59,27 +60,28 @@ const ChoiceGuide = () => {
         }
       </ul>
 
-    <h4>Please Choose Your Age Range:</h4>
-    <div className={classes.ageRange}>
+      <h4>Please Choose Your Age Range:</h4>
+      <div className={classes.ageRange}>
         <label>
-            <input type="radio" name="ageRange" value="12-18" onChange={handleAgeRangeSelection}/>
+            <input type="radio" name="ageRange" value="12-18" onChange={handleTempAgeRangeSelection}/>
             12-18
         </label>
         <label>
-            <input type="radio" name="ageRange" value=" 19-39" onChange={handleAgeRangeSelection}/>
+            <input type="radio" name="ageRange" value="19-39" onChange={handleTempAgeRangeSelection}/>
             19-39
         </label>
         <label>
-            <input type="radio" name="ageRange" value="40+" onChange={handleAgeRangeSelection}/>
+            <input type="radio" name="ageRange" value="40+" onChange={handleTempAgeRangeSelection}/>
             More than 40
         </label>
-    </div>
-    <p className={classes.buttonAction}>
-        <button>Search For Products</button>
-    </p>
+      </div>
+
+      <p className={classes.buttonAction}>
+          <button type='submit'>Search For Products</button>
+      </p>
     
     </form>
-  )
+  );
 }
 
-export default ChoiceGuide
+export default ChoiceGuide;

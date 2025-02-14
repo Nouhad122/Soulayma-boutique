@@ -9,6 +9,7 @@ import ChatBotContext from '../../store/ChatBotContext.jsx';
 
 const ChatBox = () => {
   const { openChatGuide } = useContext(ChatBotContext);
+  
 
   return (
     <div className={classes.chatbotBox}>
