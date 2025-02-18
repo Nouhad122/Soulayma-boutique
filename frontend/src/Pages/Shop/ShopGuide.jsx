@@ -1,60 +1,34 @@
-import React, { useState, useContext } from 'react'
-import { fetchProducts } from '../../use/useHttp'
-import ChatBotContext from '../../store/ChatBotContext'
-import usePagination from '../../use/usePagination';
-import useScrollToTop from '../../use/useScrollToTop';
-import Pagination from '../../utils/Pagination.jsx';
-import ProductList from '../../Components/SearchProducts/ProductList.jsx';
+import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx';
+import { fetchProducts } from '../../use/useHttp';
+import ChatBotContext from '../../store/ChatBotContext';
+import FilteredProducts from '../../Components/Secondary-Comps/FilteredProducts';
 
 const ShopGuide = () => {
-    const { skinTone, ageRange } = useContext(ChatBotContext);
-    const [productsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
-    const [currentPage, setCurrentPage] = useState(1);
+  const { skinTone, ageRange } = useContext(ChatBotContext);
 
-    const { data, isPending, isError, error } = useQuery({
-        queryKey: ['products'],
-        queryFn: ({ signal }) => fetchProducts({ signal }),
-        staleTime: 60000
-    })
-    
-    const filteredProducts = data?.filter(product =>
-        product.category === 'Hijabs' &&
-        (Array.isArray(product.skinTone) ? product.skinTone.some(tone => skinTone?.includes(tone)) : true) &&
-        (Array.isArray(product.ageRange) ? product.ageRange.some(range => ageRange?.includes(range)) : true)
-    ) || [];    
+  // Fetch products with a unique query key based on filtering criteria
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ['products', skinTone, ageRange], // Different cache for different filters
+    queryFn: ({ signal }) => fetchProducts({ signal }),
+    staleTime: 60000
+  });
 
-    const { totalPages, currentProducts } = usePagination(filteredProducts, productsPerPage, currentPage);
-    const sProducts = useScrollToTop([currentPage]);
-
-    const goToPage = (pageNumber) => {
-        setCurrentPage(pageNumber);
-      };
-
-    const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
-
-    if (isPending) {
-        return <LoadingPage />; 
-    }
-    
-    if (isError) {
-        return <p>Error: {error.message || 'Something went wrong!'}</p>
-    }
+  // Filter only hijabs based on skinTone and ageRange
+  const filteredProducts = data?.filter(product =>
+    product.category === 'Hijabs' &&
+    (Array.isArray(product.skinTone) ? product.skinTone.some(tone => skinTone?.includes(tone)) : true) &&
+    (Array.isArray(product.ageRange) ? product.ageRange.some(range => ageRange?.includes(range)) : true)
+  ) || [];
 
   return (
-    <div ref={sProducts}>
-        <ProductList products={currentProducts} generateUrl={generateUrl} />
+    <FilteredProducts
+      filteredProducts={filteredProducts} 
+      isPending={isPending} 
+      isError={isError} 
+      error={error} 
+    />
+  );
+};
 
-        {filteredProducts.length > productsPerPage && (
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={goToPage}
-          />
-        )}
-    </div>
-  )
-}
-
-export default ShopGuide
+export default ShopGuide;

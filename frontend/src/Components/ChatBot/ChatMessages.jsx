@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import classes from './ChatMessages.module.css';
 import logo from '../../assets/S-logo.png';
 import { IoClose } from "react-icons/io5";
-import CustomerStatus from './CustomerStatus';
+import CustomerStatus from './CustomerStatus.jsx';
 import useTypingEffect from '../../use/useTypingEffect.js';
 import ChatBotContext from '../../store/ChatBotContext.jsx';
 
