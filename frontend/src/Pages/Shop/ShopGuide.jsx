@@ -23,6 +23,7 @@ const ShopGuide = () => {
 
   return (
     <FilteredProducts
+      containerClass='guidedProducts'
       filteredProducts={filteredProducts} 
       isPending={isPending} 
       isError={isError} 

@@ -1,14 +1,19 @@
-.searchedProducts{
+.searchedProducts, .guidedProducts{
     background-color: var(--body-color);
     position: fixed;
     top: 16%;
     left: 0;
-    z-index: 902;
     width: 100%;
     height: calc(100vh - 16%);
     overflow-y: auto;
 }
-.searchedProducts .noProductsFound{
+.searchedProducts{
+    z-index: 903;
+}
+.guidedProducts{
+    z-index: 902;
+}
+.noProductsFound{
     text-align: center;
     position: absolute;
     top: 60%;

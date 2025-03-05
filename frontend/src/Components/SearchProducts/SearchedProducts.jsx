@@ -23,6 +23,7 @@ const SearchedProducts = () => {
     <>
       <Modal />
       <FilteredProducts
+        containerClass="searchedProducts"
         filteredProducts={filteredProducts} 
         isPending={isPending} 
         isError={isError} 

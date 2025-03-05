@@ -7,7 +7,7 @@ import useScrollToTop from '../../use/useScrollToTop';
 import ProductList from '../SearchProducts/ProductList.jsx';
 import LoadingPage from './LoadingPage.jsx';
 
-const FilteredProducts = ({ filteredProducts, isPending, isError, error }) => {
+const FilteredProducts = ({ containerClass, filteredProducts, isPending, isError, error }) => {
   const [productsPerPage] = useState(window.innerWidth > 1600 ? 25 : 24);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -30,7 +30,7 @@ const FilteredProducts = ({ filteredProducts, isPending, isError, error }) => {
 
   return (
     <>
-      <div ref={sProducts} className={shopClasses.searchedProducts}>
+      <div ref={sProducts} className={shopClasses[containerClass]}>
         <div className={classes.productsContainer}>
           <ProductList products={currentProducts} generateUrl={generateUrl} />
 
