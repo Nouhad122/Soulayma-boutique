@@ -2,27 +2,26 @@ import React from 'react';
 import classes from './Products.module.css';
 import Title from './Title';
 import Products from './Products';
-import Slider from '../ProductsSlider/slider.jsx';
+import SliderSettings from '../ProductsSlider/SliderSettings';
 
-const ProductsCont = ({title, subTitle, products, generateUrl, scrollRef}) => {
-  const content = (
-      <Products products={products} generateUrl={generateUrl} />
-  );
-
+const ProductsCont = ({title, subTitle, products, generateUrl, isSlider}) => {
   return (
     <>
       {title && subTitle && <Title title={title} subTitle={subTitle}/>}
 
-      {scrollRef ?
-      <div className={classes.productsSlider} ref={scrollRef}>
-        <Slider scrollRef={scrollRef}>{content}</Slider>
-      </div>  :
-      <div className={classes.productsWrapper} ref={scrollRef}>
-        {content}
+      {isSlider ? 
+        <SliderSettings>
+          {products.map(product => (
+            <div key={product.id}>
+              <Products products={[product]} generateUrl={generateUrl} />
+            </div>
+          ))}
+        </SliderSettings> 
+       :
+      <div className={classes.productsWrapper}>
+        <Products products={products} generateUrl={generateUrl} />
       </div>
-       
        }
-
     </>
   )
 }

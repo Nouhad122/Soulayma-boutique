@@ -1,0 +1,90 @@
+.slider-all {
+    margin: 2rem auto;
+    padding: 0 3rem;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+}
+
+/* Arrow styles */
+.nextArrow,
+.prevArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+    background: var(--light-red-color);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: background 0.3s ease-in-out;
+}
+
+.nextArrow:hover,
+.prevArrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.nextArrow {
+    right: -1.5rem;
+}
+
+.prevArrow {
+    left: -1.5rem;
+}
+
+/* Slick slider overrides */
+:global(.slick-slider) {
+    width: 100%;
+}
+
+:global(.slick-list) {
+    margin: 0 -0.5rem;
+}
+
+:global(.slick-slide) {
+    padding: 0 0.5rem;
+}
+
+:global(.slick-track) {
+    display: flex;
+    margin-left: 0;
+}
+
+:global(.slick-slide > div) {
+    height: 100%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1400px) {
+    .slider-all {
+        max-width: 1100px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .slider-all {
+        max-width: 750px;
+    }
+}
+
+@media screen and (max-width: 825px) {
+    .slider-all {
+        max-width: 350px;
+        padding: 0 1rem;
+    }
+    
+    .nextArrow {
+        right: -0.5rem;
+    }
+    
+    .prevArrow {
+        left: -0.5rem;
+    }
+}

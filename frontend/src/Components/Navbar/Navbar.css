@@ -12,7 +12,7 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 8%;
+    padding: 0 6%;
     font-family: var(--body-font);
     border-bottom: solid 1px var(--gold-color);
     -webkit-transition: .5s ease;
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     gap: 60px;
-    padding: 0 20px;
+    padding-left: .8rem;
 }
 .navbar .right-side {
     display: -webkit-box;
@@ -37,11 +37,12 @@
         -ms-flex-align: center;
             align-items: center;
     gap: 25px;
+    padding-right: .8rem;
 }
 
 @media screen and (max-width: 1450px) {
     .navbar {
-        padding: 0 3%;
+        padding: 0 4%;
     }
     .navbar .left-side {
         gap: 30px;
@@ -50,7 +51,7 @@
 
 @media screen and (max-width: 991px) {
     .navbar {
-        padding: 0 1%;
+        padding: 0 3%;
     }
     .navbar .left-side {
         gap: 15px;
@@ -62,11 +63,12 @@
 
 @media screen and (max-width: 860px) {
     .navbar {
-        padding: 0 5%;
+        padding: 0 3%;
         background-color: var(--fifth-color);
     }
     .navbar .left-side {
-        width: 50vw;
+        width: 58vw;
+        padding-left: .5rem;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

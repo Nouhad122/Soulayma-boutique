@@ -7,12 +7,13 @@ const Products = ({products, generateUrl}) => {
   return (
     <>
       {products.map(product => (
-        <Link
-          key={product.id}
-          to={generateUrl(product)}
-          className={classes.productLink}
-          >
+        
           <div className={classes.product}>
+          <Link
+            key={product.id}
+            to={generateUrl(product)}
+            className={classes.productLink}
+          >
               <div className={classes.productImages}>
               <img src={product.image1} alt={product.title} />
               <img src={product.image2} alt={product.title} />
@@ -21,8 +22,9 @@ const Products = ({products, generateUrl}) => {
               <h4>{product.price}$</h4>
               
               <Reviews inCard/>
+            </Link>
           </div>
-        </Link>
+        
     ))}
     </>
   )

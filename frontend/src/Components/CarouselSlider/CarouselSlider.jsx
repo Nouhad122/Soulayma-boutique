@@ -1,25 +1,10 @@
 import React from "react";
 import carouselImg1 from '../../assets/carousel-image-1.png'
 import carouselImg2 from '../../assets/carousel-image-2.png'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import SlickSlider from "./SlickSlider";
 import classes from "./CarouselSlider.module.css";
 
 const CarouselSlider = () => {
-  const settings = {
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 8000,
-    arrows: false,
-    draggable: false,
-    swipe: false,
-    touchMove: false,
-  };
-
   const slides = [
     {
       img: carouselImg1,
@@ -39,7 +24,7 @@ const CarouselSlider = () => {
 
   return (
     <div className={classes["slider-container"]}>
-      <Slider {...settings}>
+      <SlickSlider>
         {slides.map((slide, index) => (
           <div key={index} className={classes['slider-wrapper']}>
             <img src={slide.img} alt={slide.header} className={classes["slider-image"]} />
@@ -52,7 +37,7 @@ const CarouselSlider = () => {
             </div>
           </div>
         ))}
-      </Slider>
+      </SlickSlider>
     </div>
   );
 };
