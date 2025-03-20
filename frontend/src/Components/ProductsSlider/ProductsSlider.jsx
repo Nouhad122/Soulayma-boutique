@@ -3,7 +3,7 @@ import ProductsCont from '../Products/ProductsCont.jsx';
 import classes from '../Products/Products.module.css';
 import { useLoaderData } from 'react-router-dom';
 
-const ProductsSlider = ({ kind, sliderTitle, sliderSub }) => {
+const ProductsSlider = ({ kind, title, subTitle }) => {
     const  productsData = useLoaderData();
     const generateUrl = (product) =>`/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
     
@@ -13,8 +13,8 @@ const ProductsSlider = ({ kind, sliderTitle, sliderSub }) => {
     <div className={classes.productsContainer}>
 
         <ProductsCont 
-          title={sliderTitle}
-          subTitle={sliderSub}
+          title={title}
+          subTitle={subTitle}
           products={sliderProducts}
           generateUrl={generateUrl}
           isSlider

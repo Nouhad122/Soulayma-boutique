@@ -12,7 +12,6 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 6%;
     font-family: var(--body-font);
     border-bottom: solid 1px var(--gold-color);
     -webkit-transition: .5s ease;
@@ -67,7 +66,7 @@
         background-color: var(--fifth-color);
     }
     .navbar .left-side {
-        width: 58vw;
+        width: 50vw;
         padding-left: .5rem;
         display: -webkit-box;
         display: -ms-flexbox;

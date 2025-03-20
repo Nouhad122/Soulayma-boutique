@@ -20,7 +20,7 @@ const RootPage = () => {
 
 
   return (
-    <div className='web-container'>
+    <>
       <Navbar />
 
       {inputValue.trim() && <SearchedProducts />}
@@ -32,7 +32,7 @@ const RootPage = () => {
       <Footer />
       <ChatBot />
       
-    </div>
+   </>
   )
 }
 

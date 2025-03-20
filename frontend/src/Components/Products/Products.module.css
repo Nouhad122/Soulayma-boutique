@@ -122,9 +122,9 @@
         align-items: center;
         gap: 2.5rem;
     }
-    .product{
+    .productsWrapper .product{
         width: 100%;
-        max-width: 20rem;
+        max-width: 22rem;
     }
     .title h1{
         font-size: 2rem;
@@ -134,7 +134,7 @@
     }
 }
 @media screen and (max-width: 370px){
-    .product{
+    .productsWrapper .product{
         max-width: 17rem;
     }
     .productsContainer{
