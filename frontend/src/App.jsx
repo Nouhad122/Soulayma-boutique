@@ -25,8 +25,6 @@ import DifferenceFabric from './Pages/FooterPages/FAQPages/DifferenceFabric.jsx'
 import InstantPremium from './Pages/FooterPages/FAQPages/InstantPremium.jsx'
 import CustomerService from './Pages/FooterPages/FAQPages/CustomerService.jsx'
 import SbRewards from './Pages/FooterPages/FAQPages/SbRewards.jsx'
-import SignIn from './Pages/RegistrationPages/SignIn.jsx'
-import SignUp from './Pages/RegistrationPages/SignUp.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -37,6 +35,7 @@ import { chosenProductLoader, productsLoader } from "./Loaders/Loaders.js"
 import LoadingPage from './Components/Secondary-Comps/LoadingPage.jsx'
 import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx'
 import ShopGuide from './Pages/Shop/ShopGuide.jsx'
+import Auth from './Pages/Users/Auth.jsx'
   
 function App() {
 
@@ -92,8 +91,7 @@ useEffect(() =>{
       {path: 'returns', element: <Returns />},
       {path: 'tutorials', element: <Tutorials />},
       {path: 'privacy-policy', element: <PrivacyPolicy />},
-      {path: 'sign-up', element: <SignUp />},
-      {path: 'sign-in', element: <SignIn />}
+      {path: 'auth', element: <Auth />},
     ]}
   ]);
 

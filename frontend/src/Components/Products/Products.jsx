@@ -8,9 +8,8 @@ const Products = ({products, generateUrl}) => {
     <>
       {products.map(product => (
         
-          <div className={classes.product}>
+          <div key={product.id} className={classes.product}>
           <Link
-            key={product.id}
             to={generateUrl(product)}
             className={classes.productLink}
           >

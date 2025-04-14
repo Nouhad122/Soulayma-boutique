@@ -1,0 +1,118 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--body-color);
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    min-width: 45rem;
+    min-height: 90vh;
+}
+
+.auth-image {
+    flex: 1;
+    height: 90vh;
+    width: 40vw;
+    object-fit: cover;
+    object-position: center;
+}
+
+.auth-form {
+    flex: 1;
+    background-color: var(--fifth-color);
+    padding: 1rem;
+}
+
+.auth-form form {
+    width: 100%;
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.auth-title {
+    font-family: var(--first-font);
+    color: var(--gold-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.auth-button {
+    background-color: transparent;
+    border: 1px solid var(--gold-color);
+    color: var(--gold-color);
+    padding: 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+    font-family: var(--first-font);
+}
+
+.auth-button:hover:not(:disabled) {
+    background-color: var(--gold-color);
+    color: var(--fifth-color);
+}
+
+.auth-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.switch-mode-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.switch-mode-container p {
+    color: var(--gold-color);
+    font-size: 0.9rem;
+}
+
+.switch-mode-button {
+    background: none;
+    border: none;
+    color: var(--gold-color);
+    font-family: var(--first-font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0.5rem;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .form-container{
+        min-width: 15rem;
+        width: 80%;
+    }
+    .auth-image {
+        display: none;
+    }
+    .auth-form {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .auth-form form {
+        max-width: 25rem;
+    }
+    .auth-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .form-container{
+        width: 90%;
+    }
+}
