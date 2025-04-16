@@ -72,23 +72,30 @@ const Input = (props) => {
   }
 
   const element = props.isTextArea ? 
+  <div className={classes.inputWrapper}>
     <textarea
-     id={props.id} 
+     id={props.id}
+     name={props.name} 
      rows={props.rows || 3} 
      onChange={changeHandler}
      onBlur={touchHandler}
      value={inputState.value}
      placeholder={props.placeholder}
-    /> :
+     className={props.className}
+    />
+  </div>
+     :
     <div className={classes.inputWrapper}>
       {getIcon()}
       <input
        id={props.id} 
+       name={props.name}
        type={props.type === 'password' ? (showPassword ? 'text' : 'password') : props.type}
        onChange={changeHandler}
        onBlur={touchHandler} 
        value={inputState.value}
        placeholder={props.placeholder}
+       className={props.className}
       />
       {props.type === 'password' && (
         <button 

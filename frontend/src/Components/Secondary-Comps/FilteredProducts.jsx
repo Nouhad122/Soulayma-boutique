@@ -18,7 +18,7 @@ const FilteredProducts = ({ containerClass, filteredProducts, isPending, isError
     setCurrentPage(pageNumber);
   };
 
-  const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.colorCode}`;
+  const generateUrl = (product) => `/shop/product/${product.category}/${product.kind}/${product.id}/${product.color}`;
 
   if (isPending) {
     return <LoadingPage />;

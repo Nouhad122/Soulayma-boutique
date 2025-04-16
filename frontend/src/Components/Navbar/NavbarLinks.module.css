@@ -9,6 +9,13 @@
     margin-top: 1rem;
     height: 3.4rem;
 }
+.navLink{
+    margin-top: 10px;
+    font-size: .9rem;
+}
+.navLink:hover{
+    color: var(--gold-color);
+}
 .xMark {
     display: none;
 }
@@ -25,6 +32,9 @@ img {
 @media screen and (max-width: 991px){
     img {
         width: 70px;
+    }
+    .navLink{
+        font-size: .8rem;
     }
 }
 

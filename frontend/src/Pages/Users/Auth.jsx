@@ -63,6 +63,7 @@ const Auth = () => {
             {!isLoginMode && (
                 <Input
                 id="firstName"
+                name="firstName"
                 type="text"  
                 placeholder="First Name"
                 validators={[VALIDATOR_MINLENGTH(1)]}
@@ -73,6 +74,7 @@ const Auth = () => {
             {!isLoginMode && (
                 <Input
                 id="lastName"
+                name="lastName"
                 type="text"
                 placeholder="Last Name"
                 validators={[VALIDATOR_MINLENGTH(1)]}
@@ -83,6 +85,7 @@ const Auth = () => {
 
             <Input
             id="email"
+            name="email"
             type="email" 
             placeholder="Email Address"
             validators={[VALIDATOR_EMAIL()]}
@@ -92,6 +95,7 @@ const Auth = () => {
 
             <Input
             id="password"
+            name="password"
             type="password" 
             placeholder="Password"
             validators={[VALIDATOR_MINLENGTH(6)]}

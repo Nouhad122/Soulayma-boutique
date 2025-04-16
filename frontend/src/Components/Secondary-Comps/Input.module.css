@@ -14,7 +14,7 @@
     padding-bottom: 0.3rem;
 }
 
-.inputWrapper input {
+.inputWrapper input, .inputWrapper textarea {
     width: 100%;
     border: none;
     background: transparent;
@@ -24,13 +24,13 @@
     padding-left: 2rem;
 }
 
-.inputWrapper input::placeholder {
+.inputWrapper input::placeholder, .inputWrapper textarea::placeholder {
     color: var(--gold-color);
     opacity: 0.7;
     font-size: 0.9rem;
 }
 
-.inputWrapper input:focus {
+.inputWrapper input, .inputWrapper textarea {
     outline: none;
 }
 
@@ -56,7 +56,7 @@
     font-size: 1rem;
 }
 
-.form-control__invalid input {
+.form-control__invalid input, .form-control__invalid textarea {
     border-color: #ff0000;
 }
 
@@ -69,10 +69,10 @@
 }
 
 /* Remove autofill background */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+input:-webkit-autofill, textarea:-webkit-autofill,
+input:-webkit-autofill:hover, textarea:-webkit-autofill:hover,
+input:-webkit-autofill:focus, textarea:-webkit-autofill:focus,
+input:-webkit-autofill:active, textarea:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: var(--gold-color) !important;
 }

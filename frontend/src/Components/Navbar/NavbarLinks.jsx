@@ -2,7 +2,7 @@ import React,{ useContext } from 'react';
 import logo from '../../assets/S-logo.png';
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import NavigationLink from './NavigationLink';
 import classes from './NavbarLinks.module.css';
 import SideCompContext from '../../store/SideCompContext.jsx';
@@ -34,9 +34,10 @@ const NavbarLinks = () => {
             <NavigationLink 
               categoryName="abayas"
             />
-            <NavigationLink 
-              categoryName="jilbabs"
-            />
+              <NavigationLink 
+                categoryName="jilbabs"
+              />
+              <NavLink className={classes.navLink} to={'/add-product'}>Add Product</NavLink>
         </div>
     </>
   )

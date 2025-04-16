@@ -36,7 +36,7 @@ import LoadingPage from './Components/Secondary-Comps/LoadingPage.jsx'
 import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx'
 import ShopGuide from './Pages/Shop/ShopGuide.jsx'
 import Auth from './Pages/Users/Auth.jsx'
-  
+import NewProduct from './Pages/Products/NewProduct.jsx'
 function App() {
 
 const cart = useSelector(state => state.cart);
@@ -92,6 +92,7 @@ useEffect(() =>{
       {path: 'tutorials', element: <Tutorials />},
       {path: 'privacy-policy', element: <PrivacyPolicy />},
       {path: 'auth', element: <Auth />},
+      {path: 'add-product', element: <NewProduct />},
     ]}
   ]);
 
