@@ -1,10 +1,11 @@
 import React from 'react'
 import Input from '../../Components/Secondary-Comps/Input'
 import Button from '../../Components/Secondary-Comps/Button'
+import SizeSelector from '../../Components/Secondary-Comps/SizeSelector'
+import BestSeller from '../../Components/Secondary-Comps/BestSeller'
 import useForm from '../../use/useForm'
 import { VALIDATOR_REQUIRE } from '../../utils/validators'
 import classes from './NewProduct.module.css'
-
 
 const NewProduct = () => {
   const [ formState, inputHandler ] = useForm({
@@ -63,6 +64,14 @@ const NewProduct = () => {
     image: {
       value: '',
       isValid: false
+    },
+    sizes: {
+      value: [],
+      isValid: true
+    },
+    isBestSeller: {
+      value: false,
+      isValid: true
     }
   }, false
 );
@@ -71,6 +80,20 @@ const NewProduct = () => {
     event.preventDefault();
     console.log(formState.inputs);
   };
+
+  const handleSizeSelect = (size) => {
+    const currentSizes = formState.inputs.sizes.value;
+    const newSizes = currentSizes.includes(size)
+      ? currentSizes.filter(s => s !== size)
+      : [...currentSizes, size];
+    
+    inputHandler('sizes', newSizes, true);
+  };
+
+  const handleBestSellerChange = (checked) => {
+    inputHandler('isBestSeller', checked, true);
+  };
+
   return (
     <div className={classes['form-container']}>
     <form className={classes['product-form']} onSubmit={addProductSubmitHandler}>
@@ -112,11 +135,24 @@ const NewProduct = () => {
       <div className={classes['form-group']}>
         <Input id='image' name='image' type='text' className={classes['product-input']} placeholder='Image' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
+      <div className={classes['form-group']}>
+        <SizeSelector
+          sizes={['XS', 'S', 'M', 'L', 'XL', 'One Size']}
+          selectedSize={formState.inputs.sizes.value}
+          onSizeSelect={handleSizeSelect}
+        />
+      </div>
 
-      <Button type='submit'>Add Product</Button>
+      <div className={classes['form-group']}>
+        <BestSeller
+          checked={formState.inputs.isBestSeller.value}
+          onChange={handleBestSellerChange}
+        />
+      </div>
+
+      <Button type='submit' inverse>Add Product</Button>
     </form>
     </div>
-    
   )
 }
 

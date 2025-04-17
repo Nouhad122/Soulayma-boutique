@@ -38,7 +38,7 @@ const FilterProducts = ({products, filterColor, setColorParams}) => {
                 }
                 </div>
                 
-                <Button absoluteBtn={true} onClick={handleResetFilter} className='reset-btn'>
+                <Button absoluteBtn={true} onClick={handleResetFilter} inverse>
                     Reset
                 </Button>
             

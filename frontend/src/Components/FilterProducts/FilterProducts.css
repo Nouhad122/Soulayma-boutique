@@ -71,17 +71,7 @@
 .colors-in p:hover{
     color: var(--gold-color);
 }
-.reset-btn{
-    background-color: transparent !important;
-    border: solid 1px var(--gold-color) !important;
-    /* position: absolute;
-    left: 50%;
-    bottom: 20px;
-    transform: translateX(-50%); */
-}
-.reset-btn:hover{
-    border: solid 1px transparent !important;
-}
+
 @media screen and (max-width: 1300px){
     .filter-products .filter-colors{
         width: 35vw;

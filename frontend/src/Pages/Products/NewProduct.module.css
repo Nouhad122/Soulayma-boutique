@@ -24,3 +24,15 @@
     gap: 2rem;
     margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 860px) {
+    .form-container{
+        padding: 1rem;
+    }
+    .product-form{
+        width: 95%;
+    }
+    .product-form h2{
+        font-size: 1.5rem;
+    }
+}
