@@ -1,0 +1,98 @@
+const { v4: uuidv4 } = require('uuid');
+
+const DUMMY_PRODUCTS = [
+    {
+        id: "1",
+        name: 'Premium Hijab',
+        category: 'hijab',
+        kind: 'Premium Hijab',
+        color: 'black',
+        colorCode: '#000',
+        description: 'black hijab, it is perfect',
+        fabricSpecifications: 'any',
+        productInfo1: 'any',
+        productInfo2: 'any',
+        productInfo3: 'any',
+        currentPrice: 43,
+        previousPrice: 55,
+        stock: 4,
+        image1: 'https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
+        image2: 'https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
+        sizes: ['L', 'XL'],
+        isBestSeller: true,
+        skinTones: ['Fair', 'golden_tan']
+    },
+    {
+        id: "2",
+        name: 'Premium Hijab',
+        category: 'hijab',
+        kind: 'Premium Hijab',
+        color: 'red',
+        colorCode: '#000',
+        description: 'black hijab, it is perfect',
+        fabricSpecifications: 'any',
+        productInfo1: 'any',
+        productInfo2: 'any',
+        productInfo3: '',
+        currentPrice: 43,
+        previousPrice: 55,
+        stock: 4,
+        image1: 'https://img.freepik.com/free-psd/books-stacked-isolated-transparent-background_191095-17333.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
+        image2: 'https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
+        sizes: ['L', 'XL'],
+        isBestSeller: true,
+        skinTones: ['Fair', 'golden_tan']
+    }
+    
+];
+
+exports.getProducts = (req, res, next) => {
+    res.status(200).json({
+        products: DUMMY_PRODUCTS
+    });
+}
+
+exports.getProductById = (req, res, next) => {
+    const productId = req.params.pid;
+    const product = DUMMY_PRODUCTS.find(p => {
+         return p.id === productId
+    });
+    
+    if(!product){
+        return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json({ product: product });
+
+}
+
+exports.createProduct = (req, res, next) =>{
+    const { name, category, kind, color, colorCode, description, fabricSpecifications,
+            productInfo1, productInfo2, productInfo3, currentPrice, previousPrice, stock,
+            image1, image2, sizes, isBestSeller, skinTones } = req.body;
+
+    res.status(201).json({
+        post: {
+            id: uuidv4(),
+            name,
+            category,
+            kind,
+            color,
+            colorCode,
+            description,
+            fabricSpecifications,
+            productInfo1,
+            productInfo2,
+            productInfo3,
+            currentPrice,
+            previousPrice,
+            stock,
+            image1,
+            image2,
+            sizes,
+            isBestSeller,
+            skinTones
+        }
+        
+    });
+}

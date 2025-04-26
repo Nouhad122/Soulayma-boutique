@@ -1,23 +1,36 @@
 import React from 'react';
 import classes from './SecondaryComp.module.css';
 
-const SizeSelector = ({ sizes, selectedSize, onSizeSelect }) => {
-  const availableSizes = sizes || ['XS', 'S', 'M', 'L', 'XL', 'One Size'];
+const Selector = ({ 
+  items, 
+  selectedItems, 
+  onSelect, 
+  label,
+  isImage = false 
+}) => {
+  const availableItems = items || [];
 
   return (
     <div className={classes['size-selector-container']}>
-      <label>Available Sizes</label>
+      <label>{label}</label>
       <div className={classes['size-options']}>
-        {availableSizes.map((size) => (
+        {availableItems.map((item) => (
           <button
-            key={size}
+            key={item.id || item}
             type="button"
             className={`${classes['size-option']} ${
-              Array.isArray(selectedSize) && selectedSize.includes(size) ? classes['size-selected'] : ''
+              Array.isArray(selectedItems) && selectedItems.includes(item.id || item) ? classes['size-selected'] : ''
             }`}
-            onClick={() => onSizeSelect(size)}
+            onClick={() => onSelect(item.id || item)}
           >
-            {size}
+            {isImage ? (
+              <>
+                <img src={item.image} alt={item.label} />
+                <span>{item.label}</span>
+              </>
+            ) : (
+              item.label || item
+            )}
           </button>
         ))}
       </div>
@@ -25,4 +38,4 @@ const SizeSelector = ({ sizes, selectedSize, onSizeSelect }) => {
   );
 };
 
-export default SizeSelector; 
+export default Selector; 

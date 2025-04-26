@@ -1,11 +1,17 @@
 import React from 'react'
 import Input from '../../Components/Secondary-Comps/Input'
 import Button from '../../Components/Secondary-Comps/Button'
-import SizeSelector from '../../Components/Secondary-Comps/SizeSelector'
+import Selector from '../../Components/Secondary-Comps/SizeSelector'
 import BestSeller from '../../Components/Secondary-Comps/BestSeller'
 import useForm from '../../use/useForm'
 import { VALIDATOR_REQUIRE } from '../../utils/validators'
 import classes from './NewProduct.module.css'
+import fairSkin from '../../assets/skinTone1.png';
+import lightTan from '../../assets/skinTone2.png';
+import goldenTan from '../../assets/skinTone3.png';
+import deepTan from '../../assets/skinTone4.png';
+import richBrown from '../../assets/skinTone5.png';
+import deepEbony from '../../assets/skinTone6.png';
 
 const NewProduct = () => {
   const [ formState, inputHandler ] = useForm({
@@ -67,7 +73,11 @@ const NewProduct = () => {
     },
     sizes: {
       value: [],
-      isValid: true
+      isValid: false
+    },
+    skinTones: {
+      value: [],
+      isValid: false
     },
     isBestSeller: {
       value: false,
@@ -78,8 +88,27 @@ const NewProduct = () => {
 
   const addProductSubmitHandler = event => {
     event.preventDefault();
+    if (formState.inputs.sizes.value.length === 0) {
+      inputHandler('sizes', [], false);
+      return;
+    }
+    if (formState.inputs.skinTones.value.length === 0) {
+      inputHandler('skinTones', [], false);
+      return;
+    }
     console.log(formState.inputs);
   };
+
+  const sizes = ['XS', 'S', 'M', 'L', 'XL', 'One Size'];
+
+  const skinTones = [
+    { id: "fair_skin", image: fairSkin, label: "Fair" },
+    { id: "light_tan", image: lightTan, label: "Light Tan" },
+    { id: "golden_tan", image: goldenTan, label: "Golden Tan" },
+    { id: "deep_tan", image: deepTan, label: "Deep Tan" },
+    { id: "rich_brown", image: richBrown, label: "Rich Brown" },
+    { id: "deep_ebony", image: deepEbony, label: "Deep Ebony" },
+  ];
 
   const handleSizeSelect = (size) => {
     const currentSizes = formState.inputs.sizes.value;
@@ -88,6 +117,15 @@ const NewProduct = () => {
       : [...currentSizes, size];
     
     inputHandler('sizes', newSizes, true);
+  };
+
+  const handleSkinToneSelect = (tone) => {
+    const currentTones = formState.inputs.skinTones.value;
+    const newTones = currentTones.includes(tone)
+      ? currentTones.filter(t => t !== tone)
+      : [...currentTones, tone];
+    
+    inputHandler('skinTones', newTones, true);
   };
 
   const handleBestSellerChange = (checked) => {
@@ -135,11 +173,23 @@ const NewProduct = () => {
       <div className={classes['form-group']}>
         <Input id='image' name='image' type='text' className={classes['product-input']} placeholder='Image' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
+      
       <div className={classes['form-group']}>
-        <SizeSelector
-          sizes={['XS', 'S', 'M', 'L', 'XL', 'One Size']}
-          selectedSize={formState.inputs.sizes.value}
-          onSizeSelect={handleSizeSelect}
+        <Selector
+          items={sizes}
+          selectedItems={formState.inputs.sizes.value}
+          onSelect={handleSizeSelect}
+          label="Available Sizes"
+        />
+      </div>
+
+      <div className={classes['form-group']}>
+        <Selector
+          items={skinTones}
+          selectedItems={formState.inputs.skinTones.value}
+          onSelect={handleSkinToneSelect}
+          label="Available Skin Tones"
+          isImage={true}
         />
       </div>
 

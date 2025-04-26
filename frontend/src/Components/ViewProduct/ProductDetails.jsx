@@ -10,13 +10,27 @@ import { cartSliceActions } from '../../redux-toolkit/cart-slice';
 
 const ProductDetails = ({chosenProduct }) => {
     const dispatch = useDispatch();
+    
+    // Calculate current date and date 20 days later
+    const getCurrentDateRange = () => {
+        const today = new Date();
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + 20);
+        
+        const formatDate = (date) => {
+            const options = { month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        };
+        
+        return `${formatDate(today)} - ${formatDate(futureDate)}`;
+    };
 
     const handleAddToCart = () =>{
         dispatch(cartSliceActions.addToCart({
             id: chosenProduct.id,
-            title: chosenProduct.title,
+            name: chosenProduct.name,
             image1: chosenProduct.image1,
-            price: chosenProduct.price,
+            currentPrice: chosenProduct.currentPrice,
         }))
         }
 
@@ -25,10 +39,10 @@ const ProductDetails = ({chosenProduct }) => {
             <Reviews />
             
             <div className={classes.productCap}>
-                <h1>{chosenProduct.title}</h1>
-                <h3>{chosenProduct.price}$</h3>
+                <h1>{chosenProduct.name}</h1>
+                <h3>{chosenProduct.currentPrice}$</h3>
 
-                <ProductInfo />
+                <ProductInfo chosenProduct={chosenProduct}/>
 
                 <ProductColors 
                     chosenProduct={chosenProduct}
@@ -36,10 +50,10 @@ const ProductDetails = ({chosenProduct }) => {
 
                 <Button onClick={handleAddToCart} className={classes.addCartBtn}>Add To Cart</Button>
                 <p className={classes.freeShipping}>free shipping on orders over $50</p>
-                <p className={classes.estimatedDelivery}>Estimated delivery to , <strong>October 21 - November 5</strong></p>
+                <p className={classes.estimatedDelivery}>Estimated delivery to , <strong>{getCurrentDateRange()}</strong></p>
             </div>
 
-            <ProductSpecifics />
+            <ProductSpecifics chosenProduct={chosenProduct}/>
 
         </div>
   )

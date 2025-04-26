@@ -4,6 +4,7 @@ import classes from './Products.module.css';
 import Reviews from '../Secondary-Comps/Reviews';
 
 const Products = ({products, generateUrl}) => {
+  console.log(products);
   return (
     <>
       {products.map(product => (
@@ -14,12 +15,12 @@ const Products = ({products, generateUrl}) => {
             className={classes.productLink}
           >
               <div className={classes.productImages}>
-              <img src={product.image1} alt={product.title} />
-              <img src={product.image2} alt={product.title} />
+              <img src={product.image1} alt={product.name} />
+              <img src={product.image2} alt={product.name} />
               </div>
-              <h2>{product.title} - {product.color}</h2>
-              <h4>{product.price}$</h4>
-              
+              <h2>{product.name} - {product.color}</h2>
+              <h4>{product.currentPrice}$</h4>
+
               <Reviews inCard/>
             </Link>
           </div>

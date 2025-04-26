@@ -18,3 +18,24 @@ export const chosenProductLoader = async ({params}) =>{
     
     return { prodsLoader, productDetailsLoader};
 }
+
+export const createProductMutation = (productData) => {
+    return queryClient.fetchQuery({
+        queryKey: ['createProduct'],
+        queryFn: async () => {
+            const response = await fetch('http://localhost:5000/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(productData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create product');
+            }
+
+            return response.json();
+        },
+    });
+}

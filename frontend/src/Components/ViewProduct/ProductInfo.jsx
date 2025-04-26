@@ -2,19 +2,19 @@ import React from 'react';
 import { FaCircleCheck } from "react-icons/fa6";
 import classes from './ProductInfo.module.css';
 
-const InfoAboutProduct = [
-    "Sustainable Bamboo Fabric, Ethically Produced In Turkey",
-    "Buttery Soft, Gentle On Skin & Hair",
-    "Easy Styling, No Pins Required",
+const ProductInfo = ({chosenProduct}) => {
+  const InfoAboutProduct = [
+    chosenProduct.productInfo1,
+    chosenProduct.productInfo2,
+    chosenProduct.productInfo3
   ];
 
-const ProductInfo = () => {
   return (
     <div className={classes.productInfo}>
         {
             InfoAboutProduct.map(info =>(
                 <div key={info}>
-                    <FaCircleCheck />
+                    {info.length > 0 && <FaCircleCheck />}
                     <p>{info}</p>
                 </div>
             ))

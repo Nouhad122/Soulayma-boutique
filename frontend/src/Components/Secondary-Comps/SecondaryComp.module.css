@@ -234,3 +234,54 @@
   height: 18px;
   cursor: pointer;
 }
+
+.skin-tone-selector-container {
+  margin-bottom: 1rem;
+}
+
+.skin-tone-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.skin-tone-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--gold-color);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skin-tone-option img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.skin-tone-option span {
+  color: var(--gold-color);
+  font-size: 0.9rem;
+}
+
+.skin-tone-option:hover {
+  background: var(--gold-color);
+}
+
+.skin-tone-option:hover span {
+  color: white;
+}
+
+.skin-tone-selected {
+  background: var(--gold-color);
+}
+
+.skin-tone-selected span {
+  color: white;
+}
