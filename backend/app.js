@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const productsRoutes = require('./routes/products');
+const usersRoutes = require('./routes/users');
 
 const app = express();
 
@@ -14,5 +15,6 @@ app.use((req, res, next) => {
 }
 );
 app.use('/api', productsRoutes);
+app.use('/api/users', usersRoutes);
 
 app.listen('5000');

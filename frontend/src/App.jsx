@@ -37,6 +37,7 @@ import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx'
 import ShopGuide from './Pages/Shop/ShopGuide.jsx'
 import Auth from './Pages/Users/Auth.jsx'
 import NewProduct from './Pages/Products/NewProduct.jsx'
+import UpdateProduct from './Pages/Products/UpdateProduct.jsx'
 function App() {
 
 const cart = useSelector(state => state.cart);
@@ -93,6 +94,7 @@ useEffect(() =>{
       {path: 'privacy-policy', element: <PrivacyPolicy />},
       {path: 'auth', element: <Auth />},
       {path: 'add-product', element: <NewProduct />},
+      {path: 'update-product/:productId', element: <UpdateProduct />},
     ]}
   ]);
 

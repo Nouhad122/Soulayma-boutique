@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-const DUMMY_PRODUCTS = [
+let DUMMY_PRODUCTS = [
     {
         id: "1",
         name: 'Premium Hijab',
@@ -66,33 +66,74 @@ exports.getProductById = (req, res, next) => {
 
 }
 
-exports.createProduct = (req, res, next) =>{
+exports.createProduct = (req, res, next) => {
     const { name, category, kind, color, colorCode, description, fabricSpecifications,
             productInfo1, productInfo2, productInfo3, currentPrice, previousPrice, stock,
             image1, image2, sizes, isBestSeller, skinTones } = req.body;
 
+    const createdProduct = {
+        id: uuidv4(),
+        name,
+        category,
+        kind,
+        color,
+        colorCode,
+        description,
+        fabricSpecifications,
+        productInfo1,
+        productInfo2,
+        productInfo3,
+        currentPrice,
+        previousPrice,
+        stock,
+        image1,
+        image2,
+        sizes,
+        isBestSeller,
+        skinTones
+    };
+
+    DUMMY_PRODUCTS.push(createdProduct);
+
     res.status(201).json({
-        post: {
-            id: uuidv4(),
-            name,
-            category,
-            kind,
-            color,
-            colorCode,
-            description,
-            fabricSpecifications,
-            productInfo1,
-            productInfo2,
-            productInfo3,
-            currentPrice,
-            previousPrice,
-            stock,
-            image1,
-            image2,
-            sizes,
-            isBestSeller,
-            skinTones
-        }
-        
+        product: createdProduct
     });
+}
+exports.updateProduct = (req, res, next) =>{
+    const { name, category, kind, color, colorCode, description, fabricSpecifications,
+            currentPrice, previousPrice, stock,
+            image1, image2, sizes, isBestSeller, skinTones } = req.body;
+
+    const productId = req.params.pid;
+
+    const updatedProduct = {...DUMMY_PRODUCTS.find(p =>  p.id === productId)};
+    
+    const productIndex = DUMMY_PRODUCTS.findIndex(p => p.id === productId);
+
+    updatedProduct.name = name;
+    updatedProduct.category = category;
+    updatedProduct.kind = kind;
+    updatedProduct.colorCode = colorCode;
+    updatedProduct.description = description;
+    updatedProduct.fabricSpecifications = fabricSpecifications;
+    updatedProduct.currentPrice = currentPrice;
+    updatedProduct.previousPrice = previousPrice;
+    updatedProduct.stock = stock;
+    updatedProduct.image1 = image1;
+    updatedProduct.image2 = image2;
+    updatedProduct.sizes = sizes;
+    updatedProduct.isBestSeller = isBestSeller;
+    updatedProduct.skinTones = skinTones;
+
+    DUMMY_PRODUCTS[productIndex] = updatedProduct;
+
+    res.status(200).json({product: updatedProduct});
+}
+
+exports.deleteProduct = (req, res, next) =>{
+    const productId = req.params.pid;
+
+    DUMMY_PRODUCTS = DUMMY_PRODUCTS.filter(p => p.id === productId);
+
+    res.status(200).json({message: 'Deleted Product'});
 }
