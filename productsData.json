@@ -1,0 +1,553 @@
+[
+    {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#000000",
+    "color": "Black",
+    "category": "Hijabs",
+    "image1": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Far_1795b816-5eb3-4627-9dac-043eaeba19d6.jpg?v=1721385365",
+    "image2": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Close_e3745411-4723-4601-865d-e9635cefb31c.jpg?v=1721385364",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "golden_tan",
+      "deep_tan",
+      "rich_brown",
+      "deep_ebony"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Premium Jersey Hijab in Black is a versatile essential for any wardrobe. Made with high-quality jersey fabric that provides comfort and breathability throughout the day.",
+    "productInfo1": "Soft and stretchy material",
+    "productInfo2": "Easy to style",
+    "productInfo3": "",
+    "stock": 25,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#F2C1D1",
+    "color": "Blush",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
+    "currentPrice": 22,
+    "oldPrice": 25,
+    "isBestSeller": false,
+    "skinTones": [
+      "golden_tan",
+      "deep_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Premium Jersey Hijab in Blush offers a soft, feminine touch to your outfit. The lightweight material ensures all-day comfort while the beautiful color complements a variety of skin tones.",
+    "productInfo1": "Lightweight and breathable",
+    "productInfo2": "Perfect for everyday wear",
+    "productInfo3": "Machine washable",
+    "stock": 18,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#800020",
+    "color": "Burgundy",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Far_5b90528e-54f0-4204-8bec-424417982a09.jpg?v=1721385863",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Close_6250d919-3988-4283-9a59-5e0bc5232b05.jpg?v=1721385861",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "deep_tan",
+      "rich_brown"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Burgundy Premium Jersey Hijab adds a rich, elegant color to your collection. Perfect for both casual and formal occasions with its smooth texture and excellent draping quality.",
+    "productInfo1": "Rich, deep color",
+    "productInfo2": "",
+    "productInfo3": "",
+    "stock": 15,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#F9E5B1",
+    "color": "Buttercream",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Far_900x.jpg?v=1582665080",
+    "image2": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Close_900x.jpg?v=1582665068",
+    "currentPrice": 22,
+    "oldPrice": 26,
+    "isBestSeller": false,
+    "skinTones": [
+      "golden_tan",
+      "deep_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Buttercream Premium Jersey Hijab features a soft, warm tone that brightens any outfit. The premium jersey material provides comfort and ease of styling for everyday wear.",
+    "productInfo1": "Warm, neutral tone",
+    "productInfo2": "Versatile styling options",
+    "productInfo3": "Durable fabric",
+    "stock": 20,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#2F4F4F",
+    "color": "Charcoal Grey",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Far_900x.jpg?v=1582665585",
+    "image2": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Close_900x.jpg?v=1582665598",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "golden_tan",
+      "deep_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Charcoal Grey Premium Jersey Hijab is a versatile staple for any wardrobe. Its neutral tone pairs well with virtually any outfit, making it perfect for everyday wear.",
+    "productInfo1": "Classic neutral shade",
+    "productInfo2": "Pairs with any outfit",
+    "productInfo3": "",
+    "stock": 12,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#D1D3D4",
+    "color": "Chic Grey",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Far_900x.jpg?v=1582666200",
+    "image2": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Close_900x.jpg?v=1582666194",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "deep_tan",
+      "rich_brown"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Chic Grey Premium Jersey Hijab offers a light, sophisticated neutral that complements a wide range of outfits. The premium jersey material ensures comfort throughout the day.",
+    "productInfo1": "Light grey tone",
+    "productInfo2": "Elegant drape",
+    "productInfo3": "",
+    "stock": 8,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#6A4C9C",
+    "color": "Deep Orchid",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Far_900x.jpg?v=1582666289",
+    "image2": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Close_900x.jpg?v=1582666277",
+    "currentPrice": 22,
+    "oldPrice": 28,
+    "isBestSeller": false,
+    "skinTones": [
+      "golden_tan",
+      "deep_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Deep Orchid Premium Jersey Hijab adds a vibrant pop of color to your collection. This rich purple shade is perfect for making a statement while maintaining comfort and ease of wear.",
+    "productInfo1": "Vibrant purple shade",
+    "productInfo2": "Makes a bold statement",
+    "productInfo3": "Easy to style",
+    "stock": 10,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#1560BD",
+    "color": "Denim",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Far_094f5480-f2d8-44f6-b476-c98810bb2066.jpg?v=1721386031",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Close_51f7f69d-39cc-4106-8c28-ba420b0c1079.jpg?v=1721386031",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan",
+      "golden_tan",
+      "deep_tan",
+      "rich_brown",
+      "deep_ebony"
+    ],
+    "ageRange": [
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Denim Premium Jersey Hijab offers a versatile blue shade that pairs well with casual outfits. The comfortable jersey material makes it perfect for everyday wear.",
+    "productInfo1": "Classic blue shade",
+    "productInfo2": "Complements all skin tones",
+    "productInfo3": "",
+    "stock": 15,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#B89C8D",
+    "color": "Light Mink",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Far_25776520-8f0d-44f4-9164-d3acbd9af831.jpg?v=1721386309",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Close_f38d5152-ba09-4af8-8356-aae9aead0400.jpg?v=1721386309",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "golden_tan",
+      "deep_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Light Mink Premium Jersey Hijab features a soft, neutral taupe shade that complements a variety of outfits. Its versatile color makes it a wardrobe essential.",
+    "productInfo1": "Neutral taupe shade",
+    "productInfo2": "Versatile styling options",
+    "productInfo3": "",
+    "stock": 22,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#795548",
+    "color": "Mocha Brown",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Far_b4b5271a-518d-40c2-8f6e-9db89f9bab28.jpg?v=1721386565",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Close_f91552f8-d229-4f96-bace-f4a82723a66d.jpg?v=1721386565",
+    "currentPrice": 22,
+    "oldPrice": 24,
+    "isBestSeller": false,
+    "skinTones": [
+      "deep_tan",
+      "rich_brown"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Mocha Brown Premium Jersey Hijab offers a rich, warm tone that adds depth to any outfit. The premium jersey material ensures comfort and ease of styling.",
+    "productInfo1": "Rich brown tone",
+    "productInfo2": "Excellent draping quality",
+    "productInfo3": "Year-round wearability",
+    "stock": 18,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#B7A38D",
+    "color": "Mocha Mousse",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan",
+      "golden_tan",
+      "deep_tan",
+      "rich_brown",
+      "deep_ebony"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Mocha Mousse Premium Jersey Hijab features a light, neutral brown that complements virtually any outfit. Its versatile color and comfortable fabric make it perfect for daily wear.",
+    "productInfo1": "Light neutral brown",
+    "productInfo2": "Suits all skin tones",
+    "productInfo3": "",
+    "stock": 14,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#FFFFF0",
+    "color": "Ivory",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyFar_900x.png?v=1663911821",
+    "image2": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyClose_900x.png?v=1663911822",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "deep_tan",
+      "rich_brown"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Ivory Premium Jersey Hijab offers a soft, creamy white shade that adds elegance to any outfit. The premium jersey material provides comfort and excellent draping quality.",
+    "productInfo1": "Soft cream white shade",
+    "productInfo2": "Elegant look",
+    "productInfo3": "",
+    "stock": 20,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#000080",
+    "color": "Navy Blue",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Blue_Premium_Jersey_Far_e7b8a2a4-90eb-4031-b722-e863dfa99040.jpg?v=1721386564",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Bue_Premium_Jersey_Close_082682f2-8399-48a4-a7cc-c7a4cb4a7618.jpg?v=1721386565",
+    "currentPrice": 22,
+    "oldPrice": 25,
+    "isBestSeller": false,
+    "skinTones": [
+      "deep_tan",
+      "rich_brown"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Navy Blue Premium Jersey Hijab is a timeless classic that pairs well with virtually any outfit. Its deep blue tone adds sophistication while the jersey material ensures comfort.",
+    "productInfo1": "Classic navy blue",
+    "productInfo2": "Timeless color",
+    "productInfo3": "Versatile styling options",
+    "stock": 25,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#808000",
+    "color": "Olive",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Far_8a11356e-a39f-4445-b3d2-bf79a24c34cf.jpg?v=1721386826",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Close_9f6a72dd-f618-4564-bcad-4518ed5a4b8b.jpg?v=1721386826",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan",
+      "golden_tan",
+      "deep_tan",
+      "rich_brown",
+      "deep_ebony"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Olive Premium Jersey Hijab features a rich, earthy green that complements a wide range of skin tones. The comfortable jersey material makes it perfect for everyday wear.",
+    "productInfo1": "Earthy green tone",
+    "productInfo2": "Complements all skin tones",
+    "productInfo3": "",
+    "stock": 16,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#01796F",
+    "color": "Pine Green",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Far_900x.jpg?v=1593574210",
+    "image2": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Close_900x.jpg?v=1593574210",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan",
+      "golden_tan",
+      "deep_tan",
+      "rich_brown",
+      "deep_ebony"
+    ],
+    "ageRange": [
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Pine Green Premium Jersey Hijab offers a deep, rich green that adds a touch of elegance to any outfit. Its versatile color works well for both casual and formal occasions.",
+    "productInfo1": "Deep green shade",
+    "productInfo2": "Elegant look",
+    "productInfo3": "Suitable for all occasions",
+    "stock": 12,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#D4C2A6",
+    "color": "Sphinx",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Far_900x.jpg?v=1582667076",
+    "image2": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Close_900x.jpg?v=1582667076",
+    "currentPrice": 22,
+    "isBestSeller": true,
+    "skinTones": [
+      "fair_skin",
+      "light_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Sphinx Premium Jersey Hijab features a soft, sandy beige that pairs beautifully with a variety of outfits. Its neutral tone makes it a versatile addition to any wardrobe.",
+    "productInfo1": "Neutral beige tone",
+    "productInfo2": "Bestselling color",
+    "productInfo3": "",
+    "stock": 30,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#B4B8B2",
+    "color": "Stone",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/StonePremiumJerseyFar.jpg?v=1604080876",
+    "image2": "https://voilechic.ca/cdn/shop/products/StonePremiumJerseyClose_900x.jpg?v=1604081585",
+    "currentPrice": 22,
+    "oldPrice": 26,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Stone Premium Jersey Hijab offers a cool, light grey tone that complements a variety of outfits. Its neutral color makes it a versatile staple for any wardrobe.",
+    "productInfo1": "Cool grey tone",
+    "productInfo2": "Versatile neutral",
+    "productInfo3": "Easy to style",
+    "stock": 18,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Premium Jersey Hijab",
+    "kind": "Premium Jersey Hijabs",
+    "colorCode": "#ffffff",
+    "color": "White",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Far_900x.jpg?v=1593574189",
+    "image2": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Close_900x.jpg?v=1593574189",
+    "currentPrice": 22,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our White Premium Jersey Hijab is a crisp, clean essential for any hijab collection. The premium jersey material provides comfort and excellent draping quality.",
+    "productInfo1": "Crisp white shade",
+    "productInfo2": "Clean, fresh look",
+    "productInfo3": "",
+    "stock": 22,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Instant Premium Jersey Hijab",
+    "kind": "Instant Hijabs",
+    "colorCode": "#000000",
+    "color": "Black",
+    "category": "Hijabs",
+    "image1": "https://voilechic.ca/cdn/shop/products/Black_Instant_Hijab_-_1_600x.jpg?v=1576601081",
+    "image2": "https://voilechic.ca/cdn/shop/products/Black_Instant_Hijab_-_2_900x.jpg?v=1576601088",
+    "currentPrice": 24,
+    "isBestSeller": false,
+    "skinTones": [
+      "rich_brown",
+      "deep_ebony"
+    ],
+    "ageRange": [
+      "12-18",
+      "19-39"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "The Black Instant Premium Jersey Hijab offers convenience and style in one. Its pre-sewn design makes it easy to wear while maintaining a polished look.",
+    "productInfo1": "Pre-sewn for easy wear",
+    "productInfo2": "No pins required",
+    "productInfo3": "Comfortable fit",
+    "stock": 25,
+    "sizes": ["One Size"]
+  },
+  {
+    "name": "Instant Premium Jersey Hijab",
+    "kind": "Instant Hijabs",
+    "colorCode": "#800020",
+    "color": "Burgundy",
+    "category": "Hijabs",
+    "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Instant_Hijab_-_1_4c59a53b-8ab0-4b2b-b1f1-043de4dd4486.jpg?v=1721067273",
+    "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Instant_Hijab_-_2_aa983b25-aa65-4b1e-b810-821622e01c80.jpg?v=1721067408",
+    "currentPrice": 24,
+    "isBestSeller": false,
+    "skinTones": [
+      "fair_skin",
+      "light_tan"
+    ],
+    "ageRange": [
+      "19-39",
+      "40+"
+    ],
+    "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+    "description": "Our Burgundy Instant Premium Jersey Hijab combines convenience with elegance. The rich color adds sophistication to any outfit while the instant style saves time.",
+    "productInfo1": "Rich burgundy color",
+    "productInfo2": "Ready to wear design",
+    "productInfo3": "",
+    "stock": 15,
+    "sizes": ["One Size"]
+  }
+]

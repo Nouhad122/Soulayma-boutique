@@ -5,7 +5,6 @@ import Reviews from '../Secondary-Comps/Reviews';
 import Button from '../Secondary-Comps/Button';
 
 const Products = ({products, generateUrl}) => {
-  console.log(products);
   return (
     <>
       {products.map(product => (

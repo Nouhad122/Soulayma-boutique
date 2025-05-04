@@ -4,18 +4,18 @@ import classes from './ProductInfo.module.css';
 
 const ProductInfo = ({chosenProduct}) => {
   const InfoAboutProduct = [
-    chosenProduct.productInfo1,
-    chosenProduct.productInfo2,
-    chosenProduct.productInfo3
+    { id: 'info1', content: chosenProduct.productInfo1 },
+    { id: 'info2', content: chosenProduct.productInfo2 },
+    { id: 'info3', content: chosenProduct.productInfo3 }
   ];
 
   return (
     <div className={classes.productInfo}>
         {
-            InfoAboutProduct.map(info =>(
-                <div key={info}>
-                    {info.length > 0 && <FaCircleCheck />}
-                    <p>{info}</p>
+            InfoAboutProduct.map((info, index) =>(
+                <div key={info.id || index}>
+                    {info.content && info.content.length > 0 && <FaCircleCheck />}
+                    <p>{info.content}</p>
                 </div>
             ))
         }

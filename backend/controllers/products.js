@@ -1,77 +1,65 @@
+const { validationResult } = require('express-validator');
 const { v4: uuidv4 } = require('uuid');
+const HttpError = require('../models/http-error');
+const Product = require('../models/product');
+const User = require('../models/user');
+const Order = require('../models/order');
 
-let DUMMY_PRODUCTS = [
-    {
-        id: "1",
-        name: 'Premium Hijab',
-        category: 'hijab',
-        kind: 'Premium Hijab',
-        color: 'black',
-        colorCode: '#000',
-        description: 'black hijab, it is perfect',
-        fabricSpecifications: 'any',
-        productInfo1: 'any',
-        productInfo2: 'any',
-        productInfo3: 'any',
-        currentPrice: 43,
-        previousPrice: 55,
-        stock: 4,
-        image1: 'https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
-        image2: 'https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
-        sizes: ['L', 'XL'],
-        isBestSeller: true,
-        skinTones: ['Fair', 'golden_tan']
-    },
-    {
-        id: "2",
-        name: 'Premium Hijab',
-        category: 'hijab',
-        kind: 'Premium Hijab',
-        color: 'red',
-        colorCode: '#000',
-        description: 'black hijab, it is perfect',
-        fabricSpecifications: 'any',
-        productInfo1: 'any',
-        productInfo2: 'any',
-        productInfo3: '',
-        currentPrice: 43,
-        previousPrice: 55,
-        stock: 4,
-        image1: 'https://img.freepik.com/free-psd/books-stacked-isolated-transparent-background_191095-17333.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
-        image2: 'https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740',
-        sizes: ['L', 'XL'],
-        isBestSeller: true,
-        skinTones: ['Fair', 'golden_tan']
+// In-memory guest cart store (for demo; use DB for production)
+const guestCarts = {};
+
+exports.getProducts = async (req, res, next) => {
+    let products;
+
+    try {
+        products = await Product.find();
+        
+        if (!products || products.length === 0) {
+            return next(new HttpError('No products found.', 404));
+        }
+        
+        res.status(200).json({ products: products.map(product => product.toObject({ getters: true })) });
     }
-    
-];
-
-exports.getProducts = (req, res, next) => {
-    res.status(200).json({
-        products: DUMMY_PRODUCTS
-    });
+    catch (err) {
+        const error = new HttpError('Something went wrong, could not find products.', 500);
+        return next(error);
+    }
 }
 
-exports.getProductById = (req, res, next) => {
+exports.getProductById = async (req, res, next) => {
     const productId = req.params.pid;
-    const product = DUMMY_PRODUCTS.find(p => {
-         return p.id === productId
-    });
+
+    let product;
+
+    try{
+        product = await Product.findById(productId);
+    }
+    catch(err){
+        const error = new HttpError('Something went wrong, could not find a product.', 500);
+        return next(error);
+    }
     
     if(!product){
-        return res.status(404).json({ message: 'Product not found' });
+        const error = new HttpError('Could not find a product for the provided id.', 404);
+        return next(error);
     }
 
-    res.status(200).json({ product: product });
+    res.json({ product: product.toObject({ getters: true }) });
 
 }
 
 exports.createProduct = (req, res, next) => {
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty){
+        throw new HttpError('Invalid inputs passed, please check your data.', 422);
+    }
+
     const { name, category, kind, color, colorCode, description, fabricSpecifications,
             productInfo1, productInfo2, productInfo3, currentPrice, previousPrice, stock,
-            image1, image2, sizes, isBestSeller, skinTones } = req.body;
+            image1, image2, sizes, isBestSeller, skinTones, ageRange } = req.body;
 
-    const createdProduct = {
+    const createdProduct = new Product({
         id: uuidv4(),
         name,
         category,
@@ -90,50 +78,216 @@ exports.createProduct = (req, res, next) => {
         image2,
         sizes,
         isBestSeller,
-        skinTones
-    };
+        skinTones,
+        ageRange
+    });
 
-    DUMMY_PRODUCTS.push(createdProduct);
+    try {
+    createdProduct.save();
+    }
+    catch(err){
+        const error = new HttpError('Creating product failed, please try again.', 500);
+        return next(error);
+    }
 
     res.status(201).json({
         product: createdProduct
     });
 }
-exports.updateProduct = (req, res, next) =>{
+exports.updateProduct = async (req, res, next) =>{
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        throw new HttpError('Invalid inputs passed, please check your data.', 422);
+    }
+
     const { name, category, kind, color, colorCode, description, fabricSpecifications,
             currentPrice, previousPrice, stock,
-            image1, image2, sizes, isBestSeller, skinTones } = req.body;
+            image1, image2, sizes, isBestSeller, skinTones, ageRange } = req.body;
 
     const productId = req.params.pid;
 
-    const updatedProduct = {...DUMMY_PRODUCTS.find(p =>  p.id === productId)};
-    
-    const productIndex = DUMMY_PRODUCTS.findIndex(p => p.id === productId);
+    let product;
 
-    updatedProduct.name = name;
-    updatedProduct.category = category;
-    updatedProduct.kind = kind;
-    updatedProduct.colorCode = colorCode;
-    updatedProduct.description = description;
-    updatedProduct.fabricSpecifications = fabricSpecifications;
-    updatedProduct.currentPrice = currentPrice;
-    updatedProduct.previousPrice = previousPrice;
-    updatedProduct.stock = stock;
-    updatedProduct.image1 = image1;
-    updatedProduct.image2 = image2;
-    updatedProduct.sizes = sizes;
-    updatedProduct.isBestSeller = isBestSeller;
-    updatedProduct.skinTones = skinTones;
+    try{
+        product = await Product.findById(productId);
+    }
+    catch(err){
+        const error = new HttpError('Something went wrong, could not find a product.', 500);
+        return next(error);
+    }
 
-    DUMMY_PRODUCTS[productIndex] = updatedProduct;
+    product.name = name;
+    product.category = category;
+    product.kind = kind;
+    product.color = color;
+    product.colorCode = colorCode;
+    product.description = description;
+    product.fabricSpecifications = fabricSpecifications;
+    product.currentPrice = currentPrice;
+    product.previousPrice = previousPrice;
+    product.stock = stock;
+    product.image1 = image1;
+    product.image2 = image2;
+    product.sizes = sizes;
+    product.isBestSeller = isBestSeller;
+    product.skinTones = skinTones;
+    product.ageRange = ageRange;
 
-    res.status(200).json({product: updatedProduct});
+    try{
+        await product.save();
+    }
+    catch(err){
+        const error = new HttpError('Something went wrong, could not update product.', 500);
+        return next(error);
+    }
+
+    res.status(200).json({product: product.toObject({ getters: true })});
 }
 
-exports.deleteProduct = (req, res, next) =>{
+exports.deleteProduct = async (req, res, next) =>{
     const productId = req.params.pid;
 
-    DUMMY_PRODUCTS = DUMMY_PRODUCTS.filter(p => p.id === productId);
+    let product;
+
+    try{
+        product = await Product.findById(productId);
+    }
+    catch(err){
+        const error = new HttpError('Something went wrong, could not find a product.', 500);
+        return next(error);
+    }
+    
+    try{
+      await product.remove();
+    }
+    catch(err){
+        const error = new HttpError('Something went wrong, could not delete product.', 500);
+        return next(error);
+    }
 
     res.status(200).json({message: 'Deleted Product'});
 }
+
+exports.getCart = async (req, res, next) => {
+    // If user is authenticated, use their cart
+    if (req.userData && req.userData.userId) {
+        try {
+            const user = await User.findById(req.userData.userId).populate('cart.items.productId');
+            if (!user) {
+                return next(new HttpError('User not found.', 404));
+            }
+            return res.status(200).json({ cart: user.cart });
+        } catch (err) {
+            return next(new HttpError('Fetching cart failed, please try again.', 500));
+        }
+    }
+    // Guest cart logic
+    let sessionId = req.cookies.sessionId;
+    if (!sessionId) {
+        sessionId = uuidv4();
+        res.cookie('sessionId', sessionId, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 }); // 1 week
+    }
+    if (!guestCarts[sessionId]) {
+        guestCarts[sessionId] = {
+            items: [],
+            totalPriceOfAllProducts: 0,
+            totalQuantity: 0
+        };
+    }
+    return res.status(200).json({ cart: guestCarts[sessionId] });
+};
+
+exports.updateCart = async (req, res, next) => {
+    // Authenticated user
+    if (req.userData && req.userData.userId) {
+        const userId = req.userData.userId;
+        const { products, totalPriceOfAllProducts, totalQuantity } = req.body;
+        try {
+            const user = await User.findById(userId);
+            if (!user) {
+                return next(new HttpError('User not found.', 404));
+            }
+            // Update the entire cart
+            user.cart = {
+                items: products.map(product => ({
+                    productId: product.id,
+                    quantity: product.quantity
+                })),
+                totalPriceOfAllProducts,
+                totalQuantity
+            };
+            await user.save();
+            return res.status(200).json({ message: 'Cart updated successfully' });
+        } catch (err) {
+            return next(new HttpError('Updating cart failed, please try again.', 500));
+        }
+    }
+    // Guest cart logic
+    let sessionId = req.cookies.sessionId;
+    if (!sessionId) {
+        sessionId = uuidv4();
+        res.cookie('sessionId', sessionId, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
+    }
+    const { products, totalPriceOfAllProducts, totalQuantity } = req.body;
+    guestCarts[sessionId] = {
+        items: (products || []).map(product => ({
+            productId: product.id,
+            quantity: product.quantity
+        })),
+        totalPriceOfAllProducts: totalPriceOfAllProducts || 0,
+        totalQuantity: totalQuantity || 0
+    };
+    return res.status(200).json({ message: 'Guest cart updated successfully' });
+};
+
+exports.getOrders = async (req, res, next) => {
+    const userId = req.userData.userId;
+
+    try {
+        const orders = await Order.find({ 'user.userId': userId }).populate('items.productId');
+        res.status(200).json({ orders });
+    } catch (err) {
+        return next(new HttpError('Fetching orders failed, please try again.', 500));
+    }
+};
+
+exports.postOrder = async (req, res, next) => {
+    const userId = req.userData.userId;
+
+    try {
+        const user = await User.findById(userId).populate('cart.items.productId');
+        if (!user) {
+            return next(new HttpError('User not found.', 404));
+        }
+
+        if (user.cart.items.length === 0) {
+            return next(new HttpError('Cart is empty.', 400));
+        }
+
+        const totalAmount = user.cart.items.reduce((total, item) => {
+            return total + (item.productId.currentPrice * item.quantity);
+        }, 0);
+
+        const order = new Order({
+            user: {
+                userId: user._id,
+                email: user.email
+            },
+            items: user.cart.items.map(item => ({
+                productId: item.productId._id,
+                quantity: item.quantity
+            })),
+            totalAmount
+        });
+
+        await order.save();
+        
+        // Clear the user's cart
+        user.cart.items = [];
+        await user.save();
+
+        res.status(201).json({ order });
+    } catch (err) {
+        return next(new HttpError('Creating order failed, please try again.', 500));
+    }
+};

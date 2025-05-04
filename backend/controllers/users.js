@@ -1,51 +1,117 @@
-const { v4: uuidv4 } = require('uuid');
+const { validationResult } = require('express-validator');
+const HttpError = require('../models/http-error');
+const User = require('../models/user');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-
-const DUMMY_USERS = [
-    {
-        id: 'u1',
-        firstname: 'Nouhad',
-        lastname: 'Elhallab',
-        email: 'nouhadalhallab122@gmail.com',
-        password: 'nouhad123'
+exports.getUsers = async (req, res, next) => {
+    try {
+        const users = await User.find({}, '-password');
+        res.json({ users: users.map(user => user.toObject({ getters: true })) });
+    } catch (err) {
+        return next(new HttpError('Fetching users failed, please try again later.', 500));
     }
-]
+};
 
- exports.getUsers = (req, res, next) =>{
-    res.json({ users: DUMMY_USERS });
-}
-
-exports.signup = (req, res, next) =>{
-    const { firstname, lastname, email, password} = req.body;
-
-    const hasUser = DUMMY_USERS.find(u => u.email === email);
-
-    if(hasUser){
-        throw new Error('Email i already exists!');
+exports.signup = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return next(new HttpError('Invalid inputs passed, please check your data.', 422));
     }
-
-    const createdUser = {
-        id: uuidv4(),
+    
+    const { firstname, lastname, email, password } = req.body;
+    
+    let existingUser;
+    try {
+        existingUser = await User.findOne({ email: email });
+    } catch (err) {
+        return next(new HttpError('Signing up failed, please try again later.', 500));
+    }
+    
+    if (existingUser) {
+        return next(new HttpError('User exists already, please login instead.', 422));
+    }
+    
+    let hashedPassword;
+    try {
+        hashedPassword = await bcrypt.hash(password, 12);
+    } catch (err) {
+        return next(new HttpError('Could not create user, please try again.', 500));
+    }
+    
+    const createdUser = new User({
         firstname,
         lastname,
         email,
-        password
+        password: hashedPassword,
+        cart: { items: [] }
+    });
+    
+    try {
+        await createdUser.save();
+    } catch (err) {
+        return next(new HttpError('Signing up failed, please try again.', 500));
     }
+    
+    // Generate token
+    let token;
+    try {
+        token = jwt.sign(
+            { userId: createdUser.id, email: createdUser.email },
+            'supersecret_dont_share',  // Using your secret key
+            { expiresIn: '1h' }
+        );
+    } catch (err) {
+        return next(new HttpError('Signing up failed, please try again.', 500));
+    }
+    
+    res.status(201).json({ 
+        userId: createdUser.id, 
+        email: createdUser.email,
+        token: token 
+    });
+};
 
-    DUMMY_USERS.push(createdUser);
-
-    res.status(200).json({ user: createdUser});
-}
-
-exports.login = (req, res, next) =>{
+exports.login = async (req, res, next) => {
     const { email, password } = req.body;
-
-    const identifiedUser = DUMMY_USERS.find(u => u.email === email);
-
-    if(!identifiedUser || identifiedUser.password !== password){
-        throw new Error('Could not identify user, credentials seem to be wrong!')
+    
+    let existingUser;
+    try {
+        existingUser = await User.findOne({ email: email });
+    } catch (err) {
+        return next(new HttpError('Logging in failed, please try again later.', 500));
     }
-
-    res.json({message: 'Logged in!'})
-}
-
+    
+    if (!existingUser) {
+        return next(new HttpError('Invalid credentials, could not log you in.', 401));
+    }
+    
+    let isValidPassword = false;
+    try {
+        isValidPassword = await bcrypt.compare(password, existingUser.password);
+    } catch (err) {
+        return next(new HttpError('Could not log you in, please check your credentials and try again.', 500));
+    }
+    
+    if (!isValidPassword) {
+        return next(new HttpError('Invalid credentials, could not log you in.', 401));
+    }
+    
+    // Generate token
+    let token;
+    try {
+        token = jwt.sign(
+            { userId: existingUser.id, email: existingUser.email },
+            'supersecret_dont_share',  // Using your secret key
+            { expiresIn: '1h' }
+        );
+    } catch (err) {
+        return next(new HttpError('Logging in failed, please try again.', 500));
+    }
+    
+    res.json({ 
+        userId: existingUser.id, 
+        email: existingUser.email,
+        token: token 
+    });
+};

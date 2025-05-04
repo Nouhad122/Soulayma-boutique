@@ -1,288 +1,558 @@
 {
   "products": [
     {
-      "id": "0",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#000000",
       "color": "Black",
       "category": "Hijabs",
       "image1": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Far_1795b816-5eb3-4627-9dac-043eaeba19d6.jpg?v=1721385365",
       "image2": "https://voilechic.com/cdn/shop/files/Black_Premium_Jersey_Close_e3745411-4723-4601-865d-e9635cefb31c.jpg?v=1721385364",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Premium Jersey Hijab in Black is a versatile essential for any wardrobe. Made with high-quality jersey fabric that provides comfort and breathability throughout the day.",
+      "productInfo1": "Soft and stretchy material",
+      "productInfo2": "Easy to style",
+      "productInfo3": "",
+      "stock": 25,
+      "sizes": ["One Size"]
     },
     {
-      "id": "1",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#F2C1D1",
       "color": "Blush",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Blush_Premium_Jersey_Far_26abc97f-a663-4cad-8ba2-7944bc08cf11.jpg?v=1721385593",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "oldPrice": 25,
+      "isBestSeller": false,
+      "skinTones": [
+        "golden_tan",
+        "deep_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Premium Jersey Hijab in Blush offers a soft, feminine touch to your outfit. The lightweight material ensures all-day comfort while the beautiful color complements a variety of skin tones.",
+      "productInfo1": "Lightweight and breathable",
+      "productInfo2": "Perfect for everyday wear",
+      "productInfo3": "Machine washable",
+      "stock": 18,
+      "sizes": ["One Size"]
     },
     {
-      "id": "2",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#800020",
       "color": "Burgundy",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Far_5b90528e-54f0-4204-8bec-424417982a09.jpg?v=1721385863",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Premium_Jersey_Close_6250d919-3988-4283-9a59-5e0bc5232b05.jpg?v=1721385861",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Burgundy Premium Jersey Hijab adds a rich, elegant color to your collection. Perfect for both casual and formal occasions with its smooth texture and excellent draping quality.",
+      "productInfo1": "Rich, deep color",
+      "productInfo2": "",
+      "productInfo3": "",
+      "stock": 15,
+      "sizes": ["One Size"]
     },
     {
-      "id": "3",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#F9E5B1",
       "color": "Buttercream",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Far_900x.jpg?v=1582665080",
       "image2": "https://voilechic.ca/cdn/shop/products/Butter_Cream_Premium_Jersey_Close_900x.jpg?v=1582665068",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "oldPrice": 26,
+      "isBestSeller": false,
+      "skinTones": [
+        "golden_tan",
+        "deep_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Buttercream Premium Jersey Hijab features a soft, warm tone that brightens any outfit. The premium jersey material provides comfort and ease of styling for everyday wear.",
+      "productInfo1": "Warm, neutral tone",
+      "productInfo2": "Versatile styling options",
+      "productInfo3": "Durable fabric",
+      "stock": 20,
+      "sizes": ["One Size"]
     },
     {
-      "id": "4",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#2F4F4F",
       "color": "Charcoal Grey",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Far_900x.jpg?v=1582665585",
       "image2": "https://voilechic.ca/cdn/shop/products/Charcoal_Gray_Premium_Jersey_Close_900x.jpg?v=1582665598",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "golden_tan",
+        "deep_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Charcoal Grey Premium Jersey Hijab is a versatile staple for any wardrobe. Its neutral tone pairs well with virtually any outfit, making it perfect for everyday wear.",
+      "productInfo1": "Classic neutral shade",
+      "productInfo2": "Pairs with any outfit",
+      "productInfo3": "",
+      "stock": 12,
+      "sizes": ["One Size"]
     },
     {
-      "id": "5",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#D1D3D4",
       "color": "Chic Grey",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Far_900x.jpg?v=1582666200",
       "image2": "https://voilechic.ca/cdn/shop/products/Chic_Gray_Premium_Jersey_Close_900x.jpg?v=1582666194",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Chic Grey Premium Jersey Hijab offers a light, sophisticated neutral that complements a wide range of outfits. The premium jersey material ensures comfort throughout the day.",
+      "productInfo1": "Light grey tone",
+      "productInfo2": "Elegant drape",
+      "productInfo3": "",
+      "stock": 8,
+      "sizes": ["One Size"]
     },
     {
-      "id": "6",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#6A4C9C",
       "color": "Deep Orchid",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Far_900x.jpg?v=1582666289",
       "image2": "https://voilechic.ca/cdn/shop/products/Deep_Orchid_Premium_Jersey_Close_900x.jpg?v=1582666277",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "oldPrice": 28,
+      "isBestSeller": false,
+      "skinTones": [
+        "golden_tan",
+        "deep_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Deep Orchid Premium Jersey Hijab adds a vibrant pop of color to your collection. This rich purple shade is perfect for making a statement while maintaining comfort and ease of wear.",
+      "productInfo1": "Vibrant purple shade",
+      "productInfo2": "Makes a bold statement",
+      "productInfo3": "Easy to style",
+      "stock": 10,
+      "sizes": ["One Size"]
     },
     {
-      "id": "7",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#1560BD",
       "color": "Denim",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Far_094f5480-f2d8-44f6-b476-c98810bb2066.jpg?v=1721386031",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Denim_Premium_Jersey_Close_51f7f69d-39cc-4106-8c28-ba420b0c1079.jpg?v=1721386031",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
-      "ageRange": ["19-39", "40+"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan",
+        "golden_tan",
+        "deep_tan",
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Denim Premium Jersey Hijab offers a versatile blue shade that pairs well with casual outfits. The comfortable jersey material makes it perfect for everyday wear.",
+      "productInfo1": "Classic blue shade",
+      "productInfo2": "Complements all skin tones",
+      "productInfo3": "",
+      "stock": 15,
+      "sizes": ["One Size"]
     },
     {
-      "id": "8",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#B89C8D",
       "color": "Light Mink",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Far_25776520-8f0d-44f4-9164-d3acbd9af831.jpg?v=1721386309",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Light_Mink_Premium_Jersey_Close_f38d5152-ba09-4af8-8356-aae9aead0400.jpg?v=1721386309",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "golden_tan",
+        "deep_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Light Mink Premium Jersey Hijab features a soft, neutral taupe shade that complements a variety of outfits. Its versatile color makes it a wardrobe essential.",
+      "productInfo1": "Neutral taupe shade",
+      "productInfo2": "Versatile styling options",
+      "productInfo3": "",
+      "stock": 22,
+      "sizes": ["One Size"]
     },
     {
-      "id": "9",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#795548",
       "color": "Mocha Brown",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Far_b4b5271a-518d-40c2-8f6e-9db89f9bab28.jpg?v=1721386565",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Premium_Jersey_Close_f91552f8-d229-4f96-bace-f4a82723a66d.jpg?v=1721386565",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "oldPrice": 24,
+      "isBestSeller": false,
+      "skinTones": [
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Mocha Brown Premium Jersey Hijab offers a rich, warm tone that adds depth to any outfit. The premium jersey material ensures comfort and ease of styling.",
+      "productInfo1": "Rich brown tone",
+      "productInfo2": "Excellent draping quality",
+      "productInfo3": "Year-round wearability",
+      "stock": 18,
+      "sizes": ["One Size"]
     },
     {
-      "id": "10",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#B7A38D",
       "color": "Mocha Mousse",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Mocha_Mousse_Premium_Jersey_Far_4585fb1e-a271-422e-8fba-6e9a2e8d8128.jpg?v=1721386565",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan",
+        "golden_tan",
+        "deep_tan",
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Mocha Mousse Premium Jersey Hijab features a light, neutral brown that complements virtually any outfit. Its versatile color and comfortable fabric make it perfect for daily wear.",
+      "productInfo1": "Light neutral brown",
+      "productInfo2": "Suits all skin tones",
+      "productInfo3": "",
+      "stock": 14,
+      "sizes": ["One Size"]
     },
     {
-      "id": "11",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#FFFFF0",
       "color": "Ivory",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyFar_900x.png?v=1663911821",
       "image2": "https://voilechic.ca/cdn/shop/products/IvoryPremiumJerseyClose_900x.png?v=1663911822",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Ivory Premium Jersey Hijab offers a soft, creamy white shade that adds elegance to any outfit. The premium jersey material provides comfort and excellent draping quality.",
+      "productInfo1": "Soft cream white shade",
+      "productInfo2": "Elegant look",
+      "productInfo3": "",
+      "stock": 20,
+      "sizes": ["One Size"]
     },
     {
-      "id": "12",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#000080",
       "color": "Navy Blue",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Blue_Premium_Jersey_Far_e7b8a2a4-90eb-4031-b722-e863dfa99040.jpg?v=1721386564",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Navy_Bue_Premium_Jersey_Close_082682f2-8399-48a4-a7cc-c7a4cb4a7618.jpg?v=1721386565",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "oldPrice": 25,
+      "isBestSeller": false,
+      "skinTones": [
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Navy Blue Premium Jersey Hijab is a timeless classic that pairs well with virtually any outfit. Its deep blue tone adds sophistication while the jersey material ensures comfort.",
+      "productInfo1": "Classic navy blue",
+      "productInfo2": "Timeless color",
+      "productInfo3": "Versatile styling options",
+      "stock": 25,
+      "sizes": ["One Size"]
     },
     {
-      "id": "13",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#808000",
       "color": "Olive",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Far_8a11356e-a39f-4445-b3d2-bf79a24c34cf.jpg?v=1721386826",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Olive_Premium_Jersey_Close_9f6a72dd-f618-4564-bcad-4518ed5a4b8b.jpg?v=1721386826",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan",
+        "golden_tan",
+        "deep_tan",
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Olive Premium Jersey Hijab features a rich, earthy green that complements a wide range of skin tones. The comfortable jersey material makes it perfect for everyday wear.",
+      "productInfo1": "Earthy green tone",
+      "productInfo2": "Complements all skin tones",
+      "productInfo3": "",
+      "stock": 16,
+      "sizes": ["One Size"]
     },
     {
-      "id": "14",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#01796F",
       "color": "Pine Green",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Far_900x.jpg?v=1593574210",
       "image2": "https://voilechic.ca/cdn/shop/products/Pine_Green_Premium_Jersey_Close_900x.jpg?v=1593574210",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan", "golden_tan", "deep_tan", "rich_brown", "deep_ebony"],
-      "ageRange": ["19-39", "40+"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan",
+        "golden_tan",
+        "deep_tan",
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Pine Green Premium Jersey Hijab offers a deep, rich green that adds a touch of elegance to any outfit. Its versatile color works well for both casual and formal occasions.",
+      "productInfo1": "Deep green shade",
+      "productInfo2": "Elegant look",
+      "productInfo3": "Suitable for all occasions",
+      "stock": 12,
+      "sizes": ["One Size"]
     },
     {
-      "id": "15",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#D4C2A6",
       "color": "Sphinx",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Far_900x.jpg?v=1582667076",
       "image2": "https://voilechic.ca/cdn/shop/products/Sphinx_Premium_Jersey_Close_900x.jpg?v=1582667076",
-      "price": 22,
-      "bestSelling": true,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": true,
+      "skinTones": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Sphinx Premium Jersey Hijab features a soft, sandy beige that pairs beautifully with a variety of outfits. Its neutral tone makes it a versatile addition to any wardrobe.",
+      "productInfo1": "Neutral beige tone",
+      "productInfo2": "Bestselling color",
+      "productInfo3": "",
+      "stock": 30,
+      "sizes": ["One Size"]
     },
     {
-      "id": "16",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#B4B8B2",
       "color": "Stone",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/StonePremiumJerseyFar.jpg?v=1604080876",
       "image2": "https://voilechic.ca/cdn/shop/products/StonePremiumJerseyClose_900x.jpg?v=1604081585",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "currentPrice": 22,
+      "oldPrice": 26,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Stone Premium Jersey Hijab offers a cool, light grey tone that complements a variety of outfits. Its neutral color makes it a versatile staple for any wardrobe.",
+      "productInfo1": "Cool grey tone",
+      "productInfo2": "Versatile neutral",
+      "productInfo3": "Easy to style",
+      "stock": 18,
+      "sizes": ["One Size"]
     },
     {
-      "id": "17",
-      "title": "Premium Jersey Hijab",
+      "name": "Premium Jersey Hijab",
       "kind": "Premium Jersey Hijabs",
       "colorCode": "#ffffff",
       "color": "White",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Far_900x.jpg?v=1593574189",
       "image2": "https://voilechic.ca/cdn/shop/products/White_Premium_Jersey_Close_900x.jpg?v=1593574189",
-      "price": 22,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 22,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our White Premium Jersey Hijab is a crisp, clean essential for any hijab collection. The premium jersey material provides comfort and excellent draping quality.",
+      "productInfo1": "Crisp white shade",
+      "productInfo2": "Clean, fresh look",
+      "productInfo3": "",
+      "stock": 22,
+      "sizes": ["One Size"]
     },
     {
-      "id": "18",
-      "title": "Instant Premium Jersey Hijab",
+      "name": "Instant Premium Jersey Hijab",
       "kind": "Instant Hijabs",
       "colorCode": "#000000",
       "color": "Black",
       "category": "Hijabs",
       "image1": "https://voilechic.ca/cdn/shop/products/Black_Instant_Hijab_-_1_600x.jpg?v=1576601081",
       "image2": "https://voilechic.ca/cdn/shop/products/Black_Instant_Hijab_-_2_900x.jpg?v=1576601088",
-      "price": 24,
-      "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "currentPrice": 24,
+      "isBestSeller": false,
+      "skinTones": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "The Black Instant Premium Jersey Hijab offers convenience and style in one. Its pre-sewn design makes it easy to wear while maintaining a polished look.",
+      "productInfo1": "Pre-sewn for easy wear",
+      "productInfo2": "No pins required",
+      "productInfo3": "Comfortable fit",
+      "stock": 25,
+      "sizes": ["One Size"]
     },
     {
-      "id": "19",
-      "title": "Instant Premium Jersey Hijab",
+      "name": "Instant Premium Jersey Hijab",
       "kind": "Instant Hijabs",
       "colorCode": "#800020",
       "color": "Burgundy",
       "category": "Hijabs",
       "image1": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Instant_Hijab_-_1_4c59a53b-8ab0-4b2b-b1f1-043de4dd4486.jpg?v=1721067273",
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/Burgundy_Instant_Hijab_-_2_aa983b25-aa65-4b1e-b810-821622e01c80.jpg?v=1721067408",
-      "price": 24,
-      "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["19-39", "40+"]
+      "currentPrice": 24,
+      "isBestSeller": false,
+      "skinTones": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ],
+      "fabricSpecifications": "Premium jersey fabric, 95% cotton, 5% spandex",
+      "description": "Our Burgundy Instant Premium Jersey Hijab combines convenience with elegance. The rich color adds sophistication to any outfit while the instant style saves time.",
+      "productInfo1": "Rich burgundy color",
+      "productInfo2": "Ready to wear design",
+      "productInfo3": "",
+      "stock": 15,
+      "sizes": ["One Size"]
     },
     {
-      "id": "20",
-      "title": "Instant Premium Jersey Hijab",
+      "name": "Instant Premium Jersey Hijab",
       "kind": "Instant Hijabs",
       "colorCode": "#2F4F4F",
       "color": "Charcoal Grey",
@@ -291,11 +561,17 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Charcoal_Grey_Instant_Hijab_-_2_900x.jpg?v=1576601173",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
-      "id": "21",
       "title": "Instant Premium Jersey Hijab",
       "kind": "Instant Hijabs",
       "colorCode": "#556B2F",
@@ -305,8 +581,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/IPJ48-1InstantDarkOlive_900x.jpg?v=1604615562",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "22",
@@ -319,8 +601,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/BronzeTaupeInstantHijab_1_900x.jpg?v=1673917058",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "23",
@@ -333,8 +621,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/DenimInstantHijab_1_900x.jpg?v=1673916794",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "24",
@@ -347,8 +641,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/InstantHijab-Desert2_900x.jpg?v=1593288235",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "25",
@@ -361,8 +662,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Dusty_Rose_Instant_Hijab_-_2_9fab3eaf-2c72-442b-af0a-e0307e7e9320.jpg?v=1600551472",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "26",
@@ -375,8 +682,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/IPJ49-1InstantHazelnut-2_900x.jpg?v=1604615561",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "27",
@@ -389,8 +702,14 @@
       "image2": "https://voilechic.com/cdn/shop/products/MintInstantHijab_1.jpg?v=1673916437",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "28",
@@ -403,8 +722,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Ivory_Instant_Hijab_-_1_900x.jpg?v=1576601204",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "29",
@@ -417,8 +743,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Mocha_Brown_Instant_-_2_8ae250c7-3618-42e5-acd1-7aef0382a8a1.jpg?v=1600551443",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "30",
@@ -431,8 +764,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Mocha_Brown_Instant_-_2_8ae250c7-3618-42e5-acd1-7aef0382a8a1.jpg?v=1600551443",
       "price": 24,
       "bestSelling": true,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "31",
@@ -445,8 +785,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/MochaMousseInstatHijab_1_900x.jpg?v=1673916889",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "32",
@@ -459,8 +806,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/Navy_Blue_Instant_Hijab_-_2_900x.jpg?v=1576524666",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "33",
@@ -473,8 +827,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/Rose_Taupe_Instant_Hijab_-_2.jpg?v=1600551444",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "34",
@@ -487,8 +847,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SphinxInstantHijab2_900x.jpg?v=1592864280",
       "price": 24,
       "bestSelling": true,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "35",
@@ -501,8 +867,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/WarmTaupeInstant_900x.jpg?v=1594655033",
       "price": 24,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "36",
@@ -515,8 +888,16 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BLACK3.jpg?v=1704121252",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "37",
@@ -529,8 +910,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DESERT1.jpg?v=1704121292",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "38",
@@ -543,8 +930,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/WARMTAUPE3.jpg?v=1704121394",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "39",
@@ -557,8 +951,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/VANILLA4.jpg?v=1704121379",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "40",
@@ -571,8 +972,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/MOCHABROWN1.jpg?v=1704121334",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "41",
@@ -585,8 +992,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/GREY5.jpg?v=1704121312",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "42",
@@ -599,8 +1013,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CREAM1.jpg?v=1704121271",
       "price": 30,
       "bestSelling": true,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "43",
@@ -613,8 +1034,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/NAVY3.jpg?v=1704121353",
       "price": 30,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "44",
@@ -627,8 +1055,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/LightTaupePremiumChiffon_900x.jpg?v=1597830732",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "45",
@@ -641,8 +1075,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DustyRosePremiumChiffon_23583a92-c8f8-4053-8416-1fc42e0b9314.jpg?v=1721389235",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "46",
@@ -655,8 +1096,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/EarthGreyPremiumChiffon_dbc79bd4-6cb4-4bc2-a925-ef2f63a7dd57.jpg?v=1721389427",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "47",
@@ -669,8 +1116,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SoftTaupePremiumChiffon2_900x.jpg?v=1597830734",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "48",
@@ -683,8 +1136,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/MochaBrownPremiumChiffon2_900x.jpg?v=1597830732",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "49",
@@ -697,8 +1156,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/PinkTaupePremiumChiffon_900x.jpg?v=1597830733",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "50",
@@ -711,8 +1176,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BurgundyPremiumChiffon_1da9f1d9-daf0-47d6-969f-745d381daba0.jpg?v=1721388396",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "51",
@@ -725,8 +1196,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/ChestnutPremiumChiffon_86bdc23b-2e6c-4ef7-9014-71850e578b37.jpg?v=1721388722",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "52",
@@ -739,8 +1216,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/CharcoalGreyPremiumChiffon_900x.jpg?v=1597830789",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "53",
@@ -753,8 +1237,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CoffeeBrownPremiumChiffon_7f0be2a2-5f5e-4a3b-aae2-69fd14ed5c05.jpg?v=1721388937",
       "price": 26,
       "bestSelling": true,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "54",
@@ -767,8 +1257,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/GunmetalPremiumChiffon2_900x.jpg?v=1597830760",
       "price": 26,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "55",
@@ -781,8 +1277,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/BLACK2.jpg?v=1704120929",
       "price": 28,
       "bestSelling": true,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "56",
@@ -795,8 +1298,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/MOCHABROWN4.jpg?v=1704121022",
       "price": 28,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "57",
@@ -809,8 +1318,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/WARMTAUPE2.jpg?v=1704121226",
       "price": 28,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "58",
@@ -823,8 +1338,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/DESERT4.jpg?v=1704120979",
       "price": 28,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "59",
@@ -837,8 +1358,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/NAVY1.jpg?v=1704121036",
       "price": 28,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "60",
@@ -851,8 +1378,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/GREY2.jpg?v=1704121001",
       "price": 28,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "61",
@@ -865,8 +1399,15 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/CREAM4.jpg?v=1704120957",
       "price": 28,
       "bestSelling": true,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "62",
@@ -879,8 +1420,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/files/VANILLA2.jpg?v=1704121065",
       "price": 28,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "63",
@@ -893,8 +1440,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH6_900x.jpg?v=1601959321",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "64",
@@ -907,8 +1460,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH2_900x.jpg?v=1601959318",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "65",
@@ -921,8 +1481,14 @@
       "image2": "https://voile-chic-worldwide.myshopify.com/cdn/shop/products/SNLCH21.jpg?v=1601956561",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "66",
@@ -935,8 +1501,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SLCHS3_900x.jpg?v=1601959342",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "67",
@@ -949,8 +1522,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH7_900x.jpg?v=1601959319",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "68",
@@ -963,8 +1543,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH37_900x.jpg?v=1601959343",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "69",
@@ -977,8 +1564,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH38_900x.jpg?v=1601959320",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "70",
@@ -991,8 +1584,15 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH44_900x.jpg?v=1601959320",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "71",
@@ -1005,8 +1605,16 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH26-1_900x.jpg?v=1601959320",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "72",
@@ -1019,8 +1627,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH47_900x.jpg?v=1601959343",
       "price": 21,
       "bestSelling": true,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "73",
@@ -1033,8 +1647,14 @@
       "image2": "https://voilechic.ca/cdn/shop/products/SNLCH39_900x.jpg?v=1601959321",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["rich_brown", "deep_ebony"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "rich_brown",
+        "deep_ebony"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "74",
@@ -1047,8 +1667,15 @@
       "image2": "https://voilechic.ca/cdn/shop/files/SNLCH49_900x.png?v=1695181599",
       "price": 21,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "75",
@@ -1061,8 +1688,15 @@
       "image2": "https://voilechic.com/cdn/shop/files/Black_1.jpg?v=1718367582",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "76",
@@ -1075,8 +1709,15 @@
       "image2": "https://voilechic.com/cdn/shop/files/Dusty_Rose_2_a0b6b25b-0be3-4283-80e4-ab4ef94a05dc.jpg?v=1720694546",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "77",
@@ -1089,8 +1730,14 @@
       "image2": "https://voilechic.com/cdn/shop/files/Earth_Gray_2.jpg?v=1718900919",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "78",
@@ -1103,8 +1750,14 @@
       "image2": "https://voilechic.com/cdn/shop/files/Ivory_2.jpg?v=1718900402",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "79",
@@ -1117,8 +1770,14 @@
       "image2": "https://voilechic.com/cdn/shop/files/lightgreysmallchiffon2.png?v=1719118906",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "80",
@@ -1131,8 +1790,15 @@
       "image2": "https://voilechic.com/cdn/shop/files/Light_taupe_2.jpg?v=1718366841",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "81",
@@ -1145,8 +1811,14 @@
       "image2": "https://voilechic.com/cdn/shop/files/Moch_Brown_1.jpg?v=1718366406",
       "price": 17,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "82",
@@ -1159,8 +1831,14 @@
       "image2": "https://voilechic.com/cdn/shop/files/Pink_Taupe_2.jpg?v=1718367080",
       "price": 17,
       "bestSelling": true,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "83",
@@ -1173,8 +1851,16 @@
       "image2": "https://voilechic.com/cdn/shop/files/BLACK2.png?v=1717429194",
       "price": 19,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "84",
@@ -1187,8 +1873,14 @@
       "image2": "https://voilechic.com/cdn/shop/files/CHARCOALGREY.png?v=1717429223",
       "price": 19,
       "bestSelling": false,
-      "skinTone": ["fair_skin", "light_tan"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "fair_skin",
+        "light_tan"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "85",
@@ -1201,8 +1893,15 @@
       "image2": "https://voilechic.com/cdn/shop/files/CHOCOLATEBROWN2.png?v=1717429249",
       "price": 19,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "86",
@@ -1215,8 +1914,15 @@
       "image2": "https://voilechic.com/cdn/shop/files/CINNAMON.png?v=1717429325",
       "price": 19,
       "bestSelling": true,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39"
+      ]
     },
     {
       "id": "87",
@@ -1229,8 +1935,16 @@
       "image2": "https://voilechic.com/cdn/shop/files/CREAM2.png?v=1717429368",
       "price": 19,
       "bestSelling": false,
-      "skinTone": ["golden_tan", "deep_tan", "rich_brown"],
-      "ageRange": ["12-18", "19-39", "40+"]
+      "skinTone": [
+        "golden_tan",
+        "deep_tan",
+        "rich_brown"
+      ],
+      "ageRange": [
+        "12-18",
+        "19-39",
+        "40+"
+      ]
     },
     {
       "id": "88",
@@ -2958,10 +3672,15 @@
         "price": 22,
         "quantity": 1,
         "totalPrice": 22
+      },
+      {
+        "id": "68125515c6268762557e8ec0",
+        "image1": "https://img.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg?uid=R98532552&ga=GA1.1.427665853.1740759567&semt=ais_hybrid&w=740",
+        "quantity": 1
       }
     ],
-    "totalPriceOfAllProducts": 22,
-    "totalQuantity": 1,
+    "totalPriceOfAllProducts": null,
+    "totalQuantity": 2,
     "changed": true
   }
 }

@@ -25,7 +25,7 @@ export const fetchProductDetails = async ({id, signal}) =>{
 }
 
 export const fetchCart = async () => {
-    const response = await fetch('http://localhost:8080/cart');
+    const response = await fetch('http://localhost:5000/api/cart');
     if (!response.ok){
         throw new Response(JSON.stringify({message: "Failed To Fetch Cart"}), {status: response.status})
     } 
@@ -36,7 +36,7 @@ export const fetchCart = async () => {
   };
 
   export const updateCart = async (cart) => {
-    const response = await fetch('http://localhost:8080/cart', {
+    const response = await fetch('http://localhost:5000/api/cart', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(cart),
