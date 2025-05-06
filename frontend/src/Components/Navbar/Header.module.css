@@ -22,7 +22,7 @@
     display: flex;
     gap: 20px;
 }
-.header p{
+.header .shippingSentence{
     color: var(--font-color);
     position: absolute;
     left: 50%;
@@ -34,7 +34,19 @@
 }
 .header a{
     color: var(--font-color);
-    font-size: .7rem;
+    font-size: .8rem;
+}
+.header .accountGrp{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.header .logoutBtn{
+    background-color: transparent;
+    border: none;
+    font-size: .8rem;
+    color: var(--font-color);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 991px) {

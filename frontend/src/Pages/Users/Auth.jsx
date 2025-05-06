@@ -10,6 +10,8 @@ const Auth = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [formState, inputHandler, setFormData] = useForm({
     email: {
       value: '',
@@ -41,11 +43,50 @@ const Auth = () => {
     setIsLoginMode((prevMode) => !prevMode);
   }
 
-  const authSubmitHandler = (event) => {
+  const authSubmitHandler = async (event) => {
     event.preventDefault();
-    login();
-    navigate('/');
-    console.log(formState.inputs);
+    setIsLoading(true);
+    setError(null);
+    const endpoint = isLoginMode
+      ? 'http://localhost:5000/api/users/login'
+      : 'http://localhost:5000/api/users/signup';
+    const payload = isLoginMode
+      ? {
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value
+        }
+      : {
+          firstname: formState.inputs.firstName.value,
+          lastname: formState.inputs.lastName.value,
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value
+        };
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      let data;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.indexOf('application/json') !== -1) {
+        data = await response.json();
+      } else {
+        data = { message: await response.text() };
+      }
+      if (!response.ok) {
+        throw new Error(data.message || 'Authentication failed');
+      }
+      const expiration = new Date(new Date().getTime() + 3600000); // 1 hour
+      login(data.token, data.userId, expiration);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -59,6 +100,7 @@ const Auth = () => {
         />
         <div className={classes['auth-form']}>
             <h2 className={classes['auth-title']}>{isLoginMode ? 'Sign In' : 'Sign Up'}</h2>
+            {error && <p className={classes['error-message']}>{error}</p>}
             <form onSubmit={authSubmitHandler}>
             {!isLoginMode && (
                 <Input
@@ -106,9 +148,9 @@ const Auth = () => {
             <button
             type="submit" 
             className={classes['auth-button']} 
-            disabled={!formState.isValid}
+            disabled={!formState.isValid || isLoading}
             >
-                {isLoginMode ? 'Sign In' : 'Sign Up'}
+                {isLoading ? 'Loading...' : (isLoginMode ? 'Sign In' : 'Sign Up')}
             </button>
 
             <div className={classes['switch-mode-container']}>

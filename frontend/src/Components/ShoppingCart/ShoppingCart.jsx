@@ -7,14 +7,14 @@ import { useSelector } from 'react-redux'
 import PlaceOrder from './PlaceOrder';
 
 const ShoppingCart = () => {
-  const cartProducts = useSelector(state => state.cart.products);
+  const cartProducts = useSelector(state => state.cart.products || []);
   
   return (
     <div className='shopping-cart'>
       <div className='cart-text'>
           <h1>Cart</h1>
       </div>
-      {cartProducts.length > 0 ?
+      {Array.isArray(cartProducts) && cartProducts.length > 0 ?
        (
         <div className='table-container'>
           <table className="cart-table">

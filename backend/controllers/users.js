@@ -14,8 +14,10 @@ exports.getUsers = async (req, res, next) => {
 };
 
 exports.signup = async (req, res, next) => {
+    console.log('Signup request body:', req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.log('Validation errors:', errors.array());
         return next(new HttpError('Invalid inputs passed, please check your data.', 422));
     }
     

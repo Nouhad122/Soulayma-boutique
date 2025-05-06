@@ -10,13 +10,18 @@ const HttpError = require('./models/http-error');
 
 const app = express();
 
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.url}`);
+  next();
+});
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Routes
-app.use('/api', productsRoutes);
 app.use('/api/users', usersRoutes);
+app.use('/api', productsRoutes);
 
 // 404 handler
 app.use((req, res, next) => {

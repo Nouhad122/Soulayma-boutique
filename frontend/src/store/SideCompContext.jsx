@@ -6,6 +6,8 @@ const SideCompContext = createContext({
     inputValue: '',
     openedFullImg: {},
     modalContent: false,
+    modalProductId: null,
+    setModalProductId: () => {},
     showList: () => {},
     hideList: () => {},
     showFilter: () => {},
@@ -27,6 +29,7 @@ export const SideCompContextProvider = ({ children }) => {
     const [inpValue, setInpValue] = useState('');
     const [openFullImage, setOpenFullImage] = useState({ isOpen: false, image: 1 });
     const [showModalContent, setShowModalContent] = useState(false);
+    const [modalProductId, setModalProductId] = useState(null);
 
     const showList = () => {
         setOpenList(true);
@@ -90,6 +93,8 @@ export const SideCompContextProvider = ({ children }) => {
         inputValue: inpValue,
         openedFullImg: openFullImage,
         modalContent: showModalContent,
+        modalProductId,
+        setModalProductId,
         showList,
         hideList,
         showFilter,
@@ -108,7 +113,8 @@ export const SideCompContextProvider = ({ children }) => {
         openFilter,
         inpValue,
         openFullImage,
-        showModalContent
+        showModalContent,
+        modalProductId
     ]);
 
     return (

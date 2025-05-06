@@ -7,7 +7,7 @@ import SideCompContext from '../../store/SideCompContext'
 import Modal from '../Secondary-Comps/Modal'
 
 const CartProd = (props) => {
-    const { modalContent, showContentInModal} = useContext(SideCompContext);
+    const { modalContent, showContentInModal, modalProductId, setModalProductId } = useContext(SideCompContext);
     const {id, title, image1, price, totalPrice, quantity} = props.product;
     const dispatch = useDispatch();
 
@@ -25,7 +25,10 @@ const CartProd = (props) => {
     }
 
     const handleRemoveFromCart = () =>{
-        dispatch(cartSliceActions.removeFromCart(id));
+        if (modalProductId) {
+            dispatch(cartSliceActions.removeFromCart(modalProductId));
+            setModalProductId(null);
+        }
     }
 
   return (
@@ -50,7 +53,7 @@ const CartProd = (props) => {
             </td>
             <td>{totalPrice}$</td>
             <td>
-            <VscTrash onClick={showContentInModal} className='cart-trash' size={20} />
+            <VscTrash onClick={() => { setModalProductId(id); showContentInModal(); }} className='cart-trash' size={20} />
             </td>
         </tr>
     </>

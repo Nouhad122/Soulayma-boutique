@@ -7,7 +7,7 @@ import './NavigationLink.module.css';
 
 const CartIcon = () => {
   const cartTotalQuantity = useSelector(state => state.cart.totalQuantity);
-  const isCartEmpty = useSelector(state => state.cart.products.length === 0);
+  const isCartEmpty = useSelector(state => !state.cart.products || state.cart.products.length === 0);
 
   const fixedTotal = isCartEmpty ? 0 : (cartTotalQuantity <= 99 ? cartTotalQuantity : '99+');
 
