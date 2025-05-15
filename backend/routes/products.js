@@ -9,9 +9,9 @@ const productsController = require('../controllers/products');
 router.get('/products', productsController.getProducts);
 router.get('/products/:pid', productsController.getProductById);
 
-// Public cart routes
-router.get('/cart', productsController.getCart);
-router.put('/cart', productsController.updateCart);
+// Cart routes - check for authentication, fallback to guest if not authenticated
+router.get('/cart', checkAuth, productsController.getCart);
+router.put('/cart', checkAuth, productsController.updateCart);
 
 // Protected routes
 router.use(checkAuth);

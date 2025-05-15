@@ -10,18 +10,17 @@ import { ChatBotContextProvider } from './store/ChatBotContext.jsx';
 import { AuthContextProvider } from './store/AuthContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <QueryClientProvider client={queryClient}>
-    <AuthContextProvider>
-    <SideCompContextProvider>
-      <ChatBotContextProvider>
-        <Provider store={store}>
-          <StrictMode>
+  <Provider store={store}>
+    <QueryClientProvider client={queryClient}>
+      <AuthContextProvider>
+        <SideCompContextProvider>
+          <ChatBotContextProvider>
+            <StrictMode>
               <App />
             </StrictMode>
-        </Provider>
-      </ChatBotContextProvider>
-    </SideCompContextProvider>
-    </AuthContextProvider>
-  </QueryClientProvider>
- 
+          </ChatBotContextProvider>
+        </SideCompContextProvider>
+      </AuthContextProvider>
+    </QueryClientProvider>
+  </Provider>
 )

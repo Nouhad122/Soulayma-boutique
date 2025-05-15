@@ -7,19 +7,11 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 const inputReducer = (state, action) =>{
   switch(action.type){
-    case 'CHANGE':
-      return {
-        ...state,
-        value: action.val,
-        isValid: validate(action.val, action.validators)
-      }
-
     case 'TOUCH':
       return{
         ...state,
         isTouched: true
       }
-
     default:
       return state;
   }
@@ -28,29 +20,32 @@ const inputReducer = (state, action) =>{
 const Input = (props) => {
   const [showPassword, setShowPassword] = useState(false);
 
+  // Only keep isTouched and isValid in reducer
   const [inputState, dispatch] = useReducer(inputReducer,
     {
-      value: props.initialValue || '', 
-      isValid: props.initialValid || false, 
-      isTouched: false
+      isTouched: false,
+      isValid: props.initialValid || false
     }
   );
 
   const { id, onInput } = props;
-  const { value, isValid } = inputState;
-  
+  // Coerce value to string for validation
+  const value = (props.value !== undefined && props.value !== null) ? String(props.value) : '';
+  const isValid = validate(value, props.validators);
+
   useEffect(() =>{
     if(onInput){
       onInput(id, value, isValid);
     }
-  },[id, onInput, value, isValid]);
+    // eslint-disable-next-line
+  },[id, value, isValid]);
 
   const changeHandler = (event) =>{
-    dispatch({ 
-      type: 'CHANGE',
-      val: event.target.value, 
-      validators: props.validators 
-    });
+    const newValue = event.target.value;
+    const newIsValid = validate(newValue, props.validators);
+    if (onInput) {
+      onInput(id, newValue, newIsValid);
+    }
   }
 
   const touchHandler = () =>{
@@ -81,7 +76,7 @@ const Input = (props) => {
      rows={props.rows || 3} 
      onChange={changeHandler}
      onBlur={touchHandler}
-     value={inputState.value}
+     value={value}
      placeholder={props.placeholder}
      className={props.className}
     />
@@ -95,7 +90,7 @@ const Input = (props) => {
        type={props.type === 'password' ? (showPassword ? 'text' : 'password') : props.type}
        onChange={changeHandler}
        onBlur={touchHandler} 
-       value={inputState.value}
+       value={value}
        placeholder={props.placeholder}
        className={props.className}
       />
@@ -114,9 +109,9 @@ const Input = (props) => {
     </div>
 
   return (
-    <div className={`${classes['form-control']} ${!inputState.isValid && inputState.isTouched && classes['form-control__invalid']}`}>
+    <div className={`${classes['form-control']} ${!isValid && inputState.isTouched && classes['form-control__invalid']}`}>
       { element }
-      { !inputState.isValid && inputState.isTouched &&
+      { !isValid && inputState.isTouched &&
        <p className={classes['form-control__error-text']}>
         {props.errorText}
        </p>

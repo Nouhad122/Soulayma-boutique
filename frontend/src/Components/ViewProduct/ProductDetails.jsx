@@ -7,9 +7,14 @@ import classes from './ProductDetails.module.css';
 import Reviews from '../Secondary-Comps/Reviews';
 import { useDispatch } from 'react-redux';
 import { cartSliceActions } from '../../redux-toolkit/cart-slice';
+import { useContext } from 'react';
+import AuthContext from '../../store/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProductDetails = ({chosenProduct }) => {
     const dispatch = useDispatch();
+    const { isLoggedIn } = useContext(AuthContext);
+    const navigate = useNavigate();
     
     // Calculate current date and date 20 days later
     const getCurrentDateRange = () => {
@@ -26,13 +31,17 @@ const ProductDetails = ({chosenProduct }) => {
     };
 
     const handleAddToCart = () =>{
+        if (!isLoggedIn) {
+            navigate('/auth');
+            return;
+        }
         dispatch(cartSliceActions.addToCart({
             id: chosenProduct.id,
             name: chosenProduct.name,
             image1: chosenProduct.image1,
             currentPrice: chosenProduct.currentPrice,
         }))
-        }
+    }
 
   return (
     <div className={classes.productDetails}>

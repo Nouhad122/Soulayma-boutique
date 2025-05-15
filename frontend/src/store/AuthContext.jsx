@@ -1,4 +1,6 @@
 import { createContext, useCallback, useState, useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { cartSliceActions } from '../redux-toolkit/cart-slice';
 
 const AuthContext = createContext({
     isLoggedIn: false,
@@ -14,6 +16,7 @@ export const AuthContextProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
     const [expiration, setExpiration] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
@@ -50,7 +53,8 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         localStorage.removeItem('expiration');
-    }, []);
+        dispatch(cartSliceActions.clearCart());
+    }, [dispatch]);
 
     const checkAuth = useCallback(() => {
         if (expiration && new Date(expiration) <= new Date()) {

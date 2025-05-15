@@ -15,7 +15,7 @@ const PlaceOrder = () => {
         <div className='amount-checkout'>
         <h1 className='total-amount'>Total: {cartTotal.toFixed(2)}$</h1>
         <p>Shipping & Taxes calculated at checkout</p>
-        <Button><IoIosLock className='lock-icon'/> Secure Checkout</Button>
+        <Button url='/checkout'><IoIosLock className='lock-icon'/> Secure Checkout</Button>
         </div>
     </div>
   )

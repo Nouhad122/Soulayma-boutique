@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Input from '../../Components/Secondary-Comps/Input'
 import Button from '../../Components/Secondary-Comps/Button'
 import Selector from '../../Components/Secondary-Comps/SizeSelector'
@@ -13,41 +13,22 @@ import goldenTan from '../../assets/skinTone3.png';
 import deepTan from '../../assets/skinTone4.png';
 import richBrown from '../../assets/skinTone5.png';
 import deepEbony from '../../assets/skinTone6.png';
+import { fetchProductDetails, updateProduct as updateProductApi } from '../../use/useHttp';
 
 const UpdateProduct = () => {
   const { productId } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // TODO: Replace this with actual API call to fetch product data
     const fetchProduct = async () => {
       try {
-        // This is a mock product for demonstration
-        const mockProduct = {
-          productName: "Sample Product",
-          category: "Clothing",
-          kind: "Dress",
-          color: "Red",
-          colorCode: "#FF0000",
-          description: "A beautiful red dress",
-          fabricSpecifications: "100% Cotton",
-          productInfo1: "Handmade",
-          productInfo2: "Eco-friendly",
-          productInfo3: "Machine washable",
-          currentPrice: "99.99",
-          previousPrice: "129.99",
-          stock: "50",
-          image: "https://example.com/image.jpg",
-          sizes: ["S", "M", "L"],
-          skinTones: ["fair_skin", "light_tan"],
-          isBestSeller: true
-        };
-        setProduct(mockProduct);
+        const prod = await fetchProductDetails({ id: productId });
+        setProduct(prod);
       } catch (error) {
         console.error('Error fetching product:', error);
       }
     };
-
     fetchProduct();
   }, [productId]);
 
@@ -126,78 +107,78 @@ const UpdateProduct = () => {
     if (product) {
       setFormData({
         productName: {
-          value: product.productName,
+          value: product.name || '',
           isValid: true
         },
         category: {
-          value: product.category,
+          value: product.category || '',
           isValid: true
         },
         kind: {
-          value: product.kind,
+          value: product.kind || '',
           isValid: true
         },
         color: {
-          value: product.color,
+          value: product.color || '',
           isValid: true
         },
         colorCode: {
-          value: product.colorCode,
+          value: product.colorCode || '',
           isValid: true
         },
         description: {
-          value: product.description,
+          value: product.description || '',
           isValid: true
         },
         fabricSpecifications: {
-          value: product.fabricSpecifications,
+          value: product.fabricSpecifications || '',
           isValid: true
         },
         productInfo1: {
-          value: product.productInfo1,
+          value: product.productInfo1 || '',
           isValid: true
         },
         productInfo2: {
-          value: product.productInfo2,
+          value: product.productInfo2 || '',
           isValid: true
         },
         productInfo3: {
-          value: product.productInfo3,
+          value: product.productInfo3 || '',
           isValid: true
         },
         currentPrice: {
-          value: product.currentPrice,
+          value: product.currentPrice || '',
           isValid: true
         },
         previousPrice: {
-          value: product.previousPrice,
+          value: product.previousPrice || '',
           isValid: true
         },
         stock: {
-          value: product.stock,
+          value: product.stock || '',
           isValid: true
         },
         image: {
-          value: product.image,
+          value: product.image1 || '',
           isValid: true
         },
         sizes: {
-          value: product.sizes,
+          value: product.sizes || [],
           isValid: true
         },
         skinTones: {
-          value: product.skinTones,
+          value: product.skinTones || [],
           isValid: true
         },
         isBestSeller: {
-          value: product.isBestSeller,
+          value: product.isBestSeller || false,
           isValid: true
         }
       }, true);
     }
   }, [product, setFormData]);
 
-  const addProductSubmitHandler = event => {
+  const addProductSubmitHandler = async event => {
     event.preventDefault();
     if (formState.inputs.sizes.value.length === 0) {
       inputHandler('sizes', [], false);
@@ -207,7 +188,35 @@ const UpdateProduct = () => {
       inputHandler('skinTones', [], false);
       return;
     }
-    console.log(formState.inputs);
+    // Build product data object for backend
+    const productData = {
+      name: formState.inputs.productName.value,
+      category: formState.inputs.category.value,
+      kind: formState.inputs.kind.value,
+      color: formState.inputs.color.value,
+      colorCode: formState.inputs.colorCode.value,
+      description: formState.inputs.description.value,
+      fabricSpecifications: formState.inputs.fabricSpecifications.value,
+      productInfo1: formState.inputs.productInfo1.value,
+      productInfo2: formState.inputs.productInfo2.value,
+      productInfo3: formState.inputs.productInfo3.value,
+      currentPrice: formState.inputs.currentPrice.value,
+      previousPrice: formState.inputs.previousPrice.value,
+      stock: formState.inputs.stock.value,
+      image1: formState.inputs.image.value,
+      image2: formState.inputs.image.value, // You may want to allow a second image
+      sizes: formState.inputs.sizes.value,
+      skinTones: formState.inputs.skinTones.value,
+      isBestSeller: formState.inputs.isBestSeller.value
+    };
+    try {
+      await updateProductApi(productId, productData);
+      alert('Product updated successfully!');
+      navigate('/');
+      // Optionally, redirect or update UI here
+    } catch (err) {
+      alert('Failed to update product.');
+    }
   };
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL', 'One Size'];
@@ -252,41 +261,41 @@ const UpdateProduct = () => {
     <form className={classes['product-form']} onSubmit={addProductSubmitHandler}>
       <h2>Update Product</h2>
       <div className={classes['form-group']}>
-        <Input id='productName' name='productName' type='text' className={classes['product-input']} placeholder='Product Name' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='category' name='category' type='text' className={classes['product-input']} placeholder='Category' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='productName' name='productName' type='text' className={classes['product-input']} placeholder='Product Name' onInput={inputHandler} value={formState.inputs.productName.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='category' name='category' type='text' className={classes['product-input']} placeholder='Category' onInput={inputHandler} value={formState.inputs.category.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='kind' name='kind' type='text' className={classes['product-input']} placeholder='Kind' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='fabricSpecifications' name='fabricSpecifications' type='text' className={classes['product-input']} placeholder='Fabric Specifications' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='kind' name='kind' type='text' className={classes['product-input']} placeholder='Kind' onInput={inputHandler} value={formState.inputs.kind.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='fabricSpecifications' name='fabricSpecifications' type='text' className={classes['product-input']} placeholder='Fabric Specifications' onInput={inputHandler} value={formState.inputs.fabricSpecifications.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='color' name='color' type='text' className={classes['product-input']} placeholder='Color' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='colorCode' name='colorCode' type='text' className={classes['product-input']} placeholder='Color Code' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='color' name='color' type='text' className={classes['product-input']} placeholder='Color' onInput={inputHandler} value={formState.inputs.color.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='colorCode' name='colorCode' type='text' className={classes['product-input']} placeholder='Color Code' onInput={inputHandler} value={formState.inputs.colorCode.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='description' name='description' type='text' className={classes['product-input']} placeholder='Description' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." isTextArea/>
+        <Input id='description' name='description' type='text' className={classes['product-input']} placeholder='Description' onInput={inputHandler} value={formState.inputs.description.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." isTextArea/>
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='productInfo1' name='productInfo1' type='text' className={classes['product-input']} placeholder='Product Info 1' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='productInfo2' name='productInfo2' type='text' className={classes['product-input']} placeholder='Product Info 2' onInput={inputHandler} validators={[]}/>
+        <Input id='productInfo1' name='productInfo1' type='text' className={classes['product-input']} placeholder='Product Info 1' onInput={inputHandler} value={formState.inputs.productInfo1.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='productInfo2' name='productInfo2' type='text' className={classes['product-input']} placeholder='Product Info 2' onInput={inputHandler} value={formState.inputs.productInfo2.value} validators={[]}/>
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='productInfo3' name='productInfo3' type='text' className={classes['product-input']} placeholder='Product Info 3' onInput={inputHandler} validators={[]}/>
-        <Input id='stock' name='stock' type='number' className={classes['product-input']} placeholder='Stock' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='productInfo3' name='productInfo3' type='text' className={classes['product-input']} placeholder='Product Info 3' onInput={inputHandler} value={formState.inputs.productInfo3.value} validators={[]}/>
+        <Input id='stock' name='stock' type='number' className={classes['product-input']} placeholder='Stock' onInput={inputHandler} value={formState.inputs.stock.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
 
       <div className={classes['form-group']}>
-      <Input id='currentPrice' name='currentPrice' type='number' className={classes['product-input']} placeholder='Current Price' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      <Input id='previousPrice' name='previousPrice' type='number' className={classes['product-input']} placeholder='Previous Price' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+      <Input id='currentPrice' name='currentPrice' type='number' className={classes['product-input']} placeholder='Current Price' onInput={inputHandler} value={formState.inputs.currentPrice.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+      <Input id='previousPrice' name='previousPrice' type='number' className={classes['product-input']} placeholder='Previous Price' onInput={inputHandler} value={formState.inputs.previousPrice.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='image' name='image' type='text' className={classes['product-input']} placeholder='Image' onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='image' name='image' type='text' className={classes['product-input']} placeholder='Image' onInput={inputHandler} value={formState.inputs.image.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
       </div>
       
       <div className={classes['form-group']}>

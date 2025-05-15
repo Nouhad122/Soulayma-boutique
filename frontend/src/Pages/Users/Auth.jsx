@@ -111,6 +111,7 @@ const Auth = () => {
                 validators={[VALIDATOR_MINLENGTH(1)]}
                 errorText="Please enter a valid name."
                 onInput={inputHandler}
+                value={formState.inputs.firstName ? formState.inputs.firstName.value : ''}
                 />
             )}
             {!isLoginMode && (
@@ -122,6 +123,7 @@ const Auth = () => {
                 validators={[VALIDATOR_MINLENGTH(1)]}
                 errorText="Please enter a valid name."
                 onInput={inputHandler}
+                value={formState.inputs.lastName ? formState.inputs.lastName.value : ''}
                 />
             )}
 
@@ -133,6 +135,7 @@ const Auth = () => {
             validators={[VALIDATOR_EMAIL()]}
             errorText="Please enter a valid email address."
             onInput={inputHandler}
+            value={formState.inputs.email.value}
             />
 
             <Input
@@ -143,6 +146,7 @@ const Auth = () => {
             validators={[VALIDATOR_MINLENGTH(6)]}
             errorText="Password must be at least 6 characters."
             onInput={inputHandler}
+            value={formState.inputs.password.value}
             />
             
             <button

@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react'
+import React, { useEffect, lazy, Suspense, useContext } from 'react'
 import RootPage from "./Pages/RootPage.jsx"
 const Home = lazy(() => import ("./Pages/Home/Home.jsx"))
 const Shop = lazy(() => import ("./Pages/Shop/Shop.jsx"))
@@ -38,25 +38,35 @@ import ShopGuide from './Pages/Shop/ShopGuide.jsx'
 import Auth from './Pages/Users/Auth.jsx'
 import NewProduct from './Pages/Products/NewProduct.jsx'
 import UpdateProduct from './Pages/Products/UpdateProduct.jsx'
+import AuthContext from './store/AuthContext'
+import Checkout from './Pages/Checkout/Checkout.jsx'
 function App() {
 
 const cart = useSelector(state => state.cart);
 const dispatch = useDispatch();
+const { data, updateCartData, refetch } = useCartQuery();
+const { isLoggedIn, token } = useContext(AuthContext);
 
-const { data, updateCartData } = useCartQuery();
-
+// Only fetch and update Redux cart from backend if logged in
 useEffect(() => {
-  if (data) {
-      dispatch(cartSliceActions.replaceCart(data));
+  if (isLoggedIn && data) {
+    dispatch(cartSliceActions.replaceCart(data));
   }
-}, [data, dispatch]);
+}, [isLoggedIn, data, dispatch]);
 
-
-useEffect(() =>{
-  if(cart.changed){
+// Only update backend cart if logged in
+useEffect(() => {
+  if (isLoggedIn && cart.changed) {
     updateCartData(cart);
   }
-}, [cart, updateCartData])
+}, [isLoggedIn, cart, updateCartData]);
+
+// Only refetch backend cart if logged in
+useEffect(() => {
+  if (isLoggedIn) {
+    refetch();
+  }
+}, [isLoggedIn, token, refetch]);
 
   const router = createBrowserRouter([
     { path:'/',
@@ -95,6 +105,7 @@ useEffect(() =>{
       {path: 'auth', element: <Auth />},
       {path: 'add-product', element: <NewProduct />},
       {path: 'update-product/:productId', element: <UpdateProduct />},
+      {path: 'checkout', element: <Checkout />}
     ]}
   ]);
 

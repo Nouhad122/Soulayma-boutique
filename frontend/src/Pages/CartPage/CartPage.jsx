@@ -1,19 +1,8 @@
 import React from 'react';
-import ShoppingCart from '../../Components/ShoppingCart/ShoppingCart.jsx';
-import { useCartQuery } from '../../use/useCartQuery.js';
-import LoadingPage from '../../Components/Secondary-Comps/LoadingPage.jsx';
+import ShoppingCart from '../../Components/ShoppingCart/ShoppingCart';
 
 const CartPage = () => {
-  const { isPending, isError, error} = useCartQuery();
+  return <ShoppingCart />;
+};
 
-    if (isPending) return <LoadingPage />;
-    if (isError) return <p>Error: {error.message}</p>;
-
-  return (
-    <div>
-     <ShoppingCart/>
-    </div>
-  )
-}
-
-export default CartPage
+export default CartPage;

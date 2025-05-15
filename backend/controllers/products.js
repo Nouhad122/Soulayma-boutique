@@ -8,6 +8,27 @@ const Order = require('../models/order');
 // In-memory guest cart store (for demo; use DB for production)
 const guestCarts = {};
 
+function calculateCartTotals(items) {
+    let totalPriceOfAllProducts = 0;
+    let totalQuantity = 0;
+    const products = items.map(item => {
+        const product = item.productId;
+        const price = Number(product.currentPrice || 0);
+        const quantity = Number(item.quantity || 0);
+        totalQuantity += quantity;
+        totalPriceOfAllProducts += price * quantity;
+        return {
+            id: product._id || product,
+            title: product.name || 'Product',
+            image1: product.image1 || '',
+            price,
+            quantity,
+            totalPrice: price * quantity
+        };
+    });
+    return { products, totalPriceOfAllProducts, totalQuantity };
+}
+
 exports.getProducts = async (req, res, next) => {
     let products;
 
@@ -169,14 +190,12 @@ exports.deleteProduct = async (req, res, next) =>{
 }
 
 exports.getCart = async (req, res, next) => {
-    // If user is authenticated, use their cart
     if (req.userData && req.userData.userId) {
         try {
             const user = await User.findById(req.userData.userId).populate('cart.items.productId');
-            if (!user) {
-                return next(new HttpError('User not found.', 404));
-            }
-            return res.status(200).json({ cart: user.cart });
+            if (!user) return next(new HttpError('User not found.', 404));
+            const { products, totalPriceOfAllProducts, totalQuantity } = calculateCartTotals(user.cart.items);
+            return res.status(200).json({ cart: { products, totalPriceOfAllProducts, totalQuantity } });
         } catch (err) {
             return next(new HttpError('Fetching cart failed, please try again.', 500));
         }
@@ -185,37 +204,34 @@ exports.getCart = async (req, res, next) => {
     let sessionId = req.cookies.sessionId;
     if (!sessionId) {
         sessionId = uuidv4();
-        res.cookie('sessionId', sessionId, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 }); // 1 week
+        res.cookie('sessionId', sessionId, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
     }
     if (!guestCarts[sessionId]) {
-        guestCarts[sessionId] = {
-            items: [],
-            totalPriceOfAllProducts: 0,
-            totalQuantity: 0
-        };
+        guestCarts[sessionId] = { items: [] };
     }
-    return res.status(200).json({ cart: guestCarts[sessionId] });
+    // For guests, populate product data manually
+    const items = guestCarts[sessionId].items;
+    const populatedItems = await Promise.all(items.map(async item => {
+        const product = await Product.findById(item.productId);
+        return { productId: product, quantity: item.quantity };
+    }));
+    const { products, totalPriceOfAllProducts, totalQuantity } = calculateCartTotals(populatedItems);
+    return res.status(200).json({ cart: { products, totalPriceOfAllProducts, totalQuantity } });
 };
 
 exports.updateCart = async (req, res, next) => {
-    // Authenticated user
+    const { products } = req.body;
+    if (!Array.isArray(products)) {
+        return next(new HttpError('Invalid cart data', 400));
+    }
     if (req.userData && req.userData.userId) {
-        const userId = req.userData.userId;
-        const { products, totalPriceOfAllProducts, totalQuantity } = req.body;
         try {
-            const user = await User.findById(userId);
-            if (!user) {
-                return next(new HttpError('User not found.', 404));
-            }
-            // Update the entire cart
-            user.cart = {
-                items: products.map(product => ({
-                    productId: product.id,
-                    quantity: product.quantity
-                })),
-                totalPriceOfAllProducts,
-                totalQuantity
-            };
+            const user = await User.findById(req.userData.userId);
+            if (!user) return next(new HttpError('User not found.', 404));
+            user.cart.items = products.map(product => ({
+                productId: product.id,
+                quantity: Number(product.quantity)
+            }));
             await user.save();
             return res.status(200).json({ message: 'Cart updated successfully' });
         } catch (err) {
@@ -228,14 +244,11 @@ exports.updateCart = async (req, res, next) => {
         sessionId = uuidv4();
         res.cookie('sessionId', sessionId, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
     }
-    const { products, totalPriceOfAllProducts, totalQuantity } = req.body;
     guestCarts[sessionId] = {
-        items: (products || []).map(product => ({
+        items: products.map(product => ({
             productId: product.id,
-            quantity: product.quantity
-        })),
-        totalPriceOfAllProducts: totalPriceOfAllProducts || 0,
-        totalQuantity: totalQuantity || 0
+            quantity: Number(product.quantity)
+        }))
     };
     return res.status(200).json({ message: 'Guest cart updated successfully' });
 };

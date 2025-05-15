@@ -16,7 +16,7 @@ const CartProd = (props) => {
             id: id,
             title: title,
             image1: image1,
-            price: price,
+            price: Number(price),
         }))
     }
     
