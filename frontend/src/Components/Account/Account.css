@@ -1,0 +1,137 @@
+.account-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background: var(--body-color);
+  min-height: 80vh;
+  color: var(--font-color);
+}
+.account-sidebar {
+  width: 280px;
+  background: var(--fifth-color);
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.account-main {
+  flex: 1;
+  background: var(--fifth-color);
+  padding: 32px 32px 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.profile-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--sixth-color);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.profile-email {
+  font-size: 0.98rem;
+}
+.account-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.account-action-btn {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background: #eee;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.account-action-btn:hover {
+  background: #e0d6c3;
+}
+.order-history {
+  margin-bottom: 32px;
+}
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.order-table th, .order-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.order-table th {
+  background: var(--fifth-color);
+  font-weight: 600;
+}
+.address-book {
+  margin-top: 32px;
+}
+.address-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.address-card {
+  background: var(--font-color);
+  border-radius: 8px;
+  padding: 16px 20px;
+  min-width: 220px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.address-name {
+  font-weight: 600;
+  color: #a67c52;
+}
+.address-detail {
+  font-size: 0.98rem;
+  color: #555;
+}
+.edit-address-btn {
+  align-self: flex-end;
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.edit-address-btn:hover {
+  background: #e0d6c3;
+} 

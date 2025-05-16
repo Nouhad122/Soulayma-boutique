@@ -40,6 +40,7 @@ import NewProduct from './Pages/Products/NewProduct.jsx'
 import UpdateProduct from './Pages/Products/UpdateProduct.jsx'
 import AuthContext from './store/AuthContext'
 import Checkout from './Pages/Checkout/Checkout.jsx'
+import Account from './Pages/Account/Account.jsx'
 function App() {
 
 const cart = useSelector(state => state.cart);
@@ -105,7 +106,8 @@ useEffect(() => {
       {path: 'auth', element: <Auth />},
       {path: 'add-product', element: <NewProduct />},
       {path: 'update-product/:productId', element: <UpdateProduct />},
-      {path: 'checkout', element: <Checkout />}
+      {path: 'checkout', element: <Checkout />},
+      {path: 'account', element: <Account />}
     ]}
   ]);
 

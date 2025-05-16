@@ -25,7 +25,7 @@ const Header = () => {
       <div className={classes.accountGrp}>
         {
           isLoggedIn ? (
-            <Link>Account</Link>
+            <Link to='/account'>Account</Link>
           ) : (
             <Link to='/auth' className={classes.loginBtn}>Sign In</Link>
           )
