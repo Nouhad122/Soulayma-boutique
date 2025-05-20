@@ -104,4 +104,21 @@ export const updateProduct = async (productId, productData) => {
     }
     return response.json();
 };
+
+export const placeOrder = async (order) => {
+    const token = localStorage.getItem('token');
+    const headers = { 'Content-Type': 'application/json' };
+    if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+    const response = await fetch('http://localhost:5000/api/orders', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(order),
+    });
+    if (!response.ok) {
+        throw new Error('Order failed');
+    }
+    return response.json();
+};
   

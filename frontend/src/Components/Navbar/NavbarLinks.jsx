@@ -38,6 +38,7 @@ const NavbarLinks = () => {
                 categoryName="jilbabs"
               />
               <NavLink className={classes.navLink} to={'/add-product'}>Add Product</NavLink>
+              <NavLink className={classes.navLink} to={'/admin'}>Admin Panel</NavLink>
         </div>
     </>
   )

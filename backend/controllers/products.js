@@ -254,13 +254,15 @@ exports.updateCart = async (req, res, next) => {
 };
 
 exports.getOrders = async (req, res, next) => {
-    const userId = req.userData.userId;
-
     try {
-        const orders = await Order.find({ 'user.userId': userId }).populate('items.productId');
-        res.status(200).json({ orders });
+        const orders = await Order.find({ 'user.userId': req.userData.userId })
+            .populate('items.productId')
+            .sort({ createdAt: -1 });
+
+        res.json({ orders });
     } catch (err) {
-        return next(new HttpError('Fetching orders failed, please try again.', 500));
+        const error = new HttpError('Fetching orders failed, please try again later.', 500);
+        return next(error);
     }
 };
 
@@ -302,5 +304,89 @@ exports.postOrder = async (req, res, next) => {
         res.status(201).json({ order });
     } catch (err) {
         return next(new HttpError('Creating order failed, please try again.', 500));
+    }
+};
+
+exports.createOrder = async (req, res, next) => {
+    try {
+        const { items, totalAmount } = req.body;
+
+        if (!items || !Array.isArray(items) || items.length === 0) {
+            return next(new HttpError('Invalid items data.', 422));
+        }
+
+        if (!totalAmount || totalAmount <= 0) {
+            return next(new HttpError('Invalid total amount.', 422));
+        }
+
+        // Fetch user from DB to get email
+        const user = await User.findById(req.userData.userId);
+        if (!user) {
+            return next(new HttpError('User not found.', 404));
+        }
+
+        const createdOrder = new Order({
+            user: {
+                userId: user._id,
+                email: user.email
+            },
+            items,
+            totalAmount,
+            status: 'pending'
+        });
+
+        await createdOrder.save();
+
+        // Clear the user's cart after successful order
+        user.cart.items = [];
+        await user.save();
+
+        res.status(201).json({ order: createdOrder });
+    } catch (err) {
+        console.log(err); // Log the real error
+        const error = new HttpError('Creating order failed, please try again.', 500);
+        return next(error);
+    }
+};
+
+exports.getOrderById = async (req, res, next) => {
+    try {
+        const orderId = req.params.oid;
+        const order = await Order.findById(orderId).populate('items.productId');
+
+        if (!order) {
+            return next(new HttpError('Could not find order for the provided id.', 404));
+        }
+
+        // Check if the order belongs to the authenticated user
+        if (order.user.userId.toString() !== req.userData.userId) {
+            return next(new HttpError('You are not authorized to view this order.', 403));
+        }
+
+        res.json({ order });
+    } catch (err) {
+        const error = new HttpError('Something went wrong, could not find order.', 500);
+        return next(error);
+    }
+};
+
+exports.getOrderCount = async (req, res, next) => {
+    try {
+        const count = await Order.countDocuments();
+        res.json({ count });
+    } catch (err) {
+        res.status(500).json({ message: 'Failed to fetch order count' });
+    }
+};
+
+exports.getAllOrders = async (req, res, next) => {
+    try {
+        console.log('Fetching all orders...');
+        const orders = await Order.find();
+        console.log('Orders found:', orders);
+        res.json({ orders });
+    } catch (err) {
+        console.log('Error in getAllOrders:', err);
+        res.status(500).json({ message: 'Failed to fetch all orders' });
     }
 };

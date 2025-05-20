@@ -21,6 +21,9 @@ router.post('/login',
     ],
     usersController.login
 );
+
+router.get('/count', usersController.getUserCount);
+
 router.use(checkAuth);
 
 router.get('/', usersController.getUsers);

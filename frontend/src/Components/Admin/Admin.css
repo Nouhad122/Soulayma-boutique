@@ -1,0 +1,123 @@
+.admin-container {
+  display: flex;
+  min-height: 90vh;
+  background: var(--body-color);
+  padding: 20px;
+}
+.admin-nav {
+  width: 220px;
+  background: var(--fifth-color);
+  padding: 32px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+.admin-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--font-color);
+}
+.admin-nav-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #eee;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+.admin-nav-btn.active, .admin-nav-btn:hover {
+  background: #e0d6c3;
+  color: #333;
+}
+.admin-main {
+  flex: 1;
+  background: var(--fifth-color);
+  margin-left: 32px;
+  padding: 36px 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  color: var(--font-color);
+}
+.dashboard-stats {
+  margin-bottom: 32px;
+}
+.stats-cards {
+  display: flex;
+  gap: 24px;
+  margin-top: 18px;
+}
+.stat-card {
+  background: #f7f1ea;
+  color: #333;
+  border-radius: 10px;
+  padding: 24px 32px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.stat-icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.stat-label {
+  font-size: 1.05rem;
+  color: #888;
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+.admin-table th, .admin-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.admin-table th {
+  background: #faf6f0;
+  color: #333;
+  font-weight: 600;
+}
+.admin-add-btn, .admin-edit-btn, .admin-delete-btn, .admin-action-btn {
+  padding: 7px 16px;
+  border: none;
+  font-weight: 600;
+  margin-right: 6px;
+  cursor: pointer;
+  background: #eee;
+  color: #333;
+  transition: background 0.2s;
+}
+.admin-add-btn {
+  background: transparent;
+  border: 1px solid var(--gold-color);
+  color: var(--gold-color);
+  margin-right: 0;
+}
+.admin-edit-btn:hover {
+  background: #e0d6c3;
+}
+.admin-delete-btn {
+  background: #ffb3b3;
+  color: #a00;
+}
+.admin-delete-btn:hover {
+  background: #ff7f7f;
+}
+.admin-action-btn {
+  width: 100%;
+  margin: 8px 0;
+} 

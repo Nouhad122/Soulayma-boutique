@@ -117,3 +117,12 @@ exports.login = async (req, res, next) => {
         token: token 
     });
 };
+
+exports.getUserCount = async (req, res, next) => {
+    try {
+        const count = await User.countDocuments();
+        res.json({ count });
+    } catch (err) {
+        return next(new HttpError('Fetching user count failed, please try again later.', 500));
+    }
+};

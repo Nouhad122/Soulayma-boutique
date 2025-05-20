@@ -16,6 +16,33 @@ router.put('/cart', checkAuth, productsController.updateCart);
 // Protected routes
 router.use(checkAuth);
 
+// Order routes
+router.post('/orders',
+    [
+        body('items')
+            .isArray()
+            .withMessage('Items must be an array')
+            .notEmpty()
+            .withMessage('Items array cannot be empty'),
+        body('items.*.productId')
+            .notEmpty()
+            .withMessage('Product ID is required'),
+        body('items.*.quantity')
+            .isInt({ min: 1 })
+            .withMessage('Quantity must be at least 1'),
+        body('totalAmount')
+            .isFloat({ min: 0 })
+            .withMessage('Total amount must be a positive number')
+    ],
+    productsController.createOrder
+);
+
+router.get('/orders', productsController.getOrders);
+router.get('/orders/all', productsController.getAllOrders);
+router.get('/orders/:oid', productsController.getOrderById);
+router.get('/orders/count', productsController.getOrderCount);
+
+// Product management routes
 router.post('/products', 
     [
         body('name')
