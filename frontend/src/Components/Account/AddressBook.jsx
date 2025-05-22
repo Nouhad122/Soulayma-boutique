@@ -10,13 +10,10 @@ const AddressBook = () => (
   <div className="address-book">
     <h3>Address Book</h3>
     <div className="address-list">
-      {mockAddresses.map(addr => (
-        <div className="address-card" key={addr.id}>
-          <div className="address-name">{addr.name}</div>
-          <div className="address-detail">{addr.address}</div>
-          <button className="edit-address-btn">Edit</button>
-        </div>
-      ))}
+      <div className="no-addresses-message">
+        <p>You haven't added any addresses yet.</p>
+        <button className="add-address-btn">Add New Address</button>
+      </div>
     </div>
   </div>
 );

@@ -25,7 +25,7 @@ import DifferenceFabric from './Pages/FooterPages/FAQPages/DifferenceFabric.jsx'
 import InstantPremium from './Pages/FooterPages/FAQPages/InstantPremium.jsx'
 import CustomerService from './Pages/FooterPages/FAQPages/CustomerService.jsx'
 import SbRewards from './Pages/FooterPages/FAQPages/SbRewards.jsx'
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -42,6 +42,15 @@ import AuthContext from './store/AuthContext'
 import Checkout from './Pages/Checkout/Checkout.jsx'
 import Account from './Pages/Account/Account.jsx'
 import Admin from './Pages/Admin/Admin.jsx'
+
+function AdminRoute({ children }) {
+  const { role } = useContext(AuthContext);
+  if (role !== 'admin') {
+    return <Navigate to="/" replace />;
+  }
+  return children;
+}
+
 function App() {
 
 const cart = useSelector(state => state.cart);
@@ -105,11 +114,11 @@ useEffect(() => {
       {path: 'tutorials', element: <Tutorials />},
       {path: 'privacy-policy', element: <PrivacyPolicy />},
       {path: 'auth', element: <Auth />},
-      {path: 'add-product', element: <NewProduct />},
-      {path: 'update-product/:productId', element: <UpdateProduct />},
+      {path: 'add-product', element: <AdminRoute><NewProduct /></AdminRoute>},
+      {path: 'update-product/:productId', element: <AdminRoute><UpdateProduct /></AdminRoute>},
       {path: 'checkout', element: <Checkout />},
       {path: 'account', element: <Account />},
-      {path: 'admin', element: <Admin />}
+      {path: 'admin', element: <AdminRoute><Admin /></AdminRoute>}
     ]}
   ]);
 

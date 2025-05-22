@@ -28,4 +28,6 @@ router.use(checkAuth);
 
 router.get('/', usersController.getUsers);
 
+router.get('/:uid', usersController.getUserById);
+
 module.exports = router;

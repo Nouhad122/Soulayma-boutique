@@ -6,6 +6,7 @@ const AuthContext = createContext({
     isLoggedIn: false,
     token: null,
     userId: null,
+    role: null,
     login: () => {},
     logout: () => {},
     checkAuth: () => {}
@@ -15,18 +16,21 @@ export const AuthContextProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
+    const [role, setRole] = useState(null);
     const [expiration, setExpiration] = useState(null);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         const storedUserId = localStorage.getItem('userId');
+        const storedRole = localStorage.getItem('role');
         const storedExpiration = localStorage.getItem('expiration');
         if (storedToken && storedUserId && storedExpiration) {
             const expirationDate = new Date(storedExpiration);
             if (expirationDate > new Date()) {
                 setToken(storedToken);
                 setUserId(storedUserId);
+                setRole(storedRole);
                 setExpiration(expirationDate);
                 setIsLoggedIn(true);
             } else {
@@ -35,23 +39,27 @@ export const AuthContextProvider = ({ children }) => {
         }
     }, []);
 
-    const login = useCallback((token, userId, expiration) => {
+    const login = useCallback((token, userId, expiration, role) => {
         setToken(token);
         setUserId(userId);
+        setRole(role);
         setExpiration(expiration);
         setIsLoggedIn(true);
         localStorage.setItem('token', token);
         localStorage.setItem('userId', userId);
+        localStorage.setItem('role', role);
         localStorage.setItem('expiration', expiration.toISOString());
     }, []);
 
     const logout = useCallback(() => {
         setToken(null);
         setUserId(null);
+        setRole(null);
         setExpiration(null);
         setIsLoggedIn(false);
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
+        localStorage.removeItem('role');
         localStorage.removeItem('expiration');
         dispatch(cartSliceActions.clearCart());
     }, [dispatch]);
@@ -66,6 +74,7 @@ export const AuthContextProvider = ({ children }) => {
         isLoggedIn,
         token,
         userId,
+        role,
         login,
         logout,
         checkAuth

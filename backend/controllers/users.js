@@ -22,6 +22,11 @@ exports.signup = async (req, res, next) => {
     }
     
     const { firstname, lastname, email, password } = req.body;
+    const adminEmail = 'admin@example.com'; // CHANGE THIS to your real admin email
+    let role = 'user';
+    if (email === adminEmail) {
+        role = 'admin';
+    }
     
     let existingUser;
     try {
@@ -46,7 +51,8 @@ exports.signup = async (req, res, next) => {
         lastname,
         email,
         password: hashedPassword,
-        cart: { items: [] }
+        cart: { items: [] },
+        role
     });
     
     try {
@@ -59,7 +65,7 @@ exports.signup = async (req, res, next) => {
     let token;
     try {
         token = jwt.sign(
-            { userId: createdUser.id, email: createdUser.email },
+            { userId: createdUser.id, email: createdUser.email, role: createdUser.role },
             'supersecret_dont_share',  // Using your secret key
             { expiresIn: '1h' }
         );
@@ -70,6 +76,7 @@ exports.signup = async (req, res, next) => {
     res.status(201).json({ 
         userId: createdUser.id, 
         email: createdUser.email,
+        role: createdUser.role,
         token: token 
     });
 };
@@ -103,7 +110,7 @@ exports.login = async (req, res, next) => {
     let token;
     try {
         token = jwt.sign(
-            { userId: existingUser.id, email: existingUser.email },
+            { userId: existingUser.id, email: existingUser.email, role: existingUser.role },
             'supersecret_dont_share',  // Using your secret key
             { expiresIn: '1h' }
         );
@@ -114,6 +121,7 @@ exports.login = async (req, res, next) => {
     res.json({ 
         userId: existingUser.id, 
         email: existingUser.email,
+        role: existingUser.role,
         token: token 
     });
 };
@@ -125,4 +133,21 @@ exports.getUserCount = async (req, res, next) => {
     } catch (err) {
         return next(new HttpError('Fetching user count failed, please try again later.', 500));
     }
+};
+
+exports.getUserById = async (req, res, next) => {
+    const userId = req.params.uid;
+    
+    let user;
+    try {
+        user = await User.findById(userId, '-password');
+    } catch (err) {
+        return next(new HttpError('Fetching user failed, please try again later.', 500));
+    }
+    
+    if (!user) {
+        return next(new HttpError('Could not find a user for the provided id.', 404));
+    }
+    
+    res.json({ user: user.toObject({ getters: true }) });
 };

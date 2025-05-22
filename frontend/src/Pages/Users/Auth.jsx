@@ -80,7 +80,11 @@ const Auth = () => {
         throw new Error(data.message || 'Authentication failed');
       }
       const expiration = new Date(new Date().getTime() + 3600000); // 1 hour
-      login(data.token, data.userId, expiration);
+      login(data.token, data.userId, expiration, data.role);
+      // Save user info to localStorage
+      localStorage.setItem('firstname', data.firstname || '');
+      localStorage.setItem('lastname', data.lastname || '');
+      localStorage.setItem('email', data.email || '');
       navigate('/');
     } catch (err) {
       setError(err.message);

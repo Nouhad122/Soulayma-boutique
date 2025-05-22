@@ -6,9 +6,11 @@ import { Link, NavLink } from 'react-router-dom';
 import NavigationLink from './NavigationLink';
 import classes from './NavbarLinks.module.css';
 import SideCompContext from '../../store/SideCompContext.jsx';
+import AuthContext from '../../store/AuthContext';
 
 const NavbarLinks = () => {
   const { openedList, showList, hideList } = useContext(SideCompContext);
+  const { role } = useContext(AuthContext);
 
   const navListClasses = `${classes.navList} ${openedList ?
      classes.visible : classes.hiddenList}`; 
@@ -37,8 +39,12 @@ const NavbarLinks = () => {
               <NavigationLink 
                 categoryName="jilbabs"
               />
-              <NavLink className={classes.navLink} to={'/add-product'}>Add Product</NavLink>
-              <NavLink className={classes.navLink} to={'/admin'}>Admin Panel</NavLink>
+              {role === 'admin' && (
+                <NavLink className={classes.navLink} to={'/add-product'}>Add Product</NavLink>
+              )}
+              {role === 'admin' && (
+                <NavLink className={classes.navLink} to={'/admin'}>Admin Panel</NavLink>
+              )}
         </div>
     </>
   )

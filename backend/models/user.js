@@ -13,7 +13,8 @@ const userSchema = new Schema({
             productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
             quantity: { type: Number, required: true }
         }]
-    }
+    },
+    role: { type: String, enum: ['user', 'admin'], default: 'user' }
 });
 
 userSchema.plugin(uniqueValidator);

@@ -120,18 +120,23 @@
   font-size: 0.98rem;
   color: #555;
 }
-.edit-address-btn {
-  align-self: flex-end;
-  background: #eee;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 16px;
-  font-weight: 600;
-  color: #333;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s;
+.no-addresses-message {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--font-color);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
 }
-.edit-address-btn:hover {
-  background: #e0d6c3;
-} 
+.no-addresses-message p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+.add-address-btn {
+  background: var(--fifth-color);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+}

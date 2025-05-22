@@ -4,6 +4,7 @@ import './Admin.css';
 const OrderManager = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -19,6 +20,13 @@ const OrderManager = () => {
     };
     fetchOrders();
   }, []);
+
+  const handleStatusUpdate = (orderId, newStatus) => {
+    setOrders(orders.map(order =>
+      order._id === orderId ? { ...order, status: newStatus } : order
+    ));
+    setSelectedOrder(null);
+  };
 
   if (loading) return <div>Loading orders...</div>;
 
@@ -42,11 +50,43 @@ const OrderManager = () => {
               <td>{order._id}</td>
               <td>{order.user.email}</td>
               <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-              <td>{order.status}</td>
+              <td>
+                <span className={`order-status ${order.status.toLowerCase()}`}>
+                  {order.status}
+                </span>
+              </td>
               <td>${order.totalAmount.toFixed(2)}</td>
               <td>
-                <button className="admin-edit-btn">View</button>
-                <button className="admin-edit-btn">Update Status</button>
+                <div className="status-update-container">
+                  <button 
+                    className="admin-edit-btn"
+                    onClick={() => setSelectedOrder(selectedOrder === order._id ? null : order._id)}
+                  >
+                    Update Status
+                  </button>
+                  {selectedOrder === order._id && (
+                    <div className="status-dropdown">
+                      <button 
+                        onClick={() => handleStatusUpdate(order._id, 'Pending')}
+                        className={order.status === 'Pending' ? 'active' : ''}
+                      >
+                        Pending
+                      </button>
+                      <button 
+                        onClick={() => handleStatusUpdate(order._id, 'Processing')}
+                        className={order.status === 'Processing' ? 'active' : ''}
+                      >
+                        Processing
+                      </button>
+                      <button 
+                        onClick={() => handleStatusUpdate(order._id, 'Delivered')}
+                        className={order.status === 'Delivered' ? 'active' : ''}
+                      >
+                        Delivered
+                      </button>
+                    </div>
+                  )}
+                </div>
               </td>
             </tr>
           ))}
