@@ -165,29 +165,46 @@ exports.updateProduct = async (req, res, next) =>{
     res.status(200).json({product: product.toObject({ getters: true })});
 }
 
-exports.deleteProduct = async (req, res, next) =>{
+exports.deleteProduct = async (req, res, next) => {
     const productId = req.params.pid;
 
     let product;
-
-    try{
+    try {
+        // Try to find by _id (MongoDB ObjectId)
         product = await Product.findById(productId);
-    }
-    catch(err){
-        const error = new HttpError('Something went wrong, could not find a product.', 500);
-        return next(error);
-    }
-    
-    try{
-      await product.remove();
-    }
-    catch(err){
-        const error = new HttpError('Something went wrong, could not delete product.', 500);
-        return next(error);
+        // If not found, try to find by custom id field (UUID)
+        if (!product) {
+            product = await Product.findOne({ id: productId });
+        }
+    } catch (err) {
+        console.error('Find product error:', err);
+        return next(new HttpError('Something went wrong, could not find a product.', 500));
     }
 
-    res.status(200).json({message: 'Deleted Product'});
-}
+    if (!product) {
+        return next(new HttpError('Product not found.', 404));
+    }
+
+    // Remove product from all user carts
+    try {
+        await User.updateMany(
+            {},
+            { $pull: { 'cart.items': { productId: product._id } } }
+        );
+    } catch (err) {
+        console.error('Remove from carts error:', err);
+        return next(new HttpError('Failed to remove product from user carts.', 500));
+    }
+
+    try {
+        await Product.deleteOne({ _id: product._id });
+    } catch (err) {
+        console.error('Product delete error:', err);
+        return next(new HttpError('Something went wrong, could not delete product.', 500));
+    }
+
+    res.status(200).json({ message: 'Deleted Product' });
+};
 
 exports.getCart = async (req, res, next) => {
     if (req.userData && req.userData.userId) {

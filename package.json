@@ -5,6 +5,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.1",
     "mongoose-unique-validator": "^4.0.1",
+    "multer": "^2.0.0",
     "react-icons": "^5.5.0"
   }
 }
