@@ -3,6 +3,7 @@
         "DB_USER": "nouhadalhallab122",
         "DB_PASSWORD": "Soulaymaboutique03",
         "DB_NAME": "shop",
-        "JWT_KEY": "supersecret_dont_share"
+        "JWT_KEY": "supersecret_dont_share",
+        "PORT": 5000
     }
 }

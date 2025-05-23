@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
-const productsRoutes = require('./routes/products');
-const usersRoutes = require('./routes/users');
-const HttpError = require('./models/http-error');
+const productsRoutes = require('../routes/products');
+const usersRoutes = require('../routes/users');
+const HttpError = require('../models/http-error');
 
 const app = express();
 
@@ -19,9 +20,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// Serve uploads statically (for demo only)
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 // Routes
 app.use('/api/users', usersRoutes);
-app.use('/api', productsRoutes);
+app.use('/api/products', productsRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
@@ -53,17 +57,12 @@ app.use((error, req, res, next) => {
 
 const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@soulayma-cluster.winbdem.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=soulayma-cluster`;
 
-mongoose
-    .connect(MONGODB_URI)
+mongoose.connect(MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
-        app.listen(process.env.PORT, () => {
-            console.log(`Server is running on port ${process.env.PORT}`);
-        });
     })
     .catch(err => {
         console.error('MongoDB connection error:', err);
-        process.exit(1);
     });
 
-
+module.exports = app; 
