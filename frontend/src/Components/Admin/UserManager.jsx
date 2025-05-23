@@ -4,7 +4,7 @@ import AuthContext from '../../store/AuthContext';
 import './Admin.css';
 
 const fetchUsers = async (token) => {
-  const response = await fetch('http://localhost:5000/api/users', {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users`, {
     headers: {
       Authorization: 'Bearer ' + token
     }

@@ -15,7 +15,7 @@ const ProfileOverview = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

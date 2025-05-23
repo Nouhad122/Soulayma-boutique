@@ -13,7 +13,7 @@ const OrderHistory = () => {
       if (token) {
         headers['Authorization'] = `Bearer ${token}`;
       }
-      const response = await fetch('http://localhost:5000/api/orders', { headers });
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/orders`, { headers });
       const data = await response.json();
       setOrders(data.orders || []);
       setLoading(false);

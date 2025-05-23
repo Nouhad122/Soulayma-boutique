@@ -3,7 +3,6 @@ const HttpError = require('../models/http-error');
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 exports.getUsers = async (req, res, next) => {
     try {
         const users = await User.find({}, '-password');
@@ -66,7 +65,7 @@ exports.signup = async (req, res, next) => {
     try {
         token = jwt.sign(
             { userId: createdUser.id, email: createdUser.email, role: createdUser.role },
-            'supersecret_dont_share',  // Using your secret key
+            process.env.JWT_KEY,
             { expiresIn: '1h' }
         );
     } catch (err) {
@@ -111,7 +110,7 @@ exports.login = async (req, res, next) => {
     try {
         token = jwt.sign(
             { userId: existingUser.id, email: existingUser.email, role: existingUser.role },
-            'supersecret_dont_share',  // Using your secret key
+            process.env.JWT_KEY,
             { expiresIn: '1h' }
         );
     } catch (err) {

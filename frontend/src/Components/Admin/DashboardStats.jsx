@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import './Admin.css';
 
 const fetchUserCount = async () => {
-  const response = await fetch('http://localhost:5000/api/users/count');
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/count`);
   if (!response.ok) {
     throw new Error('Failed to fetch user count');
   }
@@ -12,7 +12,7 @@ const fetchUserCount = async () => {
 };
 
 const fetchProducts = async () => {
-  const response = await fetch('http://localhost:5000/api/products');
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`);
   if (!response.ok) {
     throw new Error('Failed to fetch products');
   }
@@ -26,7 +26,7 @@ const fetchOrders = async () => {
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
-  const response = await fetch('http://localhost:5000/api/orders/all', { headers });
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/orders/all`, { headers });
   if (!response.ok) {
     throw new Error('Failed to fetch orders');
   }

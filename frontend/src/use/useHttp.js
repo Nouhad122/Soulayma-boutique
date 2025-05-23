@@ -3,7 +3,7 @@ import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient();
 
 export const fetchProducts = async ({ signal }) =>{
-    const response = await fetch('http://localhost:5000/api/products', { signal });
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`, { signal });
     
     if(!response.ok){
         throw new Response(JSON.stringify({message: "Failed To Fetch Products"}), {status: response.status})
@@ -15,7 +15,7 @@ export const fetchProducts = async ({ signal }) =>{
 }
 
 export const fetchProductDetails = async ({id, signal}) =>{
-    const response = await fetch(`http://localhost:5000/api/products/${id}`, { signal });
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products/${id}`, { signal });
     if(!response.ok){
         throw new Response(JSON.stringify({message: "Failed To Fetch Product Details"}), {status: response.status})
     }
@@ -31,7 +31,7 @@ export const fetchCart = async () => {
         headers['Authorization'] = `Bearer ${token}`;
     }
     
-    const response = await fetch('http://localhost:5000/api/cart', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart`, {
         headers
     });
     
@@ -58,7 +58,7 @@ export const updateCart = async (cart) => {
         }))
     };
     
-    const response = await fetch('http://localhost:5000/api/cart', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart`, {
         method: 'PUT',
         headers,
         body: JSON.stringify(cartData),
@@ -77,7 +77,7 @@ export const addProduct = async (productData) => {
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-    const response = await fetch('http://localhost:5000/api/products', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`, {
         method: 'POST',
         headers,
         body: JSON.stringify(productData),
@@ -94,7 +94,7 @@ export const updateProduct = async (productId, productData) => {
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-    const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}`, {
         method: 'PATCH',
         headers,
         body: JSON.stringify(productData),
@@ -111,7 +111,7 @@ export const placeOrder = async (order) => {
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-    const response = await fetch('http://localhost:5000/api/orders', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/orders`, {
         method: 'POST',
         headers,
         body: JSON.stringify(order),

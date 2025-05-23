@@ -48,8 +48,8 @@ const Auth = () => {
     setIsLoading(true);
     setError(null);
     const endpoint = isLoginMode
-      ? 'http://localhost:5000/api/users/login'
-      : 'http://localhost:5000/api/users/signup';
+      ? `${import.meta.env.VITE_BACKEND_URL}/users/login`
+      : `${import.meta.env.VITE_BACKEND_URL}/users/signup`;
     const payload = isLoginMode
       ? {
           email: formState.inputs.email.value,
