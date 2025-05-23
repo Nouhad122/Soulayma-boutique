@@ -52,13 +52,14 @@ app.use((error, req, res, next) => {
 });
 
 const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@soulayma-cluster.winbdem.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=soulayma-cluster`;
+const PORT = process.env.PORT || 5000;
 
 mongoose
     .connect(MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
-        app.listen(process.env.PORT, () => {
-            console.log(`Server is running on port ${process.env.PORT}`);
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
         });
     })
     .catch(err => {
