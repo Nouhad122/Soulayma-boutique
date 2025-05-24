@@ -2,8 +2,22 @@ const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
 const checkAuth = require('../middleware/check-auth');
+const multer = require('multer');
+const path = require('path');
 
 const productsController = require('../controllers/products');
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
 
 // Public routes
 router.get('/products', productsController.getProducts);
@@ -44,100 +58,44 @@ router.get('/orders/count', productsController.getOrderCount);
 
 // Product management routes
 router.post('/products', 
+    upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'image2', maxCount: 1 }]),
     [
-        body('name')
-        .not()
-        .isEmpty(),
-        body('category')
-        .not()
-        .isEmpty(),
-        body('kind')
-        .not()
-        .isEmpty(),
-        body('color')
-        .not()
-        .isEmpty(),
-        body('colorCode')
-        .not()
-        .isEmpty(),
+        body('name').not().isEmpty(),
+        body('category').not().isEmpty(),
+        body('kind').not().isEmpty(),
+        body('color').not().isEmpty(),
+        body('colorCode').not().isEmpty(),
         body('description').isLength({ min: 5}),
-        body('fabricSpecifications')
-        .not()
-        .isEmpty(),
-        body('productInfo1')
-        .not()
-        .isEmpty(),
-        body('currentPrice')
-        .isNumeric()
-        .isFloat({ min: 0 }),
-        body('previousPrice')
-        .optional()
-        .isNumeric()
-        .isFloat({ min: 0 }),
-        body('stock')
-        .isNumeric(),
-        body('image1')
-        .not()
-        .isEmpty(),
-        body('image2')
-        .not()
-        .isEmpty(),
-        body('sizes')
-        .isArray()
-        .notEmpty(),
-        body('skinTones')
-        .isArray()
-        .notEmpty()
-    ]
-    , productsController.createProduct);
+        body('fabricSpecifications').not().isEmpty(),
+        body('productInfo1').not().isEmpty(),
+        body('currentPrice').isNumeric().isFloat({ min: 0 }),
+        body('previousPrice').optional().isNumeric().isFloat({ min: 0 }),
+        body('stock').isNumeric(),
+        body('sizes').notEmpty(),
+        body('skinTones').notEmpty()
+    ],
+    productsController.createProduct
+);
 
 router.patch('/products/:pid',
+    upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'image2', maxCount: 1 }]),
     [
-        body('name')
-        .not()
-        .isEmpty(),
-        body('category')
-        .not()
-        .isEmpty(),
-        body('kind')
-        .not()
-        .isEmpty(),
-        body('color')
-        .not()
-        .isEmpty(),
-        body('colorCode')
-        .not()
-        .isEmpty(),
+        body('name').not().isEmpty(),
+        body('category').not().isEmpty(),
+        body('kind').not().isEmpty(),
+        body('color').not().isEmpty(),
+        body('colorCode').not().isEmpty(),
         body('description').isLength({ min: 5}),
-        body('fabricSpecifications')
-        .not()
-        .isEmpty(),
-        body('productInfo1')
-        .not()
-        .isEmpty(),
-        body('currentPrice')
-        .isNumeric()
-        .isFloat({ min: 0 }),
-        body('previousPrice')
-        .optional()
-        .isNumeric()
-        .isFloat({ min: 0 }),
-        body('stock')
-        .isNumeric(),
-        body('image1')
-        .not()
-        .isEmpty(),
-        body('image2')
-        .not()
-        .isEmpty(),
-        body('sizes')
-        .isArray()
-        .notEmpty(),
-        body('skinTones')
-        .isArray()
-        .notEmpty()
+        body('fabricSpecifications').not().isEmpty(),
+        body('productInfo1').not().isEmpty(),
+        body('currentPrice').isNumeric().isFloat({ min: 0 }),
+        body('previousPrice').optional().isNumeric().isFloat({ min: 0 }),
+        body('stock').isNumeric(),
+        body('sizes').notEmpty(),
+        body('skinTones').notEmpty()
     ],
-     productsController.updateProduct);
+    productsController.updateProduct
+);
 
 router.delete('/products/:pid', productsController.deleteProduct);
 

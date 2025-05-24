@@ -2,8 +2,10 @@ import { QueryClient } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient();
 
+const BACKEND_URL = 'http://localhost:5000/api';
+
 export const fetchProducts = async ({ signal }) =>{
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`, { signal });
+    const response = await fetch(`${BACKEND_URL}/products`, { signal });
     
     if(!response.ok){
         throw new Response(JSON.stringify({message: "Failed To Fetch Products"}), {status: response.status})
@@ -15,7 +17,7 @@ export const fetchProducts = async ({ signal }) =>{
 }
 
 export const fetchProductDetails = async ({id, signal}) =>{
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products/${id}`, { signal });
+    const response = await fetch(`${BACKEND_URL}/products/${id}`, { signal });
     if(!response.ok){
         throw new Response(JSON.stringify({message: "Failed To Fetch Product Details"}), {status: response.status})
     }
@@ -31,7 +33,7 @@ export const fetchCart = async () => {
         headers['Authorization'] = `Bearer ${token}`;
     }
     
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart`, {
+    const response = await fetch(`${BACKEND_URL}/cart`, {
         headers
     });
     
@@ -58,7 +60,7 @@ export const updateCart = async (cart) => {
         }))
     };
     
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart`, {
+    const response = await fetch(`${BACKEND_URL}/cart`, {
         method: 'PUT',
         headers,
         body: JSON.stringify(cartData),
@@ -73,31 +75,42 @@ export const updateCart = async (cart) => {
 
 export const addProduct = async (productData) => {
     const token = localStorage.getItem('token');
-    const headers = { 'Content-Type': 'application/json' };
+    const headers = {};
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`, {
+    const response = await fetch(`${BACKEND_URL}/products`, {
         method: 'POST',
         headers,
-        body: JSON.stringify(productData),
+        body: productData,
     });
     if (!response.ok) {
-        throw new Error('Failed to add product');
+        // Try to parse the error message from the backend
+        let errorMsg = 'Failed to add product';
+        try {
+            const errorData = await response.json();
+            errorMsg = errorData.message || errorMsg;
+            const error = new Error(errorMsg);
+            error.backend = errorData;
+            throw error;
+        } catch (e) {
+            throw new Error(errorMsg);
+        }
     }
     return response.json();
 };
 
 export const updateProduct = async (productId, productData) => {
     const token = localStorage.getItem('token');
-    const headers = { 'Content-Type': 'application/json' };
+    let headers = {};
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}`, {
+    // If productData is FormData, do not set Content-Type
+    const response = await fetch(`${BACKEND_URL}/products/${productId}`, {
         method: 'PATCH',
         headers,
-        body: JSON.stringify(productData),
+        body: productData,
     });
     if (!response.ok) {
         throw new Error('Failed to update product');
@@ -111,7 +124,7 @@ export const placeOrder = async (order) => {
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/orders`, {
+    const response = await fetch(`${BACKEND_URL}/orders`, {
         method: 'POST',
         headers,
         body: JSON.stringify(order),

@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const path = require('path');
 
 const productsRoutes = require('./routes/products');
 const usersRoutes = require('./routes/users');
@@ -19,9 +21,24 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
 // Routes
 app.use('/api/users', usersRoutes);
 app.use('/api', productsRoutes);
+
+// Serve uploaded files
+app.use('/uploads', express.static('uploads'));
 
 // 404 handler
 app.use((req, res, next) => {

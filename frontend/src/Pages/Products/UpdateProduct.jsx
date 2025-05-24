@@ -85,8 +85,8 @@ const UpdateProduct = () => {
       value: '',
       isValid: false
     },
-    image: {
-      value: '',
+    images: {
+      value: [],
       isValid: false
     },
     sizes: {
@@ -158,8 +158,8 @@ const UpdateProduct = () => {
           value: product.stock || '',
           isValid: true
         },
-        image: {
-          value: product.image1 || '',
+        images: {
+          value: product.images || [],
           isValid: true
         },
         sizes: {
@@ -178,6 +178,21 @@ const UpdateProduct = () => {
     }
   }, [product, setFormData]);
 
+  // Helper to get the correct image URL
+  const getImageUrl = (img) => {
+    if (!img) return '';
+    if (img.startsWith('http://') || img.startsWith('https://') || img.startsWith('/')) return img;
+    return `http://localhost:5000/uploads/${img}`;
+  };
+
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    setSelectedImages(files);
+    inputHandler('images', files, files.length > 0 && files.length <= 2);
+  };
+
   const addProductSubmitHandler = async event => {
     event.preventDefault();
     if (formState.inputs.sizes.value.length === 0) {
@@ -188,32 +203,47 @@ const UpdateProduct = () => {
       inputHandler('skinTones', [], false);
       return;
     }
-    // Build product data object for backend
-    const productData = {
-      name: formState.inputs.productName.value,
-      category: formState.inputs.category.value,
-      kind: formState.inputs.kind.value,
-      color: formState.inputs.color.value,
-      colorCode: formState.inputs.colorCode.value,
-      description: formState.inputs.description.value,
-      fabricSpecifications: formState.inputs.fabricSpecifications.value,
-      productInfo1: formState.inputs.productInfo1.value,
-      productInfo2: formState.inputs.productInfo2.value,
-      productInfo3: formState.inputs.productInfo3.value,
-      currentPrice: formState.inputs.currentPrice.value,
-      previousPrice: formState.inputs.previousPrice.value,
-      stock: formState.inputs.stock.value,
-      image1: formState.inputs.image.value,
-      image2: formState.inputs.image.value, // You may want to allow a second image
-      sizes: formState.inputs.sizes.value,
-      skinTones: formState.inputs.skinTones.value,
-      isBestSeller: formState.inputs.isBestSeller.value
-    };
+    // Allow 0, 1, or 2 new images
+    if (selectedImages.length > 2) {
+      inputHandler('images', [], false);
+      return;
+    }
+    // Build product data object for backend (FormData)
+    const productData = new FormData();
+    productData.append('name', formState.inputs.productName.value);
+    productData.append('category', formState.inputs.category.value);
+    productData.append('kind', formState.inputs.kind.value);
+    productData.append('color', formState.inputs.color.value);
+    productData.append('colorCode', formState.inputs.colorCode.value);
+    productData.append('description', formState.inputs.description.value);
+    productData.append('fabricSpecifications', formState.inputs.fabricSpecifications.value);
+    productData.append('productInfo1', formState.inputs.productInfo1.value);
+    productData.append('productInfo2', formState.inputs.productInfo2.value);
+    productData.append('productInfo3', formState.inputs.productInfo3.value);
+    productData.append('currentPrice', formState.inputs.currentPrice.value);
+    if (formState.inputs.previousPrice.value) {
+      productData.append('previousPrice', formState.inputs.previousPrice.value);
+    }
+    productData.append('stock', formState.inputs.stock.value);
+    productData.append('sizes', JSON.stringify(formState.inputs.sizes.value));
+    productData.append('skinTones', JSON.stringify(formState.inputs.skinTones.value));
+    productData.append('isBestSeller', formState.inputs.isBestSeller.value);
+
+    // Handle images: if new files selected, use them; else, send old filenames
+    if (selectedImages.length > 0) {
+      productData.append('image1', selectedImages[0]);
+      if (selectedImages.length > 1) {
+        productData.append('image2', selectedImages[1]);
+      }
+    } else {
+      if (product && product.image1) productData.append('image1', product.image1);
+      if (product && product.image2) productData.append('image2', product.image2);
+    }
+
     try {
       await updateProductApi(productId, productData);
       alert('Product updated successfully!');
       navigate('/');
-      // Optionally, redirect or update UI here
     } catch (err) {
       alert('Failed to update product.');
     }
@@ -295,7 +325,39 @@ const UpdateProduct = () => {
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='image' name='image' type='text' className={classes['product-input']} placeholder='Image' onInput={inputHandler} value={formState.inputs.image.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        {/* Image previews */}
+        {product && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1rem' }}>
+            <div>
+              <img src={getImageUrl(product.image1)} alt="Current Image 1" style={{ maxWidth: '120px', maxHeight: '120px' }} />
+              <span style={{ marginLeft: '0.5rem' }}>Current Image 1</span>
+            </div>
+            {product.image2 && (
+              <div>
+                <img src={getImageUrl(product.image2)} alt="Current Image 2" style={{ maxWidth: '120px', maxHeight: '120px' }} />
+                <span style={{ marginLeft: '0.5rem' }}>Current Image 2</span>
+              </div>
+            )}
+          </div>
+        )}
+        <label htmlFor="images" className={classes['file-label']}>Product Images (1 or 2):</label>
+        <input
+          id="images"
+          name="images"
+          type="file"
+          className={classes['file-input']}
+          accept="image/*"
+          multiple
+          onChange={handleFileChange}
+        />
+        {selectedImages.length > 0 && (
+          <div className={classes['file-names']}>
+            Selected files: {selectedImages.map(file => file.name).join(', ')}
+          </div>
+        )}
+        {(selectedImages.length > 2) && (
+          <span className={classes['error-text']}>Please select 1 or 2 images.</span>
+        )}
       </div>
       
       <div className={classes['form-group']}>

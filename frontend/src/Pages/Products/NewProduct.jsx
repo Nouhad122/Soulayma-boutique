@@ -68,8 +68,8 @@ const NewProduct = () => {
       value: '',
       isValid: false
     },
-    image: {
-      value: '',
+    images: {
+      value: [],
       isValid: false
     },
     sizes: {
@@ -97,33 +97,50 @@ const NewProduct = () => {
       inputHandler('skinTones', [], false);
       return;
     }
+    if (formState.inputs.images.value.length === 0 || formState.inputs.images.value.length > 2) {
+      inputHandler('images', [], false);
+      return;
+    }
     // Build product data object for backend
-    const productData = {
-      name: formState.inputs.productName.value,
-      category: formState.inputs.category.value,
-      kind: formState.inputs.kind.value,
-      color: formState.inputs.color.value,
-      colorCode: formState.inputs.colorCode.value,
-      description: formState.inputs.description.value,
-      fabricSpecifications: formState.inputs.fabricSpecifications.value,
-      productInfo1: formState.inputs.productInfo1.value,
-      productInfo2: formState.inputs.productInfo2.value,
-      productInfo3: formState.inputs.productInfo3.value,
-      currentPrice: formState.inputs.currentPrice.value,
-      previousPrice: formState.inputs.previousPrice.value,
-      stock: formState.inputs.stock.value,
-      image1: formState.inputs.image.value,
-      image2: formState.inputs.image.value, // You may want to allow a second image
-      sizes: formState.inputs.sizes.value,
-      skinTones: formState.inputs.skinTones.value,
-      isBestSeller: formState.inputs.isBestSeller.value
-    };
+    const productData = new FormData();
+    productData.append('name', formState.inputs.productName.value);
+    productData.append('category', formState.inputs.category.value);
+    productData.append('kind', formState.inputs.kind.value);
+    productData.append('color', formState.inputs.color.value);
+    productData.append('colorCode', formState.inputs.colorCode.value);
+    productData.append('description', formState.inputs.description.value);
+    productData.append('fabricSpecifications', formState.inputs.fabricSpecifications.value);
+    productData.append('productInfo1', formState.inputs.productInfo1.value);
+    productData.append('productInfo2', formState.inputs.productInfo2.value);
+    productData.append('productInfo3', formState.inputs.productInfo3.value);
+    productData.append('currentPrice', formState.inputs.currentPrice.value);
+    if (formState.inputs.previousPrice.value) {
+      productData.append('previousPrice', formState.inputs.previousPrice.value);
+    }
+    productData.append('stock', formState.inputs.stock.value);
+    productData.append('sizes', JSON.stringify(formState.inputs.sizes.value));
+    productData.append('skinTones', JSON.stringify(formState.inputs.skinTones.value));
+    productData.append('isBestSeller', formState.inputs.isBestSeller.value);
+
+    if (formState.inputs.images.value.length > 0) {
+      productData.append('image1', formState.inputs.images.value[0]);
+      if (formState.inputs.images.value.length > 1) {
+        productData.append('image2', formState.inputs.images.value[1]);
+      }
+    }
+
     try {
       await addProduct(productData);
       alert('Product added successfully!');
       // Optionally, redirect or reset form here
     } catch (err) {
-      alert('Failed to add product.');
+      console.error('Add product error:', err);
+      if (err.backend) {
+        console.error('Backend error:', err.backend);
+        alert('Failed to add product: ' + err.backend.message);
+      } else {
+        alert('Failed to add product.');
+      }
     }
   };
 
@@ -199,7 +216,29 @@ const NewProduct = () => {
       </div>
 
       <div className={classes['form-group']}>
-        <Input id='image' name='image' type='text' className={classes['product-input']} placeholder='Image' onInput={inputHandler} value={formState.inputs.image.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <label htmlFor="images" className={classes['file-label']}>Product Images (1 or 2):</label>
+        <input
+          id="images"
+          name="images"
+          type="file"
+          className={classes['file-input']}
+          accept="image/*"
+          multiple
+          onChange={e => {
+            const newFiles = Array.from(e.target.files);
+            const existingFiles = formState.inputs.images.value;
+            const updatedFiles = [...existingFiles, ...newFiles].slice(0, 2);
+            inputHandler('images', updatedFiles, updatedFiles.length > 0 && updatedFiles.length <= 2);
+          }}
+        />
+        {formState.inputs.images && formState.inputs.images.value.length > 0 && (
+          <div className={classes['file-names']}>
+            Selected files: {formState.inputs.images.value.map(file => file.name).join(', ')}
+          </div>
+        )}
+        {formState.inputs.images && (formState.inputs.images.value.length === 0 || formState.inputs.images.value.length > 2) && (
+          <span className={classes['error-text']}>Please select 1 or 2 images.</span>
+        )}
       </div>
       
       <div className={classes['form-group']}>

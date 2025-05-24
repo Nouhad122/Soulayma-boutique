@@ -5,6 +5,13 @@ import Reviews from '../Secondary-Comps/Reviews';
 import Button from '../Secondary-Comps/Button';
 
 const Products = ({products, generateUrl}) => {
+  // Helper to get the correct image URL
+  const getImageUrl = (img) => {
+    if (!img) return '';
+    if (img.startsWith('http://') || img.startsWith('https://') || img.startsWith('/')) return img;
+    return `http://localhost:5000/uploads/${img}`;
+  };
+
   return (
     <>
       {products.map(product => (
@@ -14,8 +21,8 @@ const Products = ({products, generateUrl}) => {
             className={classes.productLink}
           >
             <div className={classes.productImages}>
-              <img src={product.image1} alt={product.name} />
-              <img src={product.image2} alt={product.name} />
+              <img src={getImageUrl(product.image1)} alt={product.name} />
+              <img src={getImageUrl(product.image2)} alt={product.name} />
             </div>
             <h2>{product.name} - {product.color}</h2>
             <h4>{product.currentPrice}$</h4>

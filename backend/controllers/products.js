@@ -69,101 +69,117 @@ exports.getProductById = async (req, res, next) => {
 
 }
 
-exports.createProduct = (req, res, next) => {
-    const errors = validationResult(req);
-
-    if(!errors.isEmpty){
-        throw new HttpError('Invalid inputs passed, please check your data.', 422);
-    }
-
-    const { name, category, kind, color, colorCode, description, fabricSpecifications,
-            productInfo1, productInfo2, productInfo3, currentPrice, previousPrice, stock,
-            image1, image2, sizes, isBestSeller, skinTones, ageRange } = req.body;
-
-    const createdProduct = new Product({
-        id: uuidv4(),
-        name,
-        category,
-        kind,
-        color,
-        colorCode,
-        description,
-        fabricSpecifications,
-        productInfo1,
-        productInfo2,
-        productInfo3,
-        currentPrice,
-        previousPrice,
-        stock,
-        image1,
-        image2,
-        sizes,
-        isBestSeller,
-        skinTones,
-        ageRange
-    });
-
-    try {
-    createdProduct.save();
-    }
-    catch(err){
-        const error = new HttpError('Creating product failed, please try again.', 500);
-        return next(error);
-    }
-
-    res.status(201).json({
-        product: createdProduct
-    });
-}
-exports.updateProduct = async (req, res, next) =>{
+exports.createProduct = async (req, res, next) => {
+    console.log('BODY:', req.body);
+    console.log('FILES:', req.files);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.error('Validation errors:', errors.array());
+        return next(new HttpError('Invalid inputs passed, please check your data.', 422));
+    }
+
+    // Ensure image1 is present
+    if (!req.files || !req.files.image1 || req.files.image1.length === 0) {
+        return next(new HttpError('Image1 is required.', 422));
+    }
+
+    try {
+        // Parse arrays and convert types
+        const sizes = typeof req.body.sizes === 'string' ? JSON.parse(req.body.sizes) : req.body.sizes;
+        const skinTones = typeof req.body.skinTones === 'string' ? JSON.parse(req.body.skinTones) : req.body.skinTones;
+        const isBestSeller = req.body.isBestSeller === 'true' || req.body.isBestSeller === true;
+        const currentPrice = Number(req.body.currentPrice);
+        const previousPrice = req.body.previousPrice ? Number(req.body.previousPrice) : undefined;
+        const stock = Number(req.body.stock);
+
+        const createdProduct = new Product({
+            name: req.body.name,
+            category: req.body.category,
+            kind: req.body.kind,
+            color: req.body.color,
+            colorCode: req.body.colorCode,
+            description: req.body.description,
+            fabricSpecifications: req.body.fabricSpecifications,
+            productInfo1: req.body.productInfo1,
+            productInfo2: req.body.productInfo2,
+            productInfo3: req.body.productInfo3,
+            currentPrice,
+            previousPrice,
+            stock,
+            image1: req.files?.image1?.[0]?.filename,
+            image2: req.files?.image2?.[0]?.filename,
+            sizes,
+            isBestSeller,
+            skinTones
+        });
+
+        await createdProduct.save();
+        res.status(201).json({ product: createdProduct });
+    } catch (err) {
+        return next(new HttpError('Creating product failed, please try again.', 500));
+    }
+};
+
+exports.updateProduct = async (req, res, next) =>{
+    console.log('UPDATE BODY:', req.body);
+    console.log('UPDATE FILES:', req.files);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.error('Validation errors:', errors.array());
         throw new HttpError('Invalid inputs passed, please check your data.', 422);
     }
 
-    const { name, category, kind, color, colorCode, description, fabricSpecifications,
-            currentPrice, previousPrice, stock,
-            image1, image2, sizes, isBestSeller, skinTones, ageRange } = req.body;
+    try {
+        // Parse arrays and convert types
+        const sizes = typeof req.body.sizes === 'string' ? JSON.parse(req.body.sizes) : req.body.sizes;
+        const skinTones = typeof req.body.skinTones === 'string' ? JSON.parse(req.body.skinTones) : req.body.skinTones;
+        const isBestSeller = req.body.isBestSeller === 'true' || req.body.isBestSeller === true;
+        const currentPrice = Number(req.body.currentPrice);
+        const previousPrice = req.body.previousPrice ? Number(req.body.previousPrice) : undefined;
+        const stock = Number(req.body.stock);
 
-    const productId = req.params.pid;
+        const productId = req.params.pid;
+        let product = await Product.findById(productId);
+        if (!product) {
+            throw new HttpError('Product not found.', 404);
+        }
 
-    let product;
+        product.name = req.body.name;
+        product.category = req.body.category;
+        product.kind = req.body.kind;
+        product.color = req.body.color;
+        product.colorCode = req.body.colorCode;
+        product.description = req.body.description;
+        product.fabricSpecifications = req.body.fabricSpecifications;
+        product.productInfo1 = req.body.productInfo1;
+        product.productInfo2 = req.body.productInfo2;
+        product.productInfo3 = req.body.productInfo3;
+        product.currentPrice = currentPrice;
+        product.previousPrice = previousPrice;
+        product.stock = stock;
+        product.sizes = sizes;
+        product.isBestSeller = isBestSeller;
+        product.skinTones = skinTones;
 
-    try{
-        product = await Product.findById(productId);
-    }
-    catch(err){
-        const error = new HttpError('Something went wrong, could not find a product.', 500);
-        return next(error);
-    }
+        // Handle images: if new file uploaded, use it; else, keep old filename
+        if (req.files && req.files.image1 && req.files.image1.length > 0) {
+            product.image1 = req.files.image1[0].filename;
+        } else if (req.body.image1) {
+            product.image1 = req.body.image1;
+        }
+        if (req.files && req.files.image2 && req.files.image2.length > 0) {
+            product.image2 = req.files.image2[0].filename;
+        } else if (req.body.image2) {
+            product.image2 = req.body.image2;
+        }
 
-    product.name = name;
-    product.category = category;
-    product.kind = kind;
-    product.color = color;
-    product.colorCode = colorCode;
-    product.description = description;
-    product.fabricSpecifications = fabricSpecifications;
-    product.currentPrice = currentPrice;
-    product.previousPrice = previousPrice;
-    product.stock = stock;
-    product.image1 = image1;
-    product.image2 = image2;
-    product.sizes = sizes;
-    product.isBestSeller = isBestSeller;
-    product.skinTones = skinTones;
-    product.ageRange = ageRange;
-
-    try{
         await product.save();
+        res.status(200).json({product: product.toObject({ getters: true })});
+    } catch (err) {
+        console.error('Update product error:', err);
+        return next(new HttpError('Something went wrong, could not update product.', 500));
     }
-    catch(err){
-        const error = new HttpError('Something went wrong, could not update product.', 500);
-        return next(error);
-    }
-
-    res.status(200).json({product: product.toObject({ getters: true })});
-}
+};
 
 exports.deleteProduct = async (req, res, next) => {
     const productId = req.params.pid;

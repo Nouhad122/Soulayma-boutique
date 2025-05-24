@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Admin.css';
 
 const fetchProducts = async () => {
-  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`);
+  const response = await fetch(`${'http://localhost:5000/api'}/products`);
   if (!response.ok) {
     throw new Error('Failed to fetch products');
   }
@@ -12,12 +12,38 @@ const fetchProducts = async () => {
   return data.products || [];
 };
 
+const deleteProduct = async (productId) => {
+  const token = localStorage.getItem('token');
+  const headers = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+  const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+    method: 'DELETE',
+    headers,
+  });
+  if (!response.ok) {
+    throw new Error('Failed to delete product');
+  }
+  return response.json();
+};
+
 const ProductManager = () => {
   const navigate = useNavigate();
-  const { data: products = [], isLoading, isError } = useQuery({
+  const { data: products = [], isLoading, isError, refetch } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts
   });
+
+  const handleDelete = async (productId) => {
+    if (!window.confirm('Are you sure you want to delete this product?')) return;
+    try {
+      await deleteProduct(productId);
+      refetch();
+    } catch (err) {
+      alert('Failed to delete product.');
+    }
+  };
 
   return (
     <div className="product-manager">
@@ -53,7 +79,7 @@ const ProductManager = () => {
                 >
                   Edit
                 </button>
-                <button className="admin-delete-btn">Delete</button>
+                <button className="admin-delete-btn" onClick={() => handleDelete(prod.id)}>Delete</button>
               </td>
             </tr>
           ))}

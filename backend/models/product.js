@@ -16,11 +16,11 @@ const productSchema = new Schema({
     currentPrice: { type: Number, required: true },
     previousPrice: { type: Number, required: false },
     stock: { type: Number, required: true },
-    image1:{ type:String, required:true},
-    image2:{ type:String, required:true},
-    sizes:{type:[String], required:true},
-    isBestSeller:{type:Boolean, required:true},
-    skinTones:{type:[String], required:true}
+    image1: { type: String, required: true },
+    image2: { type: String, required: false },
+    sizes: { type: [String], required: true },
+    isBestSeller: { type: Boolean, required: true },
+    skinTones: { type: [String], required: true }
 });
 
 module.exports = mongoose.model('Product', productSchema);

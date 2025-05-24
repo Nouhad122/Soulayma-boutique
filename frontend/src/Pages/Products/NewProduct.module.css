@@ -25,6 +25,32 @@
     margin-bottom: 1rem;
 }
 
+.file-label {
+  font-weight: 500;
+  color: var(--font-color);
+  margin-bottom: 0.5rem;
+}
+.file-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background: #fff;
+  color: var(--font-color);
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.file-names {
+  font-size: 0.9rem;
+  color: var(--font-color);
+  margin-top: 0.25rem;
+}
+.error-text {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
 @media screen and (max-width: 860px) {
     .form-container{
         padding: 1rem;
