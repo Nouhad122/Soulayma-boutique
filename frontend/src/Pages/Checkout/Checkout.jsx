@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../store/AuthContext';
+import SideCompContext from '../../store/SideCompContext';
+import Modal from '../../Components/Secondary-Comps/Modal';
 import ExpressCheckout from '../../Components/Checkout/ExpressCheckout';
 import DeliveryForm from '../../Components/Checkout/DeliveryForm';
 import ShippingMethod from '../../Components/Checkout/ShippingMethod';
@@ -14,6 +16,7 @@ import { cartSliceActions } from '../../redux-toolkit/cart-slice';
 
 const Checkout = () => {
   const { isLoggedIn } = useContext(AuthContext);
+  const { modalContent, showContentInModal, hideContentInModal } = useContext(SideCompContext);
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,6 +28,10 @@ const Checkout = () => {
   }, [isLoggedIn, navigate]);
 
   const handlePlaceOrder = async () => {
+    showContentInModal();
+  };
+
+  const handleConfirmOrder = async () => {
     try {
       const order = {
         items: cart.products.map(item => ({
@@ -35,26 +42,37 @@ const Checkout = () => {
       };
       await placeOrder(order);
       dispatch(cartSliceActions.clearCart());
-      alert('Order placed successfully!');
-      // Optionally, redirect or clear cart here
+      hideContentInModal();
+      navigate('/');
     } catch (err) {
+      hideContentInModal();
       alert('Order failed!');
     }
   };
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-left">
-        <ExpressCheckout />
-        <DeliveryForm />
-        <ShippingMethod />
-        <PaymentMethod />
-        <Button inverse disabled={cart.totalQuantity === 0} onClick={handlePlaceOrder}>Place Order</Button>
+    <>
+      {modalContent && (
+        <Modal
+          title="Confirm Order"
+          message="Are you sure you want to place this order? By confirming, you agree to our terms and conditions."
+          onNeededAction={handleConfirmOrder}
+          closeModal={hideContentInModal}
+        />
+      )}
+      <div className="checkout-container">
+        <div className="checkout-left">
+          <ExpressCheckout />
+          <DeliveryForm />
+          <ShippingMethod />
+          <PaymentMethod />
+          <Button inverse disabled={cart.totalQuantity === 0} onClick={handlePlaceOrder}>Place Order</Button>
+        </div>
+        <div className="checkout-right">
+          <OrderSummary />
+        </div>
       </div>
-      <div className="checkout-right">
-        <OrderSummary />
-      </div>
-    </div>
+    </>
   );
 };
 

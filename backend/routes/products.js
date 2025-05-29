@@ -55,6 +55,7 @@ router.get('/orders', productsController.getOrders);
 router.get('/orders/all', productsController.getAllOrders);
 router.get('/orders/:oid', productsController.getOrderById);
 router.get('/orders/count', productsController.getOrderCount);
+router.delete('/orders/:oid', productsController.deleteOrder);
 
 // Product management routes
 router.post('/products', 

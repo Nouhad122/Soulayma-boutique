@@ -106,11 +106,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 901;
+  padding-top: 100px;
 }
 .blurContent{
   background-color: var(--fifth-color);
@@ -120,6 +121,8 @@
   padding: 4rem 2rem;
   text-align: center;
   width: 50vw;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .blurContent h1{
   font-size: 1.8rem;
@@ -148,6 +151,9 @@
   .customBtn{
     width: 45vw;
   }
+  .blurBackground {
+    padding-top: 80px;
+  }
   .blurContent{
     width: 80%;
   }
@@ -160,12 +166,14 @@
   .blurContent p{
     font-size: .8rem;
   }
-  
 }
 @media screen and (max-width: 445px){
   .customBtn{
     width: 70%;
     font-size: .9rem !important;
+  }
+  .blurBackground {
+    padding-top: 60px;
   }
   .blurContent{
     width: 95%;
@@ -173,7 +181,6 @@
   .mBtn{
     width: 30vw;
   }
-  
 }
 
 /* Size Selector Styles */

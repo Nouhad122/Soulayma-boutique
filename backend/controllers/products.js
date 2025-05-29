@@ -423,3 +423,22 @@ exports.getAllOrders = async (req, res, next) => {
         res.status(500).json({ message: 'Failed to fetch all orders' });
     }
 };
+
+exports.deleteOrder = async (req, res, next) => {
+    const orderId = req.params.oid;
+
+    try {
+        const order = await Order.findById(orderId);
+        
+        if (!order) {
+            return next(new HttpError('Order not found.', 404));
+        }
+
+        await Order.findByIdAndDelete(orderId);
+        
+        res.status(200).json({ message: 'Order deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting order:', err);
+        return next(new HttpError('Something went wrong, could not delete order.', 500));
+    }
+};

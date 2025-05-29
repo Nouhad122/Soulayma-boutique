@@ -28,11 +28,6 @@ const Products = ({products, generateUrl}) => {
             <h4>{product.currentPrice}$</h4>
             <Reviews inCard/>
           </Link>
-          <div className={classes.productActions}>
-            <Link to={`/update-product/${product.id}`}>
-              <Button>Edit</Button>
-            </Link>
-          </div>
         </div>
       ))}
     </>

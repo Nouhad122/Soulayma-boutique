@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Input from '../../Components/Secondary-Comps/Input'
 import Button from '../../Components/Secondary-Comps/Button'
@@ -14,11 +14,14 @@ import deepTan from '../../assets/skinTone4.png';
 import richBrown from '../../assets/skinTone5.png';
 import deepEbony from '../../assets/skinTone6.png';
 import { fetchProductDetails, updateProduct as updateProductApi } from '../../use/useHttp';
+import SideCompContext from '../../store/SideCompContext';
+import Modal from '../../Components/Secondary-Comps/Modal';
 
 const UpdateProduct = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
+  const { modalContent, showContentInModal, hideContentInModal } = useContext(SideCompContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -242,11 +245,15 @@ const UpdateProduct = () => {
 
     try {
       await updateProductApi(productId, productData);
-      alert('Product updated successfully!');
-      navigate('/');
+      showContentInModal();
     } catch (err) {
       alert('Failed to update product.');
     }
+  };
+
+  const handleSuccessAction = () => {
+    hideContentInModal();
+    navigate('/');
   };
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL', 'One Size'];
@@ -287,108 +294,118 @@ const UpdateProduct = () => {
   }
 
   return (
-    <div className={classes['form-container']}>
-    <form className={classes['product-form']} onSubmit={addProductSubmitHandler}>
-      <h2>Update Product</h2>
-      <div className={classes['form-group']}>
-        <Input id='productName' name='productName' type='text' className={classes['product-input']} placeholder='Product Name' onInput={inputHandler} value={formState.inputs.productName.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='category' name='category' type='text' className={classes['product-input']} placeholder='Category' onInput={inputHandler} value={formState.inputs.category.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      </div>
+    <>
+      {modalContent && (
+        <Modal
+          title="Success"
+          message="Product updated successfully!"
+          onNeededAction={handleSuccessAction}
+          closeModal={hideContentInModal}
+        />
+      )}
+      <div className={classes['form-container']}>
+      <form className={classes['product-form']} onSubmit={addProductSubmitHandler}>
+        <h2>Update Product</h2>
+        <div className={classes['form-group']}>
+          <Input id='productName' name='productName' type='text' className={classes['product-input']} placeholder='Product Name' onInput={inputHandler} value={formState.inputs.productName.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+          <Input id='category' name='category' type='text' className={classes['product-input']} placeholder='Category' onInput={inputHandler} value={formState.inputs.category.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        </div>
 
-      <div className={classes['form-group']}>
-        <Input id='kind' name='kind' type='text' className={classes['product-input']} placeholder='Kind' onInput={inputHandler} value={formState.inputs.kind.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='fabricSpecifications' name='fabricSpecifications' type='text' className={classes['product-input']} placeholder='Fabric Specifications' onInput={inputHandler} value={formState.inputs.fabricSpecifications.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      </div>
+        <div className={classes['form-group']}>
+          <Input id='kind' name='kind' type='text' className={classes['product-input']} placeholder='Kind' onInput={inputHandler} value={formState.inputs.kind.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+          <Input id='fabricSpecifications' name='fabricSpecifications' type='text' className={classes['product-input']} placeholder='Fabric Specifications' onInput={inputHandler} value={formState.inputs.fabricSpecifications.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        </div>
 
-      <div className={classes['form-group']}>
-        <Input id='color' name='color' type='text' className={classes['product-input']} placeholder='Color' onInput={inputHandler} value={formState.inputs.color.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='colorCode' name='colorCode' type='text' className={classes['product-input']} placeholder='Color Code' onInput={inputHandler} value={formState.inputs.colorCode.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      </div>
+        <div className={classes['form-group']}>
+          <Input id='color' name='color' type='text' className={classes['product-input']} placeholder='Color' onInput={inputHandler} value={formState.inputs.color.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+          <Input id='colorCode' name='colorCode' type='text' className={classes['product-input']} placeholder='Color Code' onInput={inputHandler} value={formState.inputs.colorCode.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        </div>
 
-      <div className={classes['form-group']}>
-        <Input id='description' name='description' type='text' className={classes['product-input']} placeholder='Description' onInput={inputHandler} value={formState.inputs.description.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." isTextArea/>
-      </div>
+        <div className={classes['form-group']}>
+          <Input id='description' name='description' type='text' className={classes['product-input']} placeholder='Description' onInput={inputHandler} value={formState.inputs.description.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." isTextArea/>
+        </div>
 
-      <div className={classes['form-group']}>
-        <Input id='productInfo1' name='productInfo1' type='text' className={classes['product-input']} placeholder='Product Info 1' onInput={inputHandler} value={formState.inputs.productInfo1.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-        <Input id='productInfo2' name='productInfo2' type='text' className={classes['product-input']} placeholder='Product Info 2' onInput={inputHandler} value={formState.inputs.productInfo2.value} validators={[]}/>
-      </div>
+        <div className={classes['form-group']}>
+          <Input id='productInfo1' name='productInfo1' type='text' className={classes['product-input']} placeholder='Product Info 1' onInput={inputHandler} value={formState.inputs.productInfo1.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+          <Input id='productInfo2' name='productInfo2' type='text' className={classes['product-input']} placeholder='Product Info 2' onInput={inputHandler} value={formState.inputs.productInfo2.value} validators={[]}/>
+        </div>
 
-      <div className={classes['form-group']}>
-        <Input id='productInfo3' name='productInfo3' type='text' className={classes['product-input']} placeholder='Product Info 3' onInput={inputHandler} value={formState.inputs.productInfo3.value} validators={[]}/>
-        <Input id='stock' name='stock' type='number' className={classes['product-input']} placeholder='Stock' onInput={inputHandler} value={formState.inputs.stock.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      </div>
+        <div className={classes['form-group']}>
+          <Input id='productInfo3' name='productInfo3' type='text' className={classes['product-input']} placeholder='Product Info 3' onInput={inputHandler} value={formState.inputs.productInfo3.value} validators={[]}/>
+          <Input id='stock' name='stock' type='number' className={classes['product-input']} placeholder='Stock' onInput={inputHandler} value={formState.inputs.stock.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        </div>
 
-      <div className={classes['form-group']}>
-      <Input id='currentPrice' name='currentPrice' type='number' className={classes['product-input']} placeholder='Current Price' onInput={inputHandler} value={formState.inputs.currentPrice.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      <Input id='previousPrice' name='previousPrice' type='number' className={classes['product-input']} placeholder='Previous Price' onInput={inputHandler} value={formState.inputs.previousPrice.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
-      </div>
+        <div className={classes['form-group']}>
+        <Input id='currentPrice' name='currentPrice' type='number' className={classes['product-input']} placeholder='Current Price' onInput={inputHandler} value={formState.inputs.currentPrice.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        <Input id='previousPrice' name='previousPrice' type='number' className={classes['product-input']} placeholder='Previous Price' onInput={inputHandler} value={formState.inputs.previousPrice.value} validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid input." />
+        </div>
 
-      <div className={classes['form-group']}>
-        {/* Image previews */}
-        {product && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1rem' }}>
-            <div>
-              <img src={getImageUrl(product.image1)} alt="Current Image 1" style={{ maxWidth: '120px', maxHeight: '120px' }} />
-              <span style={{ marginLeft: '0.5rem' }}>Current Image 1</span>
-            </div>
-            {product.image2 && (
+        <div className={classes['form-group']}>
+          {/* Image previews */}
+          {product && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1rem' }}>
               <div>
-                <img src={getImageUrl(product.image2)} alt="Current Image 2" style={{ maxWidth: '120px', maxHeight: '120px' }} />
-                <span style={{ marginLeft: '0.5rem' }}>Current Image 2</span>
+                <img src={getImageUrl(product.image1)} alt="Current Image 1" style={{ maxWidth: '120px', maxHeight: '120px' }} />
+                <span style={{ marginLeft: '0.5rem' }}>Current Image 1</span>
               </div>
-            )}
-          </div>
-        )}
-        <label htmlFor="images" className={classes['file-label']}>Product Images (1 or 2):</label>
-        <input
-          id="images"
-          name="images"
-          type="file"
-          className={classes['file-input']}
-          accept="image/*"
-          multiple
-          onChange={handleFileChange}
-        />
-        {selectedImages.length > 0 && (
-          <div className={classes['file-names']}>
-            Selected files: {selectedImages.map(file => file.name).join(', ')}
-          </div>
-        )}
-        {(selectedImages.length > 2) && (
-          <span className={classes['error-text']}>Please select 1 or 2 images.</span>
-        )}
-      </div>
-      
-      <div className={classes['form-group']}>
-        <Selector
-          items={sizes}
-          selectedItems={formState.inputs.sizes.value}
-          onSelect={handleSizeSelect}
-          label="Available Sizes"
-        />
-      </div>
+              {product.image2 && (
+                <div>
+                  <img src={getImageUrl(product.image2)} alt="Current Image 2" style={{ maxWidth: '120px', maxHeight: '120px' }} />
+                  <span style={{ marginLeft: '0.5rem' }}>Current Image 2</span>
+                </div>
+              )}
+            </div>
+          )}
+          <label htmlFor="images" className={classes['file-label']}>Product Images (1 or 2):</label>
+          <input
+            id="images"
+            name="images"
+            type="file"
+            className={classes['file-input']}
+            accept="image/*"
+            multiple
+            onChange={handleFileChange}
+          />
+          {selectedImages.length > 0 && (
+            <div className={classes['file-names']}>
+              Selected files: {selectedImages.map(file => file.name).join(', ')}
+            </div>
+          )}
+          {(selectedImages.length > 2) && (
+            <span className={classes['error-text']}>Please select 1 or 2 images.</span>
+          )}
+        </div>
+        
+        <div className={classes['form-group']}>
+          <Selector
+            items={sizes}
+            selectedItems={formState.inputs.sizes.value}
+            onSelect={handleSizeSelect}
+            label="Available Sizes"
+          />
+        </div>
 
-      <div className={classes['form-group']}>
-        <Selector
-          items={skinTones}
-          selectedItems={formState.inputs.skinTones.value}
-          onSelect={handleSkinToneSelect}
-          label="Available Skin Tones"
-          isImage={true}
-        />
-      </div>
+        <div className={classes['form-group']}>
+          <Selector
+            items={skinTones}
+            selectedItems={formState.inputs.skinTones.value}
+            onSelect={handleSkinToneSelect}
+            label="Available Skin Tones"
+            isImage={true}
+          />
+        </div>
 
-      <div className={classes['form-group']}>
-        <BestSeller
-          checked={formState.inputs.isBestSeller.value}
-          onChange={handleBestSellerChange}
-        />
-      </div>
+        <div className={classes['form-group']}>
+          <BestSeller
+            checked={formState.inputs.isBestSeller.value}
+            onChange={handleBestSellerChange}
+          />
+        </div>
 
-      <Button type='submit' inverse>Update Product</Button>
-    </form>
-    </div>
+        <Button type='submit' inverse>Update Product</Button>
+      </form>
+      </div>
+    </>
   )
 }
 

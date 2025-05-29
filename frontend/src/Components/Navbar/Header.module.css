@@ -67,4 +67,7 @@
                 transform: translateX(0);
         padding: 0 1rem;
     }
+    .header .shippingSentence{
+        display: none;
+    }
 }

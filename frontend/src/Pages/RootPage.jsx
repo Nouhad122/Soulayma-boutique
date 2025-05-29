@@ -5,6 +5,7 @@ import { useLocation, Outlet } from 'react-router'
 import SideCompContext from '../store/SideCompContext.jsx'
 import SearchedProducts from '../Components/SearchProducts/SearchedProducts.jsx'
 import ChatBot from '../Components/ChatBot/ChatBot.jsx'
+import ScrollToTop from '../Components/Secondary-Comps/ScrollToTop.jsx'
 
 const RootPage = () => {
   const {hideContentInModal, hideList, emptyInput, hideFilter, inputValue} = useContext(SideCompContext);
@@ -21,6 +22,7 @@ const RootPage = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
 
       {inputValue.trim() && <SearchedProducts />}
