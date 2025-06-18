@@ -12,9 +12,7 @@ const cartSlice = createSlice({
     initialState: initialState,
     reducers:{
         replaceCart: (state, action) =>{
-            // Handle cart data coming from backend
             if (action.payload.items) {
-                // Backend format: cart has 'items' array with productId objects
                 state.products = action.payload.items.map(item => ({
                     id: item.productId._id || item.productId,
                     title: item.productId.name || 'Product',
@@ -24,7 +22,6 @@ const cartSlice = createSlice({
                     totalPrice: Number(item.productId.currentPrice) * Number(item.quantity) || 0
                 }));
             } else {
-                // Frontend format: cart has 'products' array
                 state.products = (action.payload.products || []).map(product => ({
                     ...product,
                     price: Number(product.price) || 0,

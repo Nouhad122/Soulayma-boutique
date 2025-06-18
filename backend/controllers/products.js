@@ -5,7 +5,6 @@ const Product = require('../models/product');
 const User = require('../models/user');
 const Order = require('../models/order');
 
-// In-memory guest cart store (for demo; use DB for production)
 const guestCarts = {};
 
 function calculateCartTotals(items) {
