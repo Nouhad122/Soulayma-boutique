@@ -7,6 +7,7 @@ const AuthContext = createContext({
     token: null,
     userId: null,
     role: null,
+    isLoading: true,
     login: () => {},
     logout: () => {},
     checkAuth: () => {}
@@ -18,6 +19,7 @@ export const AuthContextProvider = ({ children }) => {
     const [userId, setUserId] = useState(null);
     const [role, setRole] = useState(null);
     const [expiration, setExpiration] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -37,6 +39,7 @@ export const AuthContextProvider = ({ children }) => {
                 logout();
             }
         }
+        setIsLoading(false);
     }, []);
 
     const login = useCallback((token, userId, expiration, role) => {
@@ -75,6 +78,7 @@ export const AuthContextProvider = ({ children }) => {
         token,
         userId,
         role,
+        isLoading,
         login,
         logout,
         checkAuth

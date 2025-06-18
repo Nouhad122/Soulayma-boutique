@@ -44,10 +44,34 @@ import Account from './Pages/Account/Account.jsx'
 import Admin from './Pages/Admin/Admin.jsx'
 
 function AdminRoute({ children }) {
-  const { role } = useContext(AuthContext);
+  const { role, isLoading } = useContext(AuthContext);
+  
+  // Wait for authentication state to be loaded
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+  
+  // Only redirect if not admin and authentication is loaded
   if (role !== 'admin') {
     return <Navigate to="/" replace />;
   }
+  
+  return children;
+}
+
+function UserRoute({ children }) {
+  const { isLoggedIn, isLoading } = useContext(AuthContext);
+  
+  // Wait for authentication state to be loaded
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+  
+  // Only redirect if not logged in and authentication is loaded
+  if (!isLoggedIn) {
+    return <Navigate to="/auth" replace />;
+  }
+  
   return children;
 }
 
@@ -116,8 +140,8 @@ useEffect(() => {
       {path: 'auth', element: <Auth />},
       {path: 'add-product', element: <AdminRoute><NewProduct /></AdminRoute>},
       {path: 'update-product/:productId', element: <AdminRoute><UpdateProduct /></AdminRoute>},
-      {path: 'checkout', element: <Checkout />},
-      {path: 'account', element: <Account />},
+      {path: 'checkout', element: <UserRoute><Checkout /></UserRoute>},
+      {path: 'account', element: <UserRoute><Account /></UserRoute>},
       {path: 'admin', element: <AdminRoute><Admin /></AdminRoute>}
     ]}
   ]);

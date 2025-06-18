@@ -75,6 +75,8 @@ exports.signup = async (req, res, next) => {
     res.status(201).json({ 
         userId: createdUser.id, 
         email: createdUser.email,
+        firstname: createdUser.firstname,
+        lastname: createdUser.lastname,
         role: createdUser.role,
         token: token 
     });
@@ -120,6 +122,8 @@ exports.login = async (req, res, next) => {
     res.json({ 
         userId: existingUser.id, 
         email: existingUser.email,
+        firstname: existingUser.firstname,
+        lastname: existingUser.lastname,
         role: existingUser.role,
         token: token 
     });

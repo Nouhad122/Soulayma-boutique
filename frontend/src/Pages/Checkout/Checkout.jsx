@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../../store/AuthContext';
 import SideCompContext from '../../store/SideCompContext';
 import Modal from '../../Components/Secondary-Comps/Modal';
 import ExpressCheckout from '../../Components/Checkout/ExpressCheckout';
@@ -15,17 +14,10 @@ import { placeOrder } from '../../use/useHttp';
 import { cartSliceActions } from '../../redux-toolkit/cart-slice';
 
 const Checkout = () => {
-  const { isLoggedIn } = useContext(AuthContext);
   const { modalContent, showContentInModal, hideContentInModal } = useContext(SideCompContext);
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/auth');
-    }
-  }, [isLoggedIn, navigate]);
 
   const handlePlaceOrder = async () => {
     showContentInModal();

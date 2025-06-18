@@ -25,6 +25,7 @@ const Auth = () => {
 
   const switchModeHandler = () => {
     if(!isLoginMode){
+        // Switching to login mode - remove firstName and lastName
         setFormData({
             ...formState.inputs,
             firstName: undefined,
@@ -33,11 +34,12 @@ const Auth = () => {
         )
     }
     else{
+        // Switching to signup mode - add firstName and lastName
         setFormData({
             ...formState.inputs,
             firstName: {value: '', isValid: false},
             lastName: {value: '', isValid: false}
-        }, formState.inputs.email.isValid && formState.inputs.password.isValid
+        }, false // Start with invalid form since firstName and lastName are empty
         )
     }
     setIsLoginMode((prevMode) => !prevMode);
@@ -45,11 +47,19 @@ const Auth = () => {
 
   const authSubmitHandler = async (event) => {
     event.preventDefault();
+    
+    if (!formState.isValid) {
+      setError('Please fill in all required fields correctly.');
+      return;
+    }
+    
     setIsLoading(true);
     setError(null);
+    
     const endpoint = isLoginMode
       ? `${import.meta.env.VITE_BACKEND_URL}/users/login`
       : `${import.meta.env.VITE_BACKEND_URL}/users/signup`;
+    
     const payload = isLoginMode
       ? {
           email: formState.inputs.email.value,
@@ -61,6 +71,7 @@ const Auth = () => {
           email: formState.inputs.email.value,
           password: formState.inputs.password.value
         };
+    
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -69,6 +80,7 @@ const Auth = () => {
         },
         body: JSON.stringify(payload)
       });
+      
       let data;
       const contentType = response.headers.get('content-type');
       if (contentType && contentType.indexOf('application/json') !== -1) {
@@ -76,18 +88,31 @@ const Auth = () => {
       } else {
         data = { message: await response.text() };
       }
+      
       if (!response.ok) {
-        throw new Error(data.message || 'Authentication failed');
+        throw new Error(data.message || `Authentication failed: ${response.status}`);
       }
+      
+      // Check if we have the required data for both login and signup
+      if (!data.token || !data.userId) {
+        throw new Error('Invalid response: missing token or userId');
+      }
+      
       const expiration = new Date(new Date().getTime() + 3600000); // 1 hour
+      
+      // Call login function to set authentication state
       login(data.token, data.userId, expiration, data.role);
+      
       // Save user info to localStorage
       localStorage.setItem('firstname', data.firstname || '');
       localStorage.setItem('lastname', data.lastname || '');
       localStorage.setItem('email', data.email || '');
+      
+      // Redirect to homepage for both login and signup
       navigate('/');
+      
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Authentication failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
