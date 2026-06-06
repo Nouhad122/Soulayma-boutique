@@ -1,8 +1,8 @@
 {
     "env": {
-        "DB_USER": "nouhadalhallab122",
-        "DB_PASSWORD": "Soulaymaboutique03",
-        "DB_NAME": "shop",
+        "DB_USER": "nouhadelhallab_db_user",
+        "DB_PASSWORD": "Mostafa123",
+        "DB_NAME": "soulayma_boutique_db",
         "JWT_KEY": "supersecret_dont_share",
         "PORT": 5000
     }

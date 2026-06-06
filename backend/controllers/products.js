@@ -29,18 +29,12 @@ function calculateCartTotals(items) {
 }
 
 exports.getProducts = async (req, res, next) => {
-    let products;
-
     try {
-        products = await Product.find();
-        
-        if (!products || products.length === 0) {
-            return next(new HttpError('No products found.', 404));
-        }
-        
-        res.status(200).json({ products: products.map(product => product.toObject({ getters: true })) });
-    }
-    catch (err) {
+        const products = await Product.find();
+        res.status(200).json({
+            products: products.map(product => product.toObject({ getters: true }))
+        });
+    } catch (err) {
         const error = new HttpError('Something went wrong, could not find products.', 500);
         return next(error);
     }

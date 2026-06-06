@@ -68,7 +68,7 @@ app.use((error, req, res, next) => {
     });
 });
 
-const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@soulayma-cluster.winbdem.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=soulayma-cluster`;
+const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@fit-engineer.mwtnfbu.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=fit-engineer`;
 const PORT = process.env.PORT || 5000;
 
 mongoose
