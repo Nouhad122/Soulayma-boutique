@@ -1,9 +1,0 @@
-{
-    "env": {
-        "DB_USER": "nouhadelhallab_db_user",
-        "DB_PASSWORD": "Mostafa123",
-        "DB_NAME": "soulayma_boutique_db",
-        "JWT_KEY": "f8a1c4e9b2d7g6k9m2p4r8t1v5x$djc89nchFjK4&bf",
-        "PORT": 5000
-    }
-}
