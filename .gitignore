@@ -1,5 +1,6 @@
 .qodo
-nodemon.json
+backend/nodemon.json
+frontend/.env
 # Logs
 logs
 *.log
