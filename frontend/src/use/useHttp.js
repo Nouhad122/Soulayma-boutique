@@ -2,7 +2,7 @@ import { QueryClient } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient();
 
-const BACKEND_URL = 'http://localhost:5000/api';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const fetchProducts = async ({ signal }) =>{
     const response = await fetch(`${BACKEND_URL}/products`, { signal });
