@@ -3,7 +3,7 @@ import './Admin.css';
 import SideCompContext from '../../store/SideCompContext';
 import Modal from '../../Components/Secondary-Comps/Modal';
 
-const OrderManager = () => {
+const OrderManager = ({ displayOrders = [], onOrdersChange }) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -26,6 +26,10 @@ const OrderManager = () => {
     };
     fetchOrders();
   }, []);
+
+  useEffect(() => {
+    onOrdersChange?.(orders);
+  }, [orders, onOrdersChange]);
 
   const handleStatusUpdate = (orderId, newStatus) => {
     setOrders(orders.map(order =>
@@ -169,6 +173,9 @@ const OrderManager = () => {
       )}
       <div className="order-manager">
         <h3>Manage Orders</h3>
+        {orders.length === 0 ? (
+          <p className="admin-empty-message">No orders yet.</p>
+        ) : (
         <table className="admin-table">
           <thead>
             <tr>
@@ -181,7 +188,7 @@ const OrderManager = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map(order => (
+            {displayOrders.map(order => (
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user.email}</td>
@@ -240,6 +247,7 @@ const OrderManager = () => {
             ))}
           </tbody>
         </table>
+        )}
       </div>
     </>
   );

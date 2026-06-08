@@ -1,5 +1,6 @@
 import React from 'react';
 import shopClasses from '../Components/ShopProducts/ShopProducts.module.css';
+import getVisiblePages from './getVisiblePages';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePrevClick = () => {
@@ -14,21 +15,29 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     onPageChange(pageNumber);
   };
 
+  const visiblePages = getVisiblePages(currentPage, totalPages);
+
   return (
     <div className={shopClasses.pagination}>
       <button onClick={handlePrevClick} disabled={currentPage === 1}>
         Previous
       </button>
 
-      {[...Array(totalPages)].map((_, i) => (
-        <button
-          key={i + 1}
-          className={i + 1 === currentPage ?  shopClasses.active : ''}
-          onClick={() => handlePageClick(i + 1)}
-        >
-          {i + 1}
-        </button>
-      ))}
+      {visiblePages.map((page, index) =>
+        page === '...' ? (
+          <span key={`ellipsis-${index}`} className={shopClasses.ellipsis}>
+            ...
+          </span>
+        ) : (
+          <button
+            key={page}
+            className={page === currentPage ? shopClasses.active : ''}
+            onClick={() => handlePageClick(page)}
+          >
+            {page}
+          </button>
+        )
+      )}
 
       <button onClick={handleNextClick} disabled={currentPage === totalPages}>
         Next

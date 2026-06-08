@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import './Admin.css';
@@ -28,12 +28,17 @@ const deleteProduct = async (productId) => {
   return response.json();
 };
 
-const ProductManager = () => {
+const ProductManager = ({ displayProducts = [], onProductsChange }) => {
   const navigate = useNavigate();
+
   const { data: products = [], isLoading, isError, refetch } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts
   });
+
+  useEffect(() => {
+    onProductsChange?.(products);
+  }, [products, onProductsChange]);
 
   const handleDelete = async (productId) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
@@ -65,7 +70,7 @@ const ProductManager = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map(prod => (
+          {displayProducts.map(prod => (
             <tr key={prod.id}>
               <td>{prod.id}</td>
               <td>{prod.name}</td>
@@ -89,4 +94,4 @@ const ProductManager = () => {
   );
 };
 
-export default ProductManager; 
+export default ProductManager;

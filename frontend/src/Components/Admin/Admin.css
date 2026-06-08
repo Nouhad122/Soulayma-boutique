@@ -36,6 +36,17 @@
   background: #e0d6c3;
   color: #333;
 }
+.admin-content {
+  flex: 1;
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.admin-content .admin-main {
+  margin-left: 0;
+  flex: 1;
+}
 .admin-main {
   flex: 1;
   background: var(--fifth-color);
@@ -45,6 +56,24 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   color: var(--font-color);
   overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+}
+.admin-pagination {
+  margin-top: 20px;
+  padding: 0 8px 8px;
+  text-align: center;
+  position: relative;
+}
+.admin-pagination > div {
+  position: static;
+  transform: none;
+  width: 100%;
+}
+.admin-empty-message {
+  margin-top: 18px;
+  color: var(--font-color);
+  font-size: 1rem;
 }
 .dashboard-stats {
   margin-bottom: 32px;
@@ -198,6 +227,10 @@
     padding: 24px;
   }
 
+  .admin-content {
+    margin-left: 20px;
+  }
+
   .stats-cards {
     gap: 16px;
   }
@@ -236,6 +269,10 @@
   .admin-main {
     margin-left: 0;
     padding: 20px;
+  }
+
+  .admin-content {
+    margin-left: 0;
   }
 
   .stats-cards {

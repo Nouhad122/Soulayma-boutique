@@ -45,6 +45,12 @@
 .pagination button:disabled{
     opacity: .3;
 }
+.ellipsis {
+    padding: 5px 10px;
+    margin: 0 20px;
+    color: var(--fourth-color);
+    user-select: none;
+}
 @media screen and (max-width: 680px){
     .pagination button{
         padding: 3px 6px;
