@@ -108,8 +108,7 @@ const Auth = () => {
       localStorage.setItem('lastname', data.lastname || '');
       localStorage.setItem('email', data.email || '');
       
-      // Redirect to homepage for both login and signup
-      navigate('/');
+      navigate('/', { replace: true });
       
     } catch (err) {
       setError(err.message || 'Authentication failed. Please try again.');
